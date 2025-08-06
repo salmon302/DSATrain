@@ -1,0 +1,83 @@
+{
+  "collection_info": {
+    "total_problems": 10544,
+    "rated_problems": 10265,
+    "unrated_problems": 279,
+    "collection_date": "2025-07-29T14:46:19.483874",
+    "source": "codeforces_api"
+  },
+  "difficulty_analysis": {
+    "distribution": {
+      "unrated": 279,
+      "hard": 4035,
+      "medium": 3727,
+      "easy": 2503
+    },
+    "average_rating": 1866.3,
+    "rating_range": {
+      "min": 800,
+      "max": 3500
+    }
+  },
+  "tag_analysis": {
+    "total_unique_tags": 37,
+    "most_common_tags": {
+      "greedy": 3196,
+      "math": 3164,
+      "implementation": 2896,
+      "dp": 2309,
+      "constructive_algorithms": 1916,
+      "data_structures": 1889,
+      "brute_force": 1858,
+      "binary_search": 1179,
+      "sortings": 1159,
+      "graphs": 1151,
+      "dfs_and_similar": 1003,
+      "trees": 878,
+      "number_theory": 812,
+      "strings": 769,
+      "combinatorics": 743,
+      "bitmasks": 631,
+      "two_pointers": 595,
+      "*special": 546,
+      "geometry": 415,
+      "dsu": 384
+    },
+    "google_relevant_tags": {
+      "dp": 2309,
+      "binary_search": 1179,
+      "sortings": 1159,
+      "graphs": 1151,
+      "trees": 878,
+      "strings": 769,
+      "graph_matchings": 98,
+      "string_suffix_structures": 94,
+      "ternary_search": 63
+    }
+  },
+  "contest_analysis": {
+    "total_contests": 1885,
+    "most_active_contests": {
+      "1970": 21,
+      "207": 19,
+      "1357": 18,
+      "630": 18,
+      "316": 18,
+      "178": 18,
+      "690": 17,
+      "958": 16,
+      "1662": 15,
+      "1002": 15
+    }
+  },
+  "constraints_analysis": {
+    "time_limits": {
+      "average_ms": null,
+      "most_common_ms": []
+    },
+    "memory_limits": {
+      "average_kb": null,
+      "most_common_kb": []
+    }
+  }
+}

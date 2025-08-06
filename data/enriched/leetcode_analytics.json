@@ -1,0 +1,47 @@
+{
+  "collection_info": {
+    "total_problems": 10,
+    "google_tagged_problems": 10,
+    "collection_date": "2025-07-29T14:48:02.788769",
+    "source": "leetcode_sample_dataset"
+  },
+  "difficulty_analysis": {
+    "distribution": {
+      "easy": 4,
+      "medium": 5,
+      "hard": 1
+    }
+  },
+  "company_analysis": {
+    "total_companies": 6,
+    "most_frequent_companies": {
+      "Google": 10,
+      "Amazon": 10,
+      "Microsoft": 9,
+      "Facebook": 6,
+      "Apple": 3,
+      "Bloomberg": 1
+    },
+    "google_presence": 10
+  },
+  "tag_analysis": {
+    "total_unique_tags": 16,
+    "most_common_tags": {
+      "array": 6,
+      "hash_table": 2,
+      "linked_list": 2,
+      "recursion": 2,
+      "string": 2,
+      "divide_and_conquer": 2,
+      "dynamic_programming": 2,
+      "math": 1,
+      "sliding_window": 1,
+      "binary_search": 1,
+      "stack": 1,
+      "depth_first_search": 1,
+      "breadth_first_search": 1,
+      "union_find": 1,
+      "matrix": 1
+    }
+  }
+}

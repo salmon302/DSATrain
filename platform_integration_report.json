@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-08-03 19:14:07",
+  "platform_status": "partial",
+  "services": {
+    "main_api": {
+      "status": "\u2717",
+      "endpoint": "http://localhost:8000",
+      "description": "FastAPI backend with core functionality"
+    },
+    "skill_tree_api": {
+      "status": "\u2717",
+      "endpoint": "http://localhost:8003",
+      "description": "Flask API for skill tree visualization data"
+    },
+    "frontend": {
+      "status": "\u2713",
+      "endpoint": "http://localhost:3000",
+      "description": "React frontend with skill tree visualization"
+    }
+  },
+  "integration_capabilities": {
+    "data_consistency": false,
+    "frontend_ready": true,
+    "concurrent_apis": false,
+    "agentic_control": false
+  },
+  "recommendations": [
+    "Start main API server: launch_dsatrain.bat",
+    "Skill Tree API needs attention - check robust_flask_server.py"
+  ]
+}

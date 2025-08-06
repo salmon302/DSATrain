@@ -1,0 +1,35 @@
+{
+  "skill_tree_columns": [
+    {
+      "skill_area": "array_processing",
+      "total_problems": 2083,
+      "difficulty_levels": {
+        "Easy": [
+          {
+            "id": 1,
+            "title": "Two Sum",
+            "difficulty": "Easy",
+            "sub_difficulty_level": 1,
+            "conceptual_difficulty": 30,
+            "implementation_complexity": 20,
+            "algorithm_tags": [
+              "array",
+              "hash table"
+            ],
+            "prerequisite_skills": [],
+            "quality_score": 0.9,
+            "google_interview_relevance": 0.8,
+            "skill_tree_position": {}
+          }
+        ],
+        "Medium": [],
+        "Hard": []
+      },
+      "mastery_percentage": 0.0
+    }
+  ],
+  "total_problems": 10417,
+  "total_skill_areas": 1,
+  "user_id": null,
+  "last_updated": "2025-07-31T22:30:00Z"
+}

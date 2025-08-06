@@ -1,0 +1,47 @@
+{
+  "codeforces_summary": {
+    "collection_date": "2025-07-29T15:13:10.898191",
+    "total_problems": 5,
+    "total_solutions": 6,
+    "platform": "codeforces",
+    "competitive_programming_focus": true
+  },
+  "competitive_analysis": {
+    "contest_type_distribution": {
+      "Div2-C": 1,
+      "Div2-A": 4,
+      "Div1-D": 1
+    },
+    "algorithm_frequency": {
+      "state_compression": 1,
+      "strings": 1,
+      "dynamic_programming": 1,
+      "parity": 1,
+      "integer_arithmetic": 1,
+      "math": 3,
+      "lexicographical": 1,
+      "binary_search": 1,
+      "greedy": 2,
+      "optimization": 2,
+      "ceiling_division": 1,
+      "number_theory": 1
+    },
+    "difficulty_progression": {
+      "easy": 4,
+      "medium": 1,
+      "hard": 1
+    }
+  },
+  "quality_metrics": {
+    "average_code_quality": 99.0,
+    "highest_quality_score": 100.0,
+    "competitive_programming_optimized": true,
+    "interview_adaptable_solutions": 3
+  },
+  "performance_insights": {
+    "average_runtime": 57.5,
+    "fastest_runtime": 20,
+    "optimized_for_contests": true,
+    "time_complexity_focus": true
+  }
+}

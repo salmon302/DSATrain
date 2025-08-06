@@ -1,0 +1,113 @@
+{
+  "phase_1_summary": {
+    "total_problems_collected": 10554,
+    "codeforces_problems": 10544,
+    "leetcode_problems": 10,
+    "google_relevant_problems": 4557,
+    "collection_date": "2025-07-29T14:49:35.211371",
+    "data_coverage": "10,554 problems across 2 platforms"
+  },
+  "difficulty_analysis": {
+    "distribution": {
+      "medium": 4012,
+      "hard": 4038,
+      "easy": 2504
+    },
+    "average_rating": 1856.6,
+    "rating_range": {
+      "min": 800,
+      "max": 3500
+    }
+  },
+  "google_relevance_analysis": {
+    "average_relevance_score": 3.92,
+    "high_relevance_problems": 884,
+    "medium_relevance_problems": 3673,
+    "low_relevance_problems": 5997
+  },
+  "tag_analysis": {
+    "total_unique_tags": 50,
+    "most_common_tags": {
+      "greedy": 3196,
+      "math": 3165,
+      "implementation": 2896,
+      "dp": 2309,
+      "constructive_algorithms": 1916,
+      "data_structures": 1889,
+      "brute_force": 1858,
+      "binary_search": 1180,
+      "sortings": 1159,
+      "graphs": 1151,
+      "dfs_and_similar": 1003,
+      "trees": 878,
+      "number_theory": 812,
+      "strings": 769,
+      "combinatorics": 743,
+      "bitmasks": 631,
+      "two_pointers": 595,
+      "*special": 546,
+      "geometry": 415,
+      "dsu": 384,
+      "divide_and_conquer": 326,
+      "shortest_paths": 287,
+      "games": 257,
+      "interactive": 254,
+      "probabilities": 246
+    },
+    "google_interview_tags": {
+      "dp": 2309,
+      "binary_search": 1180,
+      "sortings": 1159,
+      "graphs": 1151,
+      "trees": 878,
+      "strings": 769,
+      "graph_matchings": 98,
+      "string_suffix_structures": 94,
+      "ternary_search": 63,
+      "array": 6,
+      "string": 2,
+      "depth_first_search": 1,
+      "breadth_first_search": 1
+    }
+  },
+  "company_analysis": {
+    "total_companies": 6,
+    "most_frequent_companies": {
+      "google": 20,
+      "amazon": 10,
+      "microsoft": 9,
+      "facebook": 6,
+      "apple": 3,
+      "bloomberg": 1
+    },
+    "google_tagged_problems": 20
+  },
+  "source_comparison": {
+    "codeforces": {
+      "count": 10544,
+      "avg_rating": 1856.5819423368741,
+      "google_relevant": 4547
+    },
+    "leetcode": {
+      "count": 10,
+      "avg_rating": 1846.0,
+      "google_relevant": 10
+    }
+  },
+  "collection_quality": {
+    "data_completeness": {
+      "problems_with_descriptions": 2772,
+      "problems_with_tags": 10377,
+      "problems_with_ratings": 10554,
+      "problems_with_source_urls": 10554
+    },
+    "google_readiness": {
+      "interview_ready_problems": 200,
+      "difficulty_coverage": {
+        "easy": 114,
+        "medium": 2609,
+        "hard": 1834
+      }
+    }
+  }
+}

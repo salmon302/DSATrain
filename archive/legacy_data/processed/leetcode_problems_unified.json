@@ -1,0 +1,417 @@
+[
+  {
+    "id": "lc_1",
+    "source": "leetcode",
+    "title": "Two Sum",
+    "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1254,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "array",
+      "hash_table"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "facebook",
+      "microsoft"
+    ],
+    "constraints": {
+      "acceptance_rate": "49.1%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788396",
+      "last_updated": "2025-07-29T14:48:02.788415",
+      "source_url": "https://leetcode.com/problems/two-sum/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 49.1,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Facebook",
+        "Microsoft"
+      ],
+      "is_google_tagged": true
+    }
+  },
+  {
+    "id": "lc_2",
+    "source": "leetcode",
+    "title": "Add Two Numbers",
+    "description": "You are given two non-empty linked lists representing two non-negative integers.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 2115,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "linked_list",
+      "math",
+      "recursion"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "microsoft"
+    ],
+    "constraints": {
+      "acceptance_rate": "38.5%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788429",
+      "last_updated": "2025-07-29T14:48:02.788431",
+      "source_url": "https://leetcode.com/problems/add-two-numbers/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 38.5,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Microsoft"
+      ],
+      "is_google_tagged": true
+    }
+  },
+  {
+    "id": "lc_3",
+    "source": "leetcode",
+    "title": "Longest Substring Without Repeating Characters",
+    "description": "Given a string s, find the length of the longest substring without repeating characters.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 2162,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "hash_table",
+      "string",
+      "sliding_window"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "facebook",
+      "apple"
+    ],
+    "constraints": {
+      "acceptance_rate": "33.8%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788440",
+      "last_updated": "2025-07-29T14:48:02.788441",
+      "source_url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 33.8,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Facebook",
+        "Apple"
+      ],
+      "is_google_tagged": true
+    }
+  },
+  {
+    "id": "lc_4",
+    "source": "leetcode",
+    "title": "Median of Two Sorted Arrays",
+    "description": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 3443,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "array",
+      "binary_search",
+      "divide_and_conquer"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "microsoft",
+      "apple"
+    ],
+    "constraints": {
+      "acceptance_rate": "37.1%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788448",
+      "last_updated": "2025-07-29T14:48:02.788450",
+      "source_url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 37.1,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple"
+      ],
+      "is_google_tagged": true
+    }
+  },
+  {
+    "id": "lc_20",
+    "source": "leetcode",
+    "title": "Valid Parentheses",
+    "description": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1296,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "string",
+      "stack"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "facebook",
+      "microsoft"
+    ],
+    "constraints": {
+      "acceptance_rate": "40.7%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788456",
+      "last_updated": "2025-07-29T14:48:02.788457",
+      "source_url": "https://leetcode.com/problems/valid-parentheses/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 40.7,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Facebook",
+        "Microsoft"
+      ],
+      "is_google_tagged": true
+    }
+  },
+  {
+    "id": "lc_21",
+    "source": "leetcode",
+    "title": "Merge Two Sorted Lists",
+    "description": "You are given the heads of two sorted linked lists list1 and list2.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1189,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "linked_list",
+      "recursion"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "microsoft",
+      "apple"
+    ],
+    "constraints": {
+      "acceptance_rate": "62.1%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788463",
+      "last_updated": "2025-07-29T14:48:02.788465",
+      "source_url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 62.1,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Apple"
+      ],
+      "is_google_tagged": true
+    }
+  },
+  {
+    "id": "lc_53",
+    "source": "leetcode",
+    "title": "Maximum Subarray",
+    "description": "Given an integer array nums, find the subarray with the largest sum, and return its sum.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1999,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "array",
+      "divide_and_conquer",
+      "dynamic_programming"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "microsoft",
+      "bloomberg"
+    ],
+    "constraints": {
+      "acceptance_rate": "50.1%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788472",
+      "last_updated": "2025-07-29T14:48:02.788474",
+      "source_url": "https://leetcode.com/problems/maximum-subarray/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 50.1,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Bloomberg"
+      ],
+      "is_google_tagged": true
+    }
+  },
+  {
+    "id": "lc_121",
+    "source": "leetcode",
+    "title": "Best Time to Buy and Sell Stock",
+    "description": "You are given an array prices where prices[i] is the price of a given stock on the ith day.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1229,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "array",
+      "dynamic_programming"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "facebook",
+      "microsoft"
+    ],
+    "constraints": {
+      "acceptance_rate": "54.2%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788480",
+      "last_updated": "2025-07-29T14:48:02.788482",
+      "source_url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 54.2,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Facebook",
+        "Microsoft"
+      ],
+      "is_google_tagged": true
+    }
+  },
+  {
+    "id": "lc_200",
+    "source": "leetcode",
+    "title": "Number of Islands",
+    "description": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1923,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "array",
+      "depth_first_search",
+      "breadth_first_search",
+      "union_find",
+      "matrix"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "facebook",
+      "microsoft"
+    ],
+    "constraints": {
+      "acceptance_rate": "57.7%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788488",
+      "last_updated": "2025-07-29T14:48:02.788489",
+      "source_url": "https://leetcode.com/problems/number-of-islands/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 57.7,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Facebook",
+        "Microsoft"
+      ],
+      "is_google_tagged": true
+    }
+  },
+  {
+    "id": "lc_238",
+    "source": "leetcode",
+    "title": "Product of Array Except Self",
+    "description": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1850,
+      "source_scale": "leetcode_estimated"
+    },
+    "tags": [
+      "array",
+      "prefix_sum"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "facebook",
+      "microsoft"
+    ],
+    "constraints": {
+      "acceptance_rate": "65.0%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788495",
+      "last_updated": "2025-07-29T14:48:02.788496",
+      "source_url": "https://leetcode.com/problems/product-of-array-except-self/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 65.0,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Facebook",
+        "Microsoft"
+      ],
+      "is_google_tagged": true
+    }
+  }
+]

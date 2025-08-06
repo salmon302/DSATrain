@@ -1,0 +1,52 @@
+🚀 Enhanced DSATrain Statistics Report
+============================================================
+Generated on: 2025-07-30 00:45:47
+
+📊 OVERVIEW
+------------------------------
+Total Problems: 10,594
+
+🎯 GOOGLE INTERVIEW RELEVANCE DISTRIBUTION
+--------------------------------------------------
+• Excellent      :     11 problems (  0.1%)
+• Very High      :     78 problems (  0.7%)
+• High           :  2,546 problems ( 24.0%)
+• Good           :  3,175 problems ( 30.0%)
+• Moderate       :  2,125 problems ( 20.1%)
+• Low            :  1,809 problems ( 17.1%)
+• Very Low       :    834 problems (  7.9%)
+
+⭐ DIFFICULTY DISTRIBUTION
+------------------------------
+• Easy:
+  └─ Count: 2,507 (23.7%)
+  └─ Avg Relevance: 5.39
+  └─ Avg Rating: 1152
+
+• Hard:
+  └─ Count: 4,045 (38.2%)
+  └─ Avg Relevance: 5.96
+  └─ Avg Rating: 2132
+
+• Medium:
+  └─ Count: 4,042 (38.2%)
+  └─ Avg Relevance: 5.93
+  └─ Avg Rating: 1589
+
+🌐 PLATFORM DISTRIBUTION
+------------------------------
+• CODEFORCES:
+  └─ Count: 10,551 (99.6%)
+  └─ Avg Relevance: 5.80
+
+• LEETCODE:
+  └─ Count: 43 (0.4%)
+  └─ Avg Relevance: 9.15
+
+✅ IMPROVEMENTS ACHIEVED
+------------------------------
+• High Google Relevance (8+): 89 problems (0.8%)
+• Enhanced algorithm-based relevance scoring
+• Improved difficulty rating calibration
+• Platform-specific adjustments applied
+• Quality-based relevance bonuses added

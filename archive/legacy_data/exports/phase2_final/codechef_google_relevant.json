@@ -1,0 +1,609 @@
+[
+  {
+    "id": "codechef_shortest_route",
+    "source": "codechef",
+    "title": "Shortest Route",
+    "description": "Find shortest path with special movement rules.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1500,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1500,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "graphs",
+      "shortest_path",
+      "dijkstra",
+      "lunchtime"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367768",
+      "last_updated": "2025-07-29T14:56:37.367769",
+      "source_url": "https://www.codechef.com/problems/shortest_route",
+      "acquisition_method": "static_dataset",
+      "contest": "Lunchtime",
+      "contest_type": "Lunchtime",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 14.8
+  },
+  {
+    "id": "codechef_icpc_team_selection",
+    "source": "codechef",
+    "title": "Team Selection",
+    "description": "Optimize team selection for maximum performance.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 2200,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 2200,
+      "standardized_level": "hard"
+    },
+    "tags": [
+      "optimization",
+      "greedy",
+      "sorting",
+      "icpc_practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367823",
+      "last_updated": "2025-07-29T14:56:37.367825",
+      "source_url": "https://www.codechef.com/problems/icpc_team_selection",
+      "acquisition_method": "static_dataset",
+      "contest": "ICPC Practice",
+      "contest_type": "ICPC Practice",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 13.2
+  },
+  {
+    "id": "codechef_dfs_tutorial",
+    "source": "codechef",
+    "title": "DFS Tutorial",
+    "description": "Understand depth-first search with examples.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1300,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1300,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "graphs",
+      "dfs",
+      "tutorial",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367810",
+      "last_updated": "2025-07-29T14:56:37.367811",
+      "source_url": "https://www.codechef.com/problems/dfs_tutorial",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational",
+      "contest_type": "Educational",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 12.2
+  },
+  {
+    "id": "codechef_palindrome_pairs",
+    "source": "codechef",
+    "title": "Palindrome Pairs",
+    "description": "Count pairs of strings that form palindromes when concatenated.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1700,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1700,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "strings",
+      "palindromes",
+      "hashing",
+      "cook_off"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367754",
+      "last_updated": "2025-07-29T14:56:37.367755",
+      "source_url": "https://www.codechef.com/problems/palindrome_pairs",
+      "acquisition_method": "static_dataset",
+      "contest": "Cook-Off",
+      "contest_type": "Cook-Off",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 11.2
+  },
+  {
+    "id": "codechef_combinatorics",
+    "source": "codechef",
+    "title": "Combinatorial Game",
+    "description": "Solve game using combinatorial principles.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 2100,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 2100,
+      "standardized_level": "hard"
+    },
+    "tags": [
+      "math",
+      "combinatorics",
+      "game_theory",
+      "mathematical"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367846",
+      "last_updated": "2025-07-29T14:56:37.367848",
+      "source_url": "https://www.codechef.com/problems/combinatorics",
+      "acquisition_method": "static_dataset",
+      "contest": "Math Contest",
+      "contest_type": "Mathematical",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 11.2
+  },
+  {
+    "id": "codechef_knapsack",
+    "source": "codechef",
+    "title": "Knapsack Problem",
+    "description": "Classical 0/1 knapsack optimization problem.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1500,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1500,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "classic",
+      "optimization",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367800",
+      "last_updated": "2025-07-29T14:56:37.367801",
+      "source_url": "https://www.codechef.com/problems/knapsack",
+      "acquisition_method": "static_dataset",
+      "contest": "Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 10.6
+  },
+  {
+    "id": "codechef_dp_tutorial",
+    "source": "codechef",
+    "title": "DP Tutorial",
+    "description": "Master dynamic programming concepts.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "tutorial",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367817",
+      "last_updated": "2025-07-29T14:56:37.367819",
+      "source_url": "https://www.codechef.com/problems/dp_tutorial",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational",
+      "contest_type": "Educational",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 10.6
+  },
+  {
+    "id": "codechef_coin_change",
+    "source": "codechef",
+    "title": "Coin Change",
+    "description": "Find minimum coins needed to make target amount.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1400,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1400,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "classic",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367793",
+      "last_updated": "2025-07-29T14:56:37.367794",
+      "source_url": "https://www.codechef.com/problems/coin_change",
+      "acquisition_method": "static_dataset",
+      "contest": "Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 9.6
+  },
+  {
+    "id": "codechef_gcd_queries",
+    "source": "codechef",
+    "title": "GCD Queries",
+    "description": "Answer GCD queries on array efficiently.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1800,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1800,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "math",
+      "gcd",
+      "segment_tree",
+      "mathematical"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367834",
+      "last_updated": "2025-07-29T14:56:37.367836",
+      "source_url": "https://www.codechef.com/problems/gcd_queries",
+      "acquisition_method": "static_dataset",
+      "contest": "Math Contest",
+      "contest_type": "Mathematical",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 9.6
+  },
+  {
+    "id": "codechef_optimal_partition",
+    "source": "codechef",
+    "title": "Optimal Partition",
+    "description": "Partition array to maximize sum of minimum elements.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "optimization",
+      "long_challenge"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367741",
+      "last_updated": "2025-07-29T14:56:37.367743",
+      "source_url": "https://www.codechef.com/problems/optimal_partition",
+      "acquisition_method": "static_dataset",
+      "contest": "Long Challenge",
+      "contest_type": "Long Challenge",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 7.6
+  },
+  {
+    "id": "codechef_maximum_xor",
+    "source": "codechef",
+    "title": "Maximum XOR Subset",
+    "description": "Find subset with maximum XOR value.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 2100,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 2100,
+      "standardized_level": "hard"
+    },
+    "tags": [
+      "bit_manipulation",
+      "linear_algebra",
+      "basis",
+      "cook_off"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367759",
+      "last_updated": "2025-07-29T14:56:37.367761",
+      "source_url": "https://www.codechef.com/problems/maximum_xor",
+      "acquisition_method": "static_dataset",
+      "contest": "Cook-Off",
+      "contest_type": "Cook-Off",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 7.6
+  },
+  {
+    "id": "codechef_matrix_queries",
+    "source": "codechef",
+    "title": "Matrix Queries",
+    "description": "Answer range queries on 2D matrix efficiently.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 2000,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 2000,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "data_structures",
+      "2d_segment_tree",
+      "queries",
+      "lunchtime"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367773",
+      "last_updated": "2025-07-29T14:56:37.367774",
+      "source_url": "https://www.codechef.com/problems/matrix_queries",
+      "acquisition_method": "static_dataset",
+      "contest": "Lunchtime",
+      "contest_type": "Lunchtime",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 7.6
+  },
+  {
+    "id": "codechef_network_flow",
+    "source": "codechef",
+    "title": "Maximum Flow",
+    "description": "Find maximum flow in network.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 2400,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 2400,
+      "standardized_level": "hard"
+    },
+    "tags": [
+      "graphs",
+      "max_flow",
+      "network_flow",
+      "icpc_practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367828",
+      "last_updated": "2025-07-29T14:56:37.367830",
+      "source_url": "https://www.codechef.com/problems/network_flow",
+      "acquisition_method": "static_dataset",
+      "contest": "ICPC Practice",
+      "contest_type": "ICPC Practice",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 7.6
+  },
+  {
+    "id": "codechef_modular_exponentiation",
+    "source": "codechef",
+    "title": "Modular Exponentiation",
+    "description": "Calculate large powers modulo prime efficiently.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1400,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1400,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "math",
+      "modular_arithmetic",
+      "fast_exponentiation",
+      "mathematical"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367839",
+      "last_updated": "2025-07-29T14:56:37.367842",
+      "source_url": "https://www.codechef.com/problems/modular_exponentiation",
+      "acquisition_method": "static_dataset",
+      "contest": "Math Contest",
+      "contest_type": "Mathematical",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 7.6
+  },
+  {
+    "id": "codechef_binary_search_tutorial",
+    "source": "codechef",
+    "title": "Binary Search Tutorial",
+    "description": "Learn binary search through practical examples.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1100,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1100,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "binary_search",
+      "tutorial",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367805",
+      "last_updated": "2025-07-29T14:56:37.367806",
+      "source_url": "https://www.codechef.com/problems/binary_search_tutorial",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational",
+      "contest_type": "Educational",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 6.6
+  },
+  {
+    "id": "codechef_chef_and_recipe",
+    "source": "codechef",
+    "title": "Chef and Recipe",
+    "description": "Chef wants to cook a recipe by selecting ingredients optimally.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1200,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1200,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "implementation",
+      "greedy",
+      "long_challenge"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367715",
+      "last_updated": "2025-07-29T14:56:37.367732",
+      "source_url": "https://www.codechef.com/problems/chef_and_recipe",
+      "acquisition_method": "static_dataset",
+      "contest": "Long Challenge",
+      "contest_type": "Long Challenge",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 5.6
+  },
+  {
+    "id": "codechef_tree_operations",
+    "source": "codechef",
+    "title": "Tree Operations",
+    "description": "Perform operations on tree to achieve target configuration.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 2300,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 2300,
+      "standardized_level": "hard"
+    },
+    "tags": [
+      "trees",
+      "graph_theory",
+      "constructive",
+      "long_challenge"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367748",
+      "last_updated": "2025-07-29T14:56:37.367749",
+      "source_url": "https://www.codechef.com/problems/tree_operations",
+      "acquisition_method": "static_dataset",
+      "contest": "Long Challenge",
+      "contest_type": "Long Challenge",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 5.6
+  },
+  {
+    "id": "codechef_prime_generator",
+    "source": "codechef",
+    "title": "Prime Generator",
+    "description": "Generate all prime numbers in given range.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1000,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1000,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "math",
+      "sieve",
+      "number_theory",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367788",
+      "last_updated": "2025-07-29T14:56:37.367790",
+      "source_url": "https://www.codechef.com/problems/prime_generator",
+      "acquisition_method": "static_dataset",
+      "contest": "Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 5.6
+  }
+]

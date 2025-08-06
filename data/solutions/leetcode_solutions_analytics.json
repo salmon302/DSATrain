@@ -1,0 +1,67 @@
+{
+  "phase_3b_summary": {
+    "collection_date": "2025-07-29T15:11:11.232124",
+    "total_problems": 3,
+    "total_solutions": 5,
+    "collection_method": "sample_database_demonstration",
+    "verification_status": "all_verified"
+  },
+  "solution_analysis": {
+    "language_distribution": {
+      "python": 5
+    },
+    "approach_distribution": {
+      "alternative": 1,
+      "optimal": 3,
+      "brute_force": 1
+    },
+    "algorithm_frequency": {
+      "sliding_window": 2,
+      "two_pointers": 1,
+      "optimization": 1,
+      "linked_list": 1,
+      "brute_force": 1,
+      "hash_set": 1,
+      "nested_loops": 1,
+      "math": 1,
+      "hash_map": 2,
+      "simulation": 1,
+      "array": 1
+    },
+    "most_popular_language": "python",
+    "most_common_approach": "optimal"
+  },
+  "quality_metrics": {
+    "average_code_quality": 96.11601731601732,
+    "highest_quality_score": 100.0,
+    "lowest_quality_score": 86.81818181818181,
+    "high_quality_solutions": 5,
+    "quality_distribution": {
+      "excellent": 4,
+      "good": 1,
+      "acceptable": 0,
+      "needs_improvement": 0
+    }
+  },
+  "performance_metrics": {
+    "average_runtime": 85.0,
+    "fastest_runtime": 45,
+    "slowest_runtime": 200,
+    "runtime_distribution": {
+      "fast": 2,
+      "medium": 2,
+      "slow": 1
+    }
+  },
+  "educational_value": {
+    "problems_with_multiple_approaches": 2,
+    "optimal_solutions_available": 3,
+    "average_google_relevance": 85.4,
+    "interview_ready_solutions": 4
+  },
+  "collection_completeness": {
+    "solutions_with_explanations": 5,
+    "solutions_with_step_by_step": 5,
+    "solutions_with_insights": 5
+  }
+}

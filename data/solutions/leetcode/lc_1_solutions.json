@@ -1,0 +1,179 @@
+{
+  "problem_id": "lc_1",
+  "problem_title": "Two Sum",
+  "total_solutions": 2,
+  "solutions": [
+    {
+      "id": "lc_1_sol_1",
+      "problem_id": "lc_1",
+      "title": "Hash Map Approach (Optimal)",
+      "language": "python",
+      "code": "def twoSum(nums, target):\n    \"\"\"\n    Find two numbers that add up to target using hash map.\n    \n    Time: O(n), Space: O(n)\n    \"\"\"\n    num_map = {}\n    \n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_map:\n            return [num_map[complement], i]\n        num_map[num] = i\n    \n    return []",
+      "approach_type": "optimal",
+      "algorithm_tags": [
+        "hash_map",
+        "array"
+      ],
+      "data_structures_used": [
+        "hash_map",
+        "array"
+      ],
+      "complexity": {
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)",
+        "time_complexity_explanation": "Analysis: O(n)",
+        "space_complexity_explanation": "Analysis: O(n)"
+      },
+      "code_quality": {
+        "overall_score": 100.0,
+        "readability_score": 90.0,
+        "structure_score": 95.0,
+        "style_score": 85.0,
+        "documentation_score": 110.00000000000001,
+        "efficiency_score": 90.0,
+        "maintainability_score": 90.0,
+        "lines_of_code": 12,
+        "comment_ratio": 15.0,
+        "function_count": 1,
+        "variable_naming_score": 85.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 50,
+        "memory_mb": 15.8,
+        "runtime_percentile": 95.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "Use a hash map to store numbers and their indices. For each number, check if its complement exists in the map. This reduces the time complexity from O(n²) to O(n).",
+      "step_by_step": [
+        "Create an empty hash map to store numbers and indices",
+        "Iterate through the array with index and value",
+        "Calculate complement (target - current number)",
+        "Check if complement exists in hash map",
+        "If found, return indices; otherwise, add current number to map"
+      ],
+      "key_insights": [
+        "Hash map provides O(1) lookup time",
+        "Single pass through array is sufficient",
+        "Trading space for time complexity"
+      ],
+      "common_mistakes": [],
+      "alternative_approaches": [],
+      "implementation_difficulty": 4,
+      "conceptual_difficulty": 3,
+      "google_interview_relevance": 95.0,
+      "source": "leetcode_editorial",
+      "source_url": "https://leetcode.com/problems/lc_1/",
+      "collection_date": "2025-07-29T15:11:11.227452",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "lc_1",
+        "approach_category": "optimal",
+        "collection_method": "sample_database",
+        "quality_verified": true
+      }
+    },
+    {
+      "id": "lc_1_sol_2",
+      "problem_id": "lc_1",
+      "title": "Brute Force Approach",
+      "language": "python",
+      "code": "def twoSum(nums, target):\n    \"\"\"\n    Brute force solution checking all pairs.\n    \n    Time: O(n²), Space: O(1)\n    \"\"\"\n    n = len(nums)\n    \n    for i in range(n):\n        for j in range(i + 1, n):\n            if nums[i] + nums[j] == target:\n                return [i, j]\n    \n    return []",
+      "approach_type": "brute_force",
+      "algorithm_tags": [
+        "brute_force",
+        "nested_loops"
+      ],
+      "data_structures_used": [
+        "array"
+      ],
+      "complexity": {
+        "time_complexity": "O(n²)",
+        "space_complexity": "O(1)",
+        "time_complexity_explanation": "Analysis: O(n²)",
+        "space_complexity_explanation": "Analysis: O(1)"
+      },
+      "code_quality": {
+        "overall_score": 86.81818181818181,
+        "readability_score": 78.13636363636364,
+        "structure_score": 82.47727272727272,
+        "style_score": 73.79545454545453,
+        "documentation_score": 95.5,
+        "efficiency_score": 70.0,
+        "maintainability_score": 78.13636363636364,
+        "lines_of_code": 11,
+        "comment_ratio": 15.0,
+        "function_count": 1,
+        "variable_naming_score": 85.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 200,
+        "memory_mb": 14.2,
+        "runtime_percentile": 60.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "Check every possible pair of numbers until we find the target sum. Simple but inefficient for large arrays.",
+      "step_by_step": [
+        "Use nested loops to check all pairs",
+        "For each element, check with all following elements",
+        "Return indices when sum equals target"
+      ],
+      "key_insights": [
+        "Simple and intuitive approach",
+        "No additional space required",
+        "Inefficient for large inputs"
+      ],
+      "common_mistakes": [],
+      "alternative_approaches": [],
+      "implementation_difficulty": 2,
+      "conceptual_difficulty": 1,
+      "google_interview_relevance": 65.0,
+      "source": "leetcode_editorial",
+      "source_url": "https://leetcode.com/problems/lc_1/",
+      "collection_date": "2025-07-29T15:11:11.227505",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "lc_1",
+        "approach_category": "brute_force",
+        "collection_method": "sample_database",
+        "quality_verified": true
+      }
+    }
+  ],
+  "language_distribution": {
+    "python": 2
+  },
+  "approach_distribution": {
+    "optimal": 1,
+    "brute_force": 1
+  },
+  "quality_stats": {
+    "average": 93.4090909090909,
+    "max": 100.0,
+    "min": 86.81818181818181
+  },
+  "performance_stats": {
+    "average_runtime": 125.0,
+    "fastest_runtime": 50
+  },
+  "optimal_solution_id": "lc_1_sol_1",
+  "cleanest_code_id": "lc_1_sol_1",
+  "fastest_runtime_id": "lc_1_sol_1",
+  "most_educational_id": "lc_1_sol_1",
+  "collection_date": "2025-07-29T15:11:11.227528",
+  "last_updated": "2025-07-29T15:11:11.227530",
+  "metadata": {
+    "collection_method": "sample_database",
+    "verification_status": "verified",
+    "quality_threshold_met": true
+  }
+}

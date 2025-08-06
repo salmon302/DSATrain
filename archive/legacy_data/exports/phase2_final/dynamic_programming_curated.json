@@ -1,0 +1,506 @@
+[
+  {
+    "id": "lc_53",
+    "source": "leetcode",
+    "title": "Maximum Subarray",
+    "description": "Given an integer array nums, find the subarray with the largest sum, and return its sum.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1999,
+      "source_scale": "leetcode_estimated",
+      "standardized_rating": 1999,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "array",
+      "divide_and_conquer",
+      "dynamic_programming"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "microsoft",
+      "bloomberg"
+    ],
+    "constraints": {
+      "acceptance_rate": "50.1%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788472",
+      "last_updated": "2025-07-29T14:48:02.788474",
+      "source_url": "https://leetcode.com/problems/maximum-subarray/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 50.1,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Microsoft",
+        "Bloomberg"
+      ],
+      "is_google_tagged": true
+    },
+    "google_relevance_score": 61.0
+  },
+  {
+    "id": "lc_121",
+    "source": "leetcode",
+    "title": "Best Time to Buy and Sell Stock",
+    "description": "You are given an array prices where prices[i] is the price of a given stock on the ith day.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1229,
+      "source_scale": "leetcode_estimated",
+      "standardized_rating": 1429,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "array",
+      "dynamic_programming"
+    ],
+    "company_tags": [
+      "google",
+      "google",
+      "amazon",
+      "facebook",
+      "microsoft"
+    ],
+    "constraints": {
+      "acceptance_rate": "54.2%"
+    },
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:48:02.788480",
+      "last_updated": "2025-07-29T14:48:02.788482",
+      "source_url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+      "acquisition_method": "static_dataset",
+      "acceptance_rate": 54.2,
+      "companies": [
+        "Google",
+        "Amazon",
+        "Facebook",
+        "Microsoft"
+      ],
+      "is_google_tagged": true
+    },
+    "google_relevance_score": 55.0
+  },
+  {
+    "id": "hr_abbreviation",
+    "source": "hackerrank",
+    "title": "Abbreviation",
+    "description": "Determine if string can be transformed to match pattern.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1800,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1800,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "strings"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768068",
+      "last_updated": "2025-07-29T14:53:42.768069",
+      "source_url": "https://www.hackerrank.com/challenges/abbr/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Dynamic Programming",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 19.0
+  },
+  {
+    "id": "hr_fibonacci_modified",
+    "source": "hackerrank",
+    "title": "Fibonacci Modified",
+    "description": "Calculate modified Fibonacci sequence.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "recursion",
+      "recursion_and_backtracking"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768073",
+      "last_updated": "2025-07-29T14:53:42.768075",
+      "source_url": "https://www.hackerrank.com/challenges/fibonacci-modified/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Recursion and Backtracking",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 19.0
+  },
+  {
+    "id": "dp_l",
+    "source": "atcoder",
+    "title": "Deque",
+    "description": "Optimal strategy game on deque.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1700,
+      "source_scale": "atcoder_estimated",
+      "standardized_rating": 1700,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "game_theory",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443129",
+      "last_updated": "2025-07-29T14:55:00.443130",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_l",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    },
+    "google_relevance_score": 14.2
+  },
+  {
+    "id": "hr_max_array_sum",
+    "source": "hackerrank",
+    "title": "Max Array Sum",
+    "description": "Find maximum sum of non-adjacent elements.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1800,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1800,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768063",
+      "last_updated": "2025-07-29T14:53:42.768064",
+      "source_url": "https://www.hackerrank.com/challenges/max-array-sum/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Dynamic Programming",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 14.0
+  },
+  {
+    "id": "dp_c",
+    "source": "atcoder",
+    "title": "Vacation",
+    "description": "Maximize happiness while avoiding consecutive same activities.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1400,
+      "source_scale": "atcoder_estimated",
+      "standardized_rating": 1400,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "state_dp",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443118",
+      "last_updated": "2025-07-29T14:55:00.443119",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_c",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    },
+    "google_relevance_score": 10.6
+  },
+  {
+    "id": "dp_h",
+    "source": "atcoder",
+    "title": "Grid 1",
+    "description": "Count paths in grid avoiding blocked cells.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1500,
+      "source_scale": "atcoder_estimated",
+      "standardized_rating": 1500,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "grid_dp",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443123",
+      "last_updated": "2025-07-29T14:55:00.443124",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_h",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    },
+    "google_relevance_score": 10.6
+  },
+  {
+    "id": "codechef_knapsack",
+    "source": "codechef",
+    "title": "Knapsack Problem",
+    "description": "Classical 0/1 knapsack optimization problem.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1500,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1500,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "classic",
+      "optimization",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367800",
+      "last_updated": "2025-07-29T14:56:37.367801",
+      "source_url": "https://www.codechef.com/problems/knapsack",
+      "acquisition_method": "static_dataset",
+      "contest": "Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 10.6
+  },
+  {
+    "id": "codechef_dp_tutorial",
+    "source": "codechef",
+    "title": "DP Tutorial",
+    "description": "Master dynamic programming concepts.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "tutorial",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367817",
+      "last_updated": "2025-07-29T14:56:37.367819",
+      "source_url": "https://www.codechef.com/problems/dp_tutorial",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational",
+      "contest_type": "Educational",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 10.6
+  },
+  {
+    "id": "codechef_coin_change",
+    "source": "codechef",
+    "title": "Coin Change",
+    "description": "Find minimum coins needed to make target amount.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1400,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1400,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "classic",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367793",
+      "last_updated": "2025-07-29T14:56:37.367794",
+      "source_url": "https://www.codechef.com/problems/coin_change",
+      "acquisition_method": "static_dataset",
+      "contest": "Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 9.6
+  },
+  {
+    "id": "dp_a",
+    "source": "atcoder",
+    "title": "Frog 1",
+    "description": "Find minimum cost for frog to reach the end.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1200,
+      "source_scale": "atcoder_estimated",
+      "standardized_rating": 1200,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "dynamic_programming",
+      "basic_dp",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443109",
+      "last_updated": "2025-07-29T14:55:00.443110",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_a",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    },
+    "google_relevance_score": 8.6
+  },
+  {
+    "id": "dp_b",
+    "source": "atcoder",
+    "title": "Frog 2",
+    "description": "Frog can jump up to k stones ahead.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1300,
+      "source_scale": "atcoder_estimated",
+      "standardized_rating": 1300,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "basic_dp",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443114",
+      "last_updated": "2025-07-29T14:55:00.443115",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_b",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    },
+    "google_relevance_score": 8.6
+  },
+  {
+    "id": "abc_175_e",
+    "source": "atcoder",
+    "title": "Picking Goods",
+    "description": "Maximize value picked while moving through a grid.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "atcoder_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "grid",
+      "atcoder_beginner_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443077",
+      "last_updated": "2025-07-29T14:55:00.443079",
+      "source_url": "https://atcoder.jp/contests/abc175/tasks/abc_175_e",
+      "acquisition_method": "static_dataset",
+      "contest": "ABC175",
+      "contest_type": "AtCoder Beginner Contest",
+      "is_competitive_programming": true
+    },
+    "google_relevance_score": 7.6
+  },
+  {
+    "id": "codechef_optimal_partition",
+    "source": "codechef",
+    "title": "Optimal Partition",
+    "description": "Partition array to maximize sum of minimum elements.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "codechef_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "optimization",
+      "long_challenge"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:56:37.367741",
+      "last_updated": "2025-07-29T14:56:37.367743",
+      "source_url": "https://www.codechef.com/problems/optimal_partition",
+      "acquisition_method": "static_dataset",
+      "contest": "Long Challenge",
+      "contest_type": "Long Challenge",
+      "is_competitive_programming": true,
+      "platform_specialty": "monthly_contests_and_practice"
+    },
+    "google_relevance_score": 7.6
+  }
+]

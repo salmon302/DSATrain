@@ -1,0 +1,113 @@
+{
+  "problem_id": "cf_1200_C",
+  "problem_title": "Segments",
+  "total_solutions": 1,
+  "solutions": [
+    {
+      "id": "cf_1200_C_sol_1",
+      "problem_id": "cf_1200_C",
+      "title": "Binary Search on Answer",
+      "language": "python",
+      "code": "def can_place_segments(n, m, k, segment_length):\n    \"\"\"Check if we can place k segments of given length\"\"\"\n    segments_placed = 0\n    last_end = 0\n    \n    for i in range(n):\n        # Try to place segment starting at position i\n        if i >= last_end:\n            segments_placed += 1\n            last_end = i + segment_length\n            \n            if segments_placed >= k:\n                return True\n    \n    return segments_placed >= k\n\ndef solve():\n    n, m, k = map(int, input().split())\n    \n    # Binary search on segment length\n    left, right = 1, n\n    answer = 0\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if can_place_segments(n, m, k, mid):\n            answer = mid\n            left = mid + 1\n        else:\n            right = mid - 1\n    \n    print(answer)\n\nsolve()",
+      "approach_type": "optimal",
+      "algorithm_tags": [
+        "binary_search",
+        "greedy",
+        "optimization"
+      ],
+      "data_structures_used": [],
+      "complexity": {
+        "time_complexity": "O(n log n)",
+        "space_complexity": "O(1)",
+        "time_complexity_explanation": "Competitive programming analysis: O(n log n)",
+        "space_complexity_explanation": "Memory usage: O(1)"
+      },
+      "code_quality": {
+        "overall_score": 100.0,
+        "readability_score": 85.0,
+        "structure_score": 90.0,
+        "style_score": 80.0,
+        "documentation_score": 70.0,
+        "efficiency_score": 95.0,
+        "maintainability_score": 75.0,
+        "lines_of_code": 26,
+        "comment_ratio": 8.0,
+        "function_count": 2,
+        "variable_naming_score": 75.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 80,
+        "memory_mb": 16.2,
+        "runtime_percentile": 90.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "Binary search on the maximum possible segment length. For each length, greedily check if k segments can be placed.",
+      "step_by_step": [
+        "Binary search on possible segment lengths (1 to n)",
+        "For each length, use greedy placement strategy",
+        "Place segments as early as possible",
+        "Check if k segments can be placed",
+        "Update binary search bounds based on feasibility"
+      ],
+      "key_insights": [
+        "Binary search on answer technique",
+        "Greedy placement is optimal for checking feasibility",
+        "Maximization problem solved with binary search"
+      ],
+      "common_mistakes": [
+        "Forgetting edge cases in competitive programming",
+        "Integer overflow for large numbers",
+        "Time limit exceeded without optimization"
+      ],
+      "alternative_approaches": [],
+      "implementation_difficulty": 7,
+      "conceptual_difficulty": 8,
+      "google_interview_relevance": 95.0,
+      "contest_type": "Div2-C",
+      "competitive_programming_value": 95.0,
+      "source": "codeforces_tutorial",
+      "source_url": "https://codeforces.com/problem/cf_1200_C",
+      "collection_date": "2025-07-29T15:13:10.894053",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "cf_1200_C",
+        "approach_category": "optimal",
+        "contest_type": "Div2-C",
+        "collection_method": "sample_database",
+        "competitive_programming": true
+      }
+    }
+  ],
+  "language_distribution": {
+    "python": 1
+  },
+  "approach_distribution": {
+    "optimal": 1
+  },
+  "quality_stats": {
+    "average": 100.0,
+    "max": 100.0,
+    "min": 100.0
+  },
+  "performance_stats": {
+    "average_runtime": 80.0,
+    "fastest_runtime": 80
+  },
+  "optimal_solution_id": "cf_1200_C_sol_1",
+  "cleanest_code_id": "cf_1200_C_sol_1",
+  "fastest_runtime_id": "cf_1200_C_sol_1",
+  "most_educational_id": "cf_1200_C_sol_1",
+  "collection_date": "2025-07-29T15:13:10.894081",
+  "last_updated": "2025-07-29T15:13:10.894083",
+  "metadata": {
+    "platform": "codeforces",
+    "collection_method": "sample_database",
+    "competitive_programming_focus": true,
+    "verification_status": "verified"
+  }
+}

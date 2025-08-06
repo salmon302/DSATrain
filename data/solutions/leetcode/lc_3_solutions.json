@@ -1,0 +1,183 @@
+{
+  "problem_id": "lc_3",
+  "problem_title": "Longest Substring Without Repeating Characters",
+  "total_solutions": 2,
+  "solutions": [
+    {
+      "id": "lc_3_sol_1",
+      "problem_id": "lc_3",
+      "title": "Sliding Window with Set",
+      "language": "python",
+      "code": "def lengthOfLongestSubstring(s):\n    \"\"\"\n    Find longest substring without repeating characters.\n    \n    Time: O(n), Space: O(min(m, n))\n    \"\"\"\n    char_set = set()\n    left = 0\n    max_length = 0\n    \n    for right in range(len(s)):\n        while s[right] in char_set:\n            char_set.remove(s[left])\n            left += 1\n        \n        char_set.add(s[right])\n        max_length = max(max_length, right - left + 1)\n    \n    return max_length",
+      "approach_type": "optimal",
+      "algorithm_tags": [
+        "sliding_window",
+        "hash_set",
+        "two_pointers"
+      ],
+      "data_structures_used": [
+        "set",
+        "array"
+      ],
+      "complexity": {
+        "time_complexity": "O(n)",
+        "space_complexity": "O(min(m, n))",
+        "time_complexity_explanation": "Analysis: O(n)",
+        "space_complexity_explanation": "Analysis: O(min(m, n))"
+      },
+      "code_quality": {
+        "overall_score": 96.33333333333333,
+        "readability_score": 86.7,
+        "structure_score": 91.51666666666665,
+        "style_score": 81.88333333333333,
+        "documentation_score": 105.96666666666667,
+        "efficiency_score": 90.0,
+        "maintainability_score": 86.7,
+        "lines_of_code": 15,
+        "comment_ratio": 15.0,
+        "function_count": 1,
+        "variable_naming_score": 85.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 60,
+        "memory_mb": 15.1,
+        "runtime_percentile": 95.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "Use sliding window technique with a set to track characters in current window. Expand window with right pointer, contract with left when duplicates found.",
+      "step_by_step": [
+        "Initialize set to track window characters and pointers",
+        "Expand window by moving right pointer",
+        "If duplicate found, contract window from left",
+        "Update maximum length at each step",
+        "Continue until end of string"
+      ],
+      "key_insights": [
+        "Sliding window technique for substring problems",
+        "Set provides O(1) duplicate detection",
+        "Two pointers maintain window boundaries"
+      ],
+      "common_mistakes": [],
+      "alternative_approaches": [],
+      "implementation_difficulty": 6,
+      "conceptual_difficulty": 5,
+      "google_interview_relevance": 90.0,
+      "source": "leetcode_editorial",
+      "source_url": "https://leetcode.com/problems/lc_3/",
+      "collection_date": "2025-07-29T15:11:11.227880",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "lc_3",
+        "approach_category": "optimal",
+        "collection_method": "sample_database",
+        "quality_verified": true
+      }
+    },
+    {
+      "id": "lc_3_sol_2",
+      "problem_id": "lc_3",
+      "title": "Sliding Window with HashMap (Optimized)",
+      "language": "python",
+      "code": "def lengthOfLongestSubstring(s):\n    \"\"\"\n    Optimized sliding window using character index mapping.\n    \n    Time: O(n), Space: O(min(m, n))\n    \"\"\"\n    char_map = {}\n    left = 0\n    max_length = 0\n    \n    for right in range(len(s)):\n        if s[right] in char_map and char_map[s[right]] >= left:\n            left = char_map[s[right]] + 1\n        \n        char_map[s[right]] = right\n        max_length = max(max_length, right - left + 1)\n    \n    return max_length",
+      "approach_type": "alternative",
+      "algorithm_tags": [
+        "sliding_window",
+        "hash_map",
+        "optimization"
+      ],
+      "data_structures_used": [
+        "hash_map",
+        "array"
+      ],
+      "complexity": {
+        "time_complexity": "O(n)",
+        "space_complexity": "O(min(m, n))",
+        "time_complexity_explanation": "Analysis: O(n)",
+        "space_complexity_explanation": "Analysis: O(min(m, n))"
+      },
+      "code_quality": {
+        "overall_score": 97.42857142857143,
+        "readability_score": 87.68571428571428,
+        "structure_score": 92.55714285714285,
+        "style_score": 82.81428571428572,
+        "documentation_score": 107.17142857142858,
+        "efficiency_score": 70.0,
+        "maintainability_score": 87.68571428571428,
+        "lines_of_code": 14,
+        "comment_ratio": 15.0,
+        "function_count": 1,
+        "variable_naming_score": 85.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 45,
+        "memory_mb": 15.5,
+        "runtime_percentile": 60.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "Enhanced sliding window that jumps directly to the position after duplicate character instead of incrementally moving left pointer.",
+      "step_by_step": [
+        "Use hash map to store character positions",
+        "When duplicate found, jump left pointer directly",
+        "Update character position in map",
+        "Track maximum window length"
+      ],
+      "key_insights": [
+        "HashMap stores last seen position for optimization",
+        "Direct jump reduces unnecessary iterations",
+        "More efficient than set-based approach"
+      ],
+      "common_mistakes": [],
+      "alternative_approaches": [],
+      "implementation_difficulty": 7,
+      "conceptual_difficulty": 6,
+      "google_interview_relevance": 92.0,
+      "source": "leetcode_editorial",
+      "source_url": "https://leetcode.com/problems/lc_3/",
+      "collection_date": "2025-07-29T15:11:11.227901",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "lc_3",
+        "approach_category": "alternative",
+        "collection_method": "sample_database",
+        "quality_verified": true
+      }
+    }
+  ],
+  "language_distribution": {
+    "python": 2
+  },
+  "approach_distribution": {
+    "alternative": 1,
+    "optimal": 1
+  },
+  "quality_stats": {
+    "average": 96.88095238095238,
+    "max": 97.42857142857143,
+    "min": 96.33333333333333
+  },
+  "performance_stats": {
+    "average_runtime": 52.5,
+    "fastest_runtime": 45
+  },
+  "optimal_solution_id": "lc_3_sol_1",
+  "cleanest_code_id": "lc_3_sol_2",
+  "fastest_runtime_id": "lc_3_sol_2",
+  "most_educational_id": "lc_3_sol_2",
+  "collection_date": "2025-07-29T15:11:11.227911",
+  "last_updated": "2025-07-29T15:11:11.227913",
+  "metadata": {
+    "collection_method": "sample_database",
+    "verification_status": "verified",
+    "quality_threshold_met": true
+  }
+}

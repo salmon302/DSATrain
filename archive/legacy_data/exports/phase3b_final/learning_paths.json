@@ -1,0 +1,330 @@
+{
+  "difficulty_progression": {
+    "beginner": {
+      "solutions": [
+        "lc_1_sol_2",
+        "cf_1_A_sol_1",
+        "cf_1_A_sol_2",
+        "cf_4_A_sol_1",
+        "cf_800_A_sol_1"
+      ],
+      "focus": "Basic programming concepts and simple algorithms",
+      "estimated_time": 100
+    },
+    "intermediate": {
+      "solutions": [
+        "lc_1_sol_1",
+        "lc_2_sol_1",
+        "lc_3_sol_1"
+      ],
+      "focus": "Data structures and algorithmic thinking",
+      "estimated_time": 120
+    },
+    "advanced": {
+      "solutions": [
+        "lc_3_sol_2",
+        "cf_1200_C_sol_1",
+        "cf_1500_D_sol_1"
+      ],
+      "focus": "Complex algorithms and optimization techniques",
+      "estimated_time": 180
+    }
+  },
+  "algorithm_specific_paths": {
+    "hash_map": {
+      "total_solutions": 2,
+      "recommended_order": [
+        "lc_1_sol_1",
+        "lc_3_sol_2"
+      ],
+      "skill_progression": {
+        "beginner": [],
+        "intermediate": [
+          {
+            "solution_id": "lc_1_sol_1",
+            "problem_id": "lc_1",
+            "platform": "leetcode",
+            "approach": "optimal",
+            "quality": 100.0,
+            "complexity": "O(n)"
+          }
+        ],
+        "advanced": [
+          {
+            "solution_id": "lc_3_sol_2",
+            "problem_id": "lc_3",
+            "platform": "leetcode",
+            "approach": "alternative",
+            "quality": 97.42857142857143,
+            "complexity": "O(n)"
+          }
+        ]
+      },
+      "complexity_progression": [
+        "O(n)"
+      ],
+      "platforms_covered": [
+        "leetcode"
+      ]
+    },
+    "math": {
+      "total_solutions": 4,
+      "recommended_order": [
+        "lc_2_sol_1",
+        "cf_1_A_sol_1",
+        "cf_1_A_sol_2",
+        "cf_4_A_sol_1"
+      ],
+      "skill_progression": {
+        "beginner": [
+          {
+            "solution_id": "cf_1_A_sol_1",
+            "problem_id": "cf_1_A",
+            "platform": "codeforces",
+            "approach": "optimal",
+            "quality": 100.0,
+            "complexity": "O(1)"
+          },
+          {
+            "solution_id": "cf_1_A_sol_2",
+            "problem_id": "cf_1_A",
+            "platform": "codeforces",
+            "approach": "alternative",
+            "quality": 98.0,
+            "complexity": "O(1)"
+          },
+          {
+            "solution_id": "cf_4_A_sol_1",
+            "problem_id": "cf_4_A",
+            "platform": "codeforces",
+            "approach": "optimal",
+            "quality": 98.0,
+            "complexity": "O(1)"
+          }
+        ],
+        "intermediate": [
+          {
+            "solution_id": "lc_2_sol_1",
+            "problem_id": "lc_2",
+            "platform": "leetcode",
+            "approach": "optimal",
+            "quality": 100.0,
+            "complexity": "O(max(m, n))"
+          }
+        ],
+        "advanced": []
+      },
+      "complexity_progression": [
+        "O(max(m, n))",
+        "O(1)"
+      ],
+      "platforms_covered": [
+        "leetcode",
+        "codeforces"
+      ]
+    },
+    "sliding_window": {
+      "total_solutions": 2,
+      "recommended_order": [
+        "lc_3_sol_2",
+        "lc_3_sol_1"
+      ],
+      "skill_progression": {
+        "beginner": [],
+        "intermediate": [
+          {
+            "solution_id": "lc_3_sol_1",
+            "problem_id": "lc_3",
+            "platform": "leetcode",
+            "approach": "optimal",
+            "quality": 96.33333333333333,
+            "complexity": "O(n)"
+          }
+        ],
+        "advanced": [
+          {
+            "solution_id": "lc_3_sol_2",
+            "problem_id": "lc_3",
+            "platform": "leetcode",
+            "approach": "alternative",
+            "quality": 97.42857142857143,
+            "complexity": "O(n)"
+          }
+        ]
+      },
+      "complexity_progression": [
+        "O(n)"
+      ],
+      "platforms_covered": [
+        "leetcode"
+      ]
+    },
+    "optimization": {
+      "total_solutions": 3,
+      "recommended_order": [
+        "cf_1200_C_sol_1",
+        "cf_1500_D_sol_1",
+        "lc_3_sol_2"
+      ],
+      "skill_progression": {
+        "beginner": [],
+        "intermediate": [],
+        "advanced": [
+          {
+            "solution_id": "cf_1200_C_sol_1",
+            "problem_id": "cf_1200_C",
+            "platform": "codeforces",
+            "approach": "optimal",
+            "quality": 100.0,
+            "complexity": "O(n log n)"
+          },
+          {
+            "solution_id": "cf_1500_D_sol_1",
+            "problem_id": "cf_1500_D",
+            "platform": "codeforces",
+            "approach": "optimal",
+            "quality": 100.0,
+            "complexity": "O(n * m²)"
+          },
+          {
+            "solution_id": "lc_3_sol_2",
+            "problem_id": "lc_3",
+            "platform": "leetcode",
+            "approach": "alternative",
+            "quality": 97.42857142857143,
+            "complexity": "O(n)"
+          }
+        ]
+      },
+      "complexity_progression": [
+        "O(n)",
+        "O(n log n)",
+        "O(n * m²)"
+      ],
+      "platforms_covered": [
+        "leetcode",
+        "codeforces"
+      ]
+    },
+    "greedy": {
+      "total_solutions": 2,
+      "recommended_order": [
+        "cf_1200_C_sol_1",
+        "cf_800_A_sol_1"
+      ],
+      "skill_progression": {
+        "beginner": [
+          {
+            "solution_id": "cf_800_A_sol_1",
+            "problem_id": "cf_800_A",
+            "platform": "codeforces",
+            "approach": "optimal",
+            "quality": 98.0,
+            "complexity": "O(n)"
+          }
+        ],
+        "intermediate": [],
+        "advanced": [
+          {
+            "solution_id": "cf_1200_C_sol_1",
+            "problem_id": "cf_1200_C",
+            "platform": "codeforces",
+            "approach": "optimal",
+            "quality": 100.0,
+            "complexity": "O(n log n)"
+          }
+        ]
+      },
+      "complexity_progression": [
+        "O(n)",
+        "O(n log n)"
+      ],
+      "platforms_covered": [
+        "codeforces"
+      ]
+    }
+  },
+  "interview_preparation_path": {
+    "total_solutions": 8,
+    "progression_levels": {
+      "foundation": [
+        "lc_1_sol_1",
+        "cf_800_A_sol_1",
+        "cf_1_A_sol_1"
+      ],
+      "core_skills": [
+        "cf_1200_C_sol_1",
+        "lc_3_sol_2",
+        "lc_3_sol_1",
+        "lc_2_sol_1"
+      ],
+      "advanced_topics": [
+        "cf_1500_D_sol_1"
+      ]
+    },
+    "algorithm_coverage": {
+      "hash_map": 2,
+      "array": 1,
+      "binary_search": 1,
+      "greedy": 2,
+      "optimization": 3,
+      "sliding_window": 2,
+      "hash_set": 1,
+      "two_pointers": 1,
+      "dynamic_programming": 1,
+      "state_compression": 1,
+      "linked_list": 1,
+      "math": 2,
+      "simulation": 1,
+      "strings": 1,
+      "lexicographical": 1,
+      "ceiling_division": 1
+    },
+    "platform_distribution": {
+      "leetcode": 4,
+      "codeforces": 4
+    },
+    "estimated_study_time": {
+      "foundation": 90,
+      "core_skills": 180,
+      "advanced_topics": 60
+    }
+  },
+  "competitive_programming_path": {
+    "total_solutions": 6,
+    "contest_progression": {
+      "div2_a": [
+        "cf_1_A_sol_1",
+        "cf_1_A_sol_2",
+        "cf_4_A_sol_1",
+        "cf_800_A_sol_1"
+      ],
+      "div2_bc": [
+        "cf_1200_C_sol_1"
+      ],
+      "div1": [
+        "cf_1500_D_sol_1"
+      ]
+    },
+    "skill_development": {
+      "implementation": [
+        "cf_1200_C_sol_1",
+        "cf_1500_D_sol_1"
+      ],
+      "algorithm_design": [
+        "cf_1200_C_sol_1",
+        "cf_1500_D_sol_1"
+      ],
+      "optimization": [
+        "cf_1200_C_sol_1",
+        "cf_1500_D_sol_1"
+      ]
+    },
+    "time_investment": 150
+  },
+  "cross_platform_learning": {
+    "leetcode_to_codeforces": "Start with LeetCode for interview prep, then Codeforces for competitive skills",
+    "codeforces_to_leetcode": "Build algorithmic foundation with Codeforces, then focus on interview-style problems",
+    "parallel_study": "Alternate between platforms to build both interview and competitive programming skills"
+  }
+}

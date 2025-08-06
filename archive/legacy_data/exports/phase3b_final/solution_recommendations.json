@@ -1,0 +1,398 @@
+{
+  "for_interviews": {
+    "must_know": [
+      {
+        "solution_id": "lc_1_sol_1",
+        "problem_title": "Hash Map Approach (Optimal)",
+        "reason": "High interview relevance (95%), optimal approach",
+        "key_concepts": [
+          "hash_map",
+          "array"
+        ],
+        "difficulty": 4
+      },
+      {
+        "solution_id": "cf_1200_C_sol_1",
+        "problem_title": "Binary Search on Answer",
+        "reason": "High interview relevance (95%), optimal approach",
+        "key_concepts": [
+          "binary_search",
+          "greedy",
+          "optimization"
+        ],
+        "difficulty": 7
+      },
+      {
+        "solution_id": "lc_3_sol_2",
+        "problem_title": "Sliding Window with HashMap (Optimized)",
+        "reason": "High interview relevance (92%), alternative approach",
+        "key_concepts": [
+          "sliding_window",
+          "hash_map",
+          "optimization"
+        ],
+        "difficulty": 7
+      }
+    ],
+    "good_to_know": [
+      {
+        "solution_id": "lc_3_sol_1",
+        "problem_title": "Sliding Window with Set",
+        "reason": "Good interview practice, O(n) complexity",
+        "key_concepts": [
+          "sliding_window",
+          "hash_set"
+        ]
+      },
+      {
+        "solution_id": "cf_1500_D_sol_1",
+        "problem_title": "DP with State Compression",
+        "reason": "Good interview practice, O(n * m²) complexity",
+        "key_concepts": [
+          "dynamic_programming",
+          "state_compression"
+        ]
+      },
+      {
+        "solution_id": "lc_2_sol_1",
+        "problem_title": "Linked List Traversal",
+        "reason": "Good interview practice, O(max(m, n)) complexity",
+        "key_concepts": [
+          "linked_list",
+          "math"
+        ]
+      }
+    ],
+    "advanced_topics": []
+  },
+  "for_competitive_programming": {
+    "contest_essentials": [
+      {
+        "solution_id": "cf_1200_C_sol_1",
+        "problem_title": "Binary Search on Answer",
+        "reason": "Essential for Div2-C, high code quality",
+        "algorithms": [
+          "binary_search",
+          "greedy",
+          "optimization"
+        ],
+        "contest_type": "Div2-C"
+      },
+      {
+        "solution_id": "cf_1500_D_sol_1",
+        "problem_title": "DP with State Compression",
+        "reason": "Essential for Div1-D, high code quality",
+        "algorithms": [
+          "dynamic_programming",
+          "state_compression",
+          "optimization"
+        ],
+        "contest_type": "Div1-D"
+      },
+      {
+        "solution_id": "cf_1_A_sol_1",
+        "problem_title": "Math Ceiling Division",
+        "reason": "Essential for Div2-A, high code quality",
+        "algorithms": [
+          "math",
+          "ceiling_division"
+        ],
+        "contest_type": "Div2-A"
+      }
+    ],
+    "optimization_techniques": [],
+    "advanced_algorithms": []
+  },
+  "for_learning": {
+    "beginner_friendly": [],
+    "concept_builders": [
+      {
+        "solution_id": "lc_1_sol_1",
+        "problem_title": "Hash Map Approach (Optimal)",
+        "reason": "Excellent educational content with 5 steps and 3 insights",
+        "learning_value": 8,
+        "concepts": [
+          "hash_map",
+          "array"
+        ]
+      },
+      {
+        "solution_id": "lc_2_sol_1",
+        "problem_title": "Linked List Traversal",
+        "reason": "Excellent educational content with 5 steps and 3 insights",
+        "learning_value": 8,
+        "concepts": [
+          "linked_list",
+          "math",
+          "simulation"
+        ]
+      },
+      {
+        "solution_id": "lc_3_sol_1",
+        "problem_title": "Sliding Window with Set",
+        "reason": "Excellent educational content with 5 steps and 3 insights",
+        "learning_value": 8,
+        "concepts": [
+          "sliding_window",
+          "hash_set",
+          "two_pointers"
+        ]
+      },
+      {
+        "solution_id": "cf_1200_C_sol_1",
+        "problem_title": "Binary Search on Answer",
+        "reason": "Excellent educational content with 5 steps and 3 insights",
+        "learning_value": 8,
+        "concepts": [
+          "binary_search",
+          "greedy",
+          "optimization"
+        ]
+      }
+    ],
+    "pattern_examples": []
+  },
+  "by_algorithm": {
+    "hash_map": {
+      "best_example": "lc_1_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(n)",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_1_sol_1",
+        "lc_3_sol_2"
+      ]
+    },
+    "array": {
+      "best_example": "lc_1_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(n)",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_1_sol_1"
+      ]
+    },
+    "brute_force": {
+      "best_example": "lc_1_sol_2",
+      "quality_score": 86.81818181818181,
+      "complexity": "O(n²)",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_1_sol_2"
+      ]
+    },
+    "nested_loops": {
+      "best_example": "lc_1_sol_2",
+      "quality_score": 86.81818181818181,
+      "complexity": "O(n²)",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_1_sol_2"
+      ]
+    },
+    "linked_list": {
+      "best_example": "lc_2_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(max(m, n))",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_2_sol_1"
+      ]
+    },
+    "math": {
+      "best_example": "lc_2_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(max(m, n))",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_2_sol_1",
+        "cf_1_A_sol_1",
+        "cf_1_A_sol_2",
+        "cf_4_A_sol_1"
+      ]
+    },
+    "simulation": {
+      "best_example": "lc_2_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(max(m, n))",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_2_sol_1"
+      ]
+    },
+    "sliding_window": {
+      "best_example": "lc_3_sol_2",
+      "quality_score": 97.42857142857143,
+      "complexity": "O(n)",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_3_sol_1",
+        "lc_3_sol_2"
+      ]
+    },
+    "hash_set": {
+      "best_example": "lc_3_sol_1",
+      "quality_score": 96.33333333333333,
+      "complexity": "O(n)",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_3_sol_1"
+      ]
+    },
+    "two_pointers": {
+      "best_example": "lc_3_sol_1",
+      "quality_score": 96.33333333333333,
+      "complexity": "O(n)",
+      "platform": "leetcode",
+      "all_examples": [
+        "lc_3_sol_1"
+      ]
+    },
+    "optimization": {
+      "best_example": "cf_1200_C_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(n log n)",
+      "platform": "codeforces",
+      "all_examples": [
+        "lc_3_sol_2",
+        "cf_1200_C_sol_1",
+        "cf_1500_D_sol_1"
+      ]
+    },
+    "binary_search": {
+      "best_example": "cf_1200_C_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(n log n)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_1200_C_sol_1"
+      ]
+    },
+    "greedy": {
+      "best_example": "cf_1200_C_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(n log n)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_1200_C_sol_1",
+        "cf_800_A_sol_1"
+      ]
+    },
+    "dynamic_programming": {
+      "best_example": "cf_1500_D_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(n * m²)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_1500_D_sol_1"
+      ]
+    },
+    "state_compression": {
+      "best_example": "cf_1500_D_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(n * m²)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_1500_D_sol_1"
+      ]
+    },
+    "ceiling_division": {
+      "best_example": "cf_1_A_sol_1",
+      "quality_score": 100.0,
+      "complexity": "O(1)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_1_A_sol_1"
+      ]
+    },
+    "integer_arithmetic": {
+      "best_example": "cf_1_A_sol_2",
+      "quality_score": 98.0,
+      "complexity": "O(1)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_1_A_sol_2"
+      ]
+    },
+    "parity": {
+      "best_example": "cf_4_A_sol_1",
+      "quality_score": 98.0,
+      "complexity": "O(1)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_4_A_sol_1"
+      ]
+    },
+    "number_theory": {
+      "best_example": "cf_4_A_sol_1",
+      "quality_score": 98.0,
+      "complexity": "O(1)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_4_A_sol_1"
+      ]
+    },
+    "strings": {
+      "best_example": "cf_800_A_sol_1",
+      "quality_score": 98.0,
+      "complexity": "O(n)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_800_A_sol_1"
+      ]
+    },
+    "lexicographical": {
+      "best_example": "cf_800_A_sol_1",
+      "quality_score": 98.0,
+      "complexity": "O(n)",
+      "platform": "codeforces",
+      "all_examples": [
+        "cf_800_A_sol_1"
+      ]
+    }
+  },
+  "by_data_structure": {
+    "hash_map": {
+      "best_example": "lc_1_sol_1",
+      "quality_score": 100.0,
+      "usage_examples": 3,
+      "platforms": [
+        "leetcode",
+        "codeforces"
+      ]
+    },
+    "array": {
+      "best_example": "lc_1_sol_1",
+      "quality_score": 100.0,
+      "usage_examples": 5,
+      "platforms": [
+        "leetcode",
+        "codeforces"
+      ]
+    },
+    "linked_list": {
+      "best_example": "lc_2_sol_1",
+      "quality_score": 100.0,
+      "usage_examples": 1,
+      "platforms": [
+        "leetcode"
+      ]
+    },
+    "set": {
+      "best_example": "lc_3_sol_1",
+      "quality_score": 96.33333333333333,
+      "usage_examples": 1,
+      "platforms": [
+        "leetcode"
+      ]
+    },
+    "string": {
+      "best_example": "cf_800_A_sol_1",
+      "quality_score": 98.0,
+      "usage_examples": 1,
+      "platforms": [
+        "codeforces"
+      ]
+    }
+  }
+}

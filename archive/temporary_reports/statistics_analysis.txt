@@ -1,0 +1,31 @@
+🔍 DSATrain Data Statistics Analysis
+============================================================
+
+📊 CURRENT DIFFICULTY DISTRIBUTION ANALYSIS
+--------------------------------------------------
+• Easy (2,507 problems, 23.7%)
+  └─ Quality: 97.97 | Google Relevance: 1.50 (range: 0.0-50.0)
+  └─ Difficulty Rating: 959
+
+• Hard (4,045 problems, 38.2%)
+  └─ Quality: 97.87 | Google Relevance: 4.33 (range: 0.0-100.0)
+  └─ Difficulty Rating: 2616
+
+• Medium (4,042 problems, 38.2%)
+  └─ Quality: 97.91 | Google Relevance: 5.83 (range: 1.0-100.0)
+  └─ Difficulty Rating: 1635
+
+🎯 GOOGLE RELEVANCE DEEP ANALYSIS
+--------------------------------------------------
+• Excellent (9-10)    :   569 problems (  5.4%)
+• Very High (8-9)     :    46 problems (  0.4%)
+• High (7-8)          : 1,296 problems ( 12.2%)
+• Good (6-7)          :   120 problems (  1.1%)
+• Moderate (5-6)      : 2,257 problems ( 21.3%)
+• Low (3-5)           : 2,709 problems ( 25.6%)
+• Very Low (1-3)      : 1,929 problems ( 18.2%)
+• Minimal (0-1)       : 1,359 problems ( 12.8%)
+
+🌐 PLATFORM-SPECIFIC RELEVANCE ANALYSIS
+--------------------------------------------------
+❌ Error during analysis: The "whens" argument to case(), when referring to a sequence of items, is now passed as a series of positional elements, rather than as a list. 

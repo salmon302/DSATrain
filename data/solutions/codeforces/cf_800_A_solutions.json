@@ -1,0 +1,114 @@
+{
+  "problem_id": "cf_800_A",
+  "problem_title": "Two Subsequences",
+  "total_solutions": 1,
+  "solutions": [
+    {
+      "id": "cf_800_A_sol_1",
+      "problem_id": "cf_800_A",
+      "title": "Greedy String Split",
+      "language": "python",
+      "code": "s = input().strip()\n\n# Find the lexicographically smallest character\nmin_char = min(s)\n\n# First subsequence: just the smallest character\na = min_char\n\n# Second subsequence: remove first occurrence of min_char\nmin_index = s.index(min_char)\nb = s[:min_index] + s[min_index + 1:]\n\nprint(a)\nprint(b)",
+      "approach_type": "optimal",
+      "algorithm_tags": [
+        "greedy",
+        "strings",
+        "lexicographical"
+      ],
+      "data_structures_used": [
+        "string"
+      ],
+      "complexity": {
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)",
+        "time_complexity_explanation": "Competitive programming analysis: O(n)",
+        "space_complexity_explanation": "Memory usage: O(n)"
+      },
+      "code_quality": {
+        "overall_score": 98.0,
+        "readability_score": 83.3,
+        "structure_score": 88.2,
+        "style_score": 78.4,
+        "documentation_score": 68.6,
+        "efficiency_score": 95.0,
+        "maintainability_score": 73.5,
+        "lines_of_code": 10,
+        "comment_ratio": 8.0,
+        "function_count": 0,
+        "variable_naming_score": 75.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 40,
+        "memory_mb": 14.5,
+        "runtime_percentile": 90.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "To minimize lexicographical order of first subsequence, use the smallest character. Second subsequence gets the rest.",
+      "step_by_step": [
+        "Find the lexicographically smallest character",
+        "Make first subsequence just this character",
+        "Make second subsequence the remaining string",
+        "This minimizes the first subsequence lexicographically"
+      ],
+      "key_insights": [
+        "Greedy approach: take smallest character first",
+        "Single character is lexicographically smallest",
+        "String slicing for efficient removal"
+      ],
+      "common_mistakes": [
+        "Forgetting edge cases in competitive programming",
+        "Integer overflow for large numbers",
+        "Time limit exceeded without optimization"
+      ],
+      "alternative_approaches": [],
+      "implementation_difficulty": 3,
+      "conceptual_difficulty": 4,
+      "google_interview_relevance": 80.0,
+      "contest_type": "Div2-A",
+      "competitive_programming_value": 95.0,
+      "source": "codeforces_tutorial",
+      "source_url": "https://codeforces.com/problem/cf_800_A",
+      "collection_date": "2025-07-29T15:13:10.893920",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "cf_800_A",
+        "approach_category": "optimal",
+        "contest_type": "Div2-A",
+        "collection_method": "sample_database",
+        "competitive_programming": true
+      }
+    }
+  ],
+  "language_distribution": {
+    "python": 1
+  },
+  "approach_distribution": {
+    "optimal": 1
+  },
+  "quality_stats": {
+    "average": 98.0,
+    "max": 98.0,
+    "min": 98.0
+  },
+  "performance_stats": {
+    "average_runtime": 40.0,
+    "fastest_runtime": 40
+  },
+  "optimal_solution_id": "cf_800_A_sol_1",
+  "cleanest_code_id": "cf_800_A_sol_1",
+  "fastest_runtime_id": "cf_800_A_sol_1",
+  "most_educational_id": "cf_800_A_sol_1",
+  "collection_date": "2025-07-29T15:13:10.893936",
+  "last_updated": "2025-07-29T15:13:10.893938",
+  "metadata": {
+    "platform": "codeforces",
+    "collection_method": "sample_database",
+    "competitive_programming_focus": true,
+    "verification_status": "verified"
+  }
+}

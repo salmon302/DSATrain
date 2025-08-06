@@ -1,0 +1,112 @@
+{
+  "problem_id": "cf_4_A",
+  "problem_title": "Watermelon",
+  "total_solutions": 1,
+  "solutions": [
+    {
+      "id": "cf_4_A_sol_1",
+      "problem_id": "cf_4_A",
+      "title": "Even Number Check",
+      "language": "python",
+      "code": "w = int(input())\n\n# Can split into two positive even numbers if w is even and > 2\nif w % 2 == 0 and w > 2:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+      "approach_type": "optimal",
+      "algorithm_tags": [
+        "math",
+        "parity",
+        "number_theory"
+      ],
+      "data_structures_used": [],
+      "complexity": {
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)",
+        "time_complexity_explanation": "Competitive programming analysis: O(1)",
+        "space_complexity_explanation": "Memory usage: O(1)"
+      },
+      "code_quality": {
+        "overall_score": 98.0,
+        "readability_score": 83.3,
+        "structure_score": 88.2,
+        "style_score": 78.4,
+        "documentation_score": 68.6,
+        "efficiency_score": 95.0,
+        "maintainability_score": 73.5,
+        "lines_of_code": 6,
+        "comment_ratio": 8.0,
+        "function_count": 0,
+        "variable_naming_score": 75.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 20,
+        "memory_mb": 11.8,
+        "runtime_percentile": 90.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "A number can be split into two positive even numbers if and only if it's even and greater than 2.",
+      "step_by_step": [
+        "Read the weight w",
+        "Check if w is even (w % 2 == 0)",
+        "Check if w > 2 (to ensure positive even numbers)",
+        "Print YES if both conditions met, NO otherwise"
+      ],
+      "key_insights": [
+        "Smallest split is 2 + 2 = 4",
+        "Even numbers can always be split into two evens",
+        "Odd numbers cannot be split into two evens"
+      ],
+      "common_mistakes": [
+        "Forgetting edge cases in competitive programming",
+        "Integer overflow for large numbers",
+        "Time limit exceeded without optimization"
+      ],
+      "alternative_approaches": [],
+      "implementation_difficulty": 1,
+      "conceptual_difficulty": 2,
+      "google_interview_relevance": 65.0,
+      "contest_type": "Div2-A",
+      "competitive_programming_value": 95.0,
+      "source": "codeforces_tutorial",
+      "source_url": "https://codeforces.com/problem/cf_4_A",
+      "collection_date": "2025-07-29T15:13:10.893753",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "cf_4_A",
+        "approach_category": "optimal",
+        "contest_type": "Div2-A",
+        "collection_method": "sample_database",
+        "competitive_programming": true
+      }
+    }
+  ],
+  "language_distribution": {
+    "python": 1
+  },
+  "approach_distribution": {
+    "optimal": 1
+  },
+  "quality_stats": {
+    "average": 98.0,
+    "max": 98.0,
+    "min": 98.0
+  },
+  "performance_stats": {
+    "average_runtime": 20.0,
+    "fastest_runtime": 20
+  },
+  "optimal_solution_id": "cf_4_A_sol_1",
+  "cleanest_code_id": "cf_4_A_sol_1",
+  "fastest_runtime_id": "cf_4_A_sol_1",
+  "most_educational_id": "cf_4_A_sol_1",
+  "collection_date": "2025-07-29T15:13:10.893770",
+  "last_updated": "2025-07-29T15:13:10.893772",
+  "metadata": {
+    "platform": "codeforces",
+    "collection_method": "sample_database",
+    "competitive_programming_focus": true,
+    "verification_status": "verified"
+  }
+}

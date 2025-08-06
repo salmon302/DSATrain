@@ -1,0 +1,188 @@
+{
+  "problem_id": "cf_1_A",
+  "problem_title": "Theatre Square",
+  "total_solutions": 2,
+  "solutions": [
+    {
+      "id": "cf_1_A_sol_1",
+      "problem_id": "cf_1_A",
+      "title": "Math Ceiling Division",
+      "language": "python",
+      "code": "import math\n\nn, m, a = map(int, input().split())\n\n# Calculate how many flagstones needed in each dimension\nstones_x = math.ceil(n / a)\nstones_y = math.ceil(m / a)\n\n# Total stones needed\ntotal = stones_x * stones_y\nprint(total)",
+      "approach_type": "optimal",
+      "algorithm_tags": [
+        "math",
+        "ceiling_division"
+      ],
+      "data_structures_used": [],
+      "complexity": {
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)",
+        "time_complexity_explanation": "Competitive programming analysis: O(1)",
+        "space_complexity_explanation": "Memory usage: O(1)"
+      },
+      "code_quality": {
+        "overall_score": 100.0,
+        "readability_score": 85.0,
+        "structure_score": 90.0,
+        "style_score": 80.0,
+        "documentation_score": 70.0,
+        "efficiency_score": 95.0,
+        "maintainability_score": 75.0,
+        "lines_of_code": 8,
+        "comment_ratio": 8.0,
+        "function_count": 0,
+        "variable_naming_score": 75.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 30,
+        "memory_mb": 12.5,
+        "runtime_percentile": 90.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "Use ceiling division to calculate minimum flagstones needed. Each dimension requires ceil(dimension/flagstone_size) stones.",
+      "step_by_step": [
+        "Read theatre dimensions n×m and flagstone size a×a",
+        "Calculate stones needed in x-direction: ceil(n/a)",
+        "Calculate stones needed in y-direction: ceil(m/a)",
+        "Multiply to get total stones needed"
+      ],
+      "key_insights": [
+        "Ceiling division for covering entire area",
+        "Independent calculation for each dimension",
+        "Simple math solution to geometric problem"
+      ],
+      "common_mistakes": [
+        "Forgetting edge cases in competitive programming",
+        "Integer overflow for large numbers",
+        "Time limit exceeded without optimization"
+      ],
+      "alternative_approaches": [],
+      "implementation_difficulty": 2,
+      "conceptual_difficulty": 2,
+      "google_interview_relevance": 75.0,
+      "contest_type": "Div2-A",
+      "competitive_programming_value": 95.0,
+      "source": "codeforces_tutorial",
+      "source_url": "https://codeforces.com/problem/cf_1_A",
+      "collection_date": "2025-07-29T15:13:10.893589",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "cf_1_A",
+        "approach_category": "optimal",
+        "contest_type": "Div2-A",
+        "collection_method": "sample_database",
+        "competitive_programming": true
+      }
+    },
+    {
+      "id": "cf_1_A_sol_2",
+      "problem_id": "cf_1_A",
+      "title": "Manual Ceiling Calculation",
+      "language": "python",
+      "code": "n, m, a = map(int, input().split())\n\n# Manual ceiling division: (x + y - 1) // y\nstones_x = (n + a - 1) // a\nstones_y = (m + a - 1) // a\n\ntotal = stones_x * stones_y\nprint(total)",
+      "approach_type": "alternative",
+      "algorithm_tags": [
+        "math",
+        "integer_arithmetic"
+      ],
+      "data_structures_used": [],
+      "complexity": {
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)",
+        "time_complexity_explanation": "Competitive programming analysis: O(1)",
+        "space_complexity_explanation": "Memory usage: O(1)"
+      },
+      "code_quality": {
+        "overall_score": 98.0,
+        "readability_score": 83.3,
+        "structure_score": 88.2,
+        "style_score": 78.4,
+        "documentation_score": 68.6,
+        "efficiency_score": 80.0,
+        "maintainability_score": 73.5,
+        "lines_of_code": 6,
+        "comment_ratio": 8.0,
+        "function_count": 0,
+        "variable_naming_score": 75.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 25,
+        "memory_mb": 12.0,
+        "runtime_percentile": 70.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "Manual ceiling division without using math.ceil. Uses the formula (x + y - 1) // y for ceiling division.",
+      "step_by_step": [
+        "Use manual ceiling formula: (x + y - 1) // y",
+        "Apply to both dimensions",
+        "Multiply results for total area"
+      ],
+      "key_insights": [
+        "Avoid floating point operations",
+        "Manual ceiling division trick",
+        "Competitive programming optimization"
+      ],
+      "common_mistakes": [
+        "Forgetting edge cases in competitive programming",
+        "Integer overflow for large numbers",
+        "Time limit exceeded without optimization"
+      ],
+      "alternative_approaches": [],
+      "implementation_difficulty": 3,
+      "conceptual_difficulty": 3,
+      "google_interview_relevance": 70.0,
+      "contest_type": "Div2-A",
+      "competitive_programming_value": 95.0,
+      "source": "codeforces_tutorial",
+      "source_url": "https://codeforces.com/problem/cf_1_A",
+      "collection_date": "2025-07-29T15:13:10.893620",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "cf_1_A",
+        "approach_category": "alternative",
+        "contest_type": "Div2-A",
+        "collection_method": "sample_database",
+        "competitive_programming": true
+      }
+    }
+  ],
+  "language_distribution": {
+    "python": 2
+  },
+  "approach_distribution": {
+    "optimal": 1,
+    "alternative": 1
+  },
+  "quality_stats": {
+    "average": 99.0,
+    "max": 100.0,
+    "min": 98.0
+  },
+  "performance_stats": {
+    "average_runtime": 27.5,
+    "fastest_runtime": 25
+  },
+  "optimal_solution_id": "cf_1_A_sol_1",
+  "cleanest_code_id": "cf_1_A_sol_1",
+  "fastest_runtime_id": "cf_1_A_sol_2",
+  "most_educational_id": "cf_1_A_sol_1",
+  "collection_date": "2025-07-29T15:13:10.893642",
+  "last_updated": "2025-07-29T15:13:10.893644",
+  "metadata": {
+    "platform": "codeforces",
+    "collection_method": "sample_database",
+    "competitive_programming_focus": true,
+    "verification_status": "verified"
+  }
+}

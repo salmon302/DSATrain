@@ -1,0 +1,3160 @@
+{
+  "processing_date": "2025-07-29T14:42:28.372249",
+  "source": "codeforces_api",
+  "total_problems": 100,
+  "summary": {
+    "total_problems": 100,
+    "by_difficulty": {
+      "medium": 43,
+      "hard": 30,
+      "easy": 27
+    },
+    "by_rating_range": {
+      "2400-2599": 4,
+      "2200-2399": 7,
+      "2000-2199": 6,
+      "1400-1599": 7,
+      "1200-1399": 12,
+      "1000-1199": 5,
+      "800-999": 15,
+      "3400-3599": 5,
+      "3200-3399": 2,
+      "2800-2999": 3,
+      "1600-1799": 4,
+      "1800-1999": 5,
+      "3000-3199": 2,
+      "2600-2799": 3
+    },
+    "top_tags": {
+      "greedy": 52,
+      "math": 42,
+      "dp": 29,
+      "constructive_algorithms": 23,
+      "data_structures": 21,
+      "brute_force": 19,
+      "sortings": 18,
+      "binary_search": 15,
+      "graphs": 13,
+      "implementation": 13,
+      "trees": 12,
+      "number_theory": 12,
+      "combinatorics": 11,
+      "dfs_and_similar": 10,
+      "two_pointers": 8,
+      "divide_and_conquer": 6,
+      "bitmasks": 6,
+      "geometry": 6,
+      "shortest_paths": 4,
+      "dsu": 3
+    },
+    "google_relevant": 24,
+    "google_relevance_distribution": {
+      "4-5": 27,
+      "7-8": 7,
+      "6-7": 19,
+      "8-9": 14,
+      "9-10": 3,
+      "5-6": 17,
+      "2-3": 4,
+      "3-4": 9
+    },
+    "rating_distribution": {
+      "rated": 80,
+      "unrated": 20,
+      "avg_rating": 1778.8,
+      "min_rating": 800,
+      "max_rating": 3500
+    },
+    "google_relevance_stats": {
+      "avg_score": 5.68,
+      "min_score": 2.25,
+      "max_score": 9.0,
+      "high_relevance_count": 24
+    }
+  },
+  "problems": [
+    {
+      "id": "cf_2128_F",
+      "source": "codeforces",
+      "title": "Strict Triangle",
+      "description": "Problem: Strict Triangle\nTags: graphs, greedy, shortest_paths\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "graphs",
+        "greedy",
+        "shortest_paths"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2128/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370038",
+        "last_updated": "2025-07-29T14:42:28.370054",
+        "acquisition_method": "api",
+        "original_points": 4000.0
+      }
+    },
+    {
+      "id": "cf_2128_E2",
+      "source": "codeforces",
+      "title": "Submedians (Hard Version)",
+      "description": "Problem: Submedians (Hard Version)\nTags: binary_search, constructive_algorithms, data_structures, two_pointers\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "constructive_algorithms",
+        "data_structures",
+        "two_pointers"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 7.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2128/problem/E2",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370079",
+        "last_updated": "2025-07-29T14:42:28.370081",
+        "acquisition_method": "api",
+        "original_points": 1750.0
+      }
+    },
+    {
+      "id": "cf_2128_E1",
+      "source": "codeforces",
+      "title": "Submedians (Easy Version)",
+      "description": "Problem: Submedians (Easy Version)\nTags: binary_search, data_structures, dp, greedy\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "data_structures",
+        "dp",
+        "greedy"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 7.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2128/problem/E1",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370097",
+        "last_updated": "2025-07-29T14:42:28.370099",
+        "acquisition_method": "api",
+        "original_points": 1750.0
+      }
+    },
+    {
+      "id": "cf_2128_D",
+      "source": "codeforces",
+      "title": "Sum of LDS",
+      "description": "Problem: Sum of LDS\nTags: brute_force, combinatorics, dp, greedy, math\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "combinatorics",
+        "dp",
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2128/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370117",
+        "last_updated": "2025-07-29T14:42:28.370119",
+        "acquisition_method": "api",
+        "original_points": 1750.0
+      }
+    },
+    {
+      "id": "cf_2128_C",
+      "source": "codeforces",
+      "title": "Leftmost Below",
+      "description": "Problem: Leftmost Below\nTags: greedy, math\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2128/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370129",
+        "last_updated": "2025-07-29T14:42:28.370130",
+        "acquisition_method": "api",
+        "original_points": 1250.0
+      }
+    },
+    {
+      "id": "cf_2128_B",
+      "source": "codeforces",
+      "title": "Deque Process",
+      "description": "Problem: Deque Process\nTags: constructive_algorithms, greedy, sortings, two_pointers\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "greedy",
+        "sortings",
+        "two_pointers"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2128/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370145",
+        "last_updated": "2025-07-29T14:42:28.370146",
+        "acquisition_method": "api",
+        "original_points": 1000.0
+      }
+    },
+    {
+      "id": "cf_2128_A",
+      "source": "codeforces",
+      "title": "Recycling Center",
+      "description": "Problem: Recycling Center\nTags: greedy, sortings\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "sortings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2128/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370155",
+        "last_updated": "2025-07-29T14:42:28.370157",
+        "acquisition_method": "api",
+        "original_points": 500.0
+      }
+    },
+    {
+      "id": "cf_2126_G2",
+      "source": "codeforces",
+      "title": "Big Wins!  (hard version)",
+      "description": "Problem: Big Wins!  (hard version)\nTags: binary_search, data_structures, divide_and_conquer, dsu, trees, two_pointers\nRating: 2400",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2400,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "data_structures",
+        "divide_and_conquer",
+        "dsu",
+        "trees",
+        "two_pointers"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2400 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2126/problem/G2",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370175",
+        "last_updated": "2025-07-29T14:42:28.370176",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2126_G1",
+      "source": "codeforces",
+      "title": "Big Wins! (easy version)",
+      "description": "Problem: Big Wins! (easy version)\nTags: binary_search, data_structures, dp, dsu, two_pointers\nRating: 2200",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "data_structures",
+        "dp",
+        "dsu",
+        "two_pointers"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2126/problem/G1",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370192",
+        "last_updated": "2025-07-29T14:42:28.370193",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2126_F",
+      "source": "codeforces",
+      "title": "1-1-1, Free Tree!",
+      "description": "Problem: 1-1-1, Free Tree!\nTags: brute_force, data_structures, dfs_and_similar, graphs, implementation, trees\nRating: 2000",
+      "difficulty": {
+        "level": "medium",
+        "rating": 2000,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "data_structures",
+        "dfs_and_similar",
+        "graphs",
+        "implementation",
+        "trees"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 9.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2000 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2126/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370212",
+        "last_updated": "2025-07-29T14:42:28.370214",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2126_E",
+      "source": "codeforces",
+      "title": "G-C-D, Unlucky!",
+      "description": "Problem: G-C-D, Unlucky!\nTags: math, number_theory\nRating: 1400",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1400,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "math",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1400 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2126/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370225",
+        "last_updated": "2025-07-29T14:42:28.370227",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2126_D",
+      "source": "codeforces",
+      "title": "This Is the Last Time",
+      "description": "Problem: This Is the Last Time\nTags: data_structures, greedy, sortings\nRating: 1200",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "data_structures",
+        "greedy",
+        "sortings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2126/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370241",
+        "last_updated": "2025-07-29T14:42:28.370242",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2126_C",
+      "source": "codeforces",
+      "title": "I Will Definitely Make It",
+      "description": "Problem: I Will Definitely Make It\nTags: greedy, sortings\nRating: 1100",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1100,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "sortings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1100 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2126/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370253",
+        "last_updated": "2025-07-29T14:42:28.370254",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2126_B",
+      "source": "codeforces",
+      "title": "No Casino in the Mountains",
+      "description": "Problem: No Casino in the Mountains\nTags: dp, greedy\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "dp",
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2126/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370264",
+        "last_updated": "2025-07-29T14:42:28.370266",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2126_A",
+      "source": "codeforces",
+      "title": "Only One Digit",
+      "description": "Problem: Only One Digit\nTags: brute_force, implementation, math\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "implementation",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2126/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370278",
+        "last_updated": "2025-07-29T14:42:28.370280",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2125_F",
+      "source": "codeforces",
+      "title": "Timofey and Docker",
+      "description": "Problem: Timofey and Docker\nTags: binary_search, divide_and_conquer, dp\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "divide_and_conquer",
+        "dp"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2125/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370291",
+        "last_updated": "2025-07-29T14:42:28.370293",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2125_E",
+      "source": "codeforces",
+      "title": "Sets of Complementary Sums",
+      "description": "Problem: Sets of Complementary Sums\nTags: brute_force, combinatorics, dp, math, two_pointers\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "combinatorics",
+        "dp",
+        "math",
+        "two_pointers"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2125/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370309",
+        "last_updated": "2025-07-29T14:42:28.370311",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2125_D",
+      "source": "codeforces",
+      "title": "Segments Covering",
+      "description": "Problem: Segments Covering\nTags: dp, math, probabilities\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "dp",
+        "math",
+        "probabilities"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2125/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370323",
+        "last_updated": "2025-07-29T14:42:28.370324",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2125_C",
+      "source": "codeforces",
+      "title": "Count Good Numbers",
+      "description": "Problem: Count Good Numbers\nTags: bitmasks, combinatorics, math, number_theory\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "bitmasks",
+        "combinatorics",
+        "math",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 2.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2125/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370340",
+        "last_updated": "2025-07-29T14:42:28.370341",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2125_B",
+      "source": "codeforces",
+      "title": "Left and Down",
+      "description": "Problem: Left and Down\nTags: math, number_theory\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "math",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 2.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2125/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370351",
+        "last_updated": "2025-07-29T14:42:28.370353",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2125_A",
+      "source": "codeforces",
+      "title": "Difficult Contest",
+      "description": "Problem: Difficult Contest\nTags: constructive_algorithms, implementation, sortings, strings\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "implementation",
+        "sortings",
+        "strings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2125/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370377",
+        "last_updated": "2025-07-29T14:42:28.370378",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2124_I",
+      "source": "codeforces",
+      "title": "Lexicographic Partition",
+      "description": "Problem: Lexicographic Partition\nTags: constructive_algorithms, math, trees\nRating: 3500",
+      "difficulty": {
+        "level": "hard",
+        "rating": 3500,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "math",
+        "trees"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 3500 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/I",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370389",
+        "last_updated": "2025-07-29T14:42:28.370391",
+        "acquisition_method": "api",
+        "original_points": 4750.0
+      }
+    },
+    {
+      "id": "cf_2124_H",
+      "source": "codeforces",
+      "title": "Longest Good Subsequence",
+      "description": "Problem: Longest Good Subsequence\nTags: dp, math, trees\nRating: 3400",
+      "difficulty": {
+        "level": "hard",
+        "rating": 3400,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "dp",
+        "math",
+        "trees"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 3400 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/H",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370632",
+        "last_updated": "2025-07-29T14:42:28.370635",
+        "acquisition_method": "api",
+        "original_points": 4750.0
+      }
+    },
+    {
+      "id": "cf_2124_G",
+      "source": "codeforces",
+      "title": "Maximise Sum",
+      "description": "Problem: Maximise Sum\nTags: binary_search, data_structures\nRating: 3200",
+      "difficulty": {
+        "level": "hard",
+        "rating": 3200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "data_structures"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 3200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/G",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370646",
+        "last_updated": "2025-07-29T14:42:28.370648",
+        "acquisition_method": "api",
+        "original_points": 4000.0
+      }
+    },
+    {
+      "id": "cf_2124_F2",
+      "source": "codeforces",
+      "title": "Appending Permutations (Hard Version)",
+      "description": "Problem: Appending Permutations (Hard Version)\nTags: combinatorics, dp\nRating: 2800",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "combinatorics",
+        "dp"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 3.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/F2",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370661",
+        "last_updated": "2025-07-29T14:42:28.370662",
+        "acquisition_method": "api",
+        "original_points": 2000.0
+      }
+    },
+    {
+      "id": "cf_2124_F1",
+      "source": "codeforces",
+      "title": "Appending Permutations (Easy Version)",
+      "description": "Problem: Appending Permutations (Easy Version)\nTags: combinatorics, dp\nRating: 2300",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2300,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "combinatorics",
+        "dp"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 3.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2300 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/F1",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370674",
+        "last_updated": "2025-07-29T14:42:28.370675",
+        "acquisition_method": "api",
+        "original_points": 2000.0
+      }
+    },
+    {
+      "id": "cf_2124_E",
+      "source": "codeforces",
+      "title": "Make it Zero",
+      "description": "Problem: Make it Zero\nTags: constructive_algorithms, greedy, math\nRating: 2100",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2100,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2100 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370687",
+        "last_updated": "2025-07-29T14:42:28.370689",
+        "acquisition_method": "api",
+        "original_points": 2000.0
+      }
+    },
+    {
+      "id": "cf_2124_D",
+      "source": "codeforces",
+      "title": "Make a Palindrome",
+      "description": "Problem: Make a Palindrome\nTags: greedy, sortings, two_pointers\nRating: 1700",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1700,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "sortings",
+        "two_pointers"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1700 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370701",
+        "last_updated": "2025-07-29T14:42:28.370703",
+        "acquisition_method": "api",
+        "original_points": 1750.0
+      }
+    },
+    {
+      "id": "cf_2124_C",
+      "source": "codeforces",
+      "title": "Subset Multiplication",
+      "description": "Problem: Subset Multiplication\nTags: constructive_algorithms, greedy, math, number_theory\nRating: 1300",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1300,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "greedy",
+        "math",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1300 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370716",
+        "last_updated": "2025-07-29T14:42:28.370718",
+        "acquisition_method": "api",
+        "original_points": 1250.0
+      }
+    },
+    {
+      "id": "cf_2124_B",
+      "source": "codeforces",
+      "title": "Minimise Sum",
+      "description": "Problem: Minimise Sum\nTags: greedy\nRating: 1000",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 3.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1000 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370726",
+        "last_updated": "2025-07-29T14:42:28.370727",
+        "acquisition_method": "api",
+        "original_points": 1000.0
+      }
+    },
+    {
+      "id": "cf_2124_A",
+      "source": "codeforces",
+      "title": "Deranged Deletions",
+      "description": "Problem: Deranged Deletions\nTags: greedy, sortings\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "sortings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2124/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370736",
+        "last_updated": "2025-07-29T14:42:28.370738",
+        "acquisition_method": "api",
+        "original_points": 500.0
+      }
+    },
+    {
+      "id": "cf_2123_G",
+      "source": "codeforces",
+      "title": "Modular Sorting",
+      "description": "Problem: Modular Sorting\nTags: brute_force, data_structures, greedy, math, number_theory, sortings\nRating: 2100",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2100,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "data_structures",
+        "greedy",
+        "math",
+        "number_theory",
+        "sortings"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2100 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2123/problem/G",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370754",
+        "last_updated": "2025-07-29T14:42:28.370756",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2123_F",
+      "source": "codeforces",
+      "title": "Minimize Fixed Points",
+      "description": "Problem: Minimize Fixed Points\nTags: constructive_algorithms, number_theory\nRating: 1700",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1700,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1700 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2123/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370766",
+        "last_updated": "2025-07-29T14:42:28.370768",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2123_E",
+      "source": "codeforces",
+      "title": "MEX Count",
+      "description": "Problem: MEX Count\nTags: binary_search, data_structures, greedy, sortings, two_pointers\nRating: 1400",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1400,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "data_structures",
+        "greedy",
+        "sortings",
+        "two_pointers"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1400 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2123/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370782",
+        "last_updated": "2025-07-29T14:42:28.370783",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2123_D",
+      "source": "codeforces",
+      "title": "Binary String Battle",
+      "description": "Problem: Binary String Battle\nTags: constructive_algorithms, games, greedy\nRating: 1200",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "games",
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2123/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370795",
+        "last_updated": "2025-07-29T14:42:28.370797",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2123_C",
+      "source": "codeforces",
+      "title": "Prefix Min and Suffix Max",
+      "description": "Problem: Prefix Min and Suffix Max\nTags: brute_force, data_structures\nRating: 1000",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "data_structures"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1000 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2123/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370806",
+        "last_updated": "2025-07-29T14:42:28.370807",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2123_B",
+      "source": "codeforces",
+      "title": "Tournament",
+      "description": "Problem: Tournament\nTags: greedy\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 3.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2123/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370815",
+        "last_updated": "2025-07-29T14:42:28.370817",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2123_A",
+      "source": "codeforces",
+      "title": "Blackboard Game",
+      "description": "Problem: Blackboard Game\nTags: math\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 3.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2123/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370824",
+        "last_updated": "2025-07-29T14:42:28.370826",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2122_G",
+      "source": "codeforces",
+      "title": "Tree Parking",
+      "description": "Problem: Tree Parking\nTags: combinatorics, fft, math, trees\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "combinatorics",
+        "fft",
+        "math",
+        "trees"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2122/problem/G",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370839",
+        "last_updated": "2025-07-29T14:42:28.370840",
+        "acquisition_method": "api",
+        "original_points": 4000.0
+      }
+    },
+    {
+      "id": "cf_2122_F",
+      "source": "codeforces",
+      "title": "Colorful Polygon",
+      "description": "Problem: Colorful Polygon\nTags: constructive_algorithms, divide_and_conquer, geometry\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "divide_and_conquer",
+        "geometry"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2122/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370852",
+        "last_updated": "2025-07-29T14:42:28.370854",
+        "acquisition_method": "api",
+        "original_points": 3250.0
+      }
+    },
+    {
+      "id": "cf_2122_E",
+      "source": "codeforces",
+      "title": "Greedy Grid Counting",
+      "description": "Problem: Greedy Grid Counting\nTags: combinatorics, dp, greedy, math\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "combinatorics",
+        "dp",
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2122/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370867",
+        "last_updated": "2025-07-29T14:42:28.370868",
+        "acquisition_method": "api",
+        "original_points": 2500.0
+      }
+    },
+    {
+      "id": "cf_2122_D",
+      "source": "codeforces",
+      "title": "Traffic Lights",
+      "description": "Problem: Traffic Lights\nTags: brute_force, data_structures, divide_and_conquer, dp, graphs, greedy, shortest_paths\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "data_structures",
+        "divide_and_conquer",
+        "dp",
+        "graphs",
+        "greedy",
+        "shortest_paths"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 7.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2122/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370886",
+        "last_updated": "2025-07-29T14:42:28.370888",
+        "acquisition_method": "api",
+        "original_points": 2000.0
+      }
+    },
+    {
+      "id": "cf_2122_C",
+      "source": "codeforces",
+      "title": "Manhattan Pairs",
+      "description": "Problem: Manhattan Pairs\nTags: constructive_algorithms, geometry, greedy, math, sortings\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "geometry",
+        "greedy",
+        "math",
+        "sortings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2122/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370902",
+        "last_updated": "2025-07-29T14:42:28.370903",
+        "acquisition_method": "api",
+        "original_points": 1500.0
+      }
+    },
+    {
+      "id": "cf_2122_B",
+      "source": "codeforces",
+      "title": "Pile Shuffling",
+      "description": "Problem: Pile Shuffling\nTags: greedy, math\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2122/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370912",
+        "last_updated": "2025-07-29T14:42:28.370913",
+        "acquisition_method": "api",
+        "original_points": 1000.0
+      }
+    },
+    {
+      "id": "cf_2122_A",
+      "source": "codeforces",
+      "title": "Greedy Grid",
+      "description": "Problem: Greedy Grid\nTags: constructive_algorithms, greedy\nRating: Unrated",
+      "difficulty": {
+        "level": "medium",
+        "rating": null,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Standard"
+      },
+      "source_url": "https://codeforces.com/contest/2122/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370922",
+        "last_updated": "2025-07-29T14:42:28.370923",
+        "acquisition_method": "api",
+        "original_points": 500.0
+      }
+    },
+    {
+      "id": "cf_2121_H",
+      "source": "codeforces",
+      "title": "Ice Baby",
+      "description": "Problem: Ice Baby\nTags: binary_search, brute_force, data_structures, dp, implementation, sortings\nRating: 2300",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2300,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "brute_force",
+        "data_structures",
+        "dp",
+        "implementation",
+        "sortings"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 7.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2300 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2121/problem/H",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370939",
+        "last_updated": "2025-07-29T14:42:28.370941",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2121_G",
+      "source": "codeforces",
+      "title": "Gangsta",
+      "description": "Problem: Gangsta\nTags: data_structures, divide_and_conquer, math, sortings\nRating: 1900",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1900,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "data_structures",
+        "divide_and_conquer",
+        "math",
+        "sortings"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1900 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2121/problem/G",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370952",
+        "last_updated": "2025-07-29T14:42:28.370954",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2121_F",
+      "source": "codeforces",
+      "title": "Yamakasi",
+      "description": "Problem: Yamakasi\nTags: binary_search, brute_force, data_structures, greedy, two_pointers\nRating: 1800",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "brute_force",
+        "data_structures",
+        "greedy",
+        "two_pointers"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2121/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370968",
+        "last_updated": "2025-07-29T14:42:28.370969",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2121_E",
+      "source": "codeforces",
+      "title": "Sponsor of Your Problems",
+      "description": "Problem: Sponsor of Your Problems\nTags: dp, greedy, implementation, strings\nRating: 1500",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1500,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "dp",
+        "greedy",
+        "implementation",
+        "strings"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1500 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2121/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370981",
+        "last_updated": "2025-07-29T14:42:28.370983",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2121_D",
+      "source": "codeforces",
+      "title": "1709",
+      "description": "Problem: 1709\nTags: implementation, sortings\nRating: 1300",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1300,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "implementation",
+        "sortings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1300 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2121/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.370992",
+        "last_updated": "2025-07-29T14:42:28.370994",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2121_C",
+      "source": "codeforces",
+      "title": "Those Who Are With Us",
+      "description": "Problem: Those Who Are With Us\nTags: greedy, greedy, implementation\nRating: 1200",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "greedy",
+        "implementation"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2121/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371005",
+        "last_updated": "2025-07-29T14:42:28.371006",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2121_B",
+      "source": "codeforces",
+      "title": "Above the Clouds",
+      "description": "Problem: Above the Clouds\nTags: constructive_algorithms, greedy, strings\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "greedy",
+        "strings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2121/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371016",
+        "last_updated": "2025-07-29T14:42:28.371018",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2121_A",
+      "source": "codeforces",
+      "title": "Letter Home",
+      "description": "Problem: Letter Home\nTags: brute_force, math\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2121/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371032",
+        "last_updated": "2025-07-29T14:42:28.371033",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2120_G",
+      "source": "codeforces",
+      "title": "Eulerian Line Graph",
+      "description": "Problem: Eulerian Line Graph\nTags: graphs, greedy, math\nRating: 3000",
+      "difficulty": {
+        "level": "hard",
+        "rating": 3000,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "graphs",
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 3000 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2120/problem/G",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371054",
+        "last_updated": "2025-07-29T14:42:28.371055",
+        "acquisition_method": "api",
+        "original_points": 4000.0
+      }
+    },
+    {
+      "id": "cf_2120_F",
+      "source": "codeforces",
+      "title": "Superb Graphs",
+      "description": "Problem: Superb Graphs\nTags: 2_sat, graphs\nRating: 2600",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2600,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "2_sat",
+        "graphs"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 3.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2600 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2120/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371065",
+        "last_updated": "2025-07-29T14:42:28.371067",
+        "acquisition_method": "api",
+        "original_points": 3000.0
+      }
+    },
+    {
+      "id": "cf_2120_E",
+      "source": "codeforces",
+      "title": "Lanes of Cars",
+      "description": "Problem: Lanes of Cars\nTags: binary_search, dp, ternary_search\nRating: 2300",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2300,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "dp",
+        "ternary_search"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2300 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2120/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371079",
+        "last_updated": "2025-07-29T14:42:28.371081",
+        "acquisition_method": "api",
+        "original_points": 2500.0
+      }
+    },
+    {
+      "id": "cf_2120_D",
+      "source": "codeforces",
+      "title": "Matrix game",
+      "description": "Problem: Matrix game\nTags: combinatorics, math\nRating: 1800",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "combinatorics",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2120/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371091",
+        "last_updated": "2025-07-29T14:42:28.371092",
+        "acquisition_method": "api",
+        "original_points": 1750.0
+      }
+    },
+    {
+      "id": "cf_2120_C",
+      "source": "codeforces",
+      "title": "Divine Tree",
+      "description": "Problem: Divine Tree\nTags: constructive_algorithms, greedy, math, sortings, trees\nRating: 1400",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1400,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "greedy",
+        "math",
+        "sortings",
+        "trees"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1400 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2120/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371106",
+        "last_updated": "2025-07-29T14:42:28.371107",
+        "acquisition_method": "api",
+        "original_points": 1250.0
+      }
+    },
+    {
+      "id": "cf_2120_B",
+      "source": "codeforces",
+      "title": "Square Pool",
+      "description": "Problem: Square Pool\nTags: geometry\nRating: 1000",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "geometry"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 3.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1000 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2120/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371116",
+        "last_updated": "2025-07-29T14:42:28.371118",
+        "acquisition_method": "api",
+        "original_points": 750.0
+      }
+    },
+    {
+      "id": "cf_2120_A",
+      "source": "codeforces",
+      "title": "Square of Rectangles",
+      "description": "Problem: Square of Rectangles\nTags: geometry, math\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "geometry",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2120/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371128",
+        "last_updated": "2025-07-29T14:42:28.371129",
+        "acquisition_method": "api",
+        "original_points": 500.0
+      }
+    },
+    {
+      "id": "cf_2119_F",
+      "source": "codeforces",
+      "title": "Volcanic Eruptions",
+      "description": "Problem: Volcanic Eruptions\nTags: dfs_and_similar, dp, greedy, shortest_paths, trees\nRating: 3300",
+      "difficulty": {
+        "level": "hard",
+        "rating": 3300,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "dfs_and_similar",
+        "dp",
+        "greedy",
+        "shortest_paths",
+        "trees"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 3300 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2119/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371145",
+        "last_updated": "2025-07-29T14:42:28.371147",
+        "acquisition_method": "api",
+        "original_points": 3000.0
+      }
+    },
+    {
+      "id": "cf_2119_E",
+      "source": "codeforces",
+      "title": "And Constraint",
+      "description": "Problem: And Constraint\nTags: bitmasks, dp, greedy\nRating: 2600",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2600,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "bitmasks",
+        "dp",
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2600 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2119/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371158",
+        "last_updated": "2025-07-29T14:42:28.371160",
+        "acquisition_method": "api",
+        "original_points": 2500.0
+      }
+    },
+    {
+      "id": "cf_2119_D",
+      "source": "codeforces",
+      "title": "Token Removing",
+      "description": "Problem: Token Removing\nTags: combinatorics, dp, math\nRating: 2100",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2100,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "combinatorics",
+        "dp",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2100 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2119/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371171",
+        "last_updated": "2025-07-29T14:42:28.371173",
+        "acquisition_method": "api",
+        "original_points": 2250.0
+      }
+    },
+    {
+      "id": "cf_2119_C",
+      "source": "codeforces",
+      "title": "A Good Problem",
+      "description": "Problem: A Good Problem\nTags: bitmasks, constructive_algorithms, math\nRating: 1300",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1300,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "bitmasks",
+        "constructive_algorithms",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1300 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2119/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371184",
+        "last_updated": "2025-07-29T14:42:28.371185",
+        "acquisition_method": "api",
+        "original_points": 1500.0
+      }
+    },
+    {
+      "id": "cf_2119_B",
+      "source": "codeforces",
+      "title": "Line Segments",
+      "description": "Problem: Line Segments\nTags: geometry, greedy, math\nRating: 1200",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "geometry",
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2119/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371196",
+        "last_updated": "2025-07-29T14:42:28.371198",
+        "acquisition_method": "api",
+        "original_points": 1000.0
+      }
+    },
+    {
+      "id": "cf_2119_A",
+      "source": "codeforces",
+      "title": "Add or XOR",
+      "description": "Problem: Add or XOR\nTags: bitmasks, greedy, math\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "bitmasks",
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2119/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371209",
+        "last_updated": "2025-07-29T14:42:28.371211",
+        "acquisition_method": "api",
+        "original_points": 500.0
+      }
+    },
+    {
+      "id": "cf_2118_F",
+      "source": "codeforces",
+      "title": "Shifts and Swaps",
+      "description": "Problem: Shifts and Swaps\nTags: data_structures, graphs, hashing, trees\nRating: 3100",
+      "difficulty": {
+        "level": "hard",
+        "rating": 3100,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "data_structures",
+        "graphs",
+        "hashing",
+        "trees"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 7.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 3100 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2118/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371221",
+        "last_updated": "2025-07-29T14:42:28.371223",
+        "acquisition_method": "api",
+        "original_points": 3500.0
+      }
+    },
+    {
+      "id": "cf_2118_E",
+      "source": "codeforces",
+      "title": "Grid Coloring",
+      "description": "Problem: Grid Coloring\nTags: constructive_algorithms, geometry, greedy, math\nRating: 2400",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2400,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "geometry",
+        "greedy",
+        "math"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 7.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2400 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2118/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371235",
+        "last_updated": "2025-07-29T14:42:28.371237",
+        "acquisition_method": "api",
+        "original_points": 2500.0
+      }
+    },
+    {
+      "id": "cf_2118_D2",
+      "source": "codeforces",
+      "title": "Red Light, Green Light (Hard version)",
+      "description": "Problem: Red Light, Green Light (Hard version)\nTags: binary_search, brute_force, data_structures, dfs_and_similar, dp, graphs, implementation, math, number_theory\nRating: 2200",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "brute_force",
+        "data_structures",
+        "dfs_and_similar",
+        "dp",
+        "graphs",
+        "implementation",
+        "math",
+        "number_theory"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 9.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2118/problem/D2",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371258",
+        "last_updated": "2025-07-29T14:42:28.371260",
+        "acquisition_method": "api",
+        "original_points": 1000.0
+      }
+    },
+    {
+      "id": "cf_2118_D1",
+      "source": "codeforces",
+      "title": "Red Light, Green Light (Easy version)",
+      "description": "Problem: Red Light, Green Light (Easy version)\nTags: brute_force, dfs_and_similar, dp, graphs, implementation, number_theory\nRating: 1700",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1700,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "dfs_and_similar",
+        "dp",
+        "graphs",
+        "implementation",
+        "number_theory"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1700 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2118/problem/D1",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371277",
+        "last_updated": "2025-07-29T14:42:28.371279",
+        "acquisition_method": "api",
+        "original_points": 1250.0
+      }
+    },
+    {
+      "id": "cf_2118_C",
+      "source": "codeforces",
+      "title": "Make It Beautiful",
+      "description": "Problem: Make It Beautiful\nTags: bitmasks, data_structures, greedy, math\nRating: 1300",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1300,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "bitmasks",
+        "data_structures",
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1300 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2118/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371291",
+        "last_updated": "2025-07-29T14:42:28.371293",
+        "acquisition_method": "api",
+        "original_points": 1000.0
+      }
+    },
+    {
+      "id": "cf_2118_B",
+      "source": "codeforces",
+      "title": "Make It Permutation",
+      "description": "Problem: Make It Permutation\nTags: constructive_algorithms\nRating: 1200",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2118/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371300",
+        "last_updated": "2025-07-29T14:42:28.371302",
+        "acquisition_method": "api",
+        "original_points": 1000.0
+      }
+    },
+    {
+      "id": "cf_2118_A",
+      "source": "codeforces",
+      "title": "Equal Subsequences",
+      "description": "Problem: Equal Subsequences\nTags: constructive_algorithms, greedy\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2118/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371312",
+        "last_updated": "2025-07-29T14:42:28.371313",
+        "acquisition_method": "api",
+        "original_points": 500.0
+      }
+    },
+    {
+      "id": "cf_2117_H",
+      "source": "codeforces",
+      "title": "Incessant Rain",
+      "description": "Problem: Incessant Rain\nTags: data_structures, divide_and_conquer, sortings\nRating: 2500",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2500,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "data_structures",
+        "divide_and_conquer",
+        "sortings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2500 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2117/problem/H",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371323",
+        "last_updated": "2025-07-29T14:42:28.371325",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2117_G",
+      "source": "codeforces",
+      "title": "Omg Graph",
+      "description": "Problem: Omg Graph\nTags: brute_force, dsu, graphs, greedy, shortest_paths, sortings\nRating: 1900",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1900,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "dsu",
+        "graphs",
+        "greedy",
+        "shortest_paths",
+        "sortings"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1900 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2117/problem/G",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371342",
+        "last_updated": "2025-07-29T14:42:28.371344",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2117_F",
+      "source": "codeforces",
+      "title": "Wildflower",
+      "description": "Problem: Wildflower\nTags: combinatorics, dfs_and_similar, trees\nRating: 1800",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "combinatorics",
+        "dfs_and_similar",
+        "trees"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2117/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371356",
+        "last_updated": "2025-07-29T14:42:28.371357",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2117_E",
+      "source": "codeforces",
+      "title": "Lost Soul",
+      "description": "Problem: Lost Soul\nTags: brute_force, greedy\nRating: 1600",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1600,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1600 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2117/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371367",
+        "last_updated": "2025-07-29T14:42:28.371368",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2117_D",
+      "source": "codeforces",
+      "title": "Retaliation",
+      "description": "Problem: Retaliation\nTags: binary_search, math, number_theory\nRating: 1200",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "math",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2117/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371381",
+        "last_updated": "2025-07-29T14:42:28.371382",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2117_C",
+      "source": "codeforces",
+      "title": "Cool Partition",
+      "description": "Problem: Cool Partition\nTags: data_structures, greedy\nRating: 1200",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "data_structures",
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2117/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371391",
+        "last_updated": "2025-07-29T14:42:28.371392",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2117_B",
+      "source": "codeforces",
+      "title": "Shrink",
+      "description": "Problem: Shrink\nTags: constructive_algorithms\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 3.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2117/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371409",
+        "last_updated": "2025-07-29T14:42:28.371411",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2117_A",
+      "source": "codeforces",
+      "title": "False Alarm",
+      "description": "Problem: False Alarm\nTags: greedy, implementation\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "implementation"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2117/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371421",
+        "last_updated": "2025-07-29T14:42:28.371422",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2116_B",
+      "source": "codeforces",
+      "title": "Gellyfish and Baby's Breath",
+      "description": "Problem: Gellyfish and Baby's Breath\nTags: greedy, math, sortings\nRating: 1300",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1300,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "math",
+        "sortings"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1300 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2116/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371432",
+        "last_updated": "2025-07-29T14:42:28.371434",
+        "acquisition_method": "api",
+        "original_points": 750.0
+      }
+    },
+    {
+      "id": "cf_2116_A",
+      "source": "codeforces",
+      "title": "Gellyfish and Tricolor Pansy",
+      "description": "Problem: Gellyfish and Tricolor Pansy\nTags: games, greedy\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "games",
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 3.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2116/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371444",
+        "last_updated": "2025-07-29T14:42:28.371445",
+        "acquisition_method": "api",
+        "original_points": 500.0
+      }
+    },
+    {
+      "id": "cf_2115_F2",
+      "source": "codeforces",
+      "title": "Gellyfish and Lycoris Radiata (Hard Version)",
+      "description": "Problem: Gellyfish and Lycoris Radiata (Hard Version)\nTags: data_structures\nRating: 3500",
+      "difficulty": {
+        "level": "hard",
+        "rating": 3500,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "data_structures"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 2.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 3500 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2115/problem/F2",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371453",
+        "last_updated": "2025-07-29T14:42:28.371454",
+        "acquisition_method": "api",
+        "original_points": 3500.0
+      }
+    },
+    {
+      "id": "cf_2115_F1",
+      "source": "codeforces",
+      "title": "Gellyfish and Lycoris Radiata (Easy Version)",
+      "description": "Problem: Gellyfish and Lycoris Radiata (Easy Version)\nTags: data_structures\nRating: 3500",
+      "difficulty": {
+        "level": "hard",
+        "rating": 3500,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "data_structures"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 2.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 3500 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2115/problem/F1",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371461",
+        "last_updated": "2025-07-29T14:42:28.371463",
+        "acquisition_method": "api",
+        "original_points": 2500.0
+      }
+    },
+    {
+      "id": "cf_2115_E",
+      "source": "codeforces",
+      "title": "Gellyfish and Mayflower",
+      "description": "Problem: Gellyfish and Mayflower\nTags: dp, graphs\nRating: 3500",
+      "difficulty": {
+        "level": "hard",
+        "rating": 3500,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "dp",
+        "graphs"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 3500 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2115/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371472",
+        "last_updated": "2025-07-29T14:42:28.371474",
+        "acquisition_method": "api",
+        "original_points": 3000.0
+      }
+    },
+    {
+      "id": "cf_2115_D",
+      "source": "codeforces",
+      "title": "Gellyfish and Forget-Me-Not",
+      "description": "Problem: Gellyfish and Forget-Me-Not\nTags: bitmasks, dp, games, greedy, math\nRating: 2900",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2900,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "bitmasks",
+        "dp",
+        "games",
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2900 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2115/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371489",
+        "last_updated": "2025-07-29T14:42:28.371490",
+        "acquisition_method": "api",
+        "original_points": 2250.0
+      }
+    },
+    {
+      "id": "cf_2115_C",
+      "source": "codeforces",
+      "title": "Gellyfish and Eternal Violet",
+      "description": "Problem: Gellyfish and Eternal Violet\nTags: combinatorics, dp, greedy, math, probabilities\nRating: 2700",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2700,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "combinatorics",
+        "dp",
+        "greedy",
+        "math",
+        "probabilities"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 5.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2700 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2115/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371505",
+        "last_updated": "2025-07-29T14:42:28.371507",
+        "acquisition_method": "api",
+        "original_points": 1750.0
+      }
+    },
+    {
+      "id": "cf_2115_B",
+      "source": "codeforces",
+      "title": "Gellyfish and Camellia Japonica",
+      "description": "Problem: Gellyfish and Camellia Japonica\nTags: brute_force, constructive_algorithms, dfs_and_similar, dp, graphs, greedy, trees\nRating: 2100",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2100,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "constructive_algorithms",
+        "dfs_and_similar",
+        "dp",
+        "graphs",
+        "greedy",
+        "trees"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 9.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2100 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2115/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371525",
+        "last_updated": "2025-07-29T14:42:28.371526",
+        "acquisition_method": "api",
+        "original_points": 1250.0
+      }
+    },
+    {
+      "id": "cf_2115_A",
+      "source": "codeforces",
+      "title": "Gellyfish and Flaming Peony",
+      "description": "Problem: Gellyfish and Flaming Peony\nTags: constructive_algorithms, dp, math, number_theory\nRating: 1500",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1500,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "dp",
+        "math",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1500 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2115/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371539",
+        "last_updated": "2025-07-29T14:42:28.371541",
+        "acquisition_method": "api",
+        "original_points": 500.0
+      }
+    },
+    {
+      "id": "cf_2114_G",
+      "source": "codeforces",
+      "title": "Build an Array",
+      "description": "Problem: Build an Array\nTags: brute_force, constructive_algorithms, dp, greedy, math, number_theory\nRating: 2200",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "constructive_algorithms",
+        "dp",
+        "greedy",
+        "math",
+        "number_theory"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2114/problem/G",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371557",
+        "last_updated": "2025-07-29T14:42:28.371558",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2114_F",
+      "source": "codeforces",
+      "title": "Small Operations",
+      "description": "Problem: Small Operations\nTags: binary_search, brute_force, dfs_and_similar, dp, math, number_theory, sortings\nRating: 2000",
+      "difficulty": {
+        "level": "medium",
+        "rating": 2000,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "brute_force",
+        "dfs_and_similar",
+        "dp",
+        "math",
+        "number_theory",
+        "sortings"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2000 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2114/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371577",
+        "last_updated": "2025-07-29T14:42:28.371578",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2114_E",
+      "source": "codeforces",
+      "title": "Kirei Attacks the Estate",
+      "description": "Problem: Kirei Attacks the Estate\nTags: dfs_and_similar, dp, greedy, trees\nRating: 1400",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1400,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "dfs_and_similar",
+        "dp",
+        "greedy",
+        "trees"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 7.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1400 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2114/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371591",
+        "last_updated": "2025-07-29T14:42:28.371592",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2114_D",
+      "source": "codeforces",
+      "title": "Come a Little Closer",
+      "description": "Problem: Come a Little Closer\nTags: brute_force, greedy, implementation, math\nRating: 1400",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1400,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "brute_force",
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.0,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1400 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2114/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371606",
+        "last_updated": "2025-07-29T14:42:28.371607",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2114_C",
+      "source": "codeforces",
+      "title": "Need More Arrays",
+      "description": "Problem: Need More Arrays\nTags: dp, greedy\nRating: 1000",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "dp",
+        "greedy"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 1000 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2114/problem/C",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371617",
+        "last_updated": "2025-07-29T14:42:28.371618",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2114_B",
+      "source": "codeforces",
+      "title": "Not Quite a Palindromic String",
+      "description": "Problem: Not Quite a Palindromic String\nTags: greedy, math\nRating: 900",
+      "difficulty": {
+        "level": "easy",
+        "rating": 900,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 4.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 900 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2114/problem/B",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371627",
+        "last_updated": "2025-07-29T14:42:28.371629",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2114_A",
+      "source": "codeforces",
+      "title": "Square Year",
+      "description": "Problem: Square Year\nTags: binary_search, brute_force, math\nRating: 800",
+      "difficulty": {
+        "level": "easy",
+        "rating": 800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "brute_force",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2114/problem/A",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371639",
+        "last_updated": "2025-07-29T14:42:28.371640",
+        "acquisition_method": "api",
+        "original_points": null
+      }
+    },
+    {
+      "id": "cf_2113_F",
+      "source": "codeforces",
+      "title": "Two Arrays",
+      "description": "Problem: Two Arrays\nTags: constructive_algorithms, dfs_and_similar, graphs, math\nRating: 2500",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2500,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "constructive_algorithms",
+        "dfs_and_similar",
+        "graphs",
+        "math"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.25,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2500 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2113/problem/F",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371653",
+        "last_updated": "2025-07-29T14:42:28.371654",
+        "acquisition_method": "api",
+        "original_points": 3000.0
+      }
+    },
+    {
+      "id": "cf_2113_E",
+      "source": "codeforces",
+      "title": "From Kazan with Love",
+      "description": "Problem: From Kazan with Love\nTags: dfs_and_similar, graphs, implementation, trees\nRating: 2800",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2800,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "dfs_and_similar",
+        "graphs",
+        "implementation",
+        "trees"
+      ],
+      "company_tags": [],
+      "google_relevance_score": 6.75,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2800 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2113/problem/E",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371667",
+        "last_updated": "2025-07-29T14:42:28.371669",
+        "acquisition_method": "api",
+        "original_points": 2500.0
+      }
+    },
+    {
+      "id": "cf_2113_D",
+      "source": "codeforces",
+      "title": "Cheater",
+      "description": "Problem: Cheater\nTags: binary_search, constructive_algorithms, greedy, implementation\nRating: 2200",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2200,
+        "source_scale": "codeforces_rating"
+      },
+      "tags": [
+        "binary_search",
+        "constructive_algorithms",
+        "greedy",
+        "implementation"
+      ],
+      "company_tags": [
+        "google"
+      ],
+      "google_relevance_score": 8.5,
+      "constraints": {
+        "time_limit": "2000ms",
+        "memory_limit": "256MB",
+        "input_size": "Based on 2200 rating"
+      },
+      "source_url": "https://codeforces.com/contest/2113/problem/D",
+      "metadata": {
+        "created_date": "2025-07-29T14:42:28.371680",
+        "last_updated": "2025-07-29T14:42:28.371682",
+        "acquisition_method": "api",
+        "original_points": 1750.0
+      }
+    }
+  ]
+}

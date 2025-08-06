@@ -1,0 +1,608 @@
+[
+  {
+    "id": "hr_new_year_chaos",
+    "source": "hackerrank",
+    "title": "New Year Chaos",
+    "description": "Determine minimum number of bribes to get a given permutation.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "arrays",
+      "greedy"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768019",
+      "last_updated": "2025-07-29T14:53:42.768021",
+      "source_url": "https://www.hackerrank.com/challenges/new-year-chaos/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Arrays",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 19.0
+  },
+  {
+    "id": "hr_minimum_swaps",
+    "source": "hackerrank",
+    "title": "Minimum Swaps 2",
+    "description": "Return minimum number of swaps to sort an array.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "arrays",
+      "sorting"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768025",
+      "last_updated": "2025-07-29T14:53:42.768027",
+      "source_url": "https://www.hackerrank.com/challenges/minimum-swaps-2/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Arrays",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 19.0
+  },
+  {
+    "id": "hr_abbreviation",
+    "source": "hackerrank",
+    "title": "Abbreviation",
+    "description": "Determine if string can be transformed to match pattern.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1800,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1800,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "strings"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768068",
+      "last_updated": "2025-07-29T14:53:42.768069",
+      "source_url": "https://www.hackerrank.com/challenges/abbr/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Dynamic Programming",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 19.0
+  },
+  {
+    "id": "hr_fibonacci_modified",
+    "source": "hackerrank",
+    "title": "Fibonacci Modified",
+    "description": "Calculate modified Fibonacci sequence.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming",
+      "recursion",
+      "recursion_and_backtracking"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768073",
+      "last_updated": "2025-07-29T14:53:42.768075",
+      "source_url": "https://www.hackerrank.com/challenges/fibonacci-modified/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Recursion and Backtracking",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 19.0
+  },
+  {
+    "id": "hr_roads_and_libraries",
+    "source": "hackerrank",
+    "title": "Roads and Libraries",
+    "description": "Determine minimum cost to provide library access.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1800,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1800,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "graphs",
+      "greedy"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768078",
+      "last_updated": "2025-07-29T14:53:42.768079",
+      "source_url": "https://www.hackerrank.com/challenges/torque-and-development/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Graphs",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 19.0
+  },
+  {
+    "id": "hr_find_nearest_clone",
+    "source": "hackerrank",
+    "title": "Find the Nearest Clone",
+    "description": "Find shortest path between nodes with same color.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1800,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1800,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "graphs",
+      "bfs"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768083",
+      "last_updated": "2025-07-29T14:53:42.768084",
+      "source_url": "https://www.hackerrank.com/challenges/find-the-nearest-clone/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Graphs",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 19.0
+  },
+  {
+    "id": "hr_minimum_time_required",
+    "source": "hackerrank",
+    "title": "Minimum Time Required",
+    "description": "Find minimum time to produce required items.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "greedy",
+      "binary_search",
+      "greedy_algorithms"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768089",
+      "last_updated": "2025-07-29T14:53:42.768091",
+      "source_url": "https://www.hackerrank.com/challenges/minimum-time-required/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Greedy Algorithms",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 19.0
+  },
+  {
+    "id": "hr_tree_height",
+    "source": "hackerrank",
+    "title": "Tree: Height of a Binary Tree",
+    "description": "Calculate the height of a binary tree.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1300,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1300,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "trees",
+      "recursion"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768037",
+      "last_updated": "2025-07-29T14:53:42.768038",
+      "source_url": "https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Trees",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 17.0
+  },
+  {
+    "id": "hr_2d_array_ds",
+    "source": "hackerrank",
+    "title": "2D Array - DS",
+    "description": "Calculate the maximum hourglass sum in a 2D array.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1100,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1100,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "arrays",
+      "data_structures"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.767989",
+      "last_updated": "2025-07-29T14:53:42.768003",
+      "source_url": "https://www.hackerrank.com/challenges/2d-array/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Arrays",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 15.0
+  },
+  {
+    "id": "hr_luck_balance",
+    "source": "hackerrank",
+    "title": "Luck Balance",
+    "description": "Maximize luck by strategically losing contests.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1100,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1100,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "greedy",
+      "sorting",
+      "greedy_algorithms"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768095",
+      "last_updated": "2025-07-29T14:53:42.768096",
+      "source_url": "https://www.hackerrank.com/challenges/luck-balance/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Greedy Algorithms",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 15.0
+  },
+  {
+    "id": "hr_queue_using_stacks",
+    "source": "hackerrank",
+    "title": "Queue using Two Stacks",
+    "description": "Implement a queue using two stacks.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "stacks",
+      "queues",
+      "data_structures",
+      "stacks_and_queues"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768056",
+      "last_updated": "2025-07-29T14:53:42.768058",
+      "source_url": "https://www.hackerrank.com/challenges/queue-using-two-stacks/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Stacks and Queues",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 14.0
+  },
+  {
+    "id": "hr_max_array_sum",
+    "source": "hackerrank",
+    "title": "Max Array Sum",
+    "description": "Find maximum sum of non-adjacent elements.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1800,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1800,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "dynamic_programming"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768063",
+      "last_updated": "2025-07-29T14:53:42.768064",
+      "source_url": "https://www.hackerrank.com/challenges/max-array-sum/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Dynamic Programming",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 14.0
+  },
+  {
+    "id": "hr_tree_lca",
+    "source": "hackerrank",
+    "title": "Binary Search Tree: Lowest Common Ancestor",
+    "description": "Find the lowest common ancestor in a BST.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1300,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1300,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "trees",
+      "binary_search_tree"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768045",
+      "last_updated": "2025-07-29T14:53:42.768047",
+      "source_url": "https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Trees",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 12.0
+  },
+  {
+    "id": "hr_arrays_left_rotation",
+    "source": "hackerrank",
+    "title": "Arrays: Left Rotation",
+    "description": "Perform left rotations on an array and return the result.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1100,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1100,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "arrays",
+      "implementation"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768012",
+      "last_updated": "2025-07-29T14:53:42.768014",
+      "source_url": "https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Arrays",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 10.0
+  },
+  {
+    "id": "hr_sorting_bubble_sort",
+    "source": "hackerrank",
+    "title": "Sorting: Bubble Sort",
+    "description": "Implement bubble sort and count swaps.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1100,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1100,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "sorting",
+      "implementation"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768116",
+      "last_updated": "2025-07-29T14:53:42.768118",
+      "source_url": "https://www.hackerrank.com/challenges/ctci-bubble-sort/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Sorting",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 10.0
+  },
+  {
+    "id": "hr_balanced_brackets",
+    "source": "hackerrank",
+    "title": "Balanced Brackets",
+    "description": "Determine if bracket sequences are balanced.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "stacks",
+      "string_manipulation",
+      "stacks_and_queues"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768051",
+      "last_updated": "2025-07-29T14:53:42.768052",
+      "source_url": "https://www.hackerrank.com/challenges/balanced-brackets/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Stacks and Queues",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 9.0
+  },
+  {
+    "id": "hr_sherlock_valid_string",
+    "source": "hackerrank",
+    "title": "Sherlock and the Valid String",
+    "description": "Determine if string can be made valid by removing one character.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1600,
+      "standardized_level": "medium"
+    },
+    "tags": [
+      "string_manipulation",
+      "implementation"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768111",
+      "last_updated": "2025-07-29T14:53:42.768113",
+      "source_url": "https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "String Manipulation",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 9.0
+  },
+  {
+    "id": "hr_linked_list_cycle",
+    "source": "hackerrank",
+    "title": "Linked Lists: Detect a Cycle",
+    "description": "Determine if a linked list contains a cycle.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1100,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1100,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "linked_lists",
+      "cycle_detection"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768031",
+      "last_updated": "2025-07-29T14:53:42.768032",
+      "source_url": "https://www.hackerrank.com/challenges/ctci-linked-list-cycle/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Linked Lists",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 5.0
+  },
+  {
+    "id": "hr_hash_tables_ransom_note",
+    "source": "hackerrank",
+    "title": "Hash Tables: Ransom Note",
+    "description": "Determine if ransom note can be formed from magazine.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1100,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1100,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "hash_tables",
+      "string_manipulation",
+      "miscellaneous"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768101",
+      "last_updated": "2025-07-29T14:53:42.768103",
+      "source_url": "https://www.hackerrank.com/challenges/ctci-ransom-note/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "Miscellaneous",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 5.0
+  },
+  {
+    "id": "hr_two_strings",
+    "source": "hackerrank",
+    "title": "Two Strings",
+    "description": "Determine if two strings share a common substring.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1100,
+      "source_scale": "hackerrank_estimated",
+      "standardized_rating": 1100,
+      "standardized_level": "easy"
+    },
+    "tags": [
+      "string_manipulation",
+      "hash_tables"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:53:42.768106",
+      "last_updated": "2025-07-29T14:53:42.768108",
+      "source_url": "https://www.hackerrank.com/challenges/two-strings/problem",
+      "acquisition_method": "static_dataset",
+      "topic": "String Manipulation",
+      "is_interview_kit": true
+    },
+    "google_relevance_score": 5.0
+  }
+]

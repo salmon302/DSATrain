@@ -1,0 +1,587 @@
+[
+  {
+    "id": "abc_001_a",
+    "source": "atcoder",
+    "title": "Digit Sum",
+    "description": "Calculate the sum of digits of a given number.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 800,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "implementation",
+      "math",
+      "atcoder_beginner_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443041",
+      "last_updated": "2025-07-29T14:55:00.443057",
+      "source_url": "https://atcoder.jp/contests/abc001/tasks/abc_001_a",
+      "acquisition_method": "static_dataset",
+      "contest": "ABC001",
+      "contest_type": "AtCoder Beginner Contest",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "abc_150_c",
+    "source": "atcoder",
+    "title": "Count Order",
+    "description": "Find the lexicographic order of two permutations.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1000,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "permutation",
+      "implementation",
+      "atcoder_beginner_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443065",
+      "last_updated": "2025-07-29T14:55:00.443067",
+      "source_url": "https://atcoder.jp/contests/abc150/tasks/abc_150_c",
+      "acquisition_method": "static_dataset",
+      "contest": "ABC150",
+      "contest_type": "AtCoder Beginner Contest",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "abc_200_d",
+    "source": "atcoder",
+    "title": "Happy Birthday! 2",
+    "description": "Find two subsequences with the same sum modulo 200.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1400,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "pigeonhole_principle",
+      "modular_arithmetic",
+      "atcoder_beginner_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443072",
+      "last_updated": "2025-07-29T14:55:00.443073",
+      "source_url": "https://atcoder.jp/contests/abc200/tasks/abc_200_d",
+      "acquisition_method": "static_dataset",
+      "contest": "ABC200",
+      "contest_type": "AtCoder Beginner Contest",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "abc_175_e",
+    "source": "atcoder",
+    "title": "Picking Goods",
+    "description": "Maximize value picked while moving through a grid.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "dynamic_programming",
+      "grid",
+      "atcoder_beginner_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443077",
+      "last_updated": "2025-07-29T14:55:00.443079",
+      "source_url": "https://atcoder.jp/contests/abc175/tasks/abc_175_e",
+      "acquisition_method": "static_dataset",
+      "contest": "ABC175",
+      "contest_type": "AtCoder Beginner Contest",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "arc_100_a",
+    "source": "atcoder",
+    "title": "Linear Approximation",
+    "description": "Find the optimal constant to minimize approximation error.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1800,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "math",
+      "optimization",
+      "atcoder_regular_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443082",
+      "last_updated": "2025-07-29T14:55:00.443084",
+      "source_url": "https://atcoder.jp/contests/arc100/tasks/arc_100_a",
+      "acquisition_method": "static_dataset",
+      "contest": "ARC100",
+      "contest_type": "AtCoder Regular Contest",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "arc_120_b",
+    "source": "atcoder",
+    "title": "Color Exchange",
+    "description": "Determine if color pattern can be achieved through swaps.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1900,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "graph_theory",
+      "bipartite_matching",
+      "atcoder_regular_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443089",
+      "last_updated": "2025-07-29T14:55:00.443091",
+      "source_url": "https://atcoder.jp/contests/arc120/tasks/arc_120_b",
+      "acquisition_method": "static_dataset",
+      "contest": "ARC120",
+      "contest_type": "AtCoder Regular Contest",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "arc_105_c",
+    "source": "atcoder",
+    "title": "Camels and Bridge",
+    "description": "Optimize camel movement across bridges with weight constraints.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 2200,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "greedy",
+      "sorting",
+      "binary_search",
+      "atcoder_regular_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443095",
+      "last_updated": "2025-07-29T14:55:00.443096",
+      "source_url": "https://atcoder.jp/contests/arc105/tasks/arc_105_c",
+      "acquisition_method": "static_dataset",
+      "contest": "ARC105",
+      "contest_type": "AtCoder Regular Contest",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "agc_040_a",
+    "source": "atcoder",
+    "title": "Set Union",
+    "description": "Calculate union of sets defined by string operations.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 2400,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "combinatorics",
+      "inclusion_exclusion",
+      "atcoder_grand_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443100",
+      "last_updated": "2025-07-29T14:55:00.443101",
+      "source_url": "https://atcoder.jp/contests/agc040/tasks/agc_040_a",
+      "acquisition_method": "static_dataset",
+      "contest": "AGC040",
+      "contest_type": "AtCoder Grand Contest",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "agc_035_b",
+    "source": "atcoder",
+    "title": "Even Degrees",
+    "description": "Orient edges so all vertices have even degree.",
+    "difficulty": {
+      "level": "hard",
+      "rating": 2600,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "graph_theory",
+      "constructive",
+      "atcoder_grand_contest"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443104",
+      "last_updated": "2025-07-29T14:55:00.443106",
+      "source_url": "https://atcoder.jp/contests/agc035/tasks/agc_035_b",
+      "acquisition_method": "static_dataset",
+      "contest": "AGC035",
+      "contest_type": "AtCoder Grand Contest",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "dp_a",
+    "source": "atcoder",
+    "title": "Frog 1",
+    "description": "Find minimum cost for frog to reach the end.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1200,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "dynamic_programming",
+      "basic_dp",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443109",
+      "last_updated": "2025-07-29T14:55:00.443110",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_a",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "dp_b",
+    "source": "atcoder",
+    "title": "Frog 2",
+    "description": "Frog can jump up to k stones ahead.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1300,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "dynamic_programming",
+      "basic_dp",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443114",
+      "last_updated": "2025-07-29T14:55:00.443115",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_b",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "dp_c",
+    "source": "atcoder",
+    "title": "Vacation",
+    "description": "Maximize happiness while avoiding consecutive same activities.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1400,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "dynamic_programming",
+      "state_dp",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443118",
+      "last_updated": "2025-07-29T14:55:00.443119",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_c",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "dp_h",
+    "source": "atcoder",
+    "title": "Grid 1",
+    "description": "Count paths in grid avoiding blocked cells.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1500,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "dynamic_programming",
+      "grid_dp",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443123",
+      "last_updated": "2025-07-29T14:55:00.443124",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_h",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "dp_l",
+    "source": "atcoder",
+    "title": "Deque",
+    "description": "Optimal strategy game on deque.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1700,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "dynamic_programming",
+      "game_theory",
+      "educational"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443129",
+      "last_updated": "2025-07-29T14:55:00.443130",
+      "source_url": "https://atcoder.jp/contests/educational dp contest/tasks/dp_l",
+      "acquisition_method": "static_dataset",
+      "contest": "Educational DP Contest",
+      "contest_type": "Educational",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "practice_graph_bfs",
+    "source": "atcoder",
+    "title": "Shortest Path",
+    "description": "Find shortest path in unweighted graph.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1100,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "graphs",
+      "bfs",
+      "shortest_path",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443134",
+      "last_updated": "2025-07-29T14:55:00.443135",
+      "source_url": "https://atcoder.jp/contests/atcoder library practice/tasks/practice_graph_bfs",
+      "acquisition_method": "static_dataset",
+      "contest": "AtCoder Library Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "practice_graph_dijkstra",
+    "source": "atcoder",
+    "title": "Weighted Shortest Path",
+    "description": "Find shortest path in weighted graph.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1500,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "graphs",
+      "dijkstra",
+      "shortest_path",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443139",
+      "last_updated": "2025-07-29T14:55:00.443141",
+      "source_url": "https://atcoder.jp/contests/atcoder library practice/tasks/practice_graph_dijkstra",
+      "acquisition_method": "static_dataset",
+      "contest": "AtCoder Library Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "practice_tree_lca",
+    "source": "atcoder",
+    "title": "Lowest Common Ancestor",
+    "description": "Answer LCA queries on tree.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1600,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "trees",
+      "lca",
+      "binary_lifting",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443144",
+      "last_updated": "2025-07-29T14:55:00.443146",
+      "source_url": "https://atcoder.jp/contests/atcoder library practice/tasks/practice_tree_lca",
+      "acquisition_method": "static_dataset",
+      "contest": "AtCoder Library Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "practice_segment_tree",
+    "source": "atcoder",
+    "title": "Range Sum Query",
+    "description": "Handle range sum queries with updates.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1400,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "data_structures",
+      "segment_tree",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443149",
+      "last_updated": "2025-07-29T14:55:00.443150",
+      "source_url": "https://atcoder.jp/contests/atcoder library practice/tasks/practice_segment_tree",
+      "acquisition_method": "static_dataset",
+      "contest": "AtCoder Library Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "practice_union_find",
+    "source": "atcoder",
+    "title": "Connected Components",
+    "description": "Maintain connected components with union-find.",
+    "difficulty": {
+      "level": "easy",
+      "rating": 1200,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "data_structures",
+      "union_find",
+      "practice"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443153",
+      "last_updated": "2025-07-29T14:55:00.443163",
+      "source_url": "https://atcoder.jp/contests/atcoder library practice/tasks/practice_union_find",
+      "acquisition_method": "static_dataset",
+      "contest": "AtCoder Library Practice",
+      "contest_type": "Practice",
+      "is_competitive_programming": true
+    }
+  },
+  {
+    "id": "math_modint",
+    "source": "atcoder",
+    "title": "Modular Arithmetic",
+    "description": "Calculate large combinations modulo prime.",
+    "difficulty": {
+      "level": "medium",
+      "rating": 1800,
+      "source_scale": "atcoder_estimated"
+    },
+    "tags": [
+      "math",
+      "modular_arithmetic",
+      "combinatorics",
+      "mathematical"
+    ],
+    "company_tags": [],
+    "constraints": {},
+    "test_cases": [],
+    "editorial": null,
+    "metadata": {
+      "created_date": "2025-07-29T14:55:00.443166",
+      "last_updated": "2025-07-29T14:55:00.443168",
+      "source_url": "https://atcoder.jp/contests/math contest/tasks/math_modint",
+      "acquisition_method": "static_dataset",
+      "contest": "Math Contest",
+      "contest_type": "Mathematical",
+      "is_competitive_programming": true
+    }
+  }
+]

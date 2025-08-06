@@ -1,0 +1,107 @@
+{
+  "problem_id": "lc_2",
+  "problem_title": "Add Two Numbers",
+  "total_solutions": 1,
+  "solutions": [
+    {
+      "id": "lc_2_sol_1",
+      "problem_id": "lc_2",
+      "title": "Linked List Traversal",
+      "language": "python",
+      "code": "def addTwoNumbers(l1, l2):\n    \"\"\"\n    Add two numbers represented as linked lists.\n    \n    Time: O(max(m, n)), Space: O(max(m, n))\n    \"\"\"\n    dummy = ListNode(0)\n    current = dummy\n    carry = 0\n    \n    while l1 or l2 or carry:\n        val1 = l1.val if l1 else 0\n        val2 = l2.val if l2 else 0\n        \n        total = val1 + val2 + carry\n        carry = total // 10\n        digit = total % 10\n        \n        current.next = ListNode(digit)\n        current = current.next\n        \n        if l1:\n            l1 = l1.next\n        if l2:\n            l2 = l2.next\n    \n    return dummy.next",
+      "approach_type": "optimal",
+      "algorithm_tags": [
+        "linked_list",
+        "math",
+        "simulation"
+      ],
+      "data_structures_used": [
+        "linked_list"
+      ],
+      "complexity": {
+        "time_complexity": "O(max(m, n))",
+        "space_complexity": "O(max(m, n))",
+        "time_complexity_explanation": "Analysis: O(max(m, n))",
+        "space_complexity_explanation": "Analysis: O(max(m, n))"
+      },
+      "code_quality": {
+        "overall_score": 100.0,
+        "readability_score": 90.0,
+        "structure_score": 95.0,
+        "style_score": 85.0,
+        "documentation_score": 110.00000000000001,
+        "efficiency_score": 90.0,
+        "maintainability_score": 90.0,
+        "lines_of_code": 21,
+        "comment_ratio": 15.0,
+        "function_count": 1,
+        "variable_naming_score": 85.0,
+        "style_issues": [],
+        "potential_bugs": [],
+        "performance_warnings": []
+      },
+      "performance": {
+        "runtime_ms": 70,
+        "memory_mb": 16.5,
+        "runtime_percentile": 95.0,
+        "memory_percentile": 85.0,
+        "test_cases_passed": 100,
+        "total_test_cases": 100
+      },
+      "explanation": "Traverse both linked lists simultaneously, handling carry for addition. Use dummy node to simplify edge cases.",
+      "step_by_step": [
+        "Create dummy node to simplify result construction",
+        "Traverse both lists simultaneously",
+        "Handle carry from previous addition",
+        "Create new nodes for result digits",
+        "Continue until both lists are exhausted and no carry"
+      ],
+      "key_insights": [
+        "Dummy node simplifies edge case handling",
+        "Process digit by digit with carry",
+        "Handle different length lists gracefully"
+      ],
+      "common_mistakes": [],
+      "alternative_approaches": [],
+      "implementation_difficulty": 5,
+      "conceptual_difficulty": 4,
+      "google_interview_relevance": 85.0,
+      "source": "leetcode_editorial",
+      "source_url": "https://leetcode.com/problems/lc_2/",
+      "collection_date": "2025-07-29T15:11:11.227708",
+      "verification_status": "verified",
+      "metadata": {
+        "source_problem": "lc_2",
+        "approach_category": "optimal",
+        "collection_method": "sample_database",
+        "quality_verified": true
+      }
+    }
+  ],
+  "language_distribution": {
+    "python": 1
+  },
+  "approach_distribution": {
+    "optimal": 1
+  },
+  "quality_stats": {
+    "average": 100.0,
+    "max": 100.0,
+    "min": 100.0
+  },
+  "performance_stats": {
+    "average_runtime": 70.0,
+    "fastest_runtime": 70
+  },
+  "optimal_solution_id": "lc_2_sol_1",
+  "cleanest_code_id": "lc_2_sol_1",
+  "fastest_runtime_id": "lc_2_sol_1",
+  "most_educational_id": "lc_2_sol_1",
+  "collection_date": "2025-07-29T15:11:11.227724",
+  "last_updated": "2025-07-29T15:11:11.227727",
+  "metadata": {
+    "collection_method": "sample_database",
+    "verification_status": "verified",
+    "quality_threshold_met": true
+  }
+}

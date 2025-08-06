@@ -1,0 +1,184 @@
+{
+  "interview_preparation": {
+    "must_know_solutions": [
+      "lc_1_sol_1",
+      "cf_1200_C_sol_1",
+      "lc_3_sol_2"
+    ],
+    "study_order": {
+      "foundation": [
+        "lc_1_sol_1",
+        "cf_800_A_sol_1",
+        "cf_1_A_sol_1"
+      ],
+      "core_skills": [
+        "cf_1200_C_sol_1",
+        "lc_3_sol_2",
+        "lc_3_sol_1",
+        "lc_2_sol_1"
+      ],
+      "advanced_topics": [
+        "cf_1500_D_sol_1"
+      ]
+    },
+    "estimated_time": {
+      "foundation": 90,
+      "core_skills": 180,
+      "advanced_topics": 60
+    },
+    "key_algorithms": [
+      "hash_map",
+      "array",
+      "binary_search",
+      "greedy",
+      "optimization",
+      "sliding_window",
+      "hash_set",
+      "two_pointers",
+      "dynamic_programming",
+      "state_compression"
+    ]
+  },
+  "competitive_programming": {
+    "contest_essentials": [
+      "cf_1200_C_sol_1",
+      "cf_1500_D_sol_1",
+      "cf_1_A_sol_1"
+    ],
+    "progression": {
+      "div2_a": [
+        "cf_1_A_sol_1",
+        "cf_1_A_sol_2",
+        "cf_4_A_sol_1",
+        "cf_800_A_sol_1"
+      ],
+      "div2_bc": [
+        "cf_1200_C_sol_1"
+      ],
+      "div1": [
+        "cf_1500_D_sol_1"
+      ]
+    },
+    "skill_development": {
+      "implementation": [
+        "cf_1200_C_sol_1",
+        "cf_1500_D_sol_1"
+      ],
+      "algorithm_design": [
+        "cf_1200_C_sol_1",
+        "cf_1500_D_sol_1"
+      ],
+      "optimization": [
+        "cf_1200_C_sol_1",
+        "cf_1500_D_sol_1"
+      ]
+    }
+  },
+  "algorithm_quick_reference": {
+    "hash_map": {
+      "best_example": "lc_1_sol_1",
+      "complexity": "O(n)",
+      "platform": "leetcode"
+    },
+    "array": {
+      "best_example": "lc_1_sol_1",
+      "complexity": "O(n)",
+      "platform": "leetcode"
+    },
+    "brute_force": {
+      "best_example": "lc_1_sol_2",
+      "complexity": "O(n²)",
+      "platform": "leetcode"
+    },
+    "nested_loops": {
+      "best_example": "lc_1_sol_2",
+      "complexity": "O(n²)",
+      "platform": "leetcode"
+    },
+    "linked_list": {
+      "best_example": "lc_2_sol_1",
+      "complexity": "O(max(m, n))",
+      "platform": "leetcode"
+    },
+    "math": {
+      "best_example": "lc_2_sol_1",
+      "complexity": "O(max(m, n))",
+      "platform": "leetcode"
+    },
+    "simulation": {
+      "best_example": "lc_2_sol_1",
+      "complexity": "O(max(m, n))",
+      "platform": "leetcode"
+    },
+    "sliding_window": {
+      "best_example": "lc_3_sol_2",
+      "complexity": "O(n)",
+      "platform": "leetcode"
+    },
+    "hash_set": {
+      "best_example": "lc_3_sol_1",
+      "complexity": "O(n)",
+      "platform": "leetcode"
+    },
+    "two_pointers": {
+      "best_example": "lc_3_sol_1",
+      "complexity": "O(n)",
+      "platform": "leetcode"
+    },
+    "optimization": {
+      "best_example": "cf_1200_C_sol_1",
+      "complexity": "O(n log n)",
+      "platform": "codeforces"
+    },
+    "binary_search": {
+      "best_example": "cf_1200_C_sol_1",
+      "complexity": "O(n log n)",
+      "platform": "codeforces"
+    },
+    "greedy": {
+      "best_example": "cf_1200_C_sol_1",
+      "complexity": "O(n log n)",
+      "platform": "codeforces"
+    },
+    "dynamic_programming": {
+      "best_example": "cf_1500_D_sol_1",
+      "complexity": "O(n * m²)",
+      "platform": "codeforces"
+    },
+    "state_compression": {
+      "best_example": "cf_1500_D_sol_1",
+      "complexity": "O(n * m²)",
+      "platform": "codeforces"
+    },
+    "ceiling_division": {
+      "best_example": "cf_1_A_sol_1",
+      "complexity": "O(1)",
+      "platform": "codeforces"
+    },
+    "integer_arithmetic": {
+      "best_example": "cf_1_A_sol_2",
+      "complexity": "O(1)",
+      "platform": "codeforces"
+    },
+    "parity": {
+      "best_example": "cf_4_A_sol_1",
+      "complexity": "O(1)",
+      "platform": "codeforces"
+    },
+    "number_theory": {
+      "best_example": "cf_4_A_sol_1",
+      "complexity": "O(1)",
+      "platform": "codeforces"
+    },
+    "strings": {
+      "best_example": "cf_800_A_sol_1",
+      "complexity": "O(n)",
+      "platform": "codeforces"
+    },
+    "lexicographical": {
+      "best_example": "cf_800_A_sol_1",
+      "complexity": "O(n)",
+      "platform": "codeforces"
+    }
+  }
+}
