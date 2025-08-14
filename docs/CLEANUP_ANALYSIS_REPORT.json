@@ -1,0 +1,119 @@
+{
+  "timestamp": "2025-08-14T00:15:28.866557",
+  "summary": {
+    "total_root_files": 70,
+    "files_to_archive": 60,
+    "files_remaining": 10,
+    "cleanup_percentage": 85.7
+  },
+  "archive_plan": {
+    "legacy_servers": [
+      "flask_skill_tree_server.py",
+      "robust_flask_server.py",
+      "simple_skill_tree_server.py",
+      "dev_skill_tree_server.py",
+      "minimal_flask_test.py",
+      "production_flask_test.py",
+      "http_server_test.py",
+      "production_skill_tree_server.py"
+    ],
+    "agentic_prototypes": [
+      "agentic_client.py",
+      "agentic_platform_controller.py",
+      "agentic_skill_tree_client.py",
+      "agentic_skill_tree_server.py",
+      "agentic_workflow_demo.py"
+    ],
+    "integration_legacy": [
+      "integration_demo.py",
+      "integration_summary.py",
+      "test_platform_integration.py",
+      "platform_integration_report.json",
+      "skill_tree_test_data.json",
+      "enhance_database.py",
+      "migrate_databases.py"
+    ],
+    "test_files": [
+      "test_http_server.py",
+      "test_production_server.py",
+      "test_minimal_server.py",
+      "test_backend_direct.py",
+      "test_flask_api.py",
+      "test_production_api.py",
+      "test_skill_tree_api.py",
+      "test_skill_tree_simple.py",
+      "test_api_goals.py",
+      "test_goal_selection.py",
+      "test_fixed_engine.py",
+      "test_goal_impact.py",
+      "test_new_query.py",
+      "test_all_weeks.py",
+      "test_frontend_integration.py",
+      "test_enriched_api.py",
+      "test_api_endpoint.py",
+      "test_direct_generation.py",
+      "test_fastapi_app.py",
+      "test_imports.py",
+      "test_learning_path_api.py",
+      "test_structure.py",
+      "simple_api_test.py",
+      "simple_test.py"
+    ],
+    "debug_utilities": [
+      "debug_easy_problems.py",
+      "debug_skill_tree.py",
+      "demo_skill_tree.py",
+      "init_templates.py"
+    ],
+    "status_reports": [
+      "CODE_EDITOR_INTEGRATION_ANALYSIS.md",
+      "NAVIGATION_FIX_SUMMARY.md",
+      "PRODUCTION_READY_SUMMARY.md",
+      "SKILL_TREE_IMPLEMENTATION_SUMMARY.md",
+      "SKILL_TREE_STATUS.md",
+      "SKILL_TREE_PERFORMANCE_OPTIMIZATION_REPORT.md",
+      "SYSTEM_REQUIREMENTS_ANALYSIS.md",
+      "improvement_recommendations.md"
+    ],
+    "legacy_databases": [
+      "dsatrain_skilltree.db",
+      "dsatrain_skilltree_backup_20250731_220201.db",
+      "dsatrain_phase4_backup_20250731_220201.db",
+      "dsatrain_phase4_backup.db"
+    ],
+    "frontend_duplicates": [
+      "frontend/src/components/SkillTreeVisualization.jsx",
+      "frontend/src/components/OptimizedSkillTreeVisualization.jsx"
+    ]
+  },
+  "missing_files": {
+    "legacy_servers": [],
+    "agentic_prototypes": [],
+    "integration_legacy": [],
+    "test_files": [],
+    "debug_utilities": [],
+    "status_reports": [],
+    "legacy_databases": [],
+    "frontend_duplicates": []
+  },
+  "target_structure": {
+    "essential_root_files": [
+      "README.md",
+      "PROJECT_STRUCTURE.md",
+      "alembic.ini",
+      "dsatrain_phase4.db",
+      ".gitignore",
+      ".gitattributes"
+    ],
+    "essential_directories": [
+      "src/",
+      "frontend/",
+      "tests/",
+      "docs/",
+      "data/",
+      "archive/",
+      "alembic/",
+      "logs/"
+    ]
+  }
+}
