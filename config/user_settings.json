@@ -1,0 +1,17 @@
+{
+  "enable_ai": true,
+  "ai_provider": "openai",
+  "model": "gpt-4o-mini",
+  "api_keys": {
+    "openai": "sk-12345678901234567890"
+  },
+  "rate_limit_per_minute": 15,
+  "monthly_cost_cap_usd": 5.0,
+  "hint_budget_per_session": 3,
+  "cognitive_profile": {
+    "working_memory_capacity": 7,
+    "learning_style_preference": "balanced",
+    "visual_vs_verbal": 0.5,
+    "processing_speed": "average"
+  }
+}

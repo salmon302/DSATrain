@@ -22,6 +22,7 @@ from src.api.enhanced_stats import stats_router
 from src.api.google_code_analysis import router as google_analysis_router
 from src.api.learning_paths import router as learning_paths_router
 from src.api.code_execution import router as execution_router
+from src.api.settings import router as settings_router
 # from src.api.skill_tree_api import skill_tree_router  # Temporarily disabled due to schema differences
 
 # Initialize FastAPI app
@@ -54,6 +55,9 @@ app.include_router(learning_paths_router)
 
 # Include code execution router
 app.include_router(execution_router)
+
+# Include settings router
+app.include_router(settings_router)
 
 # Include skill tree router
 # app.include_router(skill_tree_router)  # Temporarily disabled due to schema differences
