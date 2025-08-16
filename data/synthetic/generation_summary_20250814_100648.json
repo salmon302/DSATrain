@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-08-14T10:06:48.231461",
+  "behavioral_scenarios": 50,
+  "coding_problems": 25,
+  "system_design_problems": 10,
+  "total_generated": 85,
+  "files_created": [
+    "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\synthetic\\behavioral_scenarios_20250814_100648.json",
+    "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\synthetic\\coding_problems_20250814_100648.json",
+    "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\synthetic\\system_design_problems_20250814_100648.json"
+  ],
+  "generation_method": "template_based_with_randomization",
+  "quality_notes": [
+    "Behavioral scenarios use research-based competency frameworks",
+    "Coding problems follow standard algorithmic patterns",
+    "System design problems include evaluation criteria",
+    "All generated content includes metadata for training"
+  ]
+}

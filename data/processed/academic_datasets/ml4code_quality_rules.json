@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "source": "ml4code_academic_datasets",
+    "timestamp": "2025-08-14T10:43:52.104917",
+    "version": "1.0"
+  },
+  "bug_detection_patterns": [
+    {
+      "pattern": "null_pointer_access",
+      "description": "Accessing object without null check",
+      "severity": "high",
+      "languages": [
+        "Java",
+        "C++"
+      ]
+    },
+    {
+      "pattern": "array_bounds_violation",
+      "description": "Array access without bounds checking",
+      "severity": "high",
+      "languages": [
+        "C",
+        "C++",
+        "Java"
+      ]
+    },
+    {
+      "pattern": "resource_leak",
+      "description": "Not closing resources (files, connections)",
+      "severity": "medium",
+      "languages": [
+        "Java",
+        "Python",
+        "C++"
+      ]
+    }
+  ],
+  "code_quality_metrics": [
+    {
+      "metric": "cyclomatic_complexity",
+      "thresholds": {
+        "low": 5,
+        "medium": 10,
+        "high": 15
+      },
+      "description": "Measure of code complexity based on branching"
+    },
+    {
+      "metric": "function_length",
+      "thresholds": {
+        "low": 20,
+        "medium": 50,
+        "high": 100
+      },
+      "description": "Lines of code in a single function"
+    },
+    {
+      "metric": "nesting_depth",
+      "thresholds": {
+        "low": 3,
+        "medium": 5,
+        "high": 7
+      },
+      "description": "Maximum nesting level of control structures"
+    }
+  ],
+  "google_coding_standards": [
+    {
+      "rule": "meaningful_names",
+      "description": "Use descriptive variable and function names",
+      "weight": 0.8
+    },
+    {
+      "rule": "single_responsibility",
+      "description": "Each function should have one clear purpose",
+      "weight": 0.9
+    },
+    {
+      "rule": "proper_error_handling",
+      "description": "Handle edge cases and errors appropriately",
+      "weight": 0.85
+    }
+  ]
+}

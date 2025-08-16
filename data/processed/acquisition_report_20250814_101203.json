@@ -1,0 +1,347 @@
+{
+  "report_metadata": {
+    "generated_at": "2025-08-14T10:12:03.739542",
+    "report_version": "1.0",
+    "data_directory": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data"
+  },
+  "acquisition_analysis": {
+    "total_acquisitions": 15,
+    "successful": 12,
+    "failed": 3,
+    "total_records": 13052,
+    "sources": 10,
+    "by_source": {
+      "codeforces": {
+        "records": 12795,
+        "acquisitions": 3,
+        "methods": [
+          "api",
+          "api_user_status",
+          "api_contest_list"
+        ]
+      },
+      "github": {
+        "records": 3,
+        "acquisitions": 1,
+        "methods": [
+          "api_search_code"
+        ]
+      },
+      "reddit": {
+        "records": 5,
+        "acquisitions": 1,
+        "methods": [
+          "public_search"
+        ]
+      },
+      "glassdoor": {
+        "records": 0,
+        "acquisitions": 1,
+        "methods": [
+          "import_local_files"
+        ]
+      },
+      "behavioral_resources": {
+        "records": 8,
+        "acquisitions": 1,
+        "methods": [
+          "document_download"
+        ]
+      },
+      "google_official": {
+        "records": 5,
+        "acquisitions": 1,
+        "methods": [
+          "documentation_fetch"
+        ]
+      },
+      "academic_datasets": {
+        "records": 4,
+        "acquisitions": 1,
+        "methods": [
+          "metadata_preparation"
+        ]
+      },
+      "system_design": {
+        "records": 27,
+        "acquisitions": 1,
+        "methods": [
+          "scenario_collection"
+        ]
+      },
+      "synthetic_generation": {
+        "records": 85,
+        "acquisitions": 1,
+        "methods": [
+          "template_based_generation"
+        ]
+      },
+      "expert_collection": {
+        "records": 120,
+        "acquisitions": 1,
+        "methods": [
+          "setup_framework"
+        ]
+      }
+    },
+    "timeline": {
+      "first_acquisition": "2025-08-14T01:17:50.275794",
+      "last_acquisition": "2025-08-14T10:10:48.807905"
+    },
+    "failed_attempts": [
+      {
+        "source": "github",
+        "method": "api_search_code",
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      {
+        "source": "github",
+        "method": "api_search_code",
+        "error": "HTTP Error 401: Unauthorized"
+      },
+      {
+        "source": "github",
+        "method": "api_search_code",
+        "error": "GitHub API error 401: Unauthorized. Body: {\"message\":\"Requires authentication\",\"errors\":[{\"message\":\"Must be authenticated to access the code search API\",\"resource\":\"Search\",\"field\":\"q\",\"code\":\"invalid\"}],\"documentation_url\":\"https://docs.github.com/rest/search/search#search-code\",\"status\":\"401\"}"
+      }
+    ]
+  },
+  "dataset_inventory": {
+    "raw_datasets": {
+      "academic_datasets": {
+        "total_files": 6,
+        "file_types": [
+          ".json"
+        ],
+        "latest_update": 1755180227.3748486
+      },
+      "atcoder": {
+        "total_files": 2,
+        "file_types": [
+          ".json"
+        ],
+        "latest_update": 1753815300.4458303
+      },
+      "behavioral_resources": {
+        "total_files": 9,
+        "file_types": [
+          ".json",
+          ".docx",
+          ".html",
+          ".pdf"
+        ],
+        "latest_update": 1755179979.7651858
+      },
+      "codechef": {
+        "total_files": 2,
+        "file_types": [
+          ".json"
+        ],
+        "latest_update": 1753815397.370809
+      },
+      "codeforces": {
+        "total_files": 7,
+        "file_types": [
+          ".json"
+        ],
+        "latest_update": 1755176038.775723
+      },
+      "github": {
+        "total_files": 1,
+        "file_types": [
+          ".json"
+        ],
+        "latest_update": 1755178665.385368
+      },
+      "glassdoor": {
+        "total_files": 1,
+        "file_types": [
+          ".json"
+        ],
+        "latest_update": 1755179525.922745
+      },
+      "google_official": {
+        "total_files": 6,
+        "file_types": [
+          ".json",
+          ".html"
+        ],
+        "latest_update": 1755180014.1421163
+      },
+      "hackerrank": {
+        "total_files": 2,
+        "file_types": [
+          ".json"
+        ],
+        "latest_update": 1753815222.7693493
+      },
+      "kaggle_leetcode": {
+        "total_files": 0,
+        "file_types": [],
+        "latest_update": 0
+      },
+      "reddit": {
+        "total_files": 1,
+        "file_types": [
+          ".json"
+        ],
+        "latest_update": 1755179489.64405
+      },
+      "system_design": {
+        "total_files": 4,
+        "file_types": [
+          ".json"
+        ],
+        "latest_update": 1755180319.8174024
+      }
+    },
+    "processed_datasets": {
+      "count": 7,
+      "files": [
+        "behavioral_unified.json",
+        "problems_unified.json",
+        "solutions_unified.json",
+        "star_labeling_framework_20250814_101048.json",
+        "star_labeling_guidelines_20250814_101048.json",
+        "star_master_rubric_20250814_101048.json",
+        "star_sample_responses_20250814_101048.json"
+      ]
+    },
+    "synthetic_datasets": {
+      "count": 4,
+      "files": [
+        "behavioral_scenarios_20250814_100648.json",
+        "coding_problems_20250814_100648.json",
+        "generation_summary_20250814_100648.json",
+        "system_design_problems_20250814_100648.json"
+      ]
+    },
+    "expert_labeled": {
+      "count": 4,
+      "files": [
+        "collection_package_20250814_101048.json",
+        "collection_template_20250814_101048.json",
+        "expert_instructions_20250814_101048.json",
+        "expert_prompts_20250814_101048.json"
+      ]
+    }
+  },
+  "research_alignment": {
+    "research_targets": {
+      "leetcode_google_questions": {
+        "priority": "Phase 2",
+        "google_relevance": 5,
+        "data_quality": 5,
+        "accessibility": 2,
+        "legal_risk": "High",
+        "status": "pending"
+      },
+      "kaggle_leetcode_problems": {
+        "priority": "Phase 1",
+        "google_relevance": 4,
+        "data_quality": 4,
+        "accessibility": 5,
+        "legal_risk": "Low",
+        "status": "completed"
+      },
+      "codeforces_archive": {
+        "priority": "Phase 1",
+        "google_relevance": 4,
+        "data_quality": 5,
+        "accessibility": 5,
+        "legal_risk": "Low",
+        "status": "completed"
+      },
+      "codecomplex_dataset": {
+        "priority": "Phase 1",
+        "google_relevance": 5,
+        "data_quality": 5,
+        "accessibility": 5,
+        "legal_risk": "Low",
+        "status": "framework_ready"
+      },
+      "behavioral_question_banks": {
+        "priority": "Phase 1",
+        "google_relevance": 4,
+        "data_quality": 4,
+        "accessibility": 5,
+        "legal_risk": "Low",
+        "status": "completed"
+      },
+      "star_method_rubrics": {
+        "priority": "Phase 1",
+        "google_relevance": 5,
+        "data_quality": 5,
+        "accessibility": 5,
+        "legal_risk": "Low",
+        "status": "completed"
+      },
+      "google_official_docs": {
+        "priority": "Phase 1",
+        "google_relevance": 5,
+        "data_quality": 5,
+        "accessibility": 5,
+        "legal_risk": "Low",
+        "status": "completed"
+      },
+      "system_design_questions": {
+        "priority": "Phase 1",
+        "google_relevance": 5,
+        "data_quality": 4,
+        "accessibility": 4,
+        "legal_risk": "Medium",
+        "status": "completed"
+      },
+      "synthetic_data_generation": {
+        "priority": "Phase 3",
+        "google_relevance": 3,
+        "data_quality": 4,
+        "accessibility": 5,
+        "legal_risk": "None",
+        "status": "completed"
+      },
+      "expert_labeled_dataset": {
+        "priority": "Phase 2",
+        "google_relevance": 5,
+        "data_quality": 5,
+        "accessibility": 3,
+        "legal_risk": "Low",
+        "status": "framework_ready"
+      }
+    },
+    "completion_summary": {
+      "total_targets": 10,
+      "completed": 7,
+      "framework_ready": 2,
+      "pending": 1,
+      "completion_rate": 0.9
+    },
+    "phase_analysis": {
+      "phase_1": {
+        "total": 7,
+        "completed": 6,
+        "completion_rate": 0.8571428571428571,
+        "status": "In Progress"
+      }
+    },
+    "strategic_gaps": [
+      "leetcode_google_questions"
+    ]
+  },
+  "executive_summary": {
+    "status": "Phase 1 Complete, Phase 2 In Progress",
+    "key_achievements": [
+      "Complete behavioral assessment foundation (8 university sources + Google docs)",
+      "Academic code quality datasets framework established",
+      "System design scenarios expanded beyond baseline",
+      "Synthetic data generation capability implemented",
+      "Expert labeling framework synthesized and ready for deployment"
+    ],
+    "immediate_priorities": [
+      "Deploy expert labeling framework to collect 200+ STAR responses",
+      "Download and integrate academic datasets (CodeComplex, py_ast, ml4code)",
+      "Consider LeetCode Google-tagged problems acquisition (high value, high risk)"
+    ],
+    "strategic_position": "Strong foundation with low-risk, high-quality datasets. Ready for AI model training and expert validation."
+  }
+}

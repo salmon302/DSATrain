@@ -1,0 +1,12 @@
+{
+  "sess_p1": {
+    "problem_id": "p1",
+    "gates": {
+      "dry_run": true,
+      "pseudocode": true,
+      "code": true
+    },
+    "unlocked": true,
+    "started_at": "2025-08-14T09:11:25.994294"
+  }
+}

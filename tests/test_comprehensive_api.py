@@ -1,11 +1,21 @@
 """
 DSATrain API Testing Suite - Showcasing 10K+ Problems
+
+Note: This suite targets a running API at 127.0.0.1:8001. Skipped by default.
+Set RUN_EXTERNAL_API_TESTS=1 to enable.
 """
 
 import requests
 import json
 import time
 from typing import Dict, List
+import os
+import pytest
+
+pytestmark = pytest.mark.skipif(
+    not os.getenv("RUN_EXTERNAL_API_TESTS"),
+    reason="Requires external API server on 127.0.0.1:8001; set RUN_EXTERNAL_API_TESTS=1 to run.",
+)
 
 API_BASE = "http://127.0.0.1:8001"
 

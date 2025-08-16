@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "created_at": "2025-08-14T10:10:48.798231",
+    "purpose": "Training samples for expert labelers",
+    "count": 4
+  },
+  "sample_responses": [
+    {
+      "id": "sample_001",
+      "question": "Tell me about a time when you had to work with a difficult team member.",
+      "competencies": [
+        "Teamwork",
+        "Conflict Resolution",
+        "Communication"
+      ],
+      "response": {
+        "situation": "I was working on a software project with a team of 5 developers. One team member, let's call him John, consistently missed deadlines and didn't communicate his progress. This was causing delays for the entire project and frustration among other team members.",
+        "task": "As the project lead, I needed to address John's performance issues while maintaining team morale and keeping the project on track. We had a hard deadline in 3 weeks for a client demo.",
+        "action": "First, I scheduled a private one-on-one meeting with John to understand if there were any underlying issues. I discovered he was struggling with a new technology we were using and felt embarrassed to ask for help. I arranged for him to pair program with our most experienced developer for 2 days. I also restructured his tasks to focus on areas where he was more confident while he learned the new technology. I set up daily check-ins to monitor progress and provide support.",
+        "result": "Within a week, John's productivity improved significantly. He successfully completed his portion of the project on time, and we delivered the demo successfully. The team dynamic improved, and John later thanked me for the support. I learned the importance of probing deeper when team members are struggling rather than assuming the worst."
+      },
+      "expected_scores": {
+        "situation": 4,
+        "task": 4,
+        "action": 5,
+        "result": 4,
+        "googleyness_bonus": 1,
+        "total": 18
+      },
+      "quality_level": "excellent",
+      "reasoning": "Clear context, specific actions, personal ownership, quantified results, shows leadership and empathy"
+    },
+    {
+      "id": "sample_002",
+      "question": "Describe a time when you had to solve a complex technical problem.",
+      "competencies": [
+        "Problem Solving",
+        "Technical Expertise",
+        "Persistence"
+      ],
+      "response": {
+        "situation": "We had a performance issue in our production system where page load times increased to 5+ seconds during peak hours.",
+        "task": "I was assigned to identify and fix the root cause as quickly as possible since it was affecting user experience.",
+        "action": "I started by analyzing the logs and noticed the database queries were taking longer. I used profiling tools to identify the slowest queries and found that one particular query was missing an index. I created the index and tested it in staging first.",
+        "result": "The page load times went back to under 2 seconds. Users were happy and we didn't lose any customers."
+      },
+      "expected_scores": {
+        "situation": 3,
+        "task": 3,
+        "action": 3,
+        "result": 2,
+        "googleyness_bonus": 0,
+        "total": 11
+      },
+      "quality_level": "adequate",
+      "reasoning": "Basic STAR structure but lacks detail, doesn't show deeper problem-solving process, minimal learning demonstrated"
+    },
+    {
+      "id": "sample_003",
+      "question": "Tell me about a time when you had to adapt to a significant change at work.",
+      "competencies": [
+        "Adaptability",
+        "Change Management",
+        "Resilience"
+      ],
+      "response": {
+        "situation": "There was a big reorganization at my company.",
+        "task": "We had to adjust to new processes.",
+        "action": "I adapted to the changes and helped my team.",
+        "result": "Everything worked out fine in the end."
+      },
+      "expected_scores": {
+        "situation": 1,
+        "task": 1,
+        "action": 1,
+        "result": 1,
+        "googleyness_bonus": 0,
+        "total": 4
+      },
+      "quality_level": "poor",
+      "reasoning": "Extremely vague, no specific details, lacks personal ownership, no measurable outcomes"
+    },
+    {
+      "id": "sample_004",
+      "question": "Describe a time when you had to make a difficult decision with limited information.",
+      "competencies": [
+        "Decision Making",
+        "Leadership",
+        "Risk Management"
+      ],
+      "response": {
+        "situation": "I was leading a product feature development when our main competitor announced a similar feature would launch in 6 weeks. Our original timeline was 10 weeks, and we had limited data on user preferences for some design choices.",
+        "task": "I had to decide whether to rush our timeline, modify our feature scope, or proceed as planned. Each option carried significant risks - rushing could compromise quality, reducing scope might make us less competitive, and maintaining timeline meant launching after the competitor.",
+        "action": "I called an emergency meeting with engineering, design, and product stakeholders. I created a decision matrix weighing each option against our success metrics: user satisfaction, time to market, and code quality. I gathered what user data we had and conducted rapid user testing with 20 customers over 2 days. Based on this analysis, I decided to accelerate timeline by 3 weeks while reducing scope to focus on the most validated user needs. I negotiated with engineering to accept some technical debt in exchange for faster delivery, with a plan to address it in the following sprint.",
+        "result": "We launched 1 week ahead of our competitor with a more focused feature set. User adoption was 40% higher than projected, and the technical debt was resolved within 3 weeks. The experience taught me the value of rapid validation and stakeholder alignment in high-pressure decisions. I've since implemented a standard decision framework for similar situations."
+      },
+      "expected_scores": {
+        "situation": 5,
+        "task": 5,
+        "action": 5,
+        "result": 5,
+        "googleyness_bonus": 2,
+        "total": 22
+      },
+      "quality_level": "exceptional",
+      "reasoning": "Outstanding example with complex situation, clear decision process, quantified results, demonstrates all Google competencies"
+    }
+  ]
+}

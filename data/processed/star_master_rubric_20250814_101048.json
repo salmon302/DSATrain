@@ -1,0 +1,159 @@
+{
+  "framework_name": "DSATrain STAR Evaluation Rubric v1.0",
+  "based_on_sources": [
+    "Northern Arizona University STAR Rubric",
+    "University of Washington Behavioral Competencies",
+    "Google Engineering Practices Documentation",
+    "MIT Career Development STAR Guidelines",
+    "Academic research on behavioral interviewing"
+  ],
+  "star_components": {
+    "situation": {
+      "description": "Context and background of the scenario",
+      "evaluation_criteria": [
+        "Clarity of context - Is the situation clearly described?",
+        "Relevance to role - Does the situation relate to job requirements?",
+        "Appropriate scope - Is the situation neither too simple nor overly complex?",
+        "Professional setting - Is it from a work/academic environment?"
+      ],
+      "scoring_levels": {
+        "1": "Vague or unclear context, difficult to understand the scenario",
+        "2": "Basic context provided but lacks important details",
+        "3": "Clear context with sufficient detail to understand the scenario",
+        "4": "Comprehensive context that sets up the challenge effectively",
+        "5": "Exceptional context that demonstrates sophisticated problem framing"
+      }
+    },
+    "task": {
+      "description": "Specific responsibility, goal, or challenge to address",
+      "evaluation_criteria": [
+        "Specificity - Is the task/goal clearly defined?",
+        "Personal ownership - Is their specific role/responsibility clear?",
+        "Complexity level - Is the task appropriately challenging?",
+        "Measurable outcome - Can success/failure be evaluated?"
+      ],
+      "scoring_levels": {
+        "1": "Task unclear or too vague to understand what was needed",
+        "2": "General task identified but lacks specificity",
+        "3": "Clear task with defined expectations and personal responsibility",
+        "4": "Well-defined task with clear success criteria and ownership",
+        "5": "Sophisticated task requiring strategic thinking and leadership"
+      }
+    },
+    "action": {
+      "description": "Specific steps taken to address the task/challenge",
+      "evaluation_criteria": [
+        "Personal accountability - Uses 'I' rather than 'we' statements",
+        "Specific details - Concrete actions rather than generalizations",
+        "Logical progression - Actions follow a coherent sequence",
+        "Problem-solving approach - Demonstrates systematic thinking",
+        "Adaptability - Shows flexibility when obstacles arise"
+      ],
+      "scoring_levels": {
+        "1": "Vague actions, mostly 'we' statements, lacks personal ownership",
+        "2": "Some specific actions but limited personal accountability",
+        "3": "Clear personal actions with specific details and logical flow",
+        "4": "Comprehensive action plan with strong problem-solving approach",
+        "5": "Exceptional actions showing leadership, innovation, and adaptability"
+      }
+    },
+    "result": {
+      "description": "Outcome achieved and lessons learned",
+      "evaluation_criteria": [
+        "Quantified impact - Uses numbers, percentages, or measurable outcomes",
+        "Positive outcome - Demonstrates successful resolution",
+        "Learning demonstrated - Shows growth and self-reflection",
+        "Broader impact - Considers effect on team/organization",
+        "Follow-up actions - Describes how lessons were applied later"
+      ],
+      "scoring_levels": {
+        "1": "No clear outcome or impact described",
+        "2": "General positive outcome but no specific measurements",
+        "3": "Clear positive result with some quantification",
+        "4": "Strong quantified results with demonstrated learning",
+        "5": "Exceptional results with measurable impact and strategic insights"
+      }
+    }
+  },
+  "google_competencies": {
+    "googleyness": {
+      "description": "Comfort with ambiguity, bias for action, collaboration, intellectual humility",
+      "indicators": [
+        "Handles uncertainty and changing requirements well",
+        "Takes initiative without waiting for perfect information",
+        "Collaborates effectively across teams and functions",
+        "Admits mistakes and learns from feedback",
+        "Shows growth mindset and continuous learning"
+      ]
+    },
+    "leadership": {
+      "description": "Ability to influence, motivate, and guide others",
+      "indicators": [
+        "Takes ownership of outcomes beyond personal tasks",
+        "Influences without formal authority",
+        "Develops and mentors others",
+        "Makes decisions under pressure",
+        "Drives results through others"
+      ]
+    },
+    "general_cognitive_ability": {
+      "description": "Problem-solving, learning agility, and analytical thinking",
+      "indicators": [
+        "Breaks down complex problems systematically",
+        "Learns quickly from new information",
+        "Identifies patterns and root causes",
+        "Makes data-driven decisions",
+        "Adapts approach based on feedback"
+      ]
+    },
+    "role_related_knowledge": {
+      "description": "Technical skills and domain expertise relevant to the position",
+      "indicators": [
+        "Demonstrates deep technical knowledge",
+        "Applies expertise to solve novel problems",
+        "Stays current with industry trends",
+        "Transfers knowledge across domains",
+        "Builds on existing expertise effectively"
+      ]
+    }
+  },
+  "response_quality": {
+    "communication": {
+      "clarity": "Response is well-organized and easy to follow",
+      "conciseness": "Appropriate level of detail without unnecessary information",
+      "engagement": "Maintains interviewer interest throughout the story"
+    },
+    "authenticity": {
+      "believability": "Story seems genuine and realistic",
+      "personal_insight": "Shows self-awareness and reflection",
+      "emotional_intelligence": "Demonstrates understanding of interpersonal dynamics"
+    },
+    "strategic_thinking": {
+      "systems_perspective": "Considers broader organizational context",
+      "long_term_impact": "Thinks beyond immediate problem resolution",
+      "stakeholder_awareness": "Recognizes multiple perspectives and interests"
+    }
+  },
+  "overall_scoring": {
+    "scale": "1-5 points per component (Situation, Task, Action, Result)",
+    "bonus_points": "Up to 2 additional points for exceptional Googleyness demonstration",
+    "total_possible": 22,
+    "interpretation": {
+      "18-22": "Exceptional response - Strong hire recommendation",
+      "14-17": "Good response - Hire recommendation",
+      "10-13": "Adequate response - Marginal hire",
+      "6-9": "Weak response - No hire recommendation",
+      "1-5": "Poor response - Strong no hire"
+    }
+  },
+  "evaluation_guidelines": [
+    "Focus on specific behaviors and concrete examples",
+    "Look for personal accountability ('I' vs 'we' statements)",
+    "Assess problem-solving process, not just outcomes",
+    "Consider cultural fit and Google values alignment",
+    "Weight recent examples more heavily than distant ones",
+    "Probe for details if initial response lacks specificity"
+  ],
+  "created_at": "2025-08-14T10:10:48.797168",
+  "version": "1.0"
+}

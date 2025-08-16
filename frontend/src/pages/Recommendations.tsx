@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -78,6 +79,7 @@ const Recommendations: React.FC = () => {
   const [showPreferences, setShowPreferences] = useState(false);
 
   const userId = getCurrentUserId();
+  const navigate = useNavigate();
   const sessionId = generateSessionId();
 
   // Load recommendations
@@ -526,6 +528,7 @@ const Recommendations: React.FC = () => {
                             action: 'attempted',
                             session_id: sessionId
                           });
+                          navigate('/practice', { state: { problemId: recommendation.id } });
                         }}
                       >
                         <PlayArrow />
@@ -715,6 +718,7 @@ const Recommendations: React.FC = () => {
                     session_id: sessionId
                   });
                   setSelectedProblem(null);
+                  navigate('/practice', { state: { problemId: selectedProblem.id } });
                 }}
               >
                 Start Solving

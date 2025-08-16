@@ -25,6 +25,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Menu,
+  Slider,
 } from '@mui/material';
 import {
   Search,
@@ -42,7 +44,51 @@ import {
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import { problemsAPI, enhancedStatsAPI, Problem, trackingAPI, getCurrentUserId, generateSessionId } from '../services/api';
+import { apiService, problemsAPI, enhancedStatsAPI, Problem, trackingAPI, getCurrentUserId, generateSessionId } from '../services/api';
+
+// Dual-coding content loader
+const DualCodingContent: React.FC<{ problemId: string }> = ({ problemId }) => {
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
+  const [data, setData] = React.useState<any>(null);
+
+  React.useEffect(() => {
+    const load = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const resp = await apiService.get(`/problems/${problemId}/dual-coding`);
+        setData(resp.data);
+      } catch (e: any) {
+        setError('Dual-coding not available.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, [problemId]);
+
+  if (loading) return <LinearProgress sx={{ mb: 2 }} />;
+  if (error) return <Alert severity="info">{error}</Alert>;
+  if (!data) return null;
+
+  return (
+    <Box>
+      {data.visual_summary && (
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="subtitle1">Visual Summary</Typography>
+          <Typography variant="body2" sx={{ whiteSpace: 'pre-wrap' }}>{data.visual_summary}</Typography>
+        </Box>
+      )}
+      {data.verbal_summary && (
+        <Box>
+          <Typography variant="subtitle1">Verbal Summary</Typography>
+          <Typography variant="body2" sx={{ whiteSpace: 'pre-wrap' }}>{data.verbal_summary}</Typography>
+        </Box>
+      )}
+    </Box>
+  );
+};
 
 const ProblemBrowser: React.FC = () => {
   const navigate = useNavigate();
@@ -56,7 +102,11 @@ const ProblemBrowser: React.FC = () => {
     minQuality: '',
     minRelevance: '',
     interviewReady: false,
-    algorithmPriority: ''
+    algorithmPriority: '',
+    company: '',
+    pattern: '',
+    difficultyMin: '',
+    difficultyMax: ''
   });
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [currentPage, setCurrentPage] = useState(1);
@@ -64,6 +114,9 @@ const ProblemBrowser: React.FC = () => {
   const [selectedProblem, setSelectedProblem] = useState<Problem | null>(null);
   const [problemDetails, setProblemDetails] = useState<any>(null);
   const [showFilters, setShowFilters] = useState(false);
+  const [presetsAnchor, setPresetsAnchor] = useState<null | HTMLElement>(null);
+  const [showSavePreset, setShowSavePreset] = useState(false);
+  const [presetName, setPresetName] = useState('');
 
   const userId = getCurrentUserId();
   const sessionId = generateSessionId();
@@ -84,6 +137,16 @@ const ProblemBrowser: React.FC = () => {
       if (filters.difficulty) params.difficulty = filters.difficulty;
       if (filters.minQuality) params.min_quality = parseFloat(filters.minQuality);
       if (filters.minRelevance) params.min_relevance = parseFloat(filters.minRelevance);
+      if (filters.interviewReady) {
+        (params as any).interview_ready = true;
+      }
+      if (filters.algorithmPriority) {
+        (params as any).algorithm_priority = filters.algorithmPriority;
+      }
+      if (filters.company) (params as any).company = filters.company;
+      if (filters.pattern) (params as any).algorithm_tag = filters.pattern;
+      if (filters.difficultyMin) (params as any).difficulty_rating_min = parseFloat(filters.difficultyMin);
+      if (filters.difficultyMax) (params as any).difficulty_rating_max = parseFloat(filters.difficultyMax);
 
       let response;
       if (searchQuery.trim()) {
@@ -134,7 +197,7 @@ const ProblemBrowser: React.FC = () => {
       const [problemDetail, solutionsData] = await Promise.all([
         problemsAPI.getProblem(problem.id),
         problemsAPI.getProblem(problem.id).then(() => 
-          fetch(`http://localhost:8000/problems/${problem.id}/solutions`).then(r => r.json())
+          apiService.get(`/problems/${problem.id}/solutions`).then(r => r.data)
         ).catch(() => ({ solutions: [] }))
       ]);
       
@@ -156,7 +219,7 @@ const ProblemBrowser: React.FC = () => {
   };
 
   // Handle filter change
-  const handleFilterChange = (key: string, value: string) => {
+  const handleFilterChange = (key: string, value: any) => {
     setFilters(prev => ({ ...prev, [key]: value }));
   };
 
@@ -174,9 +237,37 @@ const ProblemBrowser: React.FC = () => {
       minQuality: '',
       minRelevance: '',
       interviewReady: false,
-      algorithmPriority: ''
+      algorithmPriority: '',
+      company: '',
+      pattern: '',
+      difficultyMin: '',
+      difficultyMax: ''
     });
     setSearchQuery('');
+    loadProblems(1, true);
+  };
+
+  // Presets
+  const loadPresets = (): any[] => {
+    try {
+      return JSON.parse(localStorage.getItem('problemBrowserPresets') || '[]');
+    } catch {
+      return [];
+    }
+  };
+  const savePresets = (presets: any[]) => localStorage.setItem('problemBrowserPresets', JSON.stringify(presets));
+  const handleSavePreset = () => {
+    const presets = loadPresets();
+    const existingIndex = presets.findIndex((p: any) => p.name === presetName);
+    const entry = { name: presetName || `Preset ${presets.length + 1}`, filters, searchQuery };
+    if (existingIndex >= 0) presets[existingIndex] = entry; else presets.push(entry);
+    savePresets(presets);
+    setShowSavePreset(false);
+    setPresetName('');
+  };
+  const applyPreset = (preset: any) => {
+    setFilters(preset.filters || filters);
+    setSearchQuery(preset.searchQuery || '');
     loadProblems(1, true);
   };
 
@@ -294,6 +385,20 @@ const ProblemBrowser: React.FC = () => {
                 >
                   Filters
                 </Button>
+                <Button variant="outlined" onClick={(e) => setPresetsAnchor(e.currentTarget)}>Saved Views</Button>
+                <Menu
+                  anchorEl={presetsAnchor}
+                  open={Boolean(presetsAnchor)}
+                  onClose={() => setPresetsAnchor(null)}
+                >
+                  {loadPresets().length === 0 && (
+                    <MenuItem disabled>No saved views</MenuItem>
+                  )}
+                  {loadPresets().map((p: any, idx: number) => (
+                    <MenuItem key={idx} onClick={() => { applyPreset(p); setPresetsAnchor(null); }}>{p.name}</MenuItem>
+                  ))}
+                  <MenuItem onClick={() => { setShowSavePreset(true); setPresetsAnchor(null); }}>Save current as…</MenuItem>
+                </Menu>
               </Box>
             </Grid>
             <Grid item xs={12} md={2}>
@@ -372,12 +477,53 @@ const ProblemBrowser: React.FC = () => {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
+                  <TextField
+                    fullWidth
+                    label="Company"
+                    value={filters.company}
+                    onChange={(e) => handleFilterChange('company', e.target.value)}
+                    placeholder="e.g., Google"
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6} md={3}>
+                  <TextField
+                    fullWidth
+                    label="Pattern/Skill Tag"
+                    value={filters.pattern}
+                    onChange={(e) => handleFilterChange('pattern', e.target.value)}
+                    placeholder="e.g., sliding_window"
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6} md={6}>
+                  <Typography variant="caption" color="textSecondary">Difficulty Rating Range</Typography>
+                  <Grid container spacing={1}>
+                    <Grid item xs={6}>
+                      <TextField
+                        fullWidth
+                        label="Min"
+                        type="number"
+                        value={filters.difficultyMin}
+                        onChange={(e) => handleFilterChange('difficultyMin', e.target.value)}
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <TextField
+                        fullWidth
+                        label="Max"
+                        type="number"
+                        value={filters.difficultyMax}
+                        onChange={(e) => handleFilterChange('difficultyMax', e.target.value)}
+                      />
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item xs={12} sm={6} md={3}>
                   <Box display="flex" alignItems="center" height="100%">
                     <label>
                       <input
                         type="checkbox"
-                        checked={filters.interviewReady}
-                        onChange={(e) => handleFilterChange('interviewReady', e.target.checked.toString())}
+                        checked={Boolean(filters.interviewReady)}
+                        onChange={(e) => handleFilterChange('interviewReady', e.target.checked)}
                         style={{ marginRight: 8 }}
                       />
                       Interview Ready Only
@@ -393,6 +539,24 @@ const ProblemBrowser: React.FC = () => {
           )}
         </CardContent>
       </Card>
+
+      {/* Save Preset Dialog */}
+      <Dialog open={showSavePreset} onClose={() => setShowSavePreset(false)}>
+        <DialogTitle>Save current filters as a view</DialogTitle>
+        <DialogContent>
+          <TextField
+            fullWidth
+            autoFocus
+            label="View name"
+            value={presetName}
+            onChange={(e) => setPresetName(e.target.value)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setShowSavePreset(false)}>Cancel</Button>
+          <Button variant="contained" onClick={handleSavePreset} disabled={!presetName.trim()}>Save</Button>
+        </DialogActions>
+      </Dialog>
 
       {/* Error Display */}
       {error && (
@@ -659,6 +823,18 @@ const ProblemBrowser: React.FC = () => {
                         <Typography style={{ whiteSpace: 'pre-wrap' }}>
                           {problemDetails.description}
                         </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+                  )}
+
+                  {/* Dual-coding panel (feature-flagged) */}
+                  {process.env.REACT_APP_FEATURE_DUAL_CODING !== 'off' && (
+                    <Accordion>
+                      <AccordionSummary expandIcon={<ExpandMore />}>
+                        <Typography variant="h6">Dual-Coding: Visuals + Verbal</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <DualCodingContent problemId={selectedProblem.id} />
                       </AccordionDetails>
                     </Accordion>
                   )}

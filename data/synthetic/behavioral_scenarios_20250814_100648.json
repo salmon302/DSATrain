@@ -1,0 +1,1486 @@
+{
+  "metadata": {
+    "generated_at": "2025-08-14T10:06:48.226650",
+    "count": 50,
+    "type": "synthetic_behavioral_scenarios"
+  },
+  "scenarios": [
+    {
+      "id": "synthetic_behavioral_001",
+      "type": "behavioral_scenario",
+      "situation": "Working on a system migration project with a team of 12 people",
+      "task": "Need to improve performance within by end of quarter",
+      "complications": [
+        "resource constraints",
+        "team disagreements"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224638"
+    },
+    {
+      "id": "synthetic_behavioral_002",
+      "type": "behavioral_scenario",
+      "situation": "Working on a system migration project with a team of 12 people",
+      "task": "Need to resolve bugs within by end of quarter",
+      "complications": [
+        "team disagreements",
+        "resource constraints"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224712"
+    },
+    {
+      "id": "synthetic_behavioral_003",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a security issue with payment processing",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "missing information"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224730"
+    },
+    {
+      "id": "synthetic_behavioral_004",
+      "type": "behavioral_scenario",
+      "situation": "Working on a software development project with a team of 12 people",
+      "task": "Need to deliver the solution within 1 month",
+      "complications": [
+        "resource constraints",
+        "team disagreements"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224742"
+    },
+    {
+      "id": "synthetic_behavioral_005",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected resource reduction required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "budget changes",
+        "scope creep"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224752"
+    },
+    {
+      "id": "synthetic_behavioral_006",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected timeline compression required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "scope creep"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224759"
+    },
+    {
+      "id": "synthetic_behavioral_007",
+      "type": "behavioral_scenario",
+      "situation": "Working on a data analysis project with a team of 12 people",
+      "task": "Need to improve performance within 3 months",
+      "complications": [
+        "resource constraints"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224769"
+    },
+    {
+      "id": "synthetic_behavioral_008",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a critical issue with user interface",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "multiple stakeholders",
+        "missing information"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224777"
+    },
+    {
+      "id": "synthetic_behavioral_009",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected technology update required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "technology shifts"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224784"
+    },
+    {
+      "id": "synthetic_behavioral_010",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected resource reduction required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "budget changes",
+        "scope creep"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224792"
+    },
+    {
+      "id": "synthetic_behavioral_011",
+      "type": "behavioral_scenario",
+      "situation": "Team member disagreed with approach during testing",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "skill gaps",
+        "different working styles"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224801"
+    },
+    {
+      "id": "synthetic_behavioral_012",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a performance-related issue with user interface",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "unclear requirements",
+        "multiple stakeholders"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224819"
+    },
+    {
+      "id": "synthetic_behavioral_013",
+      "type": "behavioral_scenario",
+      "situation": "Working on a data analysis project with a team of 8 people",
+      "task": "Need to deliver the solution within 2 weeks",
+      "complications": [
+        "resource constraints"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224830"
+    },
+    {
+      "id": "synthetic_behavioral_014",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected requirement change required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "scope creep"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224856"
+    },
+    {
+      "id": "synthetic_behavioral_015",
+      "type": "behavioral_scenario",
+      "situation": "Team member missed deadlines during testing",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "personality conflicts"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224876"
+    },
+    {
+      "id": "synthetic_behavioral_016",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected technology update required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "budget changes",
+        "technology shifts"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224889"
+    },
+    {
+      "id": "synthetic_behavioral_017",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a high-priority issue with database",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "multiple stakeholders",
+        "missing information"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224899"
+    },
+    {
+      "id": "synthetic_behavioral_018",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a security issue with authentication system",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "missing information"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224908"
+    },
+    {
+      "id": "synthetic_behavioral_019",
+      "type": "behavioral_scenario",
+      "situation": "Team member had different priorities during development",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "personality conflicts"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224916"
+    },
+    {
+      "id": "synthetic_behavioral_020",
+      "type": "behavioral_scenario",
+      "situation": "Team member disagreed with approach during deployment",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "skill gaps",
+        "different working styles"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224956"
+    },
+    {
+      "id": "synthetic_behavioral_021",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a security issue with user interface",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "missing information",
+        "unclear requirements"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224968"
+    },
+    {
+      "id": "synthetic_behavioral_022",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected technology update required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "scope creep"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.224998"
+    },
+    {
+      "id": "synthetic_behavioral_023",
+      "type": "behavioral_scenario",
+      "situation": "Team member had different priorities during development",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "skill gaps"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225009"
+    },
+    {
+      "id": "synthetic_behavioral_024",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a high-priority issue with payment processing",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "multiple stakeholders",
+        "unclear requirements"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225018"
+    },
+    {
+      "id": "synthetic_behavioral_025",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected timeline compression required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "technology shifts",
+        "budget changes"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225027"
+    },
+    {
+      "id": "synthetic_behavioral_026",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a high-priority issue with authentication system",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "missing information"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225037"
+    },
+    {
+      "id": "synthetic_behavioral_027",
+      "type": "behavioral_scenario",
+      "situation": "Working on a data analysis project with a team of 5 people",
+      "task": "Need to resolve bugs within 1 month",
+      "complications": [
+        "tight deadline",
+        "conflicting priorities"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225048"
+    },
+    {
+      "id": "synthetic_behavioral_028",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a security issue with user interface",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "unclear requirements",
+        "missing information"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225056"
+    },
+    {
+      "id": "synthetic_behavioral_029",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected resource reduction required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "technology shifts",
+        "budget changes"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225063"
+    },
+    {
+      "id": "synthetic_behavioral_030",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected timeline compression required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "scope creep",
+        "budget changes"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225073"
+    },
+    {
+      "id": "synthetic_behavioral_031",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected technology update required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "scope creep"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225080"
+    },
+    {
+      "id": "synthetic_behavioral_032",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected requirement change required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "technology shifts",
+        "scope creep"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225088"
+    },
+    {
+      "id": "synthetic_behavioral_033",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected timeline compression required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "scope creep",
+        "budget changes"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225096"
+    },
+    {
+      "id": "synthetic_behavioral_034",
+      "type": "behavioral_scenario",
+      "situation": "Working on a data analysis project with a team of 5 people",
+      "task": "Need to deliver the solution within by end of quarter",
+      "complications": [
+        "conflicting priorities"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225106"
+    },
+    {
+      "id": "synthetic_behavioral_035",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a critical issue with database",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "missing information",
+        "multiple stakeholders"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225115"
+    },
+    {
+      "id": "synthetic_behavioral_036",
+      "type": "behavioral_scenario",
+      "situation": "Team member disagreed with approach during development",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "skill gaps"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225123"
+    },
+    {
+      "id": "synthetic_behavioral_037",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a critical issue with payment processing",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "multiple stakeholders"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225131"
+    },
+    {
+      "id": "synthetic_behavioral_038",
+      "type": "behavioral_scenario",
+      "situation": "Working on a data analysis project with a team of 12 people",
+      "task": "Need to improve performance within by end of quarter",
+      "complications": [
+        "conflicting priorities",
+        "resource constraints"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225140"
+    },
+    {
+      "id": "synthetic_behavioral_039",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a security issue with payment processing",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "missing information"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225147"
+    },
+    {
+      "id": "synthetic_behavioral_040",
+      "type": "behavioral_scenario",
+      "situation": "Working on a data analysis project with a team of 3 people",
+      "task": "Need to resolve bugs within by end of quarter",
+      "complications": [
+        "resource constraints"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225156"
+    },
+    {
+      "id": "synthetic_behavioral_041",
+      "type": "behavioral_scenario",
+      "situation": "Unexpected technology update required significant adjustment to project plan",
+      "task": "Adapt strategy and keep project on track",
+      "complications": [
+        "technology shifts",
+        "scope creep"
+      ],
+      "target_competencies": [
+        "Adaptability",
+        "Problem Solving",
+        "Decision Making"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225164"
+    },
+    {
+      "id": "synthetic_behavioral_042",
+      "type": "behavioral_scenario",
+      "situation": "Team member had different priorities during development",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "skill gaps"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225172"
+    },
+    {
+      "id": "synthetic_behavioral_043",
+      "type": "behavioral_scenario",
+      "situation": "Working on a process improvement project with a team of 12 people",
+      "task": "Need to deliver the solution within by end of quarter",
+      "complications": [
+        "resource constraints",
+        "conflicting priorities"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225181"
+    },
+    {
+      "id": "synthetic_behavioral_044",
+      "type": "behavioral_scenario",
+      "situation": "Team member disagreed with approach during development",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "personality conflicts",
+        "different working styles"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225189"
+    },
+    {
+      "id": "synthetic_behavioral_045",
+      "type": "behavioral_scenario",
+      "situation": "Working on a data analysis project with a team of 5 people",
+      "task": "Need to resolve bugs within by end of quarter",
+      "complications": [
+        "conflicting priorities",
+        "tight deadline"
+      ],
+      "target_competencies": [
+        "Leadership",
+        "Time Management",
+        "Teamwork"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225200"
+    },
+    {
+      "id": "synthetic_behavioral_046",
+      "type": "behavioral_scenario",
+      "situation": "Team member disagreed with approach during planning",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "different working styles"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225208"
+    },
+    {
+      "id": "synthetic_behavioral_047",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a security issue with user interface",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "unclear requirements"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "senior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225216"
+    },
+    {
+      "id": "synthetic_behavioral_048",
+      "type": "behavioral_scenario",
+      "situation": "Customer reported a critical issue with authentication system",
+      "task": "Resolve the issue and prevent future occurrences",
+      "complications": [
+        "multiple stakeholders"
+      ],
+      "target_competencies": [
+        "Problem Solving",
+        "Communication",
+        "Customer Focus"
+      ],
+      "difficulty": "mid",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225233"
+    },
+    {
+      "id": "synthetic_behavioral_049",
+      "type": "behavioral_scenario",
+      "situation": "Team member missed deadlines during testing",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "skill gaps"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225244"
+    },
+    {
+      "id": "synthetic_behavioral_050",
+      "type": "behavioral_scenario",
+      "situation": "Team member disagreed with approach during deployment",
+      "task": "Address the situation while maintaining team productivity",
+      "complications": [
+        "different working styles",
+        "skill gaps"
+      ],
+      "target_competencies": [
+        "Conflict Resolution",
+        "Leadership",
+        "Communication"
+      ],
+      "difficulty": "junior",
+      "expected_star_components": {
+        "situation": "Clear context and background",
+        "task": "Specific responsibility or goal",
+        "action": "Concrete steps taken (use 'I' not 'we')",
+        "result": "Quantified outcome and lessons learned"
+      },
+      "evaluation_criteria": [
+        "Specificity and detail in response",
+        "Personal ownership and accountability",
+        "Problem-solving approach",
+        "Quantified results",
+        "Lessons learned and growth"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225253"
+    }
+  ]
+}

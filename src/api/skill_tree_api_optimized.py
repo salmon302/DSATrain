@@ -4,7 +4,8 @@ Optimized Skill Tree API - Performance improvements for handling hundreds of pro
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
-from typing import List, Dict, Optional, Any
+from typing import List, Dict, Optional, Any, Tuple
+import time
 from pydantic import BaseModel
 from src.models.database import DatabaseConfig, Problem
 import logging
@@ -13,10 +14,29 @@ logger = logging.getLogger(__name__)
 
 # Create router
 router = APIRouter(prefix="/skill-tree-v2", tags=["Skill Tree Optimized"])
+# Simple in-process TTL cache (per-process). Suitable for single-user/dev server.
+_CACHE: Dict[Tuple[str, Tuple[Any, ...]], Tuple[float, Any]] = {}
+_CACHE_TTL_SECONDS = 60.0
+
+def _cache_get(key: Tuple[str, Tuple[Any, ...]]):
+    now = time.time()
+    entry = _CACHE.get(key)
+    if not entry:
+        return None
+    ts, value = entry
+    if now - ts > _CACHE_TTL_SECONDS:
+        # expired
+        _CACHE.pop(key, None)
+        return None
+    return value
+
+def _cache_set(key: Tuple[str, Tuple[Any, ...]], value: Any):
+    _CACHE[key] = (time.time(), value)
 
 # Database dependency
 def get_db():
-    db_config = DatabaseConfig("sqlite:///dsatrain_phase4.db")
+    # Use environment-configured database by default to allow tests/overrides
+    db_config = DatabaseConfig()
     db = db_config.get_session()
     try:
         yield db
@@ -56,6 +76,20 @@ class PaginatedProblems(BaseModel):
     page: int
     page_size: int
     has_next: bool
+
+class TagSummary(BaseModel):
+    """Summary of problems grouped by a specific tag"""
+    tag: str
+    total_problems: int
+    difficulty_distribution: Dict[str, int]
+    top_problems: List[ProblemSummary]
+
+class TagsOverview(BaseModel):
+    """Aggregated overview across tags"""
+    tags: List[TagSummary]
+    total_tags: int
+    total_problems: int
+    last_updated: str
 
 # PERFORMANCE OPTIMIZATION 1: Lightweight Overview
 @router.get("/overview-optimized", response_model=SkillTreeOverviewOptimized)
@@ -141,6 +175,85 @@ async def get_skill_tree_overview_optimized(
         logger.error(f"Error getting optimized overview: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
+# TAGS OVERVIEW: Lightweight aggregation by algorithm tag
+@router.get("/tags/overview", response_model=TagsOverview)
+async def get_tags_overview(
+    top_problems_per_tag: int = Query(5, ge=1, le=20),
+    db: Session = Depends(get_db)
+):
+    """
+    Get an overview of problems grouped by algorithm tags.
+    - Returns counts and difficulty distribution per tag
+    - Includes top N problems per tag (by quality + relevance)
+    """
+    try:
+        # Cache lookup
+        cache_key = ("tags_overview", (top_problems_per_tag,))
+        cached = _cache_get(cache_key)
+        if cached is not None:
+            return cached
+        problems_query = db.query(Problem).filter(Problem.sub_difficulty_level.isnot(None))
+        problems = problems_query.all()
+
+        tags: Dict[str, Dict[str, Any]] = {}
+        for p in problems:
+            if not p.algorithm_tags:
+                continue
+            for tag in p.algorithm_tags:
+                if not tag:
+                    continue
+                t = tag.strip()
+                if t not in tags:
+                    tags[t] = {
+                        "problems": [],
+                        "difficulty_counts": {"Easy": 0, "Medium": 0, "Hard": 0},
+                    }
+                tags[t]["problems"].append(p)
+                if p.difficulty in tags[t]["difficulty_counts"]:
+                    tags[t]["difficulty_counts"][p.difficulty] += 1
+
+        tag_summaries: List[TagSummary] = []
+        for t, data in tags.items():
+            top = sorted(
+                data["problems"],
+                key=lambda p: (p.quality_score or 0) + (p.google_interview_relevance or 0),
+                reverse=True,
+            )[:top_problems_per_tag]
+            top_summaries = [
+                ProblemSummary(
+                    id=p.id,
+                    title=p.title,
+                    difficulty=p.difficulty,
+                    sub_difficulty_level=p.sub_difficulty_level or 1,
+                    quality_score=p.quality_score or 0.0,
+                    google_interview_relevance=p.google_interview_relevance or 0.0,
+                )
+                for p in top
+            ]
+            tag_summaries.append(
+                TagSummary(
+                    tag=t,
+                    total_problems=len(data["problems"]),
+                    difficulty_distribution=data["difficulty_counts"],
+                    top_problems=top_summaries,
+                )
+            )
+
+        # Optional: sort tags by total_problems desc
+        tag_summaries.sort(key=lambda s: s.total_problems, reverse=True)
+
+        result = TagsOverview(
+            tags=tag_summaries,
+            total_tags=len(tag_summaries),
+            total_problems=len(problems),
+            last_updated="2025-08-15T00:00:00Z",
+        )
+        _cache_set(cache_key, result)
+        return result
+    except Exception as e:
+        logger.error(f"Error getting tags overview: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 # PERFORMANCE OPTIMIZATION 2: Paginated Problems by Skill Area
 @router.get("/skill-area/{skill_area}/problems", response_model=PaginatedProblems)
 async def get_skill_area_problems(
@@ -148,7 +261,10 @@ async def get_skill_area_problems(
     page: int = Query(1, ge=1),
     page_size: int = Query(20, ge=1, le=100),
     difficulty: Optional[str] = None,
-    sort_by: str = Query("quality", regex="^(quality|relevance|difficulty|title)$"),
+    sort_by: str = Query("quality", pattern="^(quality|relevance|difficulty|title)$"),
+    query: Optional[str] = Query(None, description="Optional search query across title and tags"),
+    platform: Optional[str] = Query(None, description="Optional platform filter, e.g., leetcode/codeforces"),
+    title_match: Optional[str] = Query(None, pattern="^(prefix|exact)$", description="Optional title match mode for 'query'"),
     db: Session = Depends(get_db)
 ):
     """
@@ -160,21 +276,50 @@ async def get_skill_area_problems(
     
     try:
         from src.api.skill_tree_api import _determine_primary_skill_area
+
+        # Cache lookup (keyed by input params)
+        cache_key = (
+            "skill_area_problems",
+            (skill_area, page, page_size, difficulty or "", sort_by, (query or "").strip().lower()),
+        )
+        cached = _cache_get(cache_key)
+        if cached is not None:
+            return cached
         
-        # Base query
-        query = db.query(Problem).filter(Problem.sub_difficulty_level.isnot(None))
+        # Base query (SQLAlchemy)
+        sa_query = db.query(Problem).filter(Problem.sub_difficulty_level.isnot(None))
         
-        # Filter by skill area (need to check algorithm_tags)
-        all_problems = query.all()
+    # Filter by skill area (need to check algorithm_tags)
+        all_problems = sa_query.all()
         filtered_problems = [
             p for p in all_problems 
             if p.algorithm_tags and _determine_primary_skill_area(p.algorithm_tags) == skill_area
         ]
         
+        # Platform filter
+        if platform:
+            filtered_problems = [p for p in filtered_problems if (p.platform or "").lower() == platform.lower()]
+
         # Apply difficulty filter
         if difficulty:
             filtered_problems = [p for p in filtered_problems if p.difficulty == difficulty]
         
+        # Apply query filter
+        if query:
+            q = (query or "").strip().lower()
+            def title_matcher(title: str) -> bool:
+                title_l = (title or "").lower()
+                if title_match == "exact":
+                    return title_l == q
+                if title_match == "prefix":
+                    return title_l.startswith(q)
+                return q in title_l
+            filtered_problems = [
+                p for p in filtered_problems
+                if (p.title and title_matcher(p.title))
+                or (p.algorithm_tags and any(q in (t or '').lower() for t in p.algorithm_tags))
+            ]
+
         # Apply sorting
         if sort_by == "quality":
             filtered_problems.sort(key=lambda p: p.quality_score or 0, reverse=True)
@@ -205,16 +350,130 @@ async def get_skill_area_problems(
             for p in page_problems
         ]
         
-        return PaginatedProblems(
+        result = PaginatedProblems(
             problems=problem_summaries,
             total_count=total_count,
             page=page,
             page_size=page_size,
             has_next=end_idx < total_count
         )
+        _cache_set(cache_key, result)
+        return result
         
     except Exception as e:
         logger.error(f"Error getting skill area problems: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+# TAG PROBLEMS: Paginated problems filtered by a specific tag
+@router.get("/tag/{tag}/problems", response_model=PaginatedProblems)
+async def get_tag_problems(
+    tag: str,
+    page: int = Query(1, ge=1),
+    page_size: int = Query(20, ge=1, le=100),
+    difficulty: Optional[str] = None,
+    sort_by: str = Query("quality", pattern="^(quality|relevance|difficulty|title)$"),
+    query: Optional[str] = Query(None, description="Optional search query across title and tags"),
+    platform: Optional[str] = Query(None, description="Optional platform filter, e.g., leetcode/codeforces"),
+    title_match: Optional[str] = Query(None, pattern="^(prefix|exact)$", description="Optional title match mode for 'query'"),
+    db: Session = Depends(get_db),
+):
+    """
+    Get paginated problems for a given tag.
+    - Supports filtering by difficulty
+    - Supports sorting by quality, relevance, difficulty (with sub-level), or title
+    """
+    try:
+        # Cache lookup
+        cache_key = (
+            "tag_problems",
+            ((tag or "").strip().lower(), page, page_size, difficulty or "", sort_by, (query or "").strip().lower()),
+        )
+        cached = _cache_get(cache_key)
+        if cached is not None:
+            return cached
+
+        # Base query (SQLAlchemy)
+        sa_query = db.query(Problem).filter(Problem.sub_difficulty_level.isnot(None))
+        all_problems = sa_query.all()
+
+        # Filter by tag (case-insensitive match within algorithm_tags)
+        tag_norm = (tag or "").strip().lower()
+        filtered_problems = [
+            p
+            for p in all_problems
+            if p.algorithm_tags
+            and any((t or "").strip().lower() == tag_norm for t in p.algorithm_tags)
+        ]
+
+        # Platform filter
+        if platform:
+            filtered_problems = [p for p in filtered_problems if (p.platform or "").lower() == platform.lower()]
+
+        # Apply difficulty filter
+        if difficulty:
+            filtered_problems = [p for p in filtered_problems if p.difficulty == difficulty]
+
+        # Apply query filter
+        if query:
+            q = (query or "").strip().lower()
+            def title_matcher(title: str) -> bool:
+                title_l = (title or "").lower()
+                if title_match == "exact":
+                    return title_l == q
+                if title_match == "prefix":
+                    return title_l.startswith(q)
+                return q in title_l
+            filtered_problems = [
+                p for p in filtered_problems
+                if (p.title and title_matcher(p.title))
+                or (p.algorithm_tags and any(q in (t or '').lower() for t in p.algorithm_tags))
+            ]
+
+        # Sorting
+        if sort_by == "quality":
+            filtered_problems.sort(key=lambda p: p.quality_score or 0, reverse=True)
+        elif sort_by == "relevance":
+            filtered_problems.sort(key=lambda p: p.google_interview_relevance or 0, reverse=True)
+        elif sort_by == "difficulty":
+            difficulty_order = {"Easy": 1, "Medium": 2, "Hard": 3}
+            filtered_problems.sort(
+                key=lambda p: (
+                    difficulty_order.get(p.difficulty, 4),
+                    -(p.sub_difficulty_level or 0),  # higher sub-level first within bucket
+                )
+            )
+        elif sort_by == "title":
+            filtered_problems.sort(key=lambda p: p.title)
+
+        # Pagination
+        total_count = len(filtered_problems)
+        start_idx = (page - 1) * page_size
+        end_idx = start_idx + page_size
+        page_problems = filtered_problems[start_idx:end_idx]
+
+        problem_summaries = [
+            ProblemSummary(
+                id=p.id,
+                title=p.title,
+                difficulty=p.difficulty,
+                sub_difficulty_level=p.sub_difficulty_level or 1,
+                quality_score=p.quality_score or 0.0,
+                google_interview_relevance=p.google_interview_relevance or 0.0,
+            )
+            for p in page_problems
+        ]
+        
+        result = PaginatedProblems(
+            problems=problem_summaries,
+            total_count=total_count,
+            page=page,
+            page_size=page_size,
+            has_next=end_idx < total_count,
+        )
+        _cache_set(cache_key, result)
+        return result
+    except Exception as e:
+        logger.error(f"Error getting tag problems: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 # PERFORMANCE OPTIMIZATION 3: Search and Filter

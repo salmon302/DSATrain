@@ -1,0 +1,45 @@
+{
+  "package_name": "Expert STAR Response Collection Package",
+  "created_at": "2025-08-14T10:10:48.805434",
+  "components": {
+    "prompts": {
+      "file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\expert_labeled\\expert_prompts_20250814_101048.json",
+      "count": 120,
+      "competencies_covered": [
+        "conflict_resolution",
+        "adaptability",
+        "innovation",
+        "teamwork",
+        "customer_focus",
+        "communication",
+        "leadership",
+        "problem_solving"
+      ],
+      "experience_levels": [
+        "junior",
+        "mid",
+        "senior"
+      ]
+    },
+    "instructions": {
+      "file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\expert_labeled\\expert_instructions_20250814_101048.json",
+      "description": "Detailed guidelines for expert respondents"
+    },
+    "template": {
+      "file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\expert_labeled\\collection_template_20250814_101048.json",
+      "description": "JSON template for structured response collection"
+    }
+  },
+  "collection_plan": {
+    "target_experts": "3-5 experienced professionals",
+    "responses_per_expert": "40-60 responses",
+    "total_target": "200+ labeled responses",
+    "timeline": "2-3 weeks for collection + 1 week for validation"
+  },
+  "success_metrics": [
+    "High inter-rater reliability (>0.8)",
+    "Balanced distribution across competencies",
+    "Quality level distribution: 30% excellent, 40% good, 20% adequate, 10% poor",
+    "Sufficient volume for model training (200+ responses)"
+  ]
+}

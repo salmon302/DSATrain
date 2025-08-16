@@ -4,12 +4,12 @@ Enhanced database schema for scalable problem and solution storage
 """
 
 from sqlalchemy import create_engine, Column, String, Integer, Float, Text, JSON, DateTime, ForeignKey, Boolean, Index, PrimaryKeyConstraint
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy.orm import declarative_base, sessionmaker, relationship
 from sqlalchemy.sql import func
 from datetime import datetime
 from typing import Optional, List, Dict, Any
 import json
+import os
 
 Base = declarative_base()
 
@@ -43,6 +43,20 @@ class Problem(Base):
     difficulty_rating = Column(Float, default=0.0)
     quality_score = Column(Float, default=0.0, index=True)
     popularity_score = Column(Float, default=0.0)
+
+    # Redesign extensions
+    pattern_tags = Column(JSON)  # list of strings
+    skill_areas = Column(JSON)   # list of strings
+    granular_difficulty = Column(Integer)  # 1–5
+    interview_frequency = Column(Float)  # float proxy
+    company_tags = Column(JSON)  # list of strings
+    source_dataset = Column(String(100))
+    canonical_solutions = Column(JSON)  # structured canonical solutions
+    visual_aids = Column(JSON)
+    verbal_explanations = Column(JSON)
+    prerequisite_assessment = Column(JSON)
+    elaborative_prompts = Column(JSON)
+    working_memory_load = Column(Integer)  # 1–10
     
     # Skill Tree Enhancements
     sub_difficulty_level = Column(Integer, default=1)  # 1-5 within difficulty category
@@ -81,14 +95,25 @@ class Problem(Base):
             'title': self.title,
             'difficulty': self.difficulty,
             'category': self.category,
+            # Content fields used by the Practice UI
+            'description': self.description,
+            'constraints': self.constraints,
+            'examples': self.examples,
+            'hints': self.hints,
             'algorithm_tags': self.algorithm_tags,
             'data_structures': self.data_structures,
+            'pattern_tags': self.pattern_tags,
+            'skill_areas': self.skill_areas,
+            'granular_difficulty': self.granular_difficulty,
             'google_interview_relevance': self.google_interview_relevance,
             'difficulty_rating': self.difficulty_rating,
             'quality_score': self.quality_score,
             'popularity_score': self.popularity_score,
             'acceptance_rate': self.acceptance_rate,
             'companies': self.companies,
+            'company_tags': self.company_tags,
+            'interview_frequency': self.interview_frequency,
+            'source_dataset': self.source_dataset,
             'solution_count': len(self.solutions) if self.solutions else 0,
             'created_at': self.created_at.isoformat() if self.created_at else None
         }
@@ -682,14 +707,120 @@ class UserSkillTreePreferences(Base):
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
 
 
+# ================= Single-User Redesign: SRS & Cognitive =================
+
+class ReviewCard(Base):
+    __tablename__ = 'review_cards'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    problem_id = Column(String(50), ForeignKey('problems.id'), nullable=False, index=True)
+    next_review_at = Column(DateTime, index=True)
+    interval_days = Column(Integer, default=1)
+    ease = Column(Float, default=2.5)  # SM-2 style ease factor
+    reps = Column(Integer, default=0)
+    lapses = Column(Integer, default=0)
+    last_outcome = Column(String(20))  # again, hard, good, easy
+    deck = Column(String(50), default='problems')
+
+    problem = relationship('Problem')
+
+
+class ReviewHistory(Base):
+    __tablename__ = 'review_history'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    problem_id = Column(String(50), ForeignKey('problems.id'), nullable=False, index=True)
+    outcome = Column(String(20), nullable=False)
+    time_spent = Column(Integer)
+    notes = Column(Text)
+    timestamp = Column(DateTime, default=func.now(), index=True)
+
+    problem = relationship('Problem')
+
+
+class ProblemAttempt(Base):
+    __tablename__ = 'problem_attempts'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    problem_id = Column(String(50), ForeignKey('problems.id'), nullable=False, index=True)
+    code = Column(Text)
+    language = Column(String(30))
+    status = Column(String(20))  # solved/attempted/failed
+    time_spent = Column(Integer)
+    test_results = Column(JSON)
+    mistakes = Column(JSON)
+    reflection = Column(Text)
+    created_at = Column(DateTime, default=func.now(), index=True)
+
+    problem = relationship('Problem')
+
+
+class UserCognitiveProfile(Base):
+    __tablename__ = 'user_cognitive_profile'
+
+    user_id = Column(String(50), primary_key=True, default='default_user')
+    working_memory_capacity = Column(Integer)
+    learning_style_preference = Column(String(20))  # visual/verbal/balanced
+    visual_vs_verbal = Column(Float)  # 0..1
+    processing_speed = Column(String(20))  # slow/average/fast
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
+
+
+class ElaborativeSession(Base):
+    __tablename__ = 'elaborative_sessions'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    problem_id = Column(String(50), ForeignKey('problems.id'), nullable=False, index=True)
+    why_questions = Column(JSON)
+    how_questions = Column(JSON)
+    responses = Column(JSON)
+    timestamp = Column(DateTime, default=func.now(), index=True)
+
+    problem = relationship('Problem')
+
+
+class RetrievalPractice(Base):
+    __tablename__ = 'retrieval_practice'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    problem_id = Column(String(50), ForeignKey('problems.id'), nullable=False, index=True)
+    retrieval_type = Column(String(50))  # micro, concept_map, explanation
+    success_rate = Column(Float)
+    retrieval_strength = Column(Float)
+    timestamp = Column(DateTime, default=func.now(), index=True)
+
+    problem = relationship('Problem')
+
+
+class PracticeGateSession(Base):
+    """Persist gated practice sessions (dry-run → pseudocode → code) per user/problem."""
+    __tablename__ = 'practice_gate_sessions'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    session_id = Column(String(100), unique=True, index=True, nullable=False)
+    user_id = Column(String(50), default='default_user', index=True)
+    problem_id = Column(String(50), ForeignKey('problems.id'), nullable=False, index=True)
+    # Store gates as a JSON mapping: {"dry_run": bool, "pseudocode": bool, "code": bool}
+    gates = Column(JSON, default=lambda: {"dry_run": False, "pseudocode": False, "code": False})
+    unlocked = Column(Boolean, default=False)
+    started_at = Column(DateTime, default=func.now(), index=True)
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now(), index=True)
+
+    # Relationships
+    problem = relationship('Problem')
+
 # Database configuration
 class DatabaseConfig:
     """Database configuration and connection management"""
     
     def __init__(self, database_url: str = None):
+        # Precedence: explicit arg > env var DSATRAIN_DATABASE_URL > env var DATABASE_URL > default sqlite file
         if database_url is None:
-            # Default to SQLite for development, can be overridden for production
-            database_url = "sqlite:///./dsatrain_phase4.db"
+            database_url = (
+                os.getenv("DSATRAIN_DATABASE_URL")
+                or os.getenv("DATABASE_URL")
+                or "sqlite:///./dsatrain_phase4.db"
+            )
         
         self.engine = create_engine(
             database_url,
@@ -697,6 +828,15 @@ class DatabaseConfig:
             pool_pre_ping=True
         )
         self.SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=self.engine)
+
+        # Auto-create tables for ephemeral/in-memory DBs or when explicitly requested
+        auto_create = os.getenv("DSATRAIN_AUTO_CREATE_TABLES") == "1" or database_url.startswith("sqlite:///:memory:")
+        if auto_create:
+            try:
+                Base.metadata.create_all(bind=self.engine)
+            except Exception:
+                # Non-fatal: allow application to start even if create fails
+                pass
     
     def create_tables(self):
         """Create all tables"""
@@ -730,7 +870,15 @@ def get_database_stats(db_session) -> Dict[str, int]:
         'problem_clusters': db_session.query(ProblemCluster).count(),
         'user_problem_confidence': db_session.query(UserProblemConfidence).count(),
         'user_skill_mastery': db_session.query(UserSkillMastery).count(),
-        'user_skill_tree_preferences': db_session.query(UserSkillTreePreferences).count()
+    'user_skill_tree_preferences': db_session.query(UserSkillTreePreferences).count(),
+    # Redesign SRS/Cognitive Tables
+    'review_cards': db_session.query(ReviewCard).count(),
+    'review_history': db_session.query(ReviewHistory).count(),
+    'problem_attempts': db_session.query(ProblemAttempt).count(),
+    'user_cognitive_profile': db_session.query(UserCognitiveProfile).count(),
+    'elaborative_sessions': db_session.query(ElaborativeSession).count(),
+    'retrieval_practice': db_session.query(RetrievalPractice).count(),
+    'practice_gate_sessions': db_session.query(PracticeGateSession).count(),
     }
     return stats
 

@@ -1,0 +1,62 @@
+[
+  {
+    "source": "reddit",
+    "subsource": "cscareerquestions",
+    "id": "1mlcjrt",
+    "title": "2 [REDACTED] to Land a [REDACTED]. Should I [REDACTED] a CS Degree?",
+    "content": "Sorry for the long post.\n\nSelf-taught fullstack dev here. No degree. I broke into tech at the end of 2022 and worked at a crypto company as a dev for a year before quitting due to various reasons.\n\nI spent the following year coding daily, earning 9 Google certificates, learning Python, and applying for jobs.  I applied to over 1,000 dev roles. I had a couple of interviews and made it to the final round for a big AgTech company but lost to the other candidate.\n\nI ended up burning through my savings and had no choice but to take a job as a car salesman (only applied to one dealership and got the role lol). I've been freelancing part-time for the past year with some success, even landing one project worth $10k.\n\nBut here’s the problem: I’m working 70–85 hours a week between sales and freelance, and burnout is hitting hard. It’s now been a little over 2 years without a full-time dev offer. I’m seeing CS grads struggling, too.\n\nNow I’m at a crossroads:\n\nI can get a CS degree for very little cost using modernstates.org and transferring credits to WGU.\n\nBut… will this actually improve my job prospects, or will I be in the same boat after graduating?\n\nIs a WGU CS degree respected enough for software engineering roles, or should I aim for a more traditional program?\n\nShould I pursue a different degree where my skills would be somewhat transferable and stability is higher? Which tech-adjacent fields are more stable right now?\n\nFor those in hiring... what’s the biggest difference between candidates who get offers vs. those who don’t right now?\n\nThank you all for your help!\n\nP.s. Part of me wants to build a SAAS, and I already have customers who are saying they would try it out. I just don't know if I'm ready for that as one man with little money/time. ",
+    "author": "[REDACTED]",
+    "url": "https://reddit.com/r/cscareerquestions/comments/1mlcjrt/2_years_trying_to_land_a_dev_job_should_i_finally/",
+    "score": 0,
+    "num_comments": 32,
+    "created_utc": 1754701650.0
+  },
+  {
+    "source": "reddit",
+    "subsource": "cscareerquestions",
+    "id": "1mf7o4z",
+    "title": "UT Austin MSCSO vs [REDACTED] OMSCS; Backend-focused, admitted for Spring 2026, need to decide by Aug 21",
+    "content": "Hi everyone,\n\nI’ve been admitted to UT Austin’s MSCSO and [REDACTED]’s OMSCS for Spring 2026. I need to make a final decision by August 21st, and I’d really appreciate insight from those familiar with either program.\n\nI’m primarily aiming to make up for a weaker undergrad (T250-level school) that negatively affected internship search and improve my chances at stronger internships and full-time SWE roles, especially in backend development.\n\n\n[REDACTED] Points\n\n [REDACTED]:\n\nUT Austin MSCSO allows full-time enrollment → can finish by May or Dec 2027, giving 1–2 chances for summer internships.\n\nOMSCS is capped at 2 classes per semester → May 2028 at the earliest, even with maximum credits per semester.\n\n [REDACTED]:\n\nOMSCS has a much broader, deeper catalog in systems, distributed computing, databases, software engineering, etc. which aligns more with my backend interests.\n\nUT Austin MSCSO is theory-heavy and AI/ML-focused, with fewer backend-focused options.\n\n\n [REDACTED] &amp; Perception (matter significantly for me as my purpose is making up weak undergrad and signal matter singificantly for getting interviews or resume being actually looked):\n\nOMSCS has a huge cohort, and I’ve seen some concerns that it’s losing value due to oversaturation and ease of admission.\n\nUT MSCSO is more selective and may carry better resume signal (e.g. ATS filtering, employer perception). Not sure how much the difference is in practice, though.\n\n\n [REDACTED]:\n\nI finish my undergrad in Dec 2025, and will be applying for Summer 2026 internships starting Aug 2025.\n\nI’ll qualify as a grad student, but some companies (Meta, Adobe, Atlassian, [REDACTED], etc.) require full-time enrollment, which OMSCS doesn’t allow.\n\n[REDACTED], I asked a recruiter, part-time is sufficient.\n\n\n Projects &amp; Portfolio:\n\nI likely won’t have bandwidth for side projects during MS.\n\nI’ll be relying on course projects + past internship work/projects.\n\nGiven I already have multiple full-stack/backend projects and internships, I’m not sure if more personal projects would provide much marginal gain anyway.\n\n\n SWE [REDACTED] (anonymized)\n\nInternship 1 (F500, AWS-heavy backend):\n\nAWS Lambda, SQS, CDK, DynamoDB (Python)\n\nImproved test coverage (Java, Python), CI/CD\n\nBuilt a financial planner app (React + AWS)\n\n\nInternship 2 (small startup):\n\nFull-stack app with SvelteKit, PostgreSQL, REST APIs, Tailwind CSS\n\n [REDACTED]\n\nIf UT Austin had even ~70% of the course variety that OMSCS offers in systems/backend/SWE, I’d pick it with no hesitation.\n\nBut I’m currently split between:\n\nOMSCS: much better alignment with backend focus, but longer timeline and possibly weaker resume signal.\n\nUT MSCSO: stronger branding/selectivity and internship eligibility (big deal for 2026 cycle), but narrow, theory-leaning curriculum that may not offer much practical backend value.\n\n\nMain goal: Make up for undergrad brand + land stronger backend internships/full-time roles.\n\nWould really appreciate any advice especially if you’ve done or considered either program. Thanks a lot!",
+    "author": "[REDACTED]",
+    "url": "https://reddit.com/r/cscareerquestions/comments/1mf7o4z/ut_austin_mscso_vs_georgia_tech_omscs/",
+    "score": 0,
+    "num_comments": 14,
+    "created_utc": 1754080911.0
+  },
+  {
+    "source": "reddit",
+    "subsource": "cscareerquestions",
+    "id": "1mbzxvh",
+    "title": "OpenAI recruiter calls. How hard is it to get one for non-AI engineering roles?",
+    "content": "I know that if you want to do AI/ML at OpenAI, you probably have to have publications and just have stellar backgrounds. However, I wonder what about for backend, frontend, infra, and mobile engineers at OpenAI?\n\nBasically the engineers that aren't doing any AI/ML work, how difficult would it be for them to get an offer there? I imagine you would likely need to have a big tech FAANG background, but do you need to be a top tier engineer at those companies as well? Or can most Google/Meta engineers get interviews at OpenAI? I have only looked on LinkedIn but it's bit hard to tell whether they are in AI or non AI engineering.",
+    "author": "[REDACTED]",
+    "url": "https://reddit.com/r/cscareerquestions/comments/1mbzxvh/openai_recruiter_calls_how_hard_is_it_to_get_one/",
+    "score": 0,
+    "num_comments": 7,
+    "created_utc": 1753756701.0
+  },
+  {
+    "source": "reddit",
+    "subsource": "cscareerquestions",
+    "id": "1m8xqpv",
+    "title": "Advice on pursuing dev position",
+    "content": "So, I work for a fairly small company that makes their own software in house for a specialized printer. Right now I’m in tech support and I haven’t been there long, but I only took the job because I got about ten second interviews for web developer jobs that never panned out and I figured this would get me foot in a door somewhere. Anywhere. I have pretty much no proper job history. \n\nI’ve been self employed for 20 years before now. ADHD is a hell of a drug; I have fifty hobbies and I managed to turn a few of them into careers of some description but, well, I’m 41 and have nothing saved for retirement, my husband is about 7 years away from retiring, I needed to try and get into a position where I could transition to primary earner at some point. \n\nSheer curiosity has given me a very deep tech stack. I’m a couple months away from releasing a desktop application for authors (niche, I don’t expect it to make me millions), I’ve done React, Vue, Nextjs, I have finally come to appreciate typescript, I learned C so I could reverse engineer a printer driver, I’ve done Postgres, MySql, SQLite, mongo, firebase, AWS, google cloud everything, trained an LLM for my app, I’m a fucking magpie with development like I am with everything else. \n\nI HATE our software. It’s ugly, it lacks obvious features that baffle the mind, like a graphic design UI that does manage layers and does let you move a layer forward or backward but has **no UI for direct layer management like literally every graphic design software better than MS Paint does** and it makes me want to pull out my hair when I have to explain to customers that no, unfortunately the software doesn’t do this thing that intuitively you’d think it absolutely would. It’s in QML and JS with some C++ to interact with the printer driver. I desperately want to get into the engineering department so I can fix these stupid fucking oversights. \n\nI have zero concept of corporate… I don’t know, culture? Chain of command? I don’t even have the vocabulary, I spent all my time learning and doing and making things and no time in this weird world where stuff like that is allowed to happen. My second interview here was with the CTO who absolutely grilled me over my indie dev history, it felt very much like a technical interview and I was almost convinced he intended to put me in engineering instead of tech support. He didn’t, but he did ask if I thought I was likely to stick around. I was honest and told him that 20/hour doing menial labor would not hold my attention for more than six months. Surprisingly he did still hire me. \n\nNow, it’s only been three months but I want to ask him if I can branch our repo to work on at least this one feature in my down time, which I have plenty of (which is why being here is like scrubbing my brain with sandpaper) but is that like… do people do that? Is it entirely inappropriate to go straight to the CTO from my position? I asked the production manager about it some time ago and while he did let me know the tech stack in engineering, he never answered the polite request for a look at the code base to get familiar. Maybe that was also not a thing people do. \n\nI like the company okay, I think I could contribute significant improvements, especially with a few months in tech support seeing the flaws in the software and firmware for the product itself, I’d enjoy working on them I think, and I am not difficult to keep around. I’m not interested in job hopping for the next raise or something; I’m just a nerd who needs a project to be happy. \n\nWould I be making some kind of corporate social faux pas for just asking for what I want from the CTO? This probably sounds like a dumb question, I realize, I just really don’t know how any of this works. Any advice is appreciated, I’m literally ignorant of basically every aspect of being employed by someone else. ",
+    "author": "[REDACTED]",
+    "url": "https://reddit.com/r/cscareerquestions/comments/1m8xqpv/advice_on_pursuing_dev_position/",
+    "score": 0,
+    "num_comments": 12,
+    "created_utc": 1753446233.0
+  },
+  {
+    "source": "reddit",
+    "subsource": "cscareerquestions",
+    "id": "1m7rrvc",
+    "title": "How to level up with 12yoe?",
+    "content": "Hi all. As mentioned in the title, I have 12 years of experience in CS. All web development, which across 12 years means anything from \"traditional\" web development like frontend/backend work to more esoteric things like web scraping and devops/terraform. Recently (last 2 years) I've done more data engineering and ML ops because that's the big craze and my Python experience relates well. \n\nAs I begin interviews, I'm nervous about the \"where do you want to end up?\" question. After 12yoe, and getting older, it makes sense to start looking at management. But I despise management - it just means you code less and have to deal with people more. I love coding and solving interesting problems. How should I best answer this question? \n\nAnd side note - any notes on how to stay relevant? I noticed as I interview that my experience isn't \"good\" experience. It's not FAANG or anything special. So I'm passed over for all the Google/Amazon/Meta etc layoffs in the job market. ",
+    "author": "[REDACTED]",
+    "url": "https://reddit.com/r/cscareerquestions/comments/1m7rrvc/how_to_level_up_with_12yoe/",
+    "score": 1,
+    "num_comments": 6,
+    "created_utc": 1753321869.0
+  }
+]

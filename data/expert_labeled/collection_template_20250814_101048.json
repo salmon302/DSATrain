@@ -1,0 +1,26 @@
+{
+  "expert_info": {
+    "name": "[Expert Name]",
+    "background": "[Brief description of relevant experience]",
+    "years_experience": "[Number]",
+    "specialization": "[Technical area or role type]"
+  },
+  "responses": [
+    {
+      "prompt_id": "prompt_001",
+      "question": "[Question text]",
+      "competency": "[Target competency]",
+      "response": {
+        "situation": "[Your response]",
+        "task": "[Your response]",
+        "action": "[Your response]",
+        "result": "[Your response]"
+      },
+      "self_assessment": {
+        "quality_level": "[excellent/good/adequate/poor]",
+        "competency_demonstration": "[How well does this demonstrate the target competency?]",
+        "areas_for_improvement": "[What could make this response stronger?]"
+      }
+    }
+  ]
+}

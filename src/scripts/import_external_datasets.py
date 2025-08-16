@@ -7,7 +7,6 @@ from src.collectors.kaggle_leetcode_importer import KaggleLeetCodeImporter
 from src.collectors.hackerrank_interview_kit_importer import HackerRankInterviewKitImporter
 from src.collectors.codecomplex_importer import CodeComplexImporter
 from src.processors.standardizer import DatasetStandardizer
-from src.models.database import DatabaseConfig
 
 
 def main() -> None:
@@ -19,9 +18,13 @@ def main() -> None:
 	data_dir = Path(args.data_dir)
 	data_dir.mkdir(parents=True, exist_ok=True)
 
-	# Ensure DB exists
-	db = DatabaseConfig()
-	db.create_tables()
+	# If we are going to upsert, ensure DB tables exist without importing SQLAlchemy in no-db mode
+	if not args.no_db:
+		try:
+			from src.models.database import DatabaseConfig  # type: ignore
+			DatabaseConfig().create_tables()
+		except Exception as e:
+			print(f"Warning: could not prepare database for upsert: {e}")
 
 	# Load external datasets
 	kaggle = KaggleLeetCodeImporter(data_dir)

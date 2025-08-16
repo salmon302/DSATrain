@@ -93,10 +93,7 @@ class Problem(BaseModel):
     editorial: Optional[Editorial] = None
     metadata: ProblemMetadata
 
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+    # Pydantic v2 serializes datetime to ISO 8601 by default; no custom Config needed.
 
 
 class QualityMetrics(BaseModel):
@@ -122,10 +119,7 @@ class Solution(BaseModel):
     quality_metrics: Optional[QualityMetrics] = None
     metadata: SolutionMetadata
 
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+    # Pydantic v2 default serialization is sufficient.
 
 
 class Tag(BaseModel):
@@ -151,10 +145,7 @@ class AcquisitionLog(BaseModel):
     error_message: Optional[str] = None
     metadata: Optional[Dict[str, Any]] = None
 
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+    # Pydantic v2 default serialization is sufficient.
 
 
 # Response models for APIs
@@ -324,10 +315,7 @@ class EnhancedSolution(BaseModel):
     # Metadata
     metadata: Dict[str, Any] = {}
     
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+    # Pydantic v2 default serialization is sufficient.
 
 
 class SolutionCollection(BaseModel):
@@ -355,10 +343,7 @@ class SolutionCollection(BaseModel):
     last_updated: datetime
     metadata: Dict[str, Any] = {}
     
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+    # Pydantic v2 default serialization is sufficient.
 
 
 class SolutionAnalytics(BaseModel):
@@ -402,7 +387,4 @@ class SolutionAnalytics(BaseModel):
     analysis_date: datetime
     metadata: Dict[str, Any] = {}
     
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+    # Pydantic v2 default serialization is sufficient.

@@ -433,7 +433,7 @@ async def complete_milestone(
 
 @router.get("/analytics/overview")
 async def get_learning_paths_analytics(
-    time_period: str = Query("month", regex="^(week|month|quarter|year)$"),
+    time_period: str = Query("month", pattern="^(week|month|quarter|year)$"),
     db: Session = Depends(get_db)
 ):
     """

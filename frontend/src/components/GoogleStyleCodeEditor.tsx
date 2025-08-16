@@ -143,7 +143,7 @@ const GoogleStyleCodeEditor: React.FC<GoogleStyleCodeEditorProps> = ({
     wordBasedSuggestions: 'off' as const,
     contextmenu: false, // Disable right-click menu
     hover: { enabled: false }, // Disable hover information
-    lightbulb: { enabled: false }, // Disable quick fix suggestions
+    // Lightbulb setting removed to satisfy monaco types in current version
     // Remove syntax highlighting in strict mode
     theme: googleDocMode ? 'google-doc-plain' : 'vs-dark',
     // Disable autocomplete completely

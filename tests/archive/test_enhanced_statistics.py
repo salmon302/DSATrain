@@ -1,11 +1,22 @@
 """
 Test Enhanced Statistics API Endpoints
 Showcase improved difficulty and Google relevance statistics
+
+Note: This archive test targets a live server and provides helper functions
+intended for manual runs. It is skipped by default in CI. To enable, set
+RUN_EXTERNAL_API_TESTS=1.
 """
 
 import requests
 import json
 from typing import Dict
+import os
+import pytest
+
+pytestmark = pytest.mark.skipif(
+    not os.getenv("RUN_EXTERNAL_API_TESTS"),
+    reason="Archived external-API test; set RUN_EXTERNAL_API_TESTS=1 to run.",
+)
 
 API_BASE = "http://127.0.0.1:8003"
 

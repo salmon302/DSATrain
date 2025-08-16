@@ -21,6 +21,7 @@ import {
   Divider,
   LinearProgress,
   CircularProgress,
+  TextField,
 } from '@mui/material';
 import {
   PlayArrow,
@@ -82,6 +83,10 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   const [fontSize, setFontSize] = useState(14);
   const [showSettings, setShowSettings] = useState(false);
   const [customInput, setCustomInput] = useState('');
+  const [customTests, setCustomTests] = useState<TestCase[]>([]);
+  const [newTestName, setNewTestName] = useState('Custom Case');
+  const [newTestInput, setNewTestInput] = useState('');
+  const [newTestExpected, setNewTestExpected] = useState<string | undefined>(undefined);
   
   const editorRef = useRef<any>(null);
   const monacoRef = useRef<any>(null);
@@ -294,7 +299,7 @@ int main() {
     
     try {
       // Generate and run comprehensive analysis
-      const analysis = await codeExecutionAPI.analyzeCode(code, language);
+      const analysis = await codeExecutionAPI.analyzeCode(code, language, undefined, customTests.length ? customTests : undefined);
       setAnalysisResult(analysis);
       setTestResults(analysis.test_results);
       
@@ -511,6 +516,7 @@ int main() {
                 <Tab label="Console" icon={<Code />} />
                 <Tab label="Test Results" icon={<Assessment />} />
                 <Tab label="Performance" icon={<Speed />} />
+                <Tab label="Tests" icon={<BugReport />} />
               </Tabs>
               
               <Box sx={{ flexGrow: 1, p: 2, overflow: 'auto' }}>
@@ -766,6 +772,88 @@ int main() {
                       <Typography color="textSecondary">
                         Click "Analyze" to see detailed performance analysis...
                       </Typography>
+                    )}
+                  </Box>
+                )}
+
+                {activeTab === 3 && (
+                  <Box>
+                    <Typography variant="h6" gutterBottom>
+                      Test Case Composer
+                    </Typography>
+                    <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
+                      <Grid container spacing={2}>
+                        <Grid item xs={12} sm={4}>
+                          <TextField
+                            fullWidth
+                            size="small"
+                            label="Name"
+                            value={newTestName}
+                            onChange={(e) => setNewTestName(e.target.value)}
+                          />
+                        </Grid>
+                        <Grid item xs={12} sm={8}>
+                          <TextField
+                            fullWidth
+                            size="small"
+                            label="Input"
+                            placeholder="Raw stdin for your program"
+                            value={newTestInput}
+                            onChange={(e) => setNewTestInput(e.target.value)}
+                          />
+                        </Grid>
+                        <Grid item xs={12}>
+                          <TextField
+                            fullWidth
+                            size="small"
+                            label="Expected Output (optional)"
+                            placeholder="What should be printed"
+                            value={newTestExpected ?? ''}
+                            onChange={(e) => setNewTestExpected(e.target.value || undefined)}
+                          />
+                        </Grid>
+                        <Grid item xs={12}>
+                          <Button
+                            variant="contained"
+                            size="small"
+                            startIcon={<BugReport />}
+                            onClick={() => {
+                              const newCase: TestCase = {
+                                name: newTestName || `Case ${customTests.length + 1}`,
+                                input: newTestInput,
+                                expected_output: newTestExpected,
+                              } as TestCase;
+                              setCustomTests([...customTests, newCase]);
+                              setNewTestInput('');
+                            }}
+                            disabled={!newTestInput.trim()}
+                          >
+                            Add Test
+                          </Button>
+                        </Grid>
+                      </Grid>
+                    </Paper>
+
+                    {customTests.length === 0 ? (
+                      <Typography color="textSecondary">No custom tests added yet.</Typography>
+                    ) : (
+                      <Box>
+                        {customTests.map((tc, idx) => (
+                          <Paper key={idx} variant="outlined" sx={{ p: 1, mb: 1 }}>
+                            <Box display="flex" justifyContent="space-between" alignItems="center">
+                              <Typography variant="subtitle2">{tc.name}</Typography>
+                              <Button size="small" onClick={() => setCustomTests(customTests.filter((_, i) => i !== idx))}>Remove</Button>
+                            </Box>
+                            <Typography variant="body2" sx={{ fontFamily: 'monospace' }}>
+                              <strong>Input:</strong> {tc.input}
+                              {tc.expected_output && (<><br/><strong>Expected:</strong> {tc.expected_output}</>)}
+                            </Typography>
+                          </Paper>
+                        ))}
+                        <Box mt={1}>
+                          <Button variant="contained" size="small" onClick={runAnalysis} startIcon={<Assessment />}>Analyze with Custom Tests</Button>
+                        </Box>
+                      </Box>
                     )}
                   </Box>
                 )}

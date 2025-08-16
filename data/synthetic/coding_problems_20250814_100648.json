@@ -1,0 +1,1006 @@
+{
+  "metadata": {
+    "generated_at": "2025-08-14T10:06:48.228986",
+    "count": 25,
+    "type": "synthetic_coding_problems"
+  },
+  "problems": [
+    {
+      "id": "synthetic_coding_001",
+      "type": "coding_problem",
+      "title": "Problem 1: Array/String Manipulation",
+      "description": "Implement a function to search in a sorted array",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Apple",
+        "Microsoft"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225437"
+    },
+    {
+      "id": "synthetic_coding_002",
+      "type": "coding_problem",
+      "title": "Problem 2: Graph Algorithms",
+      "description": "Implement BFS for route planning",
+      "category": "Graph Algorithms",
+      "difficulty": "hard",
+      "time_complexity": "O(V + E)",
+      "space_complexity": "O(V)",
+      "tags": [
+        "graph_algorithms",
+        "hard"
+      ],
+      "companies": [
+        "Google",
+        "Apple",
+        "Microsoft",
+        "Amazon"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "nodes=5, edges=[[0,1],[1,2]]",
+          "output": "Graph traversal result"
+        },
+        {
+          "input": "Empty graph",
+          "output": "No connections"
+        },
+        {
+          "input": "Disconnected components",
+          "output": "Multiple components"
+        }
+      ],
+      "hints": [
+        "Think about the graph representation",
+        "Consider using BFS for shortest path",
+        "Check for cycles before processing"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225468"
+    },
+    {
+      "id": "synthetic_coding_003",
+      "type": "coding_problem",
+      "title": "Problem 3: Dynamic Programming",
+      "description": "Given a sequence of numbers, find the number of ways",
+      "category": "Dynamic Programming",
+      "difficulty": "medium",
+      "time_complexity": "O(n²)",
+      "space_complexity": "O(n)",
+      "tags": [
+        "dynamic_programming",
+        "medium"
+      ],
+      "companies": [
+        "Apple",
+        "Facebook"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "n=5, constraints=[1,2,3]",
+          "output": "Optimal value"
+        },
+        {
+          "input": "n=0",
+          "output": "Base case"
+        },
+        {
+          "input": "Large input",
+          "output": "Performance test"
+        }
+      ],
+      "hints": [
+        "Identify the optimal substructure",
+        "Define your state variables clearly",
+        "Consider bottom-up vs top-down approach"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225483"
+    },
+    {
+      "id": "synthetic_coding_004",
+      "type": "coding_problem",
+      "title": "Problem 4: Graph Algorithms",
+      "description": "Given a directed graph, find cycle detection",
+      "category": "Graph Algorithms",
+      "difficulty": "hard",
+      "time_complexity": "O(V + E)",
+      "space_complexity": "O(V)",
+      "tags": [
+        "graph_algorithms",
+        "hard"
+      ],
+      "companies": [
+        "Google",
+        "Apple",
+        "Amazon",
+        "Microsoft"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "nodes=5, edges=[[0,1],[1,2]]",
+          "output": "Graph traversal result"
+        },
+        {
+          "input": "Empty graph",
+          "output": "No connections"
+        },
+        {
+          "input": "Disconnected components",
+          "output": "Multiple components"
+        }
+      ],
+      "hints": [
+        "Think about the graph representation",
+        "Consider using BFS for shortest path",
+        "Check for cycles before processing"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225731"
+    },
+    {
+      "id": "synthetic_coding_005",
+      "type": "coding_problem",
+      "title": "Problem 5: Graph Algorithms",
+      "description": "Implement DFS for route planning",
+      "category": "Graph Algorithms",
+      "difficulty": "hard",
+      "time_complexity": "O(V + E)",
+      "space_complexity": "O(V)",
+      "tags": [
+        "graph_algorithms",
+        "hard"
+      ],
+      "companies": [
+        "Amazon",
+        "Apple",
+        "Facebook",
+        "Microsoft"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "nodes=5, edges=[[0,1],[1,2]]",
+          "output": "Graph traversal result"
+        },
+        {
+          "input": "Empty graph",
+          "output": "No connections"
+        },
+        {
+          "input": "Disconnected components",
+          "output": "Multiple components"
+        }
+      ],
+      "hints": [
+        "Think about the graph representation",
+        "Consider using BFS for shortest path",
+        "Check for cycles before processing"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225745"
+    },
+    {
+      "id": "synthetic_coding_006",
+      "type": "coding_problem",
+      "title": "Problem 6: Array/String Manipulation",
+      "description": "Given a string, reverse words",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Amazon",
+        "Apple",
+        "Microsoft"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225755"
+    },
+    {
+      "id": "synthetic_coding_007",
+      "type": "coding_problem",
+      "title": "Problem 7: Array/String Manipulation",
+      "description": "Given a string, check if palindrome",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Apple",
+        "Microsoft"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225763"
+    },
+    {
+      "id": "synthetic_coding_008",
+      "type": "coding_problem",
+      "title": "Problem 8: Graph Algorithms",
+      "description": "Implement Dijkstra's algorithm for dependency resolution",
+      "category": "Graph Algorithms",
+      "difficulty": "hard",
+      "time_complexity": "O(V + E)",
+      "space_complexity": "O(V)",
+      "tags": [
+        "graph_algorithms",
+        "hard"
+      ],
+      "companies": [
+        "Facebook",
+        "Amazon",
+        "Google",
+        "Microsoft"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "nodes=5, edges=[[0,1],[1,2]]",
+          "output": "Graph traversal result"
+        },
+        {
+          "input": "Empty graph",
+          "output": "No connections"
+        },
+        {
+          "input": "Disconnected components",
+          "output": "Multiple components"
+        }
+      ],
+      "hints": [
+        "Think about the graph representation",
+        "Consider using BFS for shortest path",
+        "Check for cycles before processing"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225773"
+    },
+    {
+      "id": "synthetic_coding_009",
+      "type": "coding_problem",
+      "title": "Problem 9: Dynamic Programming",
+      "description": "Given a sequence of numbers, find the maximum profit",
+      "category": "Dynamic Programming",
+      "difficulty": "medium",
+      "time_complexity": "O(n²)",
+      "space_complexity": "O(n)",
+      "tags": [
+        "dynamic_programming",
+        "medium"
+      ],
+      "companies": [
+        "Microsoft",
+        "Facebook"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "n=5, constraints=[1,2,3]",
+          "output": "Optimal value"
+        },
+        {
+          "input": "n=0",
+          "output": "Base case"
+        },
+        {
+          "input": "Large input",
+          "output": "Performance test"
+        }
+      ],
+      "hints": [
+        "Identify the optimal substructure",
+        "Define your state variables clearly",
+        "Consider bottom-up vs top-down approach"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225782"
+    },
+    {
+      "id": "synthetic_coding_010",
+      "type": "coding_problem",
+      "title": "Problem 10: Array/String Manipulation",
+      "description": "Given an array of characters, find duplicates",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Microsoft",
+        "Google"
+      ],
+      "google_interview_relevance": 5,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225791"
+    },
+    {
+      "id": "synthetic_coding_011",
+      "type": "coding_problem",
+      "title": "Problem 11: Dynamic Programming",
+      "description": "You have limited capacity, determine maximum value",
+      "category": "Dynamic Programming",
+      "difficulty": "medium",
+      "time_complexity": "O(n²)",
+      "space_complexity": "O(n)",
+      "tags": [
+        "dynamic_programming",
+        "medium"
+      ],
+      "companies": [
+        "Amazon",
+        "Microsoft",
+        "Apple"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "n=5, constraints=[1,2,3]",
+          "output": "Optimal value"
+        },
+        {
+          "input": "n=0",
+          "output": "Base case"
+        },
+        {
+          "input": "Large input",
+          "output": "Performance test"
+        }
+      ],
+      "hints": [
+        "Identify the optimal substructure",
+        "Define your state variables clearly",
+        "Consider bottom-up vs top-down approach"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225800"
+    },
+    {
+      "id": "synthetic_coding_012",
+      "type": "coding_problem",
+      "title": "Problem 12: Array/String Manipulation",
+      "description": "Given a string, reverse words",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Amazon",
+        "Google",
+        "Apple"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225810"
+    },
+    {
+      "id": "synthetic_coding_013",
+      "type": "coding_problem",
+      "title": "Problem 13: Array/String Manipulation",
+      "description": "Given a string, find longest substring",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Amazon",
+        "Google"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225818"
+    },
+    {
+      "id": "synthetic_coding_014",
+      "type": "coding_problem",
+      "title": "Problem 14: Dynamic Programming",
+      "description": "You have limited capacity, determine maximum value",
+      "category": "Dynamic Programming",
+      "difficulty": "medium",
+      "time_complexity": "O(n²)",
+      "space_complexity": "O(n)",
+      "tags": [
+        "dynamic_programming",
+        "medium"
+      ],
+      "companies": [
+        "Facebook",
+        "Amazon"
+      ],
+      "google_interview_relevance": 5,
+      "test_cases": [
+        {
+          "input": "n=5, constraints=[1,2,3]",
+          "output": "Optimal value"
+        },
+        {
+          "input": "n=0",
+          "output": "Base case"
+        },
+        {
+          "input": "Large input",
+          "output": "Performance test"
+        }
+      ],
+      "hints": [
+        "Identify the optimal substructure",
+        "Define your state variables clearly",
+        "Consider bottom-up vs top-down approach"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225826"
+    },
+    {
+      "id": "synthetic_coding_015",
+      "type": "coding_problem",
+      "title": "Problem 15: Array/String Manipulation",
+      "description": "Given a string, reverse words",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Amazon",
+        "Microsoft",
+        "Google",
+        "Facebook"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225836"
+    },
+    {
+      "id": "synthetic_coding_016",
+      "type": "coding_problem",
+      "title": "Problem 16: Array/String Manipulation",
+      "description": "Given an array of characters, find the kth largest element",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Amazon",
+        "Apple"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225844"
+    },
+    {
+      "id": "synthetic_coding_017",
+      "type": "coding_problem",
+      "title": "Problem 17: Dynamic Programming",
+      "description": "You have multiple choices, determine optimal strategy",
+      "category": "Dynamic Programming",
+      "difficulty": "medium",
+      "time_complexity": "O(n²)",
+      "space_complexity": "O(n)",
+      "tags": [
+        "dynamic_programming",
+        "medium"
+      ],
+      "companies": [
+        "Amazon",
+        "Apple",
+        "Google",
+        "Facebook"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "n=5, constraints=[1,2,3]",
+          "output": "Optimal value"
+        },
+        {
+          "input": "n=0",
+          "output": "Base case"
+        },
+        {
+          "input": "Large input",
+          "output": "Performance test"
+        }
+      ],
+      "hints": [
+        "Identify the optimal substructure",
+        "Define your state variables clearly",
+        "Consider bottom-up vs top-down approach"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225853"
+    },
+    {
+      "id": "synthetic_coding_018",
+      "type": "coding_problem",
+      "title": "Problem 18: Array/String Manipulation",
+      "description": "Given an array of integers, find duplicates",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Facebook",
+        "Google"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225863"
+    },
+    {
+      "id": "synthetic_coding_019",
+      "type": "coding_problem",
+      "title": "Problem 19: Graph Algorithms",
+      "description": "Implement BFS for social network analysis",
+      "category": "Graph Algorithms",
+      "difficulty": "hard",
+      "time_complexity": "O(V + E)",
+      "space_complexity": "O(V)",
+      "tags": [
+        "graph_algorithms",
+        "hard"
+      ],
+      "companies": [
+        "Apple",
+        "Microsoft",
+        "Amazon"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "nodes=5, edges=[[0,1],[1,2]]",
+          "output": "Graph traversal result"
+        },
+        {
+          "input": "Empty graph",
+          "output": "No connections"
+        },
+        {
+          "input": "Disconnected components",
+          "output": "Multiple components"
+        }
+      ],
+      "hints": [
+        "Think about the graph representation",
+        "Consider using BFS for shortest path",
+        "Check for cycles before processing"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225872"
+    },
+    {
+      "id": "synthetic_coding_020",
+      "type": "coding_problem",
+      "title": "Problem 20: Dynamic Programming",
+      "description": "Given a grid, find the maximum profit",
+      "category": "Dynamic Programming",
+      "difficulty": "medium",
+      "time_complexity": "O(n²)",
+      "space_complexity": "O(n)",
+      "tags": [
+        "dynamic_programming",
+        "medium"
+      ],
+      "companies": [
+        "Microsoft",
+        "Facebook",
+        "Amazon"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "n=5, constraints=[1,2,3]",
+          "output": "Optimal value"
+        },
+        {
+          "input": "n=0",
+          "output": "Base case"
+        },
+        {
+          "input": "Large input",
+          "output": "Performance test"
+        }
+      ],
+      "hints": [
+        "Identify the optimal substructure",
+        "Define your state variables clearly",
+        "Consider bottom-up vs top-down approach"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225880"
+    },
+    {
+      "id": "synthetic_coding_021",
+      "type": "coding_problem",
+      "title": "Problem 21: Array/String Manipulation",
+      "description": "Given a string, check if palindrome",
+      "category": "Array/String Manipulation",
+      "difficulty": "easy",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "tags": [
+        "array/string_manipulation",
+        "easy"
+      ],
+      "companies": [
+        "Microsoft",
+        "Amazon",
+        "Google",
+        "Facebook"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "[1, 2, 3, 4, 5]",
+          "output": "Expected result based on problem"
+        },
+        {
+          "input": "[]",
+          "output": "Edge case: empty array"
+        },
+        {
+          "input": "[1]",
+          "output": "Edge case: single element"
+        }
+      ],
+      "hints": [
+        "Consider using two pointers technique",
+        "Think about sorting the array first",
+        "Use a hash map for O(1) lookups"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225888"
+    },
+    {
+      "id": "synthetic_coding_022",
+      "type": "coding_problem",
+      "title": "Problem 22: Dynamic Programming",
+      "description": "Given a grid, find the minimum cost path",
+      "category": "Dynamic Programming",
+      "difficulty": "medium",
+      "time_complexity": "O(n²)",
+      "space_complexity": "O(n)",
+      "tags": [
+        "dynamic_programming",
+        "medium"
+      ],
+      "companies": [
+        "Amazon",
+        "Facebook"
+      ],
+      "google_interview_relevance": 3,
+      "test_cases": [
+        {
+          "input": "n=5, constraints=[1,2,3]",
+          "output": "Optimal value"
+        },
+        {
+          "input": "n=0",
+          "output": "Base case"
+        },
+        {
+          "input": "Large input",
+          "output": "Performance test"
+        }
+      ],
+      "hints": [
+        "Identify the optimal substructure",
+        "Define your state variables clearly",
+        "Consider bottom-up vs top-down approach"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225896"
+    },
+    {
+      "id": "synthetic_coding_023",
+      "type": "coding_problem",
+      "title": "Problem 23: Dynamic Programming",
+      "description": "Given a grid, find the maximum profit",
+      "category": "Dynamic Programming",
+      "difficulty": "medium",
+      "time_complexity": "O(n²)",
+      "space_complexity": "O(n)",
+      "tags": [
+        "dynamic_programming",
+        "medium"
+      ],
+      "companies": [
+        "Google",
+        "Microsoft",
+        "Amazon",
+        "Facebook"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "n=5, constraints=[1,2,3]",
+          "output": "Optimal value"
+        },
+        {
+          "input": "n=0",
+          "output": "Base case"
+        },
+        {
+          "input": "Large input",
+          "output": "Performance test"
+        }
+      ],
+      "hints": [
+        "Identify the optimal substructure",
+        "Define your state variables clearly",
+        "Consider bottom-up vs top-down approach"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225905"
+    },
+    {
+      "id": "synthetic_coding_024",
+      "type": "coding_problem",
+      "title": "Problem 24: Dynamic Programming",
+      "description": "Given a grid, find the minimum cost path",
+      "category": "Dynamic Programming",
+      "difficulty": "medium",
+      "time_complexity": "O(n²)",
+      "space_complexity": "O(n)",
+      "tags": [
+        "dynamic_programming",
+        "medium"
+      ],
+      "companies": [
+        "Amazon",
+        "Google",
+        "Facebook"
+      ],
+      "google_interview_relevance": 4,
+      "test_cases": [
+        {
+          "input": "n=5, constraints=[1,2,3]",
+          "output": "Optimal value"
+        },
+        {
+          "input": "n=0",
+          "output": "Base case"
+        },
+        {
+          "input": "Large input",
+          "output": "Performance test"
+        }
+      ],
+      "hints": [
+        "Identify the optimal substructure",
+        "Define your state variables clearly",
+        "Consider bottom-up vs top-down approach"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225914"
+    },
+    {
+      "id": "synthetic_coding_025",
+      "type": "coding_problem",
+      "title": "Problem 25: Graph Algorithms",
+      "description": "Implement Union-Find for route planning",
+      "category": "Graph Algorithms",
+      "difficulty": "hard",
+      "time_complexity": "O(V + E)",
+      "space_complexity": "O(V)",
+      "tags": [
+        "graph_algorithms",
+        "hard"
+      ],
+      "companies": [
+        "Google",
+        "Amazon"
+      ],
+      "google_interview_relevance": 5,
+      "test_cases": [
+        {
+          "input": "nodes=5, edges=[[0,1],[1,2]]",
+          "output": "Graph traversal result"
+        },
+        {
+          "input": "Empty graph",
+          "output": "No connections"
+        },
+        {
+          "input": "Disconnected components",
+          "output": "Multiple components"
+        }
+      ],
+      "hints": [
+        "Think about the graph representation",
+        "Consider using BFS for shortest path",
+        "Check for cycles before processing"
+      ],
+      "generated_at": "2025-08-14T10:06:48.225923"
+    }
+  ]
+}

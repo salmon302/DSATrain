@@ -199,7 +199,7 @@ export const SkillTreeProvider = ({ children }) => {
   const [state, dispatch] = useReducer(skillTreeReducer, initialState);
   
   // API Configuration
-  const API_BASE = 'http://localhost:8002/skill-tree-v2';
+  const API_BASE = (process.env.REACT_APP_SKILL_TREE_URL || 'http://localhost:8002') + '/skill-tree-v2';
   const USER_ID = 'demo_user_2025';
   
   // OPTIMIZATION: Cache management

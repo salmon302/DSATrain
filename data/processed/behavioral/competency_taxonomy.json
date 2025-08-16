@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "total_questions": 0,
+    "total_competencies": 4,
+    "timestamp": "2025-08-14T14:36:58.758397"
+  },
+  "taxonomy": {
+    "googleyness": {
+      "description": "Google-specific cultural fit and mindset",
+      "sub_competencies": [
+        "intellectual_humility",
+        "collaborative_spirit",
+        "comfort_with_ambiguity",
+        "fun_and_positive_attitude"
+      ],
+      "questions": [],
+      "question_count": 0,
+      "difficulty_distribution": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      }
+    },
+    "general_cognitive_ability": {
+      "description": "Problem-solving and analytical thinking",
+      "sub_competencies": [
+        "problem_solving",
+        "analytical_thinking",
+        "learning_agility",
+        "decision_making"
+      ],
+      "questions": [],
+      "question_count": 0,
+      "difficulty_distribution": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      }
+    },
+    "leadership": {
+      "description": "Leadership and influence capabilities",
+      "sub_competencies": [
+        "emerging_leadership",
+        "thought_leadership",
+        "team_leadership",
+        "organizational_leadership"
+      ],
+      "questions": [],
+      "question_count": 0,
+      "difficulty_distribution": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      }
+    },
+    "role_related_knowledge": {
+      "description": "Technical and domain expertise",
+      "sub_competencies": [
+        "technical_depth",
+        "system_design",
+        "coding_ability",
+        "domain_knowledge"
+      ],
+      "questions": [],
+      "question_count": 0,
+      "difficulty_distribution": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-08-14T14:36:58.723789",
+  "pipeline_status": "success",
+  "components": {
+    "questions_extracted": 0,
+    "taxonomy": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\behavioral\\competency_taxonomy.json",
+    "googleyness": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\behavioral\\googleyness_criteria.json",
+    "templates": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\behavioral\\conversation_templates.json",
+    "structured_questions": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\behavioral\\behavioral_questions_structured.json"
+  },
+  "total_questions_processed": 0,
+  "competencies_identified": 4
+}

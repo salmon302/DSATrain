@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-08-14T14:40:15.471231",
+  "status": "healthy",
+  "metrics": {
+    "total_files_checked": 5,
+    "files_with_issues": 0,
+    "critical_issues": 0,
+    "warnings": 0
+  },
+  "issues": []
+}

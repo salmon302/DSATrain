@@ -1,0 +1,1145 @@
+{
+  "metadata": {
+    "total_concepts": 52,
+    "total_edges": 12,
+    "total_problems": 120,
+    "timestamp": "2025-08-14T14:35:30.165902"
+  },
+  "graph": {
+    "nodes": {
+      "2-sat": {
+        "name": "2-sat",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "ternary search": {
+        "name": "ternary search",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "probabilities": {
+        "name": "probabilities",
+        "prerequisites": [],
+        "problem_count": 2,
+        "difficulty_level": 1
+      },
+      "dfs and similar": {
+        "name": "dfs and similar",
+        "prerequisites": [],
+        "problem_count": 10,
+        "difficulty_level": 1
+      },
+      "bitmasks": {
+        "name": "bitmasks",
+        "prerequisites": [],
+        "problem_count": 6,
+        "difficulty_level": 1
+      },
+      "greedy_algorithms": {
+        "name": "greedy_algorithms",
+        "prerequisites": [],
+        "problem_count": 2,
+        "difficulty_level": 1
+      },
+      "cycle_detection": {
+        "name": "cycle_detection",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "mathematics": {
+        "name": "mathematics",
+        "prerequisites": [],
+        "problem_count": 42,
+        "difficulty_level": 1
+      },
+      "geometry": {
+        "name": "geometry",
+        "prerequisites": [],
+        "problem_count": 6,
+        "difficulty_level": 1
+      },
+      "linked_lists": {
+        "name": "linked_lists",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "binary_search_tree": {
+        "name": "binary_search_tree",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "hashing": {
+        "name": "hashing",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "stacks_and_queues": {
+        "name": "stacks_and_queues",
+        "prerequisites": [],
+        "problem_count": 2,
+        "difficulty_level": 1
+      },
+      "greedy": {
+        "name": "greedy",
+        "prerequisites": [
+          "sorting",
+          "mathematics"
+        ],
+        "problem_count": 55,
+        "difficulty_level": 2
+      },
+      "two_pointers": {
+        "name": "two_pointers",
+        "prerequisites": [],
+        "problem_count": 8,
+        "difficulty_level": 1
+      },
+      "constructive_algorithms": {
+        "name": "constructive_algorithms",
+        "prerequisites": [],
+        "problem_count": 23,
+        "difficulty_level": 1
+      },
+      "strings": {
+        "name": "strings",
+        "prerequisites": [],
+        "problem_count": 4,
+        "difficulty_level": 1
+      },
+      "fft": {
+        "name": "fft",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "string_manipulation": {
+        "name": "string_manipulation",
+        "prerequisites": [],
+        "problem_count": 4,
+        "difficulty_level": 1
+      },
+      "hash_tables": {
+        "name": "hash_tables",
+        "prerequisites": [],
+        "problem_count": 2,
+        "difficulty_level": 1
+      },
+      "combinatorics": {
+        "name": "combinatorics",
+        "prerequisites": [],
+        "problem_count": 11,
+        "difficulty_level": 1
+      },
+      "miscellaneous": {
+        "name": "miscellaneous",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "games": {
+        "name": "games",
+        "prerequisites": [],
+        "problem_count": 3,
+        "difficulty_level": 1
+      },
+      "sortings": {
+        "name": "sortings",
+        "prerequisites": [],
+        "problem_count": 18,
+        "difficulty_level": 1
+      },
+      "ternary_search": {
+        "name": "ternary_search",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "number_theory": {
+        "name": "number_theory",
+        "prerequisites": [],
+        "problem_count": 12,
+        "difficulty_level": 1
+      },
+      "number theory": {
+        "name": "number theory",
+        "prerequisites": [],
+        "problem_count": 12,
+        "difficulty_level": 1
+      },
+      "dsu": {
+        "name": "dsu",
+        "prerequisites": [],
+        "problem_count": 3,
+        "difficulty_level": 1
+      },
+      "divide_and_conquer": {
+        "name": "divide_and_conquer",
+        "prerequisites": [],
+        "problem_count": 6,
+        "difficulty_level": 1
+      },
+      "trees": {
+        "name": "trees",
+        "prerequisites": [
+          "recursion",
+          "data_structures"
+        ],
+        "problem_count": 14,
+        "difficulty_level": 2
+      },
+      "recursion_and_backtracking": {
+        "name": "recursion_and_backtracking",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "arrays": {
+        "name": "arrays",
+        "prerequisites": [],
+        "problem_count": 4,
+        "difficulty_level": 1
+      },
+      "two pointers": {
+        "name": "two pointers",
+        "prerequisites": [],
+        "problem_count": 8,
+        "difficulty_level": 1
+      },
+      "graphs": {
+        "name": "graphs",
+        "prerequisites": [
+          "arrays",
+          "data_structures"
+        ],
+        "problem_count": 15,
+        "difficulty_level": 2
+      },
+      "stacks": {
+        "name": "stacks",
+        "prerequisites": [],
+        "problem_count": 2,
+        "difficulty_level": 1
+      },
+      "implementation": {
+        "name": "implementation",
+        "prerequisites": [],
+        "problem_count": 16,
+        "difficulty_level": 1
+      },
+      "sorting": {
+        "name": "sorting",
+        "prerequisites": [],
+        "problem_count": 3,
+        "difficulty_level": 1
+      },
+      "data structures": {
+        "name": "data structures",
+        "prerequisites": [],
+        "problem_count": 21,
+        "difficulty_level": 1
+      },
+      "binary search": {
+        "name": "binary search",
+        "prerequisites": [],
+        "problem_count": 15,
+        "difficulty_level": 1
+      },
+      "breadth_first_search": {
+        "name": "breadth_first_search",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "binary_search": {
+        "name": "binary_search",
+        "prerequisites": [
+          "arrays",
+          "sorting"
+        ],
+        "problem_count": 16,
+        "difficulty_level": 2
+      },
+      "recursion": {
+        "name": "recursion",
+        "prerequisites": [],
+        "problem_count": 2,
+        "difficulty_level": 1
+      },
+      "constructive algorithms": {
+        "name": "constructive algorithms",
+        "prerequisites": [],
+        "problem_count": 23,
+        "difficulty_level": 1
+      },
+      "data_structures": {
+        "name": "data_structures",
+        "prerequisites": [],
+        "problem_count": 23,
+        "difficulty_level": 1
+      },
+      "dfs_and_similar": {
+        "name": "dfs_and_similar",
+        "prerequisites": [],
+        "problem_count": 10,
+        "difficulty_level": 1
+      },
+      "brute force": {
+        "name": "brute force",
+        "prerequisites": [],
+        "problem_count": 19,
+        "difficulty_level": 1
+      },
+      "dynamic_programming": {
+        "name": "dynamic_programming",
+        "prerequisites": [
+          "arrays",
+          "recursion"
+        ],
+        "problem_count": 32,
+        "difficulty_level": 2
+      },
+      "brute_force": {
+        "name": "brute_force",
+        "prerequisites": [],
+        "problem_count": 19,
+        "difficulty_level": 1
+      },
+      "divide and conquer": {
+        "name": "divide and conquer",
+        "prerequisites": [],
+        "problem_count": 6,
+        "difficulty_level": 1
+      },
+      "shortest_paths": {
+        "name": "shortest_paths",
+        "prerequisites": [
+          "graphs",
+          "greedy"
+        ],
+        "problem_count": 4,
+        "difficulty_level": 3
+      },
+      "queues": {
+        "name": "queues",
+        "prerequisites": [],
+        "problem_count": 1,
+        "difficulty_level": 1
+      },
+      "shortest paths": {
+        "name": "shortest paths",
+        "prerequisites": [],
+        "problem_count": 4,
+        "difficulty_level": 1
+      }
+    },
+    "edges": [
+      {
+        "from": "arrays",
+        "to": "dynamic_programming",
+        "type": "prerequisite"
+      },
+      {
+        "from": "recursion",
+        "to": "dynamic_programming",
+        "type": "prerequisite"
+      },
+      {
+        "from": "arrays",
+        "to": "graphs",
+        "type": "prerequisite"
+      },
+      {
+        "from": "data_structures",
+        "to": "graphs",
+        "type": "prerequisite"
+      },
+      {
+        "from": "recursion",
+        "to": "trees",
+        "type": "prerequisite"
+      },
+      {
+        "from": "data_structures",
+        "to": "trees",
+        "type": "prerequisite"
+      },
+      {
+        "from": "arrays",
+        "to": "binary_search",
+        "type": "prerequisite"
+      },
+      {
+        "from": "sorting",
+        "to": "binary_search",
+        "type": "prerequisite"
+      },
+      {
+        "from": "sorting",
+        "to": "greedy",
+        "type": "prerequisite"
+      },
+      {
+        "from": "mathematics",
+        "to": "greedy",
+        "type": "prerequisite"
+      },
+      {
+        "from": "graphs",
+        "to": "shortest_paths",
+        "type": "prerequisite"
+      },
+      {
+        "from": "greedy",
+        "to": "shortest_paths",
+        "type": "prerequisite"
+      }
+    ],
+    "problem_concepts": {
+      "cf_2128_F": [
+        "shortest_paths",
+        "shortest paths",
+        "graphs",
+        "greedy"
+      ],
+      "cf_2128_E2": [
+        "constructive algorithms",
+        "data_structures",
+        "binary search",
+        "data structures",
+        "two_pointers",
+        "binary_search",
+        "constructive_algorithms",
+        "two pointers"
+      ],
+      "cf_2128_E1": [
+        "data_structures",
+        "binary search",
+        "data structures",
+        "greedy",
+        "dynamic_programming",
+        "binary_search"
+      ],
+      "cf_2128_D": [
+        "brute force",
+        "mathematics",
+        "greedy",
+        "dynamic_programming",
+        "combinatorics",
+        "brute_force"
+      ],
+      "cf_2128_C": [
+        "mathematics",
+        "greedy"
+      ],
+      "cf_2128_B": [
+        "constructive algorithms",
+        "greedy",
+        "two_pointers",
+        "sortings",
+        "constructive_algorithms",
+        "two pointers"
+      ],
+      "cf_2128_A": [
+        "sortings",
+        "greedy"
+      ],
+      "cf_2126_G2": [
+        "data_structures",
+        "binary search",
+        "divide_and_conquer",
+        "divide and conquer",
+        "data structures",
+        "two_pointers",
+        "binary_search",
+        "trees",
+        "dsu",
+        "two pointers"
+      ],
+      "cf_2126_G1": [
+        "data_structures",
+        "binary search",
+        "data structures",
+        "two_pointers",
+        "dynamic_programming",
+        "dsu",
+        "binary_search",
+        "two pointers"
+      ],
+      "cf_2126_F": [
+        "brute force",
+        "data_structures",
+        "dfs_and_similar",
+        "dfs and similar",
+        "data structures",
+        "implementation",
+        "trees",
+        "graphs",
+        "brute_force"
+      ],
+      "cf_2126_E": [
+        "number theory",
+        "mathematics",
+        "number_theory"
+      ],
+      "cf_2126_D": [
+        "sortings",
+        "data structures",
+        "data_structures",
+        "greedy"
+      ],
+      "cf_2126_C": [
+        "sortings",
+        "greedy"
+      ],
+      "cf_2126_B": [
+        "dynamic_programming",
+        "greedy"
+      ],
+      "cf_2126_A": [
+        "mathematics",
+        "brute force",
+        "brute_force",
+        "implementation"
+      ],
+      "cf_2125_F": [
+        "binary search",
+        "divide_and_conquer",
+        "divide and conquer",
+        "dynamic_programming",
+        "binary_search"
+      ],
+      "cf_2125_E": [
+        "brute force",
+        "mathematics",
+        "two_pointers",
+        "dynamic_programming",
+        "combinatorics",
+        "two pointers",
+        "brute_force"
+      ],
+      "cf_2125_D": [
+        "dynamic_programming",
+        "mathematics",
+        "probabilities"
+      ],
+      "cf_2125_C": [
+        "number theory",
+        "mathematics",
+        "bitmasks",
+        "combinatorics",
+        "number_theory"
+      ],
+      "cf_2125_B": [
+        "number theory",
+        "mathematics",
+        "number_theory"
+      ],
+      "cf_2125_A": [
+        "strings",
+        "constructive algorithms",
+        "implementation",
+        "sortings",
+        "constructive_algorithms"
+      ],
+      "cf_2124_I": [
+        "constructive_algorithms",
+        "trees",
+        "mathematics",
+        "constructive algorithms"
+      ],
+      "cf_2124_H": [
+        "dynamic_programming",
+        "trees",
+        "mathematics"
+      ],
+      "cf_2124_G": [
+        "binary search",
+        "binary_search",
+        "data structures",
+        "data_structures"
+      ],
+      "cf_2124_F2": [
+        "dynamic_programming",
+        "combinatorics"
+      ],
+      "cf_2124_F1": [
+        "dynamic_programming",
+        "combinatorics"
+      ],
+      "cf_2124_E": [
+        "constructive_algorithms",
+        "mathematics",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "cf_2124_D": [
+        "two_pointers",
+        "sortings",
+        "two pointers",
+        "greedy"
+      ],
+      "cf_2124_C": [
+        "constructive algorithms",
+        "number theory",
+        "mathematics",
+        "greedy",
+        "constructive_algorithms",
+        "number_theory"
+      ],
+      "cf_2124_B": [
+        "greedy"
+      ],
+      "cf_2124_A": [
+        "sortings",
+        "greedy"
+      ],
+      "cf_2123_G": [
+        "brute force",
+        "data_structures",
+        "number theory",
+        "data structures",
+        "mathematics",
+        "greedy",
+        "sortings",
+        "number_theory",
+        "brute_force"
+      ],
+      "cf_2123_F": [
+        "number theory",
+        "constructive_algorithms",
+        "number_theory",
+        "constructive algorithms"
+      ],
+      "cf_2123_E": [
+        "data_structures",
+        "binary search",
+        "data structures",
+        "greedy",
+        "two_pointers",
+        "binary_search",
+        "sortings",
+        "two pointers"
+      ],
+      "cf_2123_D": [
+        "constructive_algorithms",
+        "games",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "cf_2123_C": [
+        "brute_force",
+        "data structures",
+        "brute force",
+        "data_structures"
+      ],
+      "cf_2123_B": [
+        "greedy"
+      ],
+      "cf_2123_A": [
+        "mathematics"
+      ],
+      "cf_2122_G": [
+        "trees",
+        "mathematics",
+        "fft",
+        "combinatorics"
+      ],
+      "cf_2122_F": [
+        "constructive algorithms",
+        "divide_and_conquer",
+        "divide and conquer",
+        "geometry",
+        "constructive_algorithms"
+      ],
+      "cf_2122_E": [
+        "combinatorics",
+        "dynamic_programming",
+        "mathematics",
+        "greedy"
+      ],
+      "cf_2122_D": [
+        "shortest_paths",
+        "brute force",
+        "data_structures",
+        "divide_and_conquer",
+        "divide and conquer",
+        "data structures",
+        "greedy",
+        "dynamic_programming",
+        "graphs",
+        "shortest paths",
+        "brute_force"
+      ],
+      "cf_2122_C": [
+        "constructive algorithms",
+        "mathematics",
+        "greedy",
+        "sortings",
+        "geometry",
+        "constructive_algorithms"
+      ],
+      "cf_2122_B": [
+        "mathematics",
+        "greedy"
+      ],
+      "cf_2122_A": [
+        "constructive_algorithms",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "cf_2121_H": [
+        "brute force",
+        "data_structures",
+        "binary search",
+        "data structures",
+        "implementation",
+        "dynamic_programming",
+        "binary_search",
+        "sortings",
+        "brute_force"
+      ],
+      "cf_2121_G": [
+        "data_structures",
+        "divide_and_conquer",
+        "divide and conquer",
+        "data structures",
+        "mathematics",
+        "sortings"
+      ],
+      "cf_2121_F": [
+        "brute force",
+        "data_structures",
+        "binary search",
+        "data structures",
+        "greedy",
+        "two_pointers",
+        "binary_search",
+        "two pointers",
+        "brute_force"
+      ],
+      "cf_2121_E": [
+        "strings",
+        "greedy",
+        "dynamic_programming",
+        "implementation"
+      ],
+      "cf_2121_D": [
+        "sortings",
+        "implementation"
+      ],
+      "cf_2121_C": [
+        "greedy",
+        "implementation"
+      ],
+      "cf_2121_B": [
+        "strings",
+        "constructive_algorithms",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "cf_2121_A": [
+        "mathematics",
+        "brute force",
+        "brute_force"
+      ],
+      "cf_2120_G": [
+        "mathematics",
+        "graphs",
+        "greedy"
+      ],
+      "cf_2120_F": [
+        "graphs",
+        "2-sat"
+      ],
+      "cf_2120_E": [
+        "binary search",
+        "ternary search",
+        "ternary_search",
+        "dynamic_programming",
+        "binary_search"
+      ],
+      "cf_2120_D": [
+        "mathematics",
+        "combinatorics"
+      ],
+      "cf_2120_C": [
+        "constructive algorithms",
+        "mathematics",
+        "greedy",
+        "sortings",
+        "trees",
+        "constructive_algorithms"
+      ],
+      "cf_2120_B": [
+        "geometry"
+      ],
+      "cf_2120_A": [
+        "geometry",
+        "mathematics"
+      ],
+      "cf_2119_F": [
+        "shortest_paths",
+        "dfs_and_similar",
+        "dfs and similar",
+        "greedy",
+        "dynamic_programming",
+        "trees",
+        "shortest paths"
+      ],
+      "cf_2119_E": [
+        "dynamic_programming",
+        "bitmasks",
+        "greedy"
+      ],
+      "cf_2119_D": [
+        "dynamic_programming",
+        "mathematics",
+        "combinatorics"
+      ],
+      "cf_2119_C": [
+        "constructive_algorithms",
+        "bitmasks",
+        "mathematics",
+        "constructive algorithms"
+      ],
+      "cf_2119_B": [
+        "geometry",
+        "mathematics",
+        "greedy"
+      ],
+      "cf_2119_A": [
+        "bitmasks",
+        "mathematics",
+        "greedy"
+      ],
+      "cf_2118_F": [
+        "hashing",
+        "data_structures",
+        "data structures",
+        "trees",
+        "graphs"
+      ],
+      "cf_2118_E": [
+        "constructive algorithms",
+        "mathematics",
+        "greedy",
+        "geometry",
+        "constructive_algorithms"
+      ],
+      "cf_2118_D2": [
+        "brute force",
+        "data_structures",
+        "dfs_and_similar",
+        "binary search",
+        "dfs and similar",
+        "number theory",
+        "data structures",
+        "mathematics",
+        "implementation",
+        "dynamic_programming",
+        "binary_search",
+        "graphs",
+        "number_theory",
+        "brute_force"
+      ],
+      "cf_2118_D1": [
+        "brute force",
+        "dfs_and_similar",
+        "number theory",
+        "dfs and similar",
+        "implementation",
+        "dynamic_programming",
+        "graphs",
+        "number_theory",
+        "brute_force"
+      ],
+      "cf_2118_C": [
+        "data_structures",
+        "mathematics",
+        "data structures",
+        "greedy",
+        "bitmasks"
+      ],
+      "cf_2118_B": [
+        "constructive_algorithms",
+        "constructive algorithms"
+      ],
+      "cf_2118_A": [
+        "constructive_algorithms",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "cf_2117_H": [
+        "data_structures",
+        "divide_and_conquer",
+        "divide and conquer",
+        "data structures",
+        "sortings"
+      ],
+      "cf_2117_G": [
+        "shortest_paths",
+        "brute force",
+        "greedy",
+        "dsu",
+        "sortings",
+        "graphs",
+        "shortest paths",
+        "brute_force"
+      ],
+      "cf_2117_F": [
+        "dfs_and_similar",
+        "trees",
+        "dfs and similar",
+        "combinatorics"
+      ],
+      "cf_2117_E": [
+        "brute force",
+        "brute_force",
+        "greedy"
+      ],
+      "cf_2117_D": [
+        "binary search",
+        "number theory",
+        "mathematics",
+        "binary_search",
+        "number_theory"
+      ],
+      "cf_2117_C": [
+        "data structures",
+        "data_structures",
+        "greedy"
+      ],
+      "cf_2117_B": [
+        "constructive_algorithms",
+        "constructive algorithms"
+      ],
+      "cf_2117_A": [
+        "greedy",
+        "implementation"
+      ],
+      "cf_2116_B": [
+        "sortings",
+        "mathematics",
+        "greedy"
+      ],
+      "cf_2116_A": [
+        "games",
+        "greedy"
+      ],
+      "cf_2115_F2": [
+        "data structures",
+        "data_structures"
+      ],
+      "cf_2115_F1": [
+        "data structures",
+        "data_structures"
+      ],
+      "cf_2115_E": [
+        "dynamic_programming",
+        "graphs"
+      ],
+      "cf_2115_D": [
+        "mathematics",
+        "greedy",
+        "dynamic_programming",
+        "bitmasks",
+        "games"
+      ],
+      "cf_2115_C": [
+        "probabilities",
+        "mathematics",
+        "greedy",
+        "dynamic_programming",
+        "combinatorics"
+      ],
+      "cf_2115_B": [
+        "constructive algorithms",
+        "brute force",
+        "dfs_and_similar",
+        "dfs and similar",
+        "greedy",
+        "dynamic_programming",
+        "trees",
+        "graphs",
+        "constructive_algorithms",
+        "brute_force"
+      ],
+      "cf_2115_A": [
+        "constructive algorithms",
+        "number theory",
+        "mathematics",
+        "dynamic_programming",
+        "constructive_algorithms",
+        "number_theory"
+      ],
+      "cf_2114_G": [
+        "constructive algorithms",
+        "brute force",
+        "number theory",
+        "mathematics",
+        "greedy",
+        "dynamic_programming",
+        "constructive_algorithms",
+        "number_theory",
+        "brute_force"
+      ],
+      "cf_2114_F": [
+        "brute force",
+        "dfs_and_similar",
+        "binary search",
+        "number theory",
+        "dfs and similar",
+        "mathematics",
+        "dynamic_programming",
+        "binary_search",
+        "sortings",
+        "number_theory",
+        "brute_force"
+      ],
+      "cf_2114_E": [
+        "dfs_and_similar",
+        "dfs and similar",
+        "greedy",
+        "dynamic_programming",
+        "trees"
+      ],
+      "cf_2114_D": [
+        "brute force",
+        "mathematics",
+        "greedy",
+        "implementation",
+        "brute_force"
+      ],
+      "cf_2114_C": [
+        "dynamic_programming",
+        "greedy"
+      ],
+      "cf_2114_B": [
+        "mathematics",
+        "greedy"
+      ],
+      "cf_2114_A": [
+        "brute force",
+        "binary search",
+        "mathematics",
+        "binary_search",
+        "brute_force"
+      ],
+      "cf_2113_F": [
+        "constructive algorithms",
+        "dfs_and_similar",
+        "dfs and similar",
+        "mathematics",
+        "graphs",
+        "constructive_algorithms"
+      ],
+      "cf_2113_E": [
+        "dfs_and_similar",
+        "dfs and similar",
+        "implementation",
+        "trees",
+        "graphs"
+      ],
+      "cf_2113_D": [
+        "constructive algorithms",
+        "binary search",
+        "greedy",
+        "implementation",
+        "binary_search",
+        "constructive_algorithms"
+      ],
+      "hr_hr_2d_array_ds": [
+        "arrays",
+        "data_structures"
+      ],
+      "hr_hr_arrays_left_rotation": [
+        "arrays",
+        "implementation"
+      ],
+      "hr_hr_new_year_chaos": [
+        "arrays",
+        "greedy"
+      ],
+      "hr_hr_minimum_swaps": [
+        "arrays",
+        "sorting"
+      ],
+      "hr_hr_linked_list_cycle": [
+        "linked_lists",
+        "cycle_detection"
+      ],
+      "hr_hr_tree_height": [
+        "recursion",
+        "trees"
+      ],
+      "hr_hr_tree_lca": [
+        "trees",
+        "binary_search_tree"
+      ],
+      "hr_hr_balanced_brackets": [
+        "string_manipulation",
+        "stacks",
+        "stacks_and_queues"
+      ],
+      "hr_hr_queue_using_stacks": [
+        "stacks",
+        "queues",
+        "stacks_and_queues",
+        "data_structures"
+      ],
+      "hr_hr_max_array_sum": [
+        "dynamic_programming"
+      ],
+      "hr_hr_abbreviation": [
+        "strings",
+        "dynamic_programming"
+      ],
+      "hr_hr_fibonacci_modified": [
+        "recursion",
+        "dynamic_programming",
+        "recursion_and_backtracking"
+      ],
+      "hr_hr_roads_and_libraries": [
+        "graphs",
+        "greedy"
+      ],
+      "hr_hr_find_nearest_clone": [
+        "graphs",
+        "breadth_first_search"
+      ],
+      "hr_hr_minimum_time_required": [
+        "greedy_algorithms",
+        "binary_search",
+        "greedy"
+      ],
+      "hr_hr_luck_balance": [
+        "greedy_algorithms",
+        "sorting",
+        "greedy"
+      ],
+      "hr_hr_hash_tables_ransom_note": [
+        "string_manipulation",
+        "hash_tables",
+        "miscellaneous"
+      ],
+      "hr_hr_two_strings": [
+        "string_manipulation",
+        "hash_tables"
+      ],
+      "hr_hr_sherlock_valid_string": [
+        "string_manipulation",
+        "implementation"
+      ],
+      "hr_hr_sorting_bubble_sort": [
+        "sorting",
+        "implementation"
+      ]
+    }
+  }
+}

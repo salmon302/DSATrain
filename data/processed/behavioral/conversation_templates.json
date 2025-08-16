@@ -1,0 +1,158 @@
+{
+  "googleyness": {
+    "opening_questions": [
+      "Tell me about a time when you had to collaborate with someone whose working style was very different from yours.",
+      "Describe a situation where you had to work with incomplete information.",
+      "Give me an example of when you had to learn something completely new."
+    ],
+    "follow_up_prompts": [
+      "Can you tell me more about that?",
+      "What was your specific role in that situation?",
+      "How did you decide on that approach?",
+      "What would you do differently if you faced that situation again?",
+      "What was the outcome?",
+      "How did others react to your decision?"
+    ],
+    "probing_questions": [
+      "What alternatives did you consider?",
+      "How did you measure success?",
+      "What challenges did you face?",
+      "Who else was involved in the decision?",
+      "What did you learn from this experience?"
+    ],
+    "evaluation_criteria": [
+      {
+        "situation": "Clearly describes the context and background",
+        "weight": 0.2
+      },
+      {
+        "task": "Explains their specific responsibility or goal",
+        "weight": 0.2
+      },
+      {
+        "action": "Details the specific actions they took",
+        "weight": 0.4
+      },
+      {
+        "result": "Describes measurable outcomes and learnings",
+        "weight": 0.2
+      }
+    ]
+  },
+  "general_cognitive_ability": {
+    "opening_questions": [
+      "Walk me through how you would solve a complex problem you've never encountered before.",
+      "Tell me about a time when you had to make a difficult decision with limited time.",
+      "Describe your approach to breaking down a large, ambiguous project."
+    ],
+    "follow_up_prompts": [
+      "Can you tell me more about that?",
+      "What was your specific role in that situation?",
+      "How did you decide on that approach?",
+      "What would you do differently if you faced that situation again?",
+      "What was the outcome?",
+      "How did others react to your decision?"
+    ],
+    "probing_questions": [
+      "What alternatives did you consider?",
+      "How did you measure success?",
+      "What challenges did you face?",
+      "Who else was involved in the decision?",
+      "What did you learn from this experience?"
+    ],
+    "evaluation_criteria": [
+      {
+        "situation": "Clearly describes the context and background",
+        "weight": 0.2
+      },
+      {
+        "task": "Explains their specific responsibility or goal",
+        "weight": 0.2
+      },
+      {
+        "action": "Details the specific actions they took",
+        "weight": 0.4
+      },
+      {
+        "result": "Describes measurable outcomes and learnings",
+        "weight": 0.2
+      }
+    ]
+  },
+  "leadership": {
+    "opening_questions": [
+      "Tell me about a time when you had to influence someone without having direct authority over them.",
+      "Describe a situation where you had to lead a team through a challenging period.",
+      "Give me an example of when you had to make an unpopular decision."
+    ],
+    "follow_up_prompts": [
+      "Can you tell me more about that?",
+      "What was your specific role in that situation?",
+      "How did you decide on that approach?",
+      "What would you do differently if you faced that situation again?",
+      "What was the outcome?",
+      "How did others react to your decision?"
+    ],
+    "probing_questions": [
+      "What alternatives did you consider?",
+      "How did you measure success?",
+      "What challenges did you face?",
+      "Who else was involved in the decision?",
+      "What did you learn from this experience?"
+    ],
+    "evaluation_criteria": [
+      {
+        "situation": "Clearly describes the context and background",
+        "weight": 0.2
+      },
+      {
+        "task": "Explains their specific responsibility or goal",
+        "weight": 0.2
+      },
+      {
+        "action": "Details the specific actions they took",
+        "weight": 0.4
+      },
+      {
+        "result": "Describes measurable outcomes and learnings",
+        "weight": 0.2
+      }
+    ]
+  },
+  "role_related_knowledge": {
+    "opening_questions": [],
+    "follow_up_prompts": [
+      "Can you tell me more about that?",
+      "What was your specific role in that situation?",
+      "How did you decide on that approach?",
+      "What would you do differently if you faced that situation again?",
+      "What was the outcome?",
+      "How did others react to your decision?"
+    ],
+    "probing_questions": [
+      "What alternatives did you consider?",
+      "How did you measure success?",
+      "What challenges did you face?",
+      "Who else was involved in the decision?",
+      "What did you learn from this experience?"
+    ],
+    "evaluation_criteria": [
+      {
+        "situation": "Clearly describes the context and background",
+        "weight": 0.2
+      },
+      {
+        "task": "Explains their specific responsibility or goal",
+        "weight": 0.2
+      },
+      {
+        "action": "Details the specific actions they took",
+        "weight": 0.4
+      },
+      {
+        "result": "Describes measurable outcomes and learnings",
+        "weight": 0.2
+      }
+    ]
+  }
+}

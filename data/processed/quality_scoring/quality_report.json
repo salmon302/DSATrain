@@ -1,0 +1,96 @@
+{
+  "executive_summary": {
+    "total_problems_analyzed": 120,
+    "high_quality_percentage": 0.0,
+    "google_relevance_percentage": 0.0,
+    "overall_recommendation": "poor_dataset_requires_major_improvement"
+  },
+  "quality_distribution": {
+    "high_quality": 0,
+    "medium_quality": 1,
+    "low_quality": 119
+  },
+  "relevance_distribution": {
+    "high_relevance": 0,
+    "medium_relevance": 25,
+    "low_relevance": 95
+  },
+  "top_problems": [
+    {
+      "problem_id": "cf_2115_B",
+      "overall_score": 0.527,
+      "content_quality": 0.46499999999999997,
+      "google_relevance": 0.6200000000000001,
+      "recommendation": "conditionally_recommended"
+    },
+    {
+      "problem_id": "cf_2118_D2",
+      "overall_score": 0.439,
+      "content_quality": 0.46499999999999997,
+      "google_relevance": 0.4,
+      "recommendation": "conditionally_recommended"
+    },
+    {
+      "problem_id": "hr_hr_abbreviation",
+      "overall_score": 0.4298333333333333,
+      "content_quality": 0.37416666666666665,
+      "google_relevance": 0.5133333333333333,
+      "recommendation": "conditionally_recommended"
+    },
+    {
+      "problem_id": "cf_2122_D",
+      "overall_score": 0.42033333333333334,
+      "content_quality": 0.3583333333333334,
+      "google_relevance": 0.5133333333333333,
+      "recommendation": "conditionally_recommended"
+    },
+    {
+      "problem_id": "cf_2118_D1",
+      "overall_score": 0.42033333333333334,
+      "content_quality": 0.3583333333333334,
+      "google_relevance": 0.5133333333333333,
+      "recommendation": "conditionally_recommended"
+    },
+    {
+      "problem_id": "hr_hr_find_nearest_clone",
+      "overall_score": 0.4066666666666667,
+      "content_quality": 0.4066666666666667,
+      "google_relevance": 0.4066666666666667,
+      "recommendation": "conditionally_recommended"
+    },
+    {
+      "problem_id": "hr_hr_roads_and_libraries",
+      "overall_score": 0.4051666666666667,
+      "content_quality": 0.4041666666666667,
+      "google_relevance": 0.4066666666666667,
+      "recommendation": "conditionally_recommended"
+    },
+    {
+      "problem_id": "cf_2128_E1",
+      "overall_score": 0.4043333333333334,
+      "content_quality": 0.3583333333333334,
+      "google_relevance": 0.47333333333333333,
+      "recommendation": "conditionally_recommended"
+    },
+    {
+      "problem_id": "hr_hr_minimum_swaps",
+      "overall_score": 0.4038333333333334,
+      "content_quality": 0.35750000000000004,
+      "google_relevance": 0.47333333333333333,
+      "recommendation": "conditionally_recommended"
+    },
+    {
+      "problem_id": "cf_2119_F",
+      "overall_score": 0.39633333333333337,
+      "content_quality": 0.3583333333333334,
+      "google_relevance": 0.45333333333333337,
+      "recommendation": "conditionally_recommended"
+    }
+  ],
+  "improvement_recommendations": [
+    "Improve problem descriptions and add more detailed constraints",
+    "Focus on more Google-relevant algorithmic topics",
+    "Add more test cases and examples to problems",
+    "Standardize difficulty ratings across platforms"
+  ]
+}

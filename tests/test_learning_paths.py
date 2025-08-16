@@ -25,8 +25,14 @@ def test_learning_paths_system():
     try:
         logger.info("🧪 Starting Learning Paths System Test...")
         
-        # Initialize database
+        # Initialize database and ensure all tables exist for this test run
         db_config = DatabaseConfig()
+        # Create tables to avoid OperationalError: no such table: practice_gate_sessions
+        try:
+            db_config.create_tables()
+        except Exception:
+            # If tables already exist or creation fails non-critically, continue
+            pass
         db_session = db_config.get_session()
         
         # Test 1: Template Management
@@ -123,12 +129,14 @@ def test_learning_paths_system():
             logger.info(f"   - {table}: {count}")
         
         db_session.close()
-        
+
         logger.info("\n🎉 All tests completed successfully!")
         logger.info("Learning Paths System is ready for production!")
-        
-        return True
-        
+
+        # Basic sanity assertions instead of returning a value
+        assert learning_path is not None
+        assert isinstance(learning_path.personalized_sequence, list)
+
     except Exception as e:
         logger.error(f"❌ Test failed: {str(e)}")
         if 'db_session' in locals():

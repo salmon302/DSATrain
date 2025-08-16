@@ -6,28 +6,13 @@ import {
   Typography,
   Container,
   Box,
-  Button,
   IconButton,
   Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  ListItemButton,
   useTheme,
   useMediaQuery,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
-  Dashboard as DashboardIcon,
-  Quiz,
-  TrendingUp,
-  School,
-  Person,
-  Analytics as AnalyticsIcon,
-  Code,
-  Info,
-  AccountTree as SkillTreeIcon,
 } from '@mui/icons-material';
 
 // Import page components
@@ -39,10 +24,19 @@ import LearningPaths from './pages/LearningPaths';
 import Analytics from './pages/Analytics';
 import UserProfile from './pages/UserProfile';
 import GeneralInfo from './pages/GeneralInfo';
+import Settings from './pages/Settings';
+import AIDemo from './pages/AIDemo';
 import SkillTreeVisualization from './components/SkillTreeVisualization';
+import DevTools from './pages/DevTools';
 
 // API service
 import { apiService } from './services/api';
+import AIStatusWidget from './components/AIStatusWidget';
+import SRSReview from './pages/SRSReview';
+import Interview from './pages/Interview';
+import CognitiveAssessment from './pages/CognitiveAssessment';
+import ImprovedNavigation from './components/ImprovedNavigation';
+import ContextualBreadcrumbs from './components/ContextualBreadcrumbs';
 
 const App: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -52,39 +46,44 @@ const App: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Test API connection on app load
+  // Test API connection on app load and periodically (self-recovers if backend comes online later)
   useEffect(() => {
+    let intervalId: number | undefined;
+
     const checkApiHealth = async () => {
       try {
-        const response = await apiService.get('/');
+        // Try root endpoint first
+        await apiService.get('/');
         setApiHealth(true);
+        return;
+      } catch (_) { /* try fallbacks below */ }
+
+      try {
+        // Fallback 1: AI status
+        await apiService.get('/ai/status');
+        setApiHealth(true);
+        return;
+      } catch (_) { /* try next */ }
+
+      try {
+        // Fallback 2: stats
+        await apiService.get('/stats');
+        setApiHealth(true);
+        return;
       } catch (error) {
         console.error('API health check failed:', error);
         setApiHealth(false);
       }
     };
 
-    checkApiHealth();
+    void checkApiHealth();
+    // Periodically re-check so banner clears if backend restarts
+    intervalId = window.setInterval(() => { void checkApiHealth(); }, 15000);
+
+    return () => {
+      if (intervalId) window.clearInterval(intervalId);
+    };
   }, []);
-
-  const navigationItems = [
-    { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
-    { text: 'Interview Guide', icon: <Info />, path: '/guide' },
-    { text: 'Skill Tree', icon: <SkillTreeIcon />, path: '/skill-tree' },
-    { text: 'Browse Problems', icon: <Quiz />, path: '/problems' },
-    { text: 'Code Practice', icon: <Code />, path: '/practice' },
-    { text: 'Recommendations', icon: <TrendingUp />, path: '/recommendations' },
-    { text: 'Learning Paths', icon: <School />, path: '/learning-paths' },
-    { text: 'Analytics', icon: <AnalyticsIcon />, path: '/analytics' },
-    { text: 'Profile', icon: <Person />, path: '/profile' },
-  ];
-
-  const handleNavigation = (path: string) => {
-    navigate(path);
-    if (isMobile) {
-      setDrawerOpen(false);
-    }
-  };
 
   const drawer = (
     <Box sx={{ width: 250 }}>
@@ -93,18 +92,7 @@ const App: React.FC = () => {
           DSA Training
         </Typography>
       </Toolbar>
-      <List>
-        {navigationItems.map((item) => (
-          <ListItemButton 
-            key={item.text}
-            onClick={() => handleNavigation(item.path)}
-            selected={location.pathname === item.path}
-          >
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.text} />
-          </ListItemButton>
-        ))}
-      </List>
+      <ImprovedNavigation onNavigate={() => { if (isMobile) setDrawerOpen(false); }} />
     </Box>
   );
 
@@ -132,21 +120,24 @@ const App: React.FC = () => {
             DSA Training Platform - Phase 4 Week 2
           </Typography>
           
-          {/* API Status Indicator */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Box
-              sx={{
-                width: 8,
-                height: 8,
-                borderRadius: '50%',
-                backgroundColor: 
-                  apiHealth === null ? 'orange' : 
-                  apiHealth ? 'lightgreen' : 'red',
-              }}
-            />
-            <Typography variant="body2">
-              API: {apiHealth === null ? 'Checking...' : apiHealth ? 'Connected' : 'Offline'}
-            </Typography>
+          {/* API & AI Status Indicator */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Box
+                sx={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: '50%',
+                  backgroundColor: 
+                    apiHealth === null ? 'orange' : 
+                    apiHealth ? 'lightgreen' : 'red',
+                }}
+              />
+              <Typography variant="body2">
+                API: {apiHealth === null ? 'Checking...' : apiHealth ? 'Connected' : 'Offline'}
+              </Typography>
+            </Box>
+            <AIStatusWidget compact />
           </Box>
         </Toolbar>
       </AppBar>
@@ -179,6 +170,8 @@ const App: React.FC = () => {
         }}
       >
         <Container maxWidth="lg">
+          {/* Contextual Breadcrumbs */}
+          <ContextualBreadcrumbs />
           {apiHealth === false && (
             <Box
               sx={{
@@ -204,7 +197,13 @@ const App: React.FC = () => {
             <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/learning-paths" element={<LearningPaths />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/ai-demo" element={<AIDemo />} />
+            <Route path="/dev-tools" element={<DevTools />} />
             <Route path="/profile" element={<UserProfile />} />
+            <Route path="/settings" element={<Settings />} />
+            {process.env.REACT_APP_FEATURE_SRS === 'off' ? null : <Route path="/srs" element={<SRSReview />} />}
+            {process.env.REACT_APP_FEATURE_INTERVIEW === 'off' ? null : <Route path="/interview" element={<Interview />} />}
+            {process.env.REACT_APP_FEATURE_COGNITIVE === 'off' ? null : <Route path="/cognitive" element={<CognitiveAssessment />} />}
           </Routes>
         </Container>
       </Box>

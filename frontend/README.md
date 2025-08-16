@@ -74,6 +74,7 @@ npm start
 Create a `.env` file in the frontend directory:
 ```
 REACT_APP_API_URL=http://localhost:8000
+REACT_APP_SKILL_TREE_URL=http://localhost:8002
 ```
 
 ## API Integration
@@ -84,7 +85,12 @@ The frontend connects to the FastAPI backend through the `apiService` which prov
 - **ML Recommendations**: Get personalized suggestions
 - **User Tracking**: Record interactions for ML training
 - **Analytics**: Access user behavior and platform trends
-- **Learning Paths**: Generate and manage study plans
+- **Learning Paths**: Generate and manage study plans (`/learning-paths/*`)
+- **Practice**: Sessions, attempts, elaborative logging, working-memory checks (`/practice/*`)
+- **Interview**: Start/complete interview sessions (`/interview/*`)
+- **Cognitive**: Profile, assessment, and UI adaptation (`/cognitive/*`)
+
+For a full list of backend endpoints and methods, see `../docs/API_REFERENCE.md`.
 
 ## Component Structure
 

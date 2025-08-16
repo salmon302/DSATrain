@@ -1,0 +1,30 @@
+{
+  "overview": "Instructions for providing high-quality STAR method responses",
+  "purpose": "These responses will be used to train an AI system to evaluate behavioral interviews",
+  "expectations": [
+    "Provide realistic, detailed responses using the STAR method",
+    "Draw from actual experiences when possible",
+    "Vary response quality to include excellent, good, and poor examples",
+    "Ensure personal accountability (use 'I' rather than 'we')",
+    "Include specific details, metrics, and outcomes where appropriate"
+  ],
+  "star_method_reminder": {
+    "situation": "Set the context - Where, when, who was involved?",
+    "task": "What was your specific responsibility or goal?",
+    "action": "What specific steps did you take? (Focus on YOUR actions)",
+    "result": "What was the outcome? Include metrics if possible. What did you learn?"
+  },
+  "response_guidelines": [
+    "Aim for 200-400 words per response",
+    "Be specific rather than general",
+    "Include quantifiable results when possible",
+    "Show learning and growth from the experience",
+    "Demonstrate the target competency clearly"
+  ],
+  "quality_levels_to_include": {
+    "excellent": "30% - Outstanding examples with all STAR components, specific details, strong results",
+    "good": "40% - Solid examples with clear STAR structure and good details",
+    "adequate": "20% - Basic examples that meet minimum requirements",
+    "poor": "10% - Weak examples with vague details or missing components"
+  }
+}

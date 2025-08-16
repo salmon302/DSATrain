@@ -1,0 +1,975 @@
+{
+  "metadata": {
+    "total_problems": 120,
+    "feature_weights": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.25,
+      "difficulty_appropriateness": 0.25,
+      "concept_coverage": 0.1,
+      "implementation_complexity": 0.1
+    },
+    "timestamp": "2025-08-14T14:35:30.168471"
+  },
+  "features": {
+    "cf_2128_F": {
+      "base_google_relevance": 0.55,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.47200000000000003
+    },
+    "cf_2128_E2": {
+      "base_google_relevance": 0.4,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.473
+    },
+    "cf_2128_E1": {
+      "base_google_relevance": 0.6,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.583
+    },
+    "cf_2128_D": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.493
+    },
+    "cf_2128_C": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.382
+    },
+    "cf_2128_B": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.237
+    },
+    "cf_2128_A": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.177
+    },
+    "cf_2126_G2": {
+      "base_google_relevance": 0.6,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.409
+    },
+    "cf_2126_G1": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.319
+    },
+    "cf_2126_F": {
+      "base_google_relevance": 0.6,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.458
+    },
+    "cf_2126_E": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.13699999999999998
+    },
+    "cf_2126_D": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.05,
+      "final_interview_probability": 0.22
+    },
+    "cf_2126_C": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.05,
+      "final_interview_probability": 0.18
+    },
+    "cf_2126_B": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.05,
+      "final_interview_probability": 0.23
+    },
+    "cf_2126_A": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.158
+    },
+    "cf_2125_F": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.318
+    },
+    "cf_2125_E": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.229
+    },
+    "cf_2125_D": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.187
+    },
+    "cf_2125_C": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.178
+    },
+    "cf_2125_B": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.13799999999999998
+    },
+    "cf_2125_A": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.317
+    },
+    "cf_2124_I": {
+      "base_google_relevance": 0.35,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.412
+    },
+    "cf_2124_H": {
+      "base_google_relevance": 0.35,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.443
+    },
+    "cf_2124_G": {
+      "base_google_relevance": 0.35,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.362
+    },
+    "cf_2124_F2": {
+      "base_google_relevance": 0.1,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.374
+    },
+    "cf_2124_F1": {
+      "base_google_relevance": 0.1,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.374
+    },
+    "cf_2124_E": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.42300000000000004
+    },
+    "cf_2124_D": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.42300000000000004
+    },
+    "cf_2124_C": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.442
+    },
+    "cf_2124_B": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.2,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.157
+    },
+    "cf_2124_A": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.177
+    },
+    "cf_2123_G": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.267
+    },
+    "cf_2123_F": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.158
+    },
+    "cf_2123_E": {
+      "base_google_relevance": 0.5,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.327
+    },
+    "cf_2123_D": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.218
+    },
+    "cf_2123_C": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.05,
+      "final_interview_probability": 0.16
+    },
+    "cf_2123_B": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.2,
+      "implementation_complexity": 0.01,
+      "final_interview_probability": 0.156
+    },
+    "cf_2123_A": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.2,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.097
+    },
+    "cf_2122_G": {
+      "base_google_relevance": 0.35,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.412
+    },
+    "cf_2122_F": {
+      "base_google_relevance": 0.05,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.292
+    },
+    "cf_2122_E": {
+      "base_google_relevance": 0.25,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.383
+    },
+    "cf_2122_D": {
+      "base_google_relevance": 0.6,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.632
+    },
+    "cf_2122_C": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.442
+    },
+    "cf_2122_B": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.177
+    },
+    "cf_2122_A": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.19699999999999998
+    },
+    "cf_2121_H": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.317
+    },
+    "cf_2121_G": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.01,
+      "final_interview_probability": 0.176
+    },
+    "cf_2121_F": {
+      "base_google_relevance": 0.5,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.01,
+      "final_interview_probability": 0.326
+    },
+    "cf_2121_E": {
+      "base_google_relevance": 0.5,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.40900000000000003
+    },
+    "cf_2121_D": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.01,
+      "final_interview_probability": 0.116
+    },
+    "cf_2121_C": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.05,
+      "final_interview_probability": 0.18
+    },
+    "cf_2121_B": {
+      "base_google_relevance": 0.5,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.358
+    },
+    "cf_2121_A": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.13699999999999998
+    },
+    "cf_2120_G": {
+      "base_google_relevance": 0.55,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.453
+    },
+    "cf_2120_F": {
+      "base_google_relevance": 0.45,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.402
+    },
+    "cf_2120_E": {
+      "base_google_relevance": 0.35,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.433
+    },
+    "cf_2120_D": {
+      "base_google_relevance": 0.1,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.322
+    },
+    "cf_2120_C": {
+      "base_google_relevance": 0.6,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.582
+    },
+    "cf_2120_B": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.2,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.097
+    },
+    "cf_2120_A": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.11800000000000001
+    },
+    "cf_2119_F": {
+      "base_google_relevance": 0.55,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.542
+    },
+    "cf_2119_E": {
+      "base_google_relevance": 0.25,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.362
+    },
+    "cf_2119_D": {
+      "base_google_relevance": 0.05,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.302
+    },
+    "cf_2119_C": {
+      "base_google_relevance": 0.1,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.363
+    },
+    "cf_2119_B": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.19699999999999998
+    },
+    "cf_2119_A": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.19799999999999998
+    },
+    "cf_2118_F": {
+      "base_google_relevance": 0.65,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.573
+    },
+    "cf_2118_E": {
+      "base_google_relevance": 0.25,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.352
+    },
+    "cf_2118_D2": {
+      "base_google_relevance": 0.6,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.06,
+      "final_interview_probability": 0.461
+    },
+    "cf_2118_D1": {
+      "base_google_relevance": 0.4,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.06,
+      "final_interview_probability": 0.576
+    },
+    "cf_2118_C": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.238
+    },
+    "cf_2118_B": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.11800000000000001
+    },
+    "cf_2118_A": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.19699999999999998
+    },
+    "cf_2117_H": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.177
+    },
+    "cf_2117_G": {
+      "base_google_relevance": 0.5,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.377
+    },
+    "cf_2117_F": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.01,
+      "final_interview_probability": 0.296
+    },
+    "cf_2117_E": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.19699999999999998
+    },
+    "cf_2117_D": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.01,
+      "final_interview_probability": 0.266
+    },
+    "cf_2117_C": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.19699999999999998
+    },
+    "cf_2117_B": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.01,
+      "final_interview_probability": 0.116
+    },
+    "cf_2117_A": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.177
+    },
+    "cf_2116_B": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.19899999999999998
+    },
+    "cf_2116_A": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.179
+    },
+    "cf_2115_F2": {
+      "base_google_relevance": 0.05,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.06,
+      "final_interview_probability": 0.236
+    },
+    "cf_2115_F1": {
+      "base_google_relevance": 0.05,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.06,
+      "final_interview_probability": 0.236
+    },
+    "cf_2115_E": {
+      "base_google_relevance": 0.35,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.423
+    },
+    "cf_2115_D": {
+      "base_google_relevance": 0.25,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.40299999999999997
+    },
+    "cf_2115_C": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.494
+    },
+    "cf_2115_B": {
+      "base_google_relevance": 0.9,
+      "frequency_score": 0.6,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.774
+    },
+    "cf_2115_A": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.229
+    },
+    "cf_2114_G": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.288
+    },
+    "cf_2114_F": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.317
+    },
+    "cf_2114_E": {
+      "base_google_relevance": 0.5,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.429
+    },
+    "cf_2114_D": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.239
+    },
+    "cf_2114_C": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.03,
+      "final_interview_probability": 0.258
+    },
+    "cf_2114_B": {
+      "base_google_relevance": 0.2,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.05,
+      "final_interview_probability": 0.18
+    },
+    "cf_2114_A": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.267
+    },
+    "cf_2113_F": {
+      "base_google_relevance": 0.45,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.02,
+      "final_interview_probability": 0.462
+    },
+    "cf_2113_E": {
+      "base_google_relevance": 0.65,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 0.7,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.04,
+      "final_interview_probability": 0.574
+    },
+    "cf_2113_D": {
+      "base_google_relevance": 0.6,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 1.0,
+      "implementation_complexity": 0.01,
+      "final_interview_probability": 0.531
+    },
+    "hr_hr_2d_array_ds": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.13,
+      "final_interview_probability": 0.268
+    },
+    "hr_hr_arrays_left_rotation": {
+      "base_google_relevance": 0.4,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.13,
+      "final_interview_probability": 0.298
+    },
+    "hr_hr_new_year_chaos": {
+      "base_google_relevance": 0.6,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.13,
+      "final_interview_probability": 0.533
+    },
+    "hr_hr_minimum_swaps": {
+      "base_google_relevance": 0.7,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.12,
+      "final_interview_probability": 0.562
+    },
+    "hr_hr_linked_list_cycle": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.13,
+      "final_interview_probability": 0.128
+    },
+    "hr_hr_tree_height": {
+      "base_google_relevance": 0.3,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.13,
+      "final_interview_probability": 0.268
+    },
+    "hr_hr_tree_lca": {
+      "base_google_relevance": 0.4,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.14,
+      "final_interview_probability": 0.299
+    },
+    "hr_hr_balanced_brackets": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.08,
+      "final_interview_probability": 0.40800000000000003
+    },
+    "hr_hr_queue_using_stacks": {
+      "base_google_relevance": 0.5,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.8,
+      "implementation_complexity": 0.1,
+      "final_interview_probability": 0.49
+    },
+    "hr_hr_max_array_sum": {
+      "base_google_relevance": 0.1,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.2,
+      "implementation_complexity": 0.09,
+      "final_interview_probability": 0.359
+    },
+    "hr_hr_abbreviation": {
+      "base_google_relevance": 0.4,
+      "frequency_score": 0.4,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.1,
+      "final_interview_probability": 0.52
+    },
+    "hr_hr_fibonacci_modified": {
+      "base_google_relevance": 0.1,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.06,
+      "final_interview_probability": 0.396
+    },
+    "hr_hr_roads_and_libraries": {
+      "base_google_relevance": 0.6,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.1,
+      "final_interview_probability": 0.53
+    },
+    "hr_hr_find_nearest_clone": {
+      "base_google_relevance": 0.4,
+      "frequency_score": 0.2,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.12,
+      "final_interview_probability": 0.47200000000000003
+    },
+    "hr_hr_minimum_time_required": {
+      "base_google_relevance": 0.30000000000000004,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.1,
+      "final_interview_probability": 0.41000000000000003
+    },
+    "hr_hr_luck_balance": {
+      "base_google_relevance": 0.5,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.08,
+      "final_interview_probability": 0.293
+    },
+    "hr_hr_hash_tables_ransom_note": {
+      "base_google_relevance": 0.0,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.6,
+      "implementation_complexity": 0.13,
+      "final_interview_probability": 0.148
+    },
+    "hr_hr_two_strings": {
+      "base_google_relevance": 0.1,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.1,
+      "final_interview_probability": 0.155
+    },
+    "hr_hr_sherlock_valid_string": {
+      "base_google_relevance": 0.1,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 1.0,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.16,
+      "final_interview_probability": 0.336
+    },
+    "hr_hr_sorting_bubble_sort": {
+      "base_google_relevance": 0.4,
+      "frequency_score": 0.0,
+      "difficulty_appropriateness": 0.3,
+      "concept_coverage": 0.4,
+      "implementation_complexity": 0.09,
+      "final_interview_probability": 0.244
+    }
+  }
+}

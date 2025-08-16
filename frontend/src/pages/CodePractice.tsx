@@ -52,7 +52,96 @@ import {
 
 import CodeEditor from '../components/CodeEditor';
 import GoogleStyleCodeEditor from '../components/GoogleStyleCodeEditor';
-import { problemsAPI, Problem, trackingAPI, getCurrentUserId, generateSessionId } from '../services/api';
+import { apiService, problemsAPI, Problem, trackingAPI, practiceAPI, getCurrentUserId, generateSessionId, favoritesAPI } from '../services/api';
+import { Stepper, Step, StepLabel, TextField } from '@mui/material';
+
+// Practice Gates component
+const PracticeGates: React.FC<{
+  sessionId: string;
+  problemId: string;
+  gates: { read: boolean; plan: string; pseudocode: string; codeReady: boolean };
+  onUpdate: (g: { read: boolean; plan: string; pseudocode: string; codeReady: boolean }) => void;
+}> = ({ sessionId, problemId, gates, onUpdate }) => {
+  const [submitting, setSubmitting] = React.useState(false);
+
+  const saveProgress = async (key: string, value: any) => {
+    try {
+      setSubmitting(true);
+      const gateMap: Record<string, 'dry_run' | 'pseudocode' | 'code'> = {
+        read: 'dry_run',
+        plan: 'pseudocode',
+        pseudocode: 'pseudocode',
+        codeReady: 'code',
+      } as const;
+      const gate = gateMap[key] || 'dry_run';
+      await practiceAPI.gates.progress({ session_id: sessionId, gate, value: Boolean(value) });
+    } catch (e) {
+      // ignore
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const steps = ['Read', 'Plan', 'Pseudocode', 'Code'];
+  const activeStep = gates.codeReady ? 4 : gates.pseudocode ? 3 : gates.plan ? 2 : gates.read ? 1 : 0;
+
+  return (
+    <Card sx={{ mb: 2 }}>
+      <CardContent>
+        <Typography variant="subtitle1" gutterBottom>Think Twice, Code Once</Typography>
+        <Stepper activeStep={activeStep} alternativeLabel sx={{ mb: 2 }}>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+
+        <Box display="flex" flexDirection="column" gap={2}>
+          <FormControlLabel
+            control={<Switch checked={gates.read} onChange={async (e) => {
+              onUpdate({ ...gates, read: e.target.checked });
+              await saveProgress('read', e.target.checked);
+            }} />}
+            label="I carefully read and understood the problem statement"
+          />
+
+          <TextField
+            label="High-level plan"
+            placeholder="Outline your approach in a few bullets"
+            value={gates.plan}
+            onChange={(e) => onUpdate({ ...gates, plan: e.target.value })}
+            onBlur={async () => { await saveProgress('plan', gates.plan); }}
+            multiline
+            minRows={2}
+            disabled={!gates.read}
+          />
+
+          <TextField
+            label="Pseudocode"
+            placeholder="Write concise pseudocode for your solution"
+            value={gates.pseudocode}
+            onChange={(e) => onUpdate({ ...gates, pseudocode: e.target.value })}
+            onBlur={async () => { await saveProgress('pseudocode', gates.pseudocode); }}
+            multiline
+            minRows={3}
+            disabled={!gates.plan}
+          />
+
+          <FormControlLabel
+            control={<Switch checked={gates.codeReady} onChange={async (e) => {
+              const next = e.target.checked;
+              onUpdate({ ...gates, codeReady: next });
+              await saveProgress('code_ready', next);
+            }} />}
+            label="I’m ready to start coding"
+            disabled={!gates.pseudocode}
+          />
+        </Box>
+      </CardContent>
+    </Card>
+  );
+};
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -82,6 +171,9 @@ const CodePractice: React.FC = () => {
   const [showHints, setShowHints] = useState(false);
   const [currentHint, setCurrentHint] = useState(0);
   const [googleInterviewMode, setGoogleInterviewMode] = useState(false);
+  const [gatesSessionId, setGatesSessionId] = useState<string | null>(null);
+  const [gates, setGates] = useState<any>({ read: false, plan: '', pseudocode: '', codeReady: false });
+  const gatesEnabled = process.env.REACT_APP_FEATURE_PRACTICE_GATES !== 'off';
 
   const userId = getCurrentUserId();
   const sessionId = generateSessionId();
@@ -129,7 +221,7 @@ const CodePractice: React.FC = () => {
       // Load problem details and solutions
       const [problemDetail, solutionsData] = await Promise.all([
         problemsAPI.getProblem(problem.id),
-        fetch(`http://localhost:8000/problems/${problem.id}/solutions`).then(r => r.json())
+  apiService.get(`/problems/${problem.id}/solutions`).then(r => r.data)
           .catch(() => ({ solutions: [] }))
       ]);
       
@@ -145,6 +237,18 @@ const CodePractice: React.FC = () => {
       setSubmissions([]);
       setCurrentHint(0);
       setShowHints(false);
+
+      // Initialize practice gates if enabled
+      if (gatesEnabled) {
+        try {
+          const start = await practiceAPI.gates.start({ problem_id: problem.id, session_id: sessionId });
+          setGatesSessionId(start.session_id || sessionId);
+          setGates({ read: false, plan: '', pseudocode: '', codeReady: false });
+        } catch (e) {
+          // Non-blocking
+          console.error('Failed to start practice gates session:', e);
+        }
+      }
       
     } catch (error) {
       console.error('Error loading problem details:', error);
@@ -211,6 +315,28 @@ const CodePractice: React.FC = () => {
       };
 
       setSubmissions(prev => [submission, ...prev]);
+
+      // Persist attempt to backend
+      try {
+        await practiceAPI.logAttempt({
+          user_id: userId,
+          problem_id: selectedProblem.id,
+          status: submission.status === 'accepted' ? 'solved' : 'attempted',
+          time_spent_seconds: solveTime,
+          code,
+          language,
+          session_id: sessionId,
+          metadata: {
+            runtime_ms: submission.runtime,
+            memory_mb: submission.memory,
+            tests_passed: submission.test_cases_passed,
+            tests_total: submission.total_test_cases,
+          }
+        } as any);
+      } catch (e) {
+        // Non-blocking
+        console.error('Failed to log attempt:', e);
+      }
       
       // Switch to submissions tab
       setActiveTab(2);
@@ -271,6 +397,21 @@ const CodePractice: React.FC = () => {
       }
     };
   }, []);
+
+  // Sync bookmark state when selectedProblem changes
+  useEffect(() => {
+    const syncBookmark = async () => {
+      if (!selectedProblem) return;
+      try {
+        const res = await favoritesAPI.list(userId, false);
+        const ids: string[] = res.problem_ids || [];
+        setBookmarked(ids.includes(selectedProblem.id));
+      } catch (_) {
+        // ignore
+      }
+    };
+    void syncBookmark();
+  }, [selectedProblem]);
 
   // Handle target problem selection from navigation
   useEffect(() => {
@@ -423,7 +564,24 @@ const CodePractice: React.FC = () => {
                         color={getDifficultyColor(selectedProblem.difficulty) as any}
                       />
                       <IconButton 
-                        onClick={() => setBookmarked(!bookmarked)}
+                        onClick={async () => {
+                          const next = !bookmarked;
+                          setBookmarked(next);
+                          try {
+                            await favoritesAPI.toggle({ user_id: userId, problem_id: selectedProblem.id, favorite: next });
+                            // Track interaction
+                            await trackingAPI.trackInteraction({
+                              user_id: userId,
+                              problem_id: selectedProblem.id,
+                              action: 'bookmarked',
+                              session_id: sessionId,
+                              metadata: JSON.stringify({ source: 'practice_header', state: next ? 'bookmarked' : 'unbookmarked' })
+                            });
+                          } catch (e) {
+                            // revert on error
+                            setBookmarked(!next);
+                          }
+                        }}
                         color={bookmarked ? 'primary' : 'default'}
                       >
                         {bookmarked ? <Bookmark /> : <BookmarkBorder />}
@@ -492,16 +650,20 @@ const CodePractice: React.FC = () => {
                   <TabPanel value={activeTab} index={0}>
                     <Box sx={{ p: 3 }}>
                       {/* Problem Description */}
-                      {problemDetails?.description && (
-                        <Box mb={3}>
-                          <Typography variant="h6" gutterBottom>Problem Description</Typography>
-                          <Paper variant="outlined" sx={{ p: 2 }}>
+                      <Box mb={3}>
+                        <Typography variant="h6" gutterBottom>Problem Description</Typography>
+                        <Paper variant="outlined" sx={{ p: 2 }}>
+                          {problemDetails?.description ? (
                             <Typography style={{ whiteSpace: 'pre-wrap' }}>
                               {problemDetails.description}
                             </Typography>
-                          </Paper>
-                        </Box>
-                      )}
+                          ) : (
+                            <Typography color="text.secondary">
+                              Description not available for this problem yet. Try refreshing, or check back after restarting the backend.
+                            </Typography>
+                          )}
+                        </Paper>
+                      </Box>
 
                       {/* Algorithm Tags */}
                       <Box mb={3}>
@@ -568,7 +730,14 @@ const CodePractice: React.FC = () => {
                         label="Google Interview Simulation Mode"
                       />
                     </Box>
-                    
+                    {gatesEnabled && (
+                      <PracticeGates
+                        sessionId={gatesSessionId || sessionId}
+                        problemId={selectedProblem.id}
+                        gates={gates}
+                        onUpdate={setGates}
+                      />
+                    )}
                     {googleInterviewMode ? (
                       <GoogleStyleCodeEditor
                         problemId={selectedProblem.id}
@@ -581,6 +750,7 @@ const CodePractice: React.FC = () => {
                         problemId={selectedProblem.id}
                         onCodeChange={setUserCode}
                         onSubmit={handleSubmission}
+                        readOnly={gatesEnabled && !gates.codeReady}
                       />
                     )}
                   </TabPanel>

@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-08-14T14:35:30.037798",
+  "pipeline_status": "success",
+  "components": {
+    "embeddings": {
+      "embeddings_file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\ai_features\\semantic_embeddings.json",
+      "total_embeddings": 120,
+      "embedding_dim": 128
+    },
+    "difficulty_vectors": {
+      "vectors_file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\ai_features\\difficulty_vectors.json",
+      "total_vectors": 120,
+      "dimensions": 5
+    },
+    "concept_graph": {
+      "graph_file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\ai_features\\concept_graph.json",
+      "total_concepts": 52,
+      "total_edges": 12
+    },
+    "interview_features": {
+      "features_file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\ai_features\\interview_features.json",
+      "total_features": 120
+    }
+  },
+  "success_count": 4,
+  "total_components": 4
+}

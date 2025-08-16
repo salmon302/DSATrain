@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-08-14T10:43:22.867829",
+  "pipeline_status": "partial_success",
+  "components": {
+    "py_ast": {
+      "status": "failed",
+      "error": "Dataset scripts are no longer supported, but found py_ast.py"
+    },
+    "ml4code": {
+      "status": "success",
+      "rules_created": 9,
+      "output_file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\academic_datasets\\ml4code_quality_rules.json"
+    },
+    "quality_engine": {
+      "status": "success",
+      "output_file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\academic_datasets\\code_quality_engine.json",
+      "evaluation_criteria": 4
+    }
+  },
+  "success_count": 2,
+  "total_components": 3
+}

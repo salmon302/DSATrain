@@ -1,0 +1,4530 @@
+{
+  "metadata": {
+    "creation_date": "2025-08-14T14:33:53.950557",
+    "total_problems": 120,
+    "sources": [
+      "codeforces",
+      "hackerrank"
+    ],
+    "pipeline_version": "1.0"
+  },
+  "statistics": {
+    "total_problems": 120,
+    "by_source": {
+      "codeforces": 100,
+      "hackerrank": 20
+    },
+    "by_difficulty": {
+      "easy": 70,
+      "medium": 29,
+      "hard": 21
+    },
+    "by_tags": {
+      "shortest_paths": 4,
+      "shortest paths": 4,
+      "graphs": 15,
+      "greedy": 55,
+      "constructive algorithms": 23,
+      "data_structures": 23,
+      "binary search": 15,
+      "data structures": 21,
+      "two_pointers": 8,
+      "binary_search": 16,
+      "constructive_algorithms": 23,
+      "two pointers": 8,
+      "dynamic_programming": 32,
+      "brute force": 19,
+      "mathematics": 42,
+      "combinatorics": 11,
+      "brute_force": 19,
+      "sortings": 18,
+      "divide_and_conquer": 6,
+      "divide and conquer": 6,
+      "trees": 14,
+      "dsu": 3,
+      "dfs_and_similar": 10,
+      "dfs and similar": 10,
+      "implementation": 16,
+      "number theory": 12,
+      "number_theory": 12,
+      "probabilities": 2,
+      "bitmasks": 6,
+      "strings": 4,
+      "games": 3,
+      "fft": 1,
+      "geometry": 6,
+      "2-sat": 1,
+      "ternary search": 1,
+      "ternary_search": 1,
+      "hashing": 1,
+      "arrays": 4,
+      "sorting": 3,
+      "linked_lists": 1,
+      "cycle_detection": 1,
+      "recursion": 2,
+      "binary_search_tree": 1,
+      "string_manipulation": 4,
+      "stacks": 2,
+      "stacks_and_queues": 2,
+      "queues": 1,
+      "recursion_and_backtracking": 1,
+      "breadth_first_search": 1,
+      "greedy_algorithms": 2,
+      "hash_tables": 2,
+      "miscellaneous": 1
+    },
+    "quality_metrics": {
+      "high_quality": 0,
+      "medium_quality": 116,
+      "low_quality": 4
+    },
+    "google_relevance": {
+      "high_relevance": 2,
+      "medium_relevance": 31,
+      "low_relevance": 87
+    },
+    "top_tags": [
+      [
+        "greedy",
+        55
+      ],
+      [
+        "mathematics",
+        42
+      ],
+      [
+        "dynamic_programming",
+        32
+      ],
+      [
+        "constructive algorithms",
+        23
+      ],
+      [
+        "data_structures",
+        23
+      ],
+      [
+        "constructive_algorithms",
+        23
+      ],
+      [
+        "data structures",
+        21
+      ],
+      [
+        "brute force",
+        19
+      ],
+      [
+        "brute_force",
+        19
+      ],
+      [
+        "sortings",
+        18
+      ],
+      [
+        "binary_search",
+        16
+      ],
+      [
+        "implementation",
+        16
+      ],
+      [
+        "graphs",
+        15
+      ],
+      [
+        "binary search",
+        15
+      ],
+      [
+        "trees",
+        14
+      ],
+      [
+        "number theory",
+        12
+      ],
+      [
+        "number_theory",
+        12
+      ],
+      [
+        "combinatorics",
+        11
+      ],
+      [
+        "dfs_and_similar",
+        10
+      ],
+      [
+        "dfs and similar",
+        10
+      ]
+    ]
+  },
+  "problems": [
+    {
+      "id": "cf_2128_F",
+      "source": "codeforces",
+      "original_id": "2128_F",
+      "title": "Strict Triangle",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2300,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "shortest_paths",
+        "shortest paths",
+        "graphs",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.946998",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.55
+    },
+    {
+      "id": "cf_2128_E2",
+      "source": "codeforces",
+      "original_id": "2128_E2",
+      "title": "Submedians (Hard Version)",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1637,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "data_structures",
+        "binary search",
+        "data structures",
+        "two_pointers",
+        "binary_search",
+        "constructive_algorithms",
+        "two pointers"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947043",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.4
+    },
+    {
+      "id": "cf_2128_E1",
+      "source": "codeforces",
+      "original_id": "2128_E1",
+      "title": "Submedians (Easy Version)",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1637,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data_structures",
+        "binary search",
+        "data structures",
+        "greedy",
+        "dynamic_programming",
+        "binary_search"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947069",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.6
+    },
+    {
+      "id": "cf_2128_D",
+      "source": "codeforces",
+      "original_id": "2128_D",
+      "title": "Sum of LDS",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1637,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "mathematics",
+        "greedy",
+        "dynamic_programming",
+        "combinatorics",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947087",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "cf_2128_C",
+      "source": "codeforces",
+      "original_id": "2128_C",
+      "title": "Leftmost Below",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1512,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "mathematics",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947100",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "cf_2128_B",
+      "source": "codeforces",
+      "original_id": "2128_B",
+      "title": "Deque Process",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "greedy",
+        "two_pointers",
+        "sortings",
+        "constructive_algorithms",
+        "two pointers"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947112",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2128_A",
+      "source": "codeforces",
+      "original_id": "2128_A",
+      "title": "Recycling Center",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 900,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "sortings",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947123",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2126_G2",
+      "source": "codeforces",
+      "original_id": "2126_G2",
+      "title": "Big Wins!  (hard version)",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data_structures",
+        "binary search",
+        "divide_and_conquer",
+        "divide and conquer",
+        "data structures",
+        "two_pointers",
+        "binary_search",
+        "trees",
+        "dsu",
+        "two pointers"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947136",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.6
+    },
+    {
+      "id": "cf_2126_G1",
+      "source": "codeforces",
+      "original_id": "2126_G1",
+      "title": "Big Wins! (easy version)",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data_structures",
+        "binary search",
+        "data structures",
+        "two_pointers",
+        "dynamic_programming",
+        "dsu",
+        "binary_search",
+        "two pointers"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947149",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "cf_2126_F",
+      "source": "codeforces",
+      "original_id": "2126_F",
+      "title": "1-1-1, Free Tree!",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "data_structures",
+        "dfs_and_similar",
+        "dfs and similar",
+        "data structures",
+        "implementation",
+        "trees",
+        "graphs",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947162",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.6
+    },
+    {
+      "id": "cf_2126_E",
+      "source": "codeforces",
+      "original_id": "2126_E",
+      "title": "G-C-D, Unlucky!",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "number theory",
+        "mathematics",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947172",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2126_D",
+      "source": "codeforces",
+      "original_id": "2126_D",
+      "title": "This Is the Last Time",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "sortings",
+        "data structures",
+        "data_structures",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947182",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2126_C",
+      "source": "codeforces",
+      "original_id": "2126_C",
+      "title": "I Will Definitely Make It",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "sortings",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947193",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2126_B",
+      "source": "codeforces",
+      "original_id": "2126_B",
+      "title": "No Casino in the Mountains",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dynamic_programming",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947203",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2126_A",
+      "source": "codeforces",
+      "original_id": "2126_A",
+      "title": "Only One Digit",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "mathematics",
+        "brute force",
+        "brute_force",
+        "implementation"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947212",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2125_F",
+      "source": "codeforces",
+      "original_id": "2125_F",
+      "title": "Timofey and Docker",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "binary search",
+        "divide_and_conquer",
+        "divide and conquer",
+        "dynamic_programming",
+        "binary_search"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947222",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "cf_2125_E",
+      "source": "codeforces",
+      "original_id": "2125_E",
+      "title": "Sets of Complementary Sums",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "mathematics",
+        "two_pointers",
+        "dynamic_programming",
+        "combinatorics",
+        "two pointers",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947233",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2125_D",
+      "source": "codeforces",
+      "original_id": "2125_D",
+      "title": "Segments Covering",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dynamic_programming",
+        "mathematics",
+        "probabilities"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947245",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2125_C",
+      "source": "codeforces",
+      "original_id": "2125_C",
+      "title": "Count Good Numbers",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "number theory",
+        "mathematics",
+        "bitmasks",
+        "combinatorics",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947255",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2125_B",
+      "source": "codeforces",
+      "original_id": "2125_B",
+      "title": "Left and Down",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "number theory",
+        "mathematics",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947264",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2125_A",
+      "source": "codeforces",
+      "original_id": "2125_A",
+      "title": "Difficult Contest",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "strings",
+        "constructive algorithms",
+        "implementation",
+        "sortings",
+        "constructive_algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947273",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "cf_2124_I",
+      "source": "codeforces",
+      "original_id": "2124_I",
+      "title": "Lexicographic Partition",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2393,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive_algorithms",
+        "trees",
+        "mathematics",
+        "constructive algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947283",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.35
+    },
+    {
+      "id": "cf_2124_H",
+      "source": "codeforces",
+      "original_id": "2124_H",
+      "title": "Longest Good Subsequence",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2393,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dynamic_programming",
+        "trees",
+        "mathematics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947294",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.35
+    },
+    {
+      "id": "cf_2124_G",
+      "source": "codeforces",
+      "original_id": "2124_G",
+      "title": "Maximise Sum",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2300,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "binary search",
+        "binary_search",
+        "data structures",
+        "data_structures"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947304",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.35
+    },
+    {
+      "id": "cf_2124_F2",
+      "source": "codeforces",
+      "original_id": "2124_F2",
+      "title": "Appending Permutations (Hard Version)",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1700,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dynamic_programming",
+        "combinatorics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947314",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.1
+    },
+    {
+      "id": "cf_2124_F1",
+      "source": "codeforces",
+      "original_id": "2124_F1",
+      "title": "Appending Permutations (Easy Version)",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1700,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dynamic_programming",
+        "combinatorics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947323",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.1
+    },
+    {
+      "id": "cf_2124_E",
+      "source": "codeforces",
+      "original_id": "2124_E",
+      "title": "Make it Zero",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1700,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive_algorithms",
+        "mathematics",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947333",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "cf_2124_D",
+      "source": "codeforces",
+      "original_id": "2124_D",
+      "title": "Make a Palindrome",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1637,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "two_pointers",
+        "sortings",
+        "two pointers",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947343",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "cf_2124_C",
+      "source": "codeforces",
+      "original_id": "2124_C",
+      "title": "Subset Multiplication",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1512,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "number theory",
+        "mathematics",
+        "greedy",
+        "constructive_algorithms",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947353",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "cf_2124_B",
+      "source": "codeforces",
+      "original_id": "2124_B",
+      "title": "Minimise Sum",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947363",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.2,
+        "overall": 0.49000000000000005
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2124_A",
+      "source": "codeforces",
+      "original_id": "2124_A",
+      "title": "Deranged Deletions",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 900,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "sortings",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947370",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2123_G",
+      "source": "codeforces",
+      "original_id": "2123_G",
+      "title": "Modular Sorting",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "data_structures",
+        "number theory",
+        "data structures",
+        "mathematics",
+        "greedy",
+        "sortings",
+        "number_theory",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947381",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "cf_2123_F",
+      "source": "codeforces",
+      "original_id": "2123_F",
+      "title": "Minimize Fixed Points",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "number theory",
+        "constructive_algorithms",
+        "number_theory",
+        "constructive algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947392",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2123_E",
+      "source": "codeforces",
+      "original_id": "2123_E",
+      "title": "MEX Count",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data_structures",
+        "binary search",
+        "data structures",
+        "greedy",
+        "two_pointers",
+        "binary_search",
+        "sortings",
+        "two pointers"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947405",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.5
+    },
+    {
+      "id": "cf_2123_D",
+      "source": "codeforces",
+      "original_id": "2123_D",
+      "title": "Binary String Battle",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive_algorithms",
+        "games",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947416",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2123_C",
+      "source": "codeforces",
+      "original_id": "2123_C",
+      "title": "Prefix Min and Suffix Max",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute_force",
+        "data structures",
+        "brute force",
+        "data_structures"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947425",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2123_B",
+      "source": "codeforces",
+      "original_id": "2123_B",
+      "title": "Tournament",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947434",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.2,
+        "overall": 0.49000000000000005
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2123_A",
+      "source": "codeforces",
+      "original_id": "2123_A",
+      "title": "Blackboard Game",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "mathematics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947441",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.2,
+        "overall": 0.49000000000000005
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2122_G",
+      "source": "codeforces",
+      "original_id": "2122_G",
+      "title": "Tree Parking",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2300,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "trees",
+        "mathematics",
+        "fft",
+        "combinatorics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947451",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.35
+    },
+    {
+      "id": "cf_2122_F",
+      "source": "codeforces",
+      "original_id": "2122_F",
+      "title": "Colorful Polygon",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2206,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "divide_and_conquer",
+        "divide and conquer",
+        "geometry",
+        "constructive_algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947461",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.05
+    },
+    {
+      "id": "cf_2122_E",
+      "source": "codeforces",
+      "original_id": "2122_E",
+      "title": "Greedy Grid Counting",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2112,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "combinatorics",
+        "dynamic_programming",
+        "mathematics",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947471",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.25
+    },
+    {
+      "id": "cf_2122_D",
+      "source": "codeforces",
+      "original_id": "2122_D",
+      "title": "Traffic Lights",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1700,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "shortest_paths",
+        "brute force",
+        "data_structures",
+        "divide_and_conquer",
+        "divide and conquer",
+        "data structures",
+        "greedy",
+        "dynamic_programming",
+        "graphs",
+        "shortest paths",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947482",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.6
+    },
+    {
+      "id": "cf_2122_C",
+      "source": "codeforces",
+      "original_id": "2122_C",
+      "title": "Manhattan Pairs",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1575,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "mathematics",
+        "greedy",
+        "sortings",
+        "geometry",
+        "constructive_algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947494",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "cf_2122_B",
+      "source": "codeforces",
+      "original_id": "2122_B",
+      "title": "Pile Shuffling",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "mathematics",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947506",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2122_A",
+      "source": "codeforces",
+      "original_id": "2122_A",
+      "title": "Greedy Grid",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 900,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive_algorithms",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947515",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2121_H",
+      "source": "codeforces",
+      "original_id": "2121_H",
+      "title": "Ice Baby",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "data_structures",
+        "binary search",
+        "data structures",
+        "implementation",
+        "dynamic_programming",
+        "binary_search",
+        "sortings",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947527",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "cf_2121_G",
+      "source": "codeforces",
+      "original_id": "2121_G",
+      "title": "Gangsta",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data_structures",
+        "divide_and_conquer",
+        "divide and conquer",
+        "data structures",
+        "mathematics",
+        "sortings"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947538",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2121_F",
+      "source": "codeforces",
+      "original_id": "2121_F",
+      "title": "Yamakasi",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "data_structures",
+        "binary search",
+        "data structures",
+        "greedy",
+        "two_pointers",
+        "binary_search",
+        "two pointers",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947548",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.5
+    },
+    {
+      "id": "cf_2121_E",
+      "source": "codeforces",
+      "original_id": "2121_E",
+      "title": "Sponsor of Your Problems",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "strings",
+        "greedy",
+        "dynamic_programming",
+        "implementation"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947560",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.5
+    },
+    {
+      "id": "cf_2121_D",
+      "source": "codeforces",
+      "original_id": "2121_D",
+      "title": "1709",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "sortings",
+        "implementation"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947569",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2121_C",
+      "source": "codeforces",
+      "original_id": "2121_C",
+      "title": "Those Who Are With Us",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "greedy",
+        "implementation"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947577",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2121_B",
+      "source": "codeforces",
+      "original_id": "2121_B",
+      "title": "Above the Clouds",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "strings",
+        "constructive_algorithms",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947586",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.5
+    },
+    {
+      "id": "cf_2121_A",
+      "source": "codeforces",
+      "original_id": "2121_A",
+      "title": "Letter Home",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "mathematics",
+        "brute force",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947596",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2120_G",
+      "source": "codeforces",
+      "original_id": "2120_G",
+      "title": "Eulerian Line Graph",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2300,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "mathematics",
+        "graphs",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947606",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.55
+    },
+    {
+      "id": "cf_2120_F",
+      "source": "codeforces",
+      "original_id": "2120_F",
+      "title": "Superb Graphs",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2175,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "graphs",
+        "2-sat"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947615",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.45
+    },
+    {
+      "id": "cf_2120_E",
+      "source": "codeforces",
+      "original_id": "2120_E",
+      "title": "Lanes of Cars",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2112,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "binary search",
+        "ternary search",
+        "ternary_search",
+        "dynamic_programming",
+        "binary_search"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947626",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.35
+    },
+    {
+      "id": "cf_2120_D",
+      "source": "codeforces",
+      "original_id": "2120_D",
+      "title": "Matrix game",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1637,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "mathematics",
+        "combinatorics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947635",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.1
+    },
+    {
+      "id": "cf_2120_C",
+      "source": "codeforces",
+      "original_id": "2120_C",
+      "title": "Divine Tree",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1512,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "mathematics",
+        "greedy",
+        "sortings",
+        "trees",
+        "constructive_algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947645",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.6
+    },
+    {
+      "id": "cf_2120_B",
+      "source": "codeforces",
+      "original_id": "2120_B",
+      "title": "Square Pool",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 950,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "geometry"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947655",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.2,
+        "overall": 0.49000000000000005
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2120_A",
+      "source": "codeforces",
+      "original_id": "2120_A",
+      "title": "Square of Rectangles",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 900,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "geometry",
+        "mathematics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947664",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2119_F",
+      "source": "codeforces",
+      "original_id": "2119_F",
+      "title": "Volcanic Eruptions",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2175,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "shortest_paths",
+        "dfs_and_similar",
+        "dfs and similar",
+        "greedy",
+        "dynamic_programming",
+        "trees",
+        "shortest paths"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947674",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.55
+    },
+    {
+      "id": "cf_2119_E",
+      "source": "codeforces",
+      "original_id": "2119_E",
+      "title": "And Constraint",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2112,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dynamic_programming",
+        "bitmasks",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947683",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.25
+    },
+    {
+      "id": "cf_2119_D",
+      "source": "codeforces",
+      "original_id": "2119_D",
+      "title": "Token Removing",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2081,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dynamic_programming",
+        "mathematics",
+        "combinatorics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947692",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.05
+    },
+    {
+      "id": "cf_2119_C",
+      "source": "codeforces",
+      "original_id": "2119_C",
+      "title": "A Good Problem",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1575,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive_algorithms",
+        "bitmasks",
+        "mathematics",
+        "constructive algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947703",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.1
+    },
+    {
+      "id": "cf_2119_B",
+      "source": "codeforces",
+      "original_id": "2119_B",
+      "title": "Line Segments",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "geometry",
+        "mathematics",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947712",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2119_A",
+      "source": "codeforces",
+      "original_id": "2119_A",
+      "title": "Add or XOR",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 900,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "bitmasks",
+        "mathematics",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947722",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2118_F",
+      "source": "codeforces",
+      "original_id": "2118_F",
+      "title": "Shifts and Swaps",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2237,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "hashing",
+        "data_structures",
+        "data structures",
+        "trees",
+        "graphs"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947733",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.65
+    },
+    {
+      "id": "cf_2118_E",
+      "source": "codeforces",
+      "original_id": "2118_E",
+      "title": "Grid Coloring",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2112,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "mathematics",
+        "greedy",
+        "geometry",
+        "constructive_algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947742",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.25
+    },
+    {
+      "id": "cf_2118_D2",
+      "source": "codeforces",
+      "original_id": "2118_D2",
+      "title": "Red Light, Green Light (Hard version)",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "data_structures",
+        "dfs_and_similar",
+        "binary search",
+        "dfs and similar",
+        "number theory",
+        "data structures",
+        "mathematics",
+        "implementation",
+        "dynamic_programming",
+        "binary_search",
+        "graphs",
+        "number_theory",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947756",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.6
+    },
+    {
+      "id": "cf_2118_D1",
+      "source": "codeforces",
+      "original_id": "2118_D1",
+      "title": "Red Light, Green Light (Easy version)",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1512,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "dfs_and_similar",
+        "number theory",
+        "dfs and similar",
+        "implementation",
+        "dynamic_programming",
+        "graphs",
+        "number_theory",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947769",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.4
+    },
+    {
+      "id": "cf_2118_C",
+      "source": "codeforces",
+      "original_id": "2118_C",
+      "title": "Make It Beautiful",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data_structures",
+        "mathematics",
+        "data structures",
+        "greedy",
+        "bitmasks"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947780",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2118_B",
+      "source": "codeforces",
+      "original_id": "2118_B",
+      "title": "Make It Permutation",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive_algorithms",
+        "constructive algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947789",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2118_A",
+      "source": "codeforces",
+      "original_id": "2118_A",
+      "title": "Equal Subsequences",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 900,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive_algorithms",
+        "constructive algorithms",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947798",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2117_H",
+      "source": "codeforces",
+      "original_id": "2117_H",
+      "title": "Incessant Rain",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data_structures",
+        "divide_and_conquer",
+        "divide and conquer",
+        "data structures",
+        "sortings"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947809",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2117_G",
+      "source": "codeforces",
+      "original_id": "2117_G",
+      "title": "Omg Graph",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "shortest_paths",
+        "brute force",
+        "greedy",
+        "dsu",
+        "sortings",
+        "graphs",
+        "shortest paths",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.947988",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.5
+    },
+    {
+      "id": "cf_2117_F",
+      "source": "codeforces",
+      "original_id": "2117_F",
+      "title": "Wildflower",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dfs_and_similar",
+        "trees",
+        "dfs and similar",
+        "combinatorics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948005",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.8,
+        "overall": 0.67
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "cf_2117_E",
+      "source": "codeforces",
+      "original_id": "2117_E",
+      "title": "Lost Soul",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "brute_force",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948017",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2117_D",
+      "source": "codeforces",
+      "original_id": "2117_D",
+      "title": "Retaliation",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "binary search",
+        "number theory",
+        "mathematics",
+        "binary_search",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948028",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "cf_2117_C",
+      "source": "codeforces",
+      "original_id": "2117_C",
+      "title": "Cool Partition",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data structures",
+        "data_structures",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948039",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2117_B",
+      "source": "codeforces",
+      "original_id": "2117_B",
+      "title": "Shrink",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive_algorithms",
+        "constructive algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948048",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2117_A",
+      "source": "codeforces",
+      "original_id": "2117_A",
+      "title": "False Alarm",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "greedy",
+        "implementation"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948056",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2116_B",
+      "source": "codeforces",
+      "original_id": "2116_B",
+      "title": "Gellyfish and Baby's Breath",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 950,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "sortings",
+        "mathematics",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948065",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.6,
+        "overall": 0.6100000000000001
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2116_A",
+      "source": "codeforces",
+      "original_id": "2116_A",
+      "title": "Gellyfish and Tricolor Pansy",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 900,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "games",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948073",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2115_F2",
+      "source": "codeforces",
+      "original_id": "2115_F2",
+      "title": "Gellyfish and Lycoris Radiata (Hard Version)",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2237,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data structures",
+        "data_structures"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948083",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.05
+    },
+    {
+      "id": "cf_2115_F1",
+      "source": "codeforces",
+      "original_id": "2115_F1",
+      "title": "Gellyfish and Lycoris Radiata (Easy Version)",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2112,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "data structures",
+        "data_structures"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948093",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.05
+    },
+    {
+      "id": "cf_2115_E",
+      "source": "codeforces",
+      "original_id": "2115_E",
+      "title": "Gellyfish and Mayflower",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2175,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dynamic_programming",
+        "graphs"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948101",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.35
+    },
+    {
+      "id": "cf_2115_D",
+      "source": "codeforces",
+      "original_id": "2115_D",
+      "title": "Gellyfish and Forget-Me-Not",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2081,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "mathematics",
+        "greedy",
+        "dynamic_programming",
+        "bitmasks",
+        "games"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948112",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.25
+    },
+    {
+      "id": "cf_2115_C",
+      "source": "codeforces",
+      "original_id": "2115_C",
+      "title": "Gellyfish and Eternal Violet",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1637,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "probabilities",
+        "mathematics",
+        "greedy",
+        "dynamic_programming",
+        "combinatorics"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948124",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "cf_2115_B",
+      "source": "codeforces",
+      "original_id": "2115_B",
+      "title": "Gellyfish and Camellia Japonica",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1512,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "brute force",
+        "dfs_and_similar",
+        "dfs and similar",
+        "greedy",
+        "dynamic_programming",
+        "trees",
+        "graphs",
+        "constructive_algorithms",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948136",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.9
+    },
+    {
+      "id": "cf_2115_A",
+      "source": "codeforces",
+      "original_id": "2115_A",
+      "title": "Gellyfish and Flaming Peony",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 900,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "number theory",
+        "mathematics",
+        "dynamic_programming",
+        "constructive_algorithms",
+        "number_theory"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948148",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "cf_2114_G",
+      "source": "codeforces",
+      "original_id": "2114_G",
+      "title": "Build an Array",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "brute force",
+        "number theory",
+        "mathematics",
+        "greedy",
+        "dynamic_programming",
+        "constructive_algorithms",
+        "number_theory",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948159",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2114_F",
+      "source": "codeforces",
+      "original_id": "2114_F",
+      "title": "Small Operations",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "dfs_and_similar",
+        "binary search",
+        "number theory",
+        "dfs and similar",
+        "mathematics",
+        "dynamic_programming",
+        "binary_search",
+        "sortings",
+        "number_theory",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948172",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "cf_2114_E",
+      "source": "codeforces",
+      "original_id": "2114_E",
+      "title": "Kirei Attacks the Estate",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dfs_and_similar",
+        "dfs and similar",
+        "greedy",
+        "dynamic_programming",
+        "trees"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948183",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.5
+    },
+    {
+      "id": "cf_2114_D",
+      "source": "codeforces",
+      "original_id": "2114_D",
+      "title": "Come a Little Closer",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "mathematics",
+        "greedy",
+        "implementation",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948195",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2114_C",
+      "source": "codeforces",
+      "original_id": "2114_C",
+      "title": "Need More Arrays",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dynamic_programming",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948205",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "cf_2114_B",
+      "source": "codeforces",
+      "original_id": "2114_B",
+      "title": "Not Quite a Palindromic String",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "mathematics",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948213",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 0.4,
+        "overall": 0.55
+      },
+      "google_relevance": 0.2
+    },
+    {
+      "id": "cf_2114_A",
+      "source": "codeforces",
+      "original_id": "2114_A",
+      "title": "Square Year",
+      "description": "",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1000,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "brute force",
+        "binary search",
+        "mathematics",
+        "binary_search",
+        "brute_force"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948222",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "cf_2113_F",
+      "source": "codeforces",
+      "original_id": "2113_F",
+      "title": "Two Arrays",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2175,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "dfs_and_similar",
+        "dfs and similar",
+        "mathematics",
+        "graphs",
+        "constructive_algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948233",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.45
+    },
+    {
+      "id": "cf_2113_E",
+      "source": "codeforces",
+      "original_id": "2113_E",
+      "title": "From Kazan with Love",
+      "description": "",
+      "difficulty": {
+        "level": "hard",
+        "rating": 2112,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "dfs_and_similar",
+        "dfs and similar",
+        "implementation",
+        "trees",
+        "graphs"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948244",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.65
+    },
+    {
+      "id": "cf_2113_D",
+      "source": "codeforces",
+      "original_id": "2113_D",
+      "title": "Cheater",
+      "description": "",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1637,
+        "confidence": 0.9
+      },
+      "unified_tags": [
+        "constructive algorithms",
+        "binary search",
+        "greedy",
+        "implementation",
+        "binary_search",
+        "constructive_algorithms"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948256",
+        "source_url": "",
+        "acquisition_method": "api",
+        "original_metadata": {}
+      },
+      "quality_scores": {
+        "completeness": 0.4,
+        "difficulty_confidence": 0.9,
+        "tag_quality": 1.0,
+        "overall": 0.73
+      },
+      "google_relevance": 0.6
+    },
+    {
+      "id": "hr_hr_2d_array_ds",
+      "source": "hackerrank",
+      "original_id": "hr_2d_array_ds",
+      "title": "2D Array - DS",
+      "description": "Calculate the maximum hourglass sum in a 2D array.",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1100,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "arrays",
+        "data_structures"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948957",
+        "source_url": "https://www.hackerrank.com/challenges/2d-array/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.767989",
+          "last_updated": "2025-07-29T14:53:42.768003",
+          "source_url": "https://www.hackerrank.com/challenges/2d-array/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Arrays",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "hr_hr_arrays_left_rotation",
+      "source": "hackerrank",
+      "original_id": "hr_arrays_left_rotation",
+      "title": "Arrays: Left Rotation",
+      "description": "Perform left rotations on an array and return the result.",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1100,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "arrays",
+        "implementation"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948980",
+        "source_url": "https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768012",
+          "last_updated": "2025-07-29T14:53:42.768014",
+          "source_url": "https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Arrays",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.4
+    },
+    {
+      "id": "hr_hr_new_year_chaos",
+      "source": "hackerrank",
+      "original_id": "hr_new_year_chaos",
+      "title": "New Year Chaos",
+      "description": "Determine minimum number of bribes to get a given permutation.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1600,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "arrays",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.948992",
+        "source_url": "https://www.hackerrank.com/challenges/new-year-chaos/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768019",
+          "last_updated": "2025-07-29T14:53:42.768021",
+          "source_url": "https://www.hackerrank.com/challenges/new-year-chaos/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Arrays",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.6
+    },
+    {
+      "id": "hr_hr_minimum_swaps",
+      "source": "hackerrank",
+      "original_id": "hr_minimum_swaps",
+      "title": "Minimum Swaps 2",
+      "description": "Return minimum number of swaps to sort an array.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1600,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "arrays",
+        "sorting"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949003",
+        "source_url": "https://www.hackerrank.com/challenges/minimum-swaps-2/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768025",
+          "last_updated": "2025-07-29T14:53:42.768027",
+          "source_url": "https://www.hackerrank.com/challenges/minimum-swaps-2/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Arrays",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.7
+    },
+    {
+      "id": "hr_hr_linked_list_cycle",
+      "source": "hackerrank",
+      "original_id": "hr_linked_list_cycle",
+      "title": "Linked Lists: Detect a Cycle",
+      "description": "Determine if a linked list contains a cycle.",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1100,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "linked_lists",
+        "cycle_detection"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949013",
+        "source_url": "https://www.hackerrank.com/challenges/ctci-linked-list-cycle/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768031",
+          "last_updated": "2025-07-29T14:53:42.768032",
+          "source_url": "https://www.hackerrank.com/challenges/ctci-linked-list-cycle/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Linked Lists",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "hr_hr_tree_height",
+      "source": "hackerrank",
+      "original_id": "hr_tree_height",
+      "title": "Tree: Height of a Binary Tree",
+      "description": "Calculate the height of a binary tree.",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1300,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "recursion",
+        "trees"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949022",
+        "source_url": "https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768037",
+          "last_updated": "2025-07-29T14:53:42.768038",
+          "source_url": "https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Trees",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.3
+    },
+    {
+      "id": "hr_hr_tree_lca",
+      "source": "hackerrank",
+      "original_id": "hr_tree_lca",
+      "title": "Binary Search Tree: Lowest Common Ancestor",
+      "description": "Find the lowest common ancestor in a BST.",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1300,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "trees",
+        "binary_search_tree"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949030",
+        "source_url": "https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768045",
+          "last_updated": "2025-07-29T14:53:42.768047",
+          "source_url": "https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Trees",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.4
+    },
+    {
+      "id": "hr_hr_balanced_brackets",
+      "source": "hackerrank",
+      "original_id": "hr_balanced_brackets",
+      "title": "Balanced Brackets",
+      "description": "Determine if bracket sequences are balanced.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1600,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "string_manipulation",
+        "stacks",
+        "stacks_and_queues"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949040",
+        "source_url": "https://www.hackerrank.com/challenges/balanced-brackets/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768051",
+          "last_updated": "2025-07-29T14:53:42.768052",
+          "source_url": "https://www.hackerrank.com/challenges/balanced-brackets/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Stacks and Queues",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.6,
+        "overall": 0.6599999999999999
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "hr_hr_queue_using_stacks",
+      "source": "hackerrank",
+      "original_id": "hr_queue_using_stacks",
+      "title": "Queue using Two Stacks",
+      "description": "Implement a queue using two stacks.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1600,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "stacks",
+        "queues",
+        "stacks_and_queues",
+        "data_structures"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949049",
+        "source_url": "https://www.hackerrank.com/challenges/queue-using-two-stacks/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768056",
+          "last_updated": "2025-07-29T14:53:42.768058",
+          "source_url": "https://www.hackerrank.com/challenges/queue-using-two-stacks/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Stacks and Queues",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.8,
+        "overall": 0.72
+      },
+      "google_relevance": 0.5
+    },
+    {
+      "id": "hr_hr_max_array_sum",
+      "source": "hackerrank",
+      "original_id": "hr_max_array_sum",
+      "title": "Max Array Sum",
+      "description": "Find maximum sum of non-adjacent elements.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1800,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "dynamic_programming"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949058",
+        "source_url": "https://www.hackerrank.com/challenges/max-array-sum/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768063",
+          "last_updated": "2025-07-29T14:53:42.768064",
+          "source_url": "https://www.hackerrank.com/challenges/max-array-sum/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Dynamic Programming",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.2,
+        "overall": 0.54
+      },
+      "google_relevance": 0.1
+    },
+    {
+      "id": "hr_hr_abbreviation",
+      "source": "hackerrank",
+      "original_id": "hr_abbreviation",
+      "title": "Abbreviation",
+      "description": "Determine if string can be transformed to match pattern.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1800,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "strings",
+        "dynamic_programming"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949066",
+        "source_url": "https://www.hackerrank.com/challenges/abbr/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768068",
+          "last_updated": "2025-07-29T14:53:42.768069",
+          "source_url": "https://www.hackerrank.com/challenges/abbr/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Dynamic Programming",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.4
+    },
+    {
+      "id": "hr_hr_fibonacci_modified",
+      "source": "hackerrank",
+      "original_id": "hr_fibonacci_modified",
+      "title": "Fibonacci Modified",
+      "description": "Calculate modified Fibonacci sequence.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1600,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "recursion",
+        "dynamic_programming",
+        "recursion_and_backtracking"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949075",
+        "source_url": "https://www.hackerrank.com/challenges/fibonacci-modified/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768073",
+          "last_updated": "2025-07-29T14:53:42.768075",
+          "source_url": "https://www.hackerrank.com/challenges/fibonacci-modified/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Recursion and Backtracking",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.6,
+        "overall": 0.6599999999999999
+      },
+      "google_relevance": 0.1
+    },
+    {
+      "id": "hr_hr_roads_and_libraries",
+      "source": "hackerrank",
+      "original_id": "hr_roads_and_libraries",
+      "title": "Roads and Libraries",
+      "description": "Determine minimum cost to provide library access.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1800,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "graphs",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949084",
+        "source_url": "https://www.hackerrank.com/challenges/torque-and-development/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768078",
+          "last_updated": "2025-07-29T14:53:42.768079",
+          "source_url": "https://www.hackerrank.com/challenges/torque-and-development/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Graphs",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.6
+    },
+    {
+      "id": "hr_hr_find_nearest_clone",
+      "source": "hackerrank",
+      "original_id": "hr_find_nearest_clone",
+      "title": "Find the Nearest Clone",
+      "description": "Find shortest path between nodes with same color.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1800,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "graphs",
+        "breadth_first_search"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949093",
+        "source_url": "https://www.hackerrank.com/challenges/find-the-nearest-clone/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768083",
+          "last_updated": "2025-07-29T14:53:42.768084",
+          "source_url": "https://www.hackerrank.com/challenges/find-the-nearest-clone/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Graphs",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.4
+    },
+    {
+      "id": "hr_hr_minimum_time_required",
+      "source": "hackerrank",
+      "original_id": "hr_minimum_time_required",
+      "title": "Minimum Time Required",
+      "description": "Find minimum time to produce required items.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1600,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "greedy_algorithms",
+        "binary_search",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949102",
+        "source_url": "https://www.hackerrank.com/challenges/minimum-time-required/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768089",
+          "last_updated": "2025-07-29T14:53:42.768091",
+          "source_url": "https://www.hackerrank.com/challenges/minimum-time-required/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Greedy Algorithms",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.6,
+        "overall": 0.6599999999999999
+      },
+      "google_relevance": 0.30000000000000004
+    },
+    {
+      "id": "hr_hr_luck_balance",
+      "source": "hackerrank",
+      "original_id": "hr_luck_balance",
+      "title": "Luck Balance",
+      "description": "Maximize luck by strategically losing contests.",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1100,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "greedy_algorithms",
+        "sorting",
+        "greedy"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949111",
+        "source_url": "https://www.hackerrank.com/challenges/luck-balance/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768095",
+          "last_updated": "2025-07-29T14:53:42.768096",
+          "source_url": "https://www.hackerrank.com/challenges/luck-balance/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Greedy Algorithms",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.6,
+        "overall": 0.6599999999999999
+      },
+      "google_relevance": 0.5
+    },
+    {
+      "id": "hr_hr_hash_tables_ransom_note",
+      "source": "hackerrank",
+      "original_id": "hr_hash_tables_ransom_note",
+      "title": "Hash Tables: Ransom Note",
+      "description": "Determine if ransom note can be formed from magazine.",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1100,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "string_manipulation",
+        "hash_tables",
+        "miscellaneous"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949120",
+        "source_url": "https://www.hackerrank.com/challenges/ctci-ransom-note/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768101",
+          "last_updated": "2025-07-29T14:53:42.768103",
+          "source_url": "https://www.hackerrank.com/challenges/ctci-ransom-note/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Miscellaneous",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.6,
+        "overall": 0.6599999999999999
+      },
+      "google_relevance": 0.0
+    },
+    {
+      "id": "hr_hr_two_strings",
+      "source": "hackerrank",
+      "original_id": "hr_two_strings",
+      "title": "Two Strings",
+      "description": "Determine if two strings share a common substring.",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1100,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "string_manipulation",
+        "hash_tables"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949130",
+        "source_url": "https://www.hackerrank.com/challenges/two-strings/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768106",
+          "last_updated": "2025-07-29T14:53:42.768108",
+          "source_url": "https://www.hackerrank.com/challenges/two-strings/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "String Manipulation",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.1
+    },
+    {
+      "id": "hr_hr_sherlock_valid_string",
+      "source": "hackerrank",
+      "original_id": "hr_sherlock_valid_string",
+      "title": "Sherlock and the Valid String",
+      "description": "Determine if string can be made valid by removing one character.",
+      "difficulty": {
+        "level": "medium",
+        "rating": 1600,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "string_manipulation",
+        "implementation"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949139",
+        "source_url": "https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768111",
+          "last_updated": "2025-07-29T14:53:42.768113",
+          "source_url": "https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "String Manipulation",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.1
+    },
+    {
+      "id": "hr_hr_sorting_bubble_sort",
+      "source": "hackerrank",
+      "original_id": "hr_sorting_bubble_sort",
+      "title": "Sorting: Bubble Sort",
+      "description": "Implement bubble sort and count swaps.",
+      "difficulty": {
+        "level": "easy",
+        "rating": 1100,
+        "confidence": 0.8
+      },
+      "unified_tags": [
+        "sorting",
+        "implementation"
+      ],
+      "company_tags": [],
+      "constraints": {},
+      "test_cases": [],
+      "editorial": null,
+      "metadata": {
+        "created_date": "2025-08-14T14:33:53.949147",
+        "source_url": "https://www.hackerrank.com/challenges/ctci-bubble-sort/problem",
+        "acquisition_method": "static_dataset",
+        "original_metadata": {
+          "created_date": "2025-07-29T14:53:42.768116",
+          "last_updated": "2025-07-29T14:53:42.768118",
+          "source_url": "https://www.hackerrank.com/challenges/ctci-bubble-sort/problem",
+          "acquisition_method": "static_dataset",
+          "topic": "Sorting",
+          "is_interview_kit": true
+        }
+      },
+      "quality_scores": {
+        "completeness": 0.6,
+        "difficulty_confidence": 0.8,
+        "tag_quality": 0.4,
+        "overall": 0.6
+      },
+      "google_relevance": 0.4
+    }
+  ]
+}

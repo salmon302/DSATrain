@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "name": "DSATrain Code Quality Engine",
+    "version": "1.0",
+    "timestamp": "2025-08-14T10:43:52.106173",
+    "sources": [
+      "py_ast",
+      "ml4code",
+      "codecomplex",
+      "google_standards"
+    ]
+  },
+  "evaluation_framework": {
+    "correctness": {
+      "weight": 0.4,
+      "criteria": [
+        "passes_test_cases",
+        "handles_edge_cases",
+        "correct_algorithm_implementation"
+      ]
+    },
+    "code_quality": {
+      "weight": 0.3,
+      "criteria": [
+        "readability",
+        "maintainability",
+        "follows_conventions"
+      ]
+    },
+    "efficiency": {
+      "weight": 0.2,
+      "criteria": [
+        "time_complexity",
+        "space_complexity",
+        "optimal_algorithm_choice"
+      ]
+    },
+    "best_practices": {
+      "weight": 0.1,
+      "criteria": [
+        "error_handling",
+        "code_organization",
+        "documentation"
+      ]
+    }
+  },
+  "scoring_algorithm": {
+    "method": "weighted_average",
+    "normalization": "0_to_100_scale",
+    "minimum_passing_score": 70,
+    "google_interview_threshold": 85
+  }
+}

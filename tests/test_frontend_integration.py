@@ -1,10 +1,20 @@
 """
 Test Enhanced Frontend Integration
 Verify interview readiness and algorithm relevance features
+
+Note: Targets live server on 127.0.0.1:8003; skipped by default unless
+RUN_EXTERNAL_API_TESTS=1 is set in the environment.
 """
 
 import requests
 import time
+import os
+import pytest
+
+pytestmark = pytest.mark.skipif(
+    not os.getenv("RUN_EXTERNAL_API_TESTS"),
+    reason="Requires external API server on 127.0.0.1:8003; set RUN_EXTERNAL_API_TESTS=1 to run.",
+)
 
 API_BASE = "http://127.0.0.1:8003"
 

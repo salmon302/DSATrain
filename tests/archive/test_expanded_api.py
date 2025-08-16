@@ -1,10 +1,20 @@
 """
 Test the expanded DSATrain API with 10K+ problems
+
+Note: Archived test targeting a live server. Skipped by default unless
+RUN_EXTERNAL_API_TESTS=1 is set.
 """
 
 import requests
 import json
 from typing import Dict, Any
+import os
+import pytest
+
+pytestmark = pytest.mark.skipif(
+    not os.getenv("RUN_EXTERNAL_API_TESTS"),
+    reason="Archived external-API test; set RUN_EXTERNAL_API_TESTS=1 to run.",
+)
 
 API_BASE = "http://127.0.0.1:8002"
 

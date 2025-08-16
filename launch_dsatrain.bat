@@ -4,7 +4,7 @@ REM DSA Training Platform Launcher
 REM ========================================
 REM This batch file launches the complete DSATrain platform:
 REM - Backend API server (FastAPI on port 8000)
-REM - Skill Tree API server (Flask on port 8003)
+REM - Skill Tree API server (FastAPI on port 8002)
 REM - Frontend React app (on port 3000)
 REM - Opens browser to the application
 
@@ -86,8 +86,8 @@ start "DSATrain Backend" cmd /k "call .venv\Scripts\activate.bat && echo Startin
 REM Wait a moment for backend to start
 timeout /t 3 /nobreak >nul
 
-echo [5/6] Starting skill tree API server...
-start "DSATrain Skill Tree" cmd /k "call .venv\Scripts\activate.bat && echo Starting Skill Tree API on http://localhost:8003 && echo Skill Tree endpoint: http://localhost:8003/skill-tree/overview && python robust_flask_server.py"
+echo [5/6] Starting skill tree API server (FastAPI)...
+start "DSATrain Skill Tree" cmd /k "call .venv\Scripts\activate.bat && echo Starting Skill Tree API on http://localhost:8002 && echo Skill Tree endpoint: http://localhost:8002/skill-tree/overview && python -m uvicorn src.api.skill_tree_server:app --reload --host 0.0.0.0 --port 8002"
 
 REM Wait a moment for skill tree server to start
 timeout /t 3 /nobreak >nul
@@ -105,8 +105,8 @@ echo ========================================
 echo.
 echo Backend API:      http://localhost:8000
 echo API Docs:         http://localhost:8000/docs
-echo Skill Tree API:   http://localhost:8003
-echo Skill Tree Data:  http://localhost:8003/skill-tree/overview
+echo Skill Tree API:   http://localhost:8002
+echo Skill Tree Data:  http://localhost:8002/skill-tree/overview
 echo Frontend App:     http://localhost:3000
 echo.
 echo All servers are running in separate windows.

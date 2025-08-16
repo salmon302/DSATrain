@@ -1,0 +1,33 @@
+{
+  "framework_name": "DSATrain Expert STAR Labeling Framework",
+  "created_at": "2025-08-14T10:10:48.799199",
+  "components": {
+    "master_rubric": {
+      "file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\star_master_rubric_20250814_101048.json",
+      "description": "Comprehensive evaluation criteria synthesized from research",
+      "scoring_scale": "1-5 per component + 0-2 bonus points"
+    },
+    "sample_responses": {
+      "file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\star_sample_responses_20250814_101048.json",
+      "description": "Calibrated examples at different quality levels",
+      "count": 4
+    },
+    "labeling_guidelines": {
+      "file": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\star_labeling_guidelines_20250814_101048.json",
+      "description": "Detailed instructions for expert evaluators"
+    }
+  },
+  "next_steps": [
+    "Recruit qualified expert evaluators (3-5 recommended)",
+    "Conduct calibration session using sample responses",
+    "Begin labeling production dataset (target: 500-1000 responses)",
+    "Implement inter-rater reliability checks",
+    "Use labeled dataset for STAR evaluation model fine-tuning"
+  ],
+  "success_metrics": [
+    "Inter-rater reliability > 0.8",
+    "Coverage of all major competency areas",
+    "Balanced distribution across quality levels",
+    "Sufficient volume for model training (500+ samples)"
+  ]
+}

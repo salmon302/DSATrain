@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Grid,
@@ -19,6 +20,7 @@ import {
 } from '@mui/icons-material';
 
 import { statsAPI, problemsAPI, recommendationsAPI, enhancedStatsAPI, getCurrentUserId } from '../services/api';
+import QuickActionsWidget from '../components/QuickActionsWidget';
 
 const Dashboard: React.FC = () => {
   const [stats, setStats] = useState<any>(null);
@@ -30,6 +32,7 @@ const Dashboard: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const userId = getCurrentUserId();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadDashboardData = async () => {
@@ -85,6 +88,23 @@ const Dashboard: React.FC = () => {
       <Typography variant="subtitle1" color="textSecondary" gutterBottom>
         Phase 4 Week 2 - ML-Powered Recommendations
       </Typography>
+
+      {/* Quick Actions for faster navigation */}
+      <QuickActionsWidget
+        userProgress={{
+          problemsSolved: stats?.total_solutions || 0,
+          totalProblems: stats?.total_problems || 0,
+          currentStreak: 0,
+          weeklyGoal: 10,
+          weeklyProgress: Math.min(10, Math.floor((stats?.total_solutions || 0) % 11)),
+          nextRecommendation: recommendations?.length ? {
+            title: recommendations[0]?.title || 'Recommended Problem',
+            difficulty: recommendations[0]?.difficulty || 'Medium',
+            estimatedTime: 20
+          } : undefined,
+          activeLearningPath: undefined,
+        }}
+      />
 
       {error && (
         <Alert severity="error" sx={{ mb: 3 }}>
@@ -166,7 +186,7 @@ const Dashboard: React.FC = () => {
                   variant="contained"
                   startIcon={<Quiz />}
                   fullWidth
-                  href="/problems"
+                  onClick={() => navigate('/problems')}
                 >
                   Browse Problems
                 </Button>
@@ -174,7 +194,7 @@ const Dashboard: React.FC = () => {
                   variant="outlined"
                   startIcon={<TrendingUp />}
                   fullWidth
-                  href="/recommendations"
+                  onClick={() => navigate('/recommendations')}
                 >
                   Get Recommendations
                 </Button>
@@ -182,7 +202,7 @@ const Dashboard: React.FC = () => {
                   variant="outlined"
                   startIcon={<School />}
                   fullWidth
-                  href="/learning-paths"
+                  onClick={() => navigate('/learning-paths')}
                 >
                   Learning Paths
                 </Button>
@@ -245,7 +265,7 @@ const Dashboard: React.FC = () => {
               ) : (
                 <Typography color="textSecondary">Loading interview readiness data...</Typography>
               )}
-              <Button variant="text" href="/analytics" fullWidth sx={{ mt: 2 }}>
+              <Button variant="text" onClick={() => navigate('/analytics')} fullWidth sx={{ mt: 2 }}>
                 View Detailed Analysis
               </Button>
             </CardContent>
@@ -316,7 +336,7 @@ const Dashboard: React.FC = () => {
               ) : (
                 <Typography color="textSecondary">Loading algorithm relevance data...</Typography>
               )}
-              <Button variant="text" href="/problems" fullWidth sx={{ mt: 2 }}>
+              <Button variant="text" onClick={() => navigate('/problems')} fullWidth sx={{ mt: 2 }}>
                 Browse by Algorithm
               </Button>
             </CardContent>
@@ -352,7 +372,7 @@ const Dashboard: React.FC = () => {
               ) : (
                 <Typography>No personalized recommendations available yet.</Typography>
               )}
-              <Button variant="text" href="/recommendations" fullWidth>
+              <Button variant="text" onClick={() => navigate('/recommendations')} fullWidth>
                 View All Recommendations
               </Button>
             </CardContent>
@@ -388,7 +408,7 @@ const Dashboard: React.FC = () => {
               ) : (
                 <Typography>No problems available.</Typography>
               )}
-              <Button variant="text" href="/problems" fullWidth>
+              <Button variant="text" onClick={() => navigate('/problems')} fullWidth>
                 Browse All Problems
               </Button>
             </CardContent>
@@ -414,7 +434,7 @@ const Dashboard: React.FC = () => {
                 </Box>
               </Box>
               <Box mt={2}>
-                <Button variant="outlined" href="/analytics">
+                <Button variant="outlined" onClick={() => navigate('/analytics')}>
                   View Your Analytics
                 </Button>
               </Box>

@@ -4,18 +4,22 @@ RESTful API for DSA Training Platform
 """
 
 from fastapi import FastAPI, HTTPException, Depends, Query
+from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 from typing import List, Optional, Dict, Any
 import json
 from datetime import datetime
+import urllib.parse
+import httpx
 
 # Database imports
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
-from src.models.database import DatabaseConfig, Problem, Solution, get_database_stats, get_quality_metrics
+from src.models.database import DatabaseConfig, Problem, Solution, get_database_stats, get_quality_metrics, UserSkillTreePreferences
 from src.ml.recommendation_engine_simple import RecommendationEngine
 from src.models.user_tracking import UserBehaviorTracker
 from src.api.enhanced_stats import stats_router
@@ -23,12 +27,22 @@ from src.api.google_code_analysis import router as google_analysis_router
 from src.api.learning_paths import router as learning_paths_router
 from src.api.code_execution import router as execution_router
 from src.api.settings import router as settings_router
+from src.api.srs import router as srs_router
+from src.api.practice import router as practice_router
+from src.api.cognitive import router as cognitive_router
+from src.api.interview import router as interview_router
+from src.api.ai import router as ai_router
+from src.api.error_handlers import setup_error_handlers
 # from src.api.skill_tree_api import skill_tree_router  # Temporarily disabled due to schema differences
 
 # Initialize FastAPI app
 app = FastAPI(
     title="DSA Training Platform API",
-    description="Phase 4 scalable API for coding interview preparation",
+    description=(
+        "Phase 4 scalable API for coding interview preparation.\n\n"
+        "OpenAPI docs: visit /docs while the server is running.\n"
+        "Curated endpoint list: see docs/API_REFERENCE.md in the repo."
+    ),
     version="4.0.0"
 )
 
@@ -40,6 +54,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Set up consistent error handling
+setup_error_handlers(app)
 
 # Database configuration
 db_config = DatabaseConfig()
@@ -59,8 +76,26 @@ app.include_router(execution_router)
 # Include settings router
 app.include_router(settings_router)
 
+# Include SRS router
+app.include_router(srs_router)
+
+# Include practice router
+app.include_router(practice_router)
+
+# Include cognitive router
+app.include_router(cognitive_router)
+
+# Include interview router
+app.include_router(interview_router)
+
+# Include AI router
+app.include_router(ai_router)
+
 # Include skill tree router
 # app.include_router(skill_tree_router)  # Temporarily disabled due to schema differences
+
+# External Skill Tree V2 service base URL (for proxying expanded lists)
+SKILL_TREE_V2_URL = os.getenv('SKILL_TREE_V2_URL', 'http://localhost:8002/skill-tree-v2')
 
 def get_db():
     """Dependency to get database session"""
@@ -80,6 +115,186 @@ def get_behavior_tracker(db: Session = Depends(get_db)) -> UserBehaviorTracker:
     return UserBehaviorTracker(db)
 
 
+# ===================== Favorites (Bookmarks) =====================
+
+class ToggleFavoriteRequest(BaseModel):
+    user_id: str
+    problem_id: str
+    favorite: bool = True
+
+
+@app.get("/favorites")
+async def get_favorites(
+    user_id: str = Query(..., description="User ID"),
+    include_details: bool = Query(False, description="If true, return full problem details; otherwise return IDs only"),
+    db: Session = Depends(get_db)
+):
+    """Return the user's favorited (bookmarked) problems."""
+    try:
+        prefs = db.query(UserSkillTreePreferences).filter(UserSkillTreePreferences.user_id == user_id).first()
+        ids = (prefs.bookmarked_problems if prefs and prefs.bookmarked_problems else [])
+        if not include_details:
+            return {"user_id": user_id, "problem_ids": ids, "count": len(ids)}
+        if not ids:
+            return {"user_id": user_id, "problems": [], "count": 0}
+        problems = db.query(Problem).filter(Problem.id.in_(ids)).all()
+        # Preserve original order if possible
+        problem_map = {p.id: p for p in problems}
+        ordered = [problem_map[i].to_dict() for i in ids if i in problem_map]
+        return {"user_id": user_id, "problems": ordered, "count": len(ordered)}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching favorites: {str(e)}")
+
+
+@app.post("/favorites/toggle")
+async def toggle_favorite(
+    payload: ToggleFavoriteRequest,
+    behavior_tracker: UserBehaviorTracker = Depends(get_behavior_tracker),
+    db: Session = Depends(get_db)
+):
+    """Toggle favorite (bookmark) state for a problem for the given user."""
+    try:
+        prefs = db.query(UserSkillTreePreferences).filter(UserSkillTreePreferences.user_id == payload.user_id).first()
+        if not prefs:
+            prefs = UserSkillTreePreferences(user_id=payload.user_id, bookmarked_problems=[])
+            db.add(prefs)
+            db.flush()
+
+        ids = set(prefs.bookmarked_problems or [])
+        changed = False
+        if payload.favorite:
+            if payload.problem_id not in ids:
+                ids.add(payload.problem_id)
+                changed = True
+        else:
+            if payload.problem_id in ids:
+                ids.remove(payload.problem_id)
+                changed = True
+
+        if changed:
+            prefs.bookmarked_problems = list(ids)
+            db.add(prefs)
+            db.commit()
+            # Track behavior
+            behavior_tracker.track_bookmark_action(
+                user_id=payload.user_id,
+                problem_id=payload.problem_id,
+                action="bookmarked" if payload.favorite else "unbookmarked",
+            )
+        return {
+            "status": "ok",
+            "user_id": payload.user_id,
+            "problem_id": payload.problem_id,
+            "favorite": payload.favorite,
+            "total_favorites": len(prefs.bookmarked_problems or []),
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error toggling favorite: {str(e)}")
+
+
+# ===================== Skill Tree Proxy (Expanded Lists) =====================
+
+async def _fetch_skill_tree_v2(path: str, params: Dict[str, Any]) -> Dict[str, Any]:
+    url = f"{SKILL_TREE_V2_URL.rstrip('/')}/{path.lstrip('/')}"
+    async with httpx.AsyncClient(timeout=20.0) as client:
+        resp = await client.get(url, params=params)
+        if resp.status_code >= 400:
+            raise HTTPException(status_code=resp.status_code, detail=f"Upstream error: {resp.text}")
+        try:
+            return resp.json()
+        except Exception as e:
+            raise HTTPException(status_code=502, detail=f"Invalid upstream response: {str(e)}")
+
+
+def _get_favorite_id_set(db: Session, user_id: Optional[str]) -> Optional[set]:
+    if not user_id:
+        return None
+    prefs = db.query(UserSkillTreePreferences).filter(UserSkillTreePreferences.user_id == user_id).first()
+    return set(prefs.bookmarked_problems or []) if prefs and prefs.bookmarked_problems else set()
+
+
+@app.get("/skill-tree-proxy/skill-area/{skill_area}/problems")
+async def proxy_skill_area_problems(
+    skill_area: str,
+    page: int = Query(1, ge=1),
+    page_size: int = Query(50, ge=1, le=500),
+    sort_by: str = Query("quality"),
+    difficulty: Optional[str] = Query(None),
+    query: Optional[str] = Query(None),
+    platform: Optional[str] = Query(None),
+    title_match: Optional[str] = Query(None),
+    favorites_only: bool = Query(False, description="If true, return only favorited problems for the given user"),
+    user_id: Optional[str] = Query(None, description="User ID for favorites filtering"),
+    db: Session = Depends(get_db)
+):
+    params: Dict[str, Any] = {
+        "page": page,
+        "page_size": page_size,
+        "sort_by": sort_by,
+    }
+    if difficulty:
+        params["difficulty"] = difficulty
+    if query:
+        params["query"] = query
+    if platform:
+        params["platform"] = platform
+    if title_match:
+        params["title_match"] = title_match
+
+    data = await _fetch_skill_tree_v2(f"skill-area/{urllib.parse.quote(skill_area)}/problems", params)
+
+    if favorites_only and user_id:
+        fav_ids = _get_favorite_id_set(db, user_id) or set()
+        problems = data.get("problems", [])
+        filtered = [p for p in problems if p.get("id") in fav_ids]
+        data["problems"] = filtered
+        data["count"] = len(filtered)
+        # Keep original total_count to reflect upstream universe; frontend shows "shown (of total)"
+    return data
+
+
+@app.get("/skill-tree-proxy/tag/{tag}/problems")
+async def proxy_tag_problems(
+    tag: str,
+    page: int = Query(1, ge=1),
+    page_size: int = Query(50, ge=1, le=500),
+    sort_by: str = Query("quality"),
+    difficulty: Optional[str] = Query(None),
+    query: Optional[str] = Query(None),
+    platform: Optional[str] = Query(None),
+    title_match: Optional[str] = Query(None),
+    favorites_only: bool = Query(False, description="If true, return only favorited problems for the given user"),
+    user_id: Optional[str] = Query(None, description="User ID for favorites filtering"),
+    db: Session = Depends(get_db)
+):
+    params: Dict[str, Any] = {
+        "page": page,
+        "page_size": page_size,
+        "sort_by": sort_by,
+    }
+    if difficulty:
+        params["difficulty"] = difficulty
+    if query:
+        params["query"] = query
+    if platform:
+        params["platform"] = platform
+    if title_match:
+        params["title_match"] = title_match
+
+    data = await _fetch_skill_tree_v2(f"tag/{urllib.parse.quote(tag)}/problems", params)
+
+    if favorites_only and user_id:
+        fav_ids = _get_favorite_id_set(db, user_id) or set()
+        problems = data.get("problems", [])
+        filtered = [p for p in problems if p.get("id") in fav_ids]
+        data["problems"] = filtered
+        data["count"] = len(filtered)
+    return data
+
+
 @app.get("/")
 async def root():
     """Health check endpoint"""
@@ -88,6 +303,24 @@ async def root():
         "version": "4.0.0",
         "status": "active",
         "timestamp": datetime.now().isoformat()
+    }
+
+
+@app.get("/health")
+async def health(db: Session = Depends(get_db)):
+    """Lightweight health check with DB connectivity probe."""
+    db_ok = False
+    try:
+        # Minimal DB probe
+        db.execute(text("SELECT 1"))
+        db_ok = True
+    except Exception:
+        db_ok = False
+    return {
+        "status": "ok",
+        "version": "4.0.0",
+        "db_ok": db_ok,
+        "timestamp": datetime.now().isoformat(),
     }
 
 

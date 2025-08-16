@@ -130,6 +130,12 @@ export const problemsAPI = {
     category?: string;
     limit?: number;
     offset?: number;
+    // Extended filters supported by backend
+    min_quality?: number;
+    min_relevance?: number;
+    interview_ready?: boolean;
+    algorithm_priority?: string;
+    order_by?: string;
   }) => {
     const response = await apiService.get('/problems', { params });
     return response.data;
@@ -210,6 +216,49 @@ export const learningPathsAPI = {
     const response = await apiService.post('/learning-paths/generate', requestData);
     return response.data;
   },
+  
+  // Retrieve a specific learning path
+  getPath: async (pathId: string) => {
+    const response = await apiService.get(`/learning-paths/${pathId}`);
+    return response.data;
+  },
+
+  // Get next problems
+  getNextProblems: async (pathId: string, count?: number) => {
+    const params = typeof count === 'number' ? { count } : {};
+    const response = await apiService.get(`/learning-paths/${pathId}/next-problems`, { params });
+    return response.data;
+  },
+
+  // Update progress
+  updateProgress: async (pathId: string, payload: any) => {
+    const response = await apiService.post(`/learning-paths/${pathId}/progress`, payload);
+    return response.data;
+  },
+
+  // Adapt path
+  adaptPath: async (pathId: string, payload: any) => {
+    const response = await apiService.post(`/learning-paths/${pathId}/adapt`, payload);
+    return response.data;
+  },
+
+  // List by user
+  listUserPaths: async (userId: string, status?: string) => {
+    const params = status ? { status } : {};
+    const response = await apiService.get(`/learning-paths/user/${userId}`, { params });
+    return response.data;
+  },
+
+  // Milestones
+  listMilestones: async (pathId: string, excludeCompleted?: boolean) => {
+    const params = typeof excludeCompleted === 'boolean' ? { exclude_completed: excludeCompleted } : {};
+    const response = await apiService.get(`/learning-paths/${pathId}/milestones`, { params });
+    return response.data;
+  },
+  completeMilestone: async (pathId: string, milestoneId: string, payload?: any) => {
+    const response = await apiService.post(`/learning-paths/${pathId}/milestones/${milestoneId}/complete`, payload || {});
+    return response.data;
+  },
 };
 
 export const trackingAPI = {
@@ -258,6 +307,20 @@ export const statsAPI = {
   },
 };
 
+// Favorites API
+export const favoritesAPI = {
+  list: async (userId: string, includeDetails = false) => {
+    const response = await apiService.get('/favorites', {
+      params: { user_id: userId, include_details: includeDetails },
+    });
+    return response.data;
+  },
+  toggle: async (payload: { user_id: string; problem_id: string; favorite: boolean }) => {
+    const response = await apiService.post('/favorites/toggle', payload);
+    return response.data;
+  },
+};
+
 // Enhanced Statistics API for interview readiness and algorithm relevance
 export const enhancedStatsAPI = {
   // Get algorithm relevance analysis
@@ -279,9 +342,268 @@ export const enhancedStatsAPI = {
   },
 };
 
+// AI API for hints, reviews, and status
+export const aiAPI = {
+  // Get AI status
+  getStatus: async (sessionId?: string) => {
+    const params = sessionId ? { session_id: sessionId } : {};
+    const response = await apiService.get('/ai/status', { params });
+    return response.data;
+  },
+
+  // Get hint for a problem
+  getHint: async (problemId: string, query?: string, sessionId?: string) => {
+    const response = await apiService.post('/ai/hint', {
+      problem_id: problemId,
+      query,
+      session_id: sessionId,
+    });
+    return response.data;
+  },
+
+  // Review code
+  reviewCode: async (code: string, rubric?: any, problemId?: string) => {
+    const response = await apiService.post('/ai/review', {
+      code,
+      rubric,
+      problem_id: problemId,
+    });
+    return response.data;
+  },
+
+  // Elaborate on a problem
+  elaborate: async (problemId: string) => {
+    const response = await apiService.post('/ai/elaborate', {
+      problem_id: problemId,
+    });
+    return response.data;
+  },
+
+  // Reset AI counters
+  reset: async (sessionId?: string, resetGlobal = true) => {
+    const response = await apiService.post('/ai/reset', {
+      session_id: sessionId,
+      reset_global: resetGlobal,
+    });
+    return response.data;
+  },
+};
+
+// Practice API
+export const practiceAPI = {
+  // Create a practice session
+  startSession: async (payload: {
+    user_id?: string;
+    size?: number;
+    difficulty?: 'Easy' | 'Medium' | 'Hard' | string;
+    focus_areas?: string[];
+    interleaving?: boolean;
+  }) => {
+    const response = await apiService.post('/practice/session', payload);
+    return response.data;
+  },
+
+  // Log a problem attempt
+  logAttempt: async (payload: {
+    user_id: string;
+    problem_id: string;
+    status: 'started' | 'attempted' | 'solved' | string;
+    time_spent_seconds?: number;
+    code?: string;
+    language?: string;
+    session_id?: string;
+    metadata?: any;
+  }) => {
+    const response = await apiService.post('/practice/attempt', payload);
+    return response.data;
+  },
+
+  // Elaborative interrogation entry
+  elaborative: async (payload: {
+    user_id?: string;
+    problem_id?: string;
+    question: string;
+    context?: string;
+  }) => {
+    const response = await apiService.post('/practice/elaborative', payload);
+    return response.data;
+  },
+
+  // Working memory check
+  workingMemoryCheck: async (payload: {
+    user_id?: string;
+    problem_id?: string;
+    metrics: Record<string, number>;
+  }) => {
+    const response = await apiService.post('/practice/working-memory-check', payload);
+    return response.data;
+  },
+
+  // Gates namespace
+  gates: {
+    start: async (payload: { problem_id: string; session_id?: string }) => {
+      const response = await apiService.post('/practice/gates/start', payload);
+      return response.data;
+    },
+    progress: async (payload: { session_id: string; gate: 'dry_run' | 'pseudocode' | 'code'; value: boolean }) => {
+      const response = await apiService.post('/practice/gates/progress', payload);
+      return response.data;
+    },
+    status: async (sessionId: string) => {
+      const response = await apiService.get('/practice/gates/status', { params: { session_id: sessionId } });
+      return response.data;
+    },
+    list: async (problemId?: string) => {
+      const params = problemId ? { problem_id: problemId } : {};
+      const response = await apiService.get('/practice/gates', { params });
+      return response.data;
+    },
+    get: async (sessionId: string) => {
+      const response = await apiService.get(`/practice/gates/${sessionId}`);
+      return response.data;
+    },
+    delete: async (sessionId: string) => {
+      const response = await apiService.delete(`/practice/gates/${sessionId}`);
+      return response.data;
+    },
+  },
+};
+
+// Cognitive API
+export const cognitiveAPI = {
+  getProfile: async (userId: string) => {
+    const response = await apiService.get('/cognitive/profile', { params: { user_id: userId } });
+    return response.data;
+  },
+  assess: async (payload: any) => {
+    const response = await apiService.post('/cognitive/assess', payload);
+    return response.data;
+  },
+  getAdaptation: async (userId: string) => {
+    const response = await apiService.get('/cognitive/adaptation', { params: { user_id: userId } });
+    return response.data;
+  },
+};
+
+// Interview API
+export const interviewAPI = {
+  start: async (payload: { problem_id: string; duration_minutes?: number; constraints?: any; session_id?: string }) => {
+    const response = await apiService.post('/interview/start', payload);
+    return response.data;
+  },
+  complete: async (payload: { interview_id: string; code: string; language?: string; metrics?: any }) => {
+    const response = await apiService.post('/interview/complete', payload);
+    return response.data;
+  },
+};
+
+// SRS (Spaced Repetition) API
+export const srsAPI = {
+  // Get next due review items (problems or patterns)
+  getNextDue: async (params?: { user_id?: string; limit?: number }) => {
+    const response = await apiService.get('/srs/next', { params });
+    return response.data;
+  },
+  // Submit a review outcome
+  submitReview: async (payload: {
+    user_id?: string;
+    item_id: string;
+    item_type?: 'problem' | 'pattern' | string;
+    rating: 0 | 1 | 2 | 3 | 4 | 5;
+    time_spent_seconds?: number;
+    notes?: string;
+  }) => {
+    const response = await apiService.post('/srs/review', payload);
+    return response.data;
+  },
+  // Get SRS stats
+  getStats: async (params?: { user_id?: string }) => {
+    const response = await apiService.get('/srs/stats', { params });
+    return response.data;
+  },
+};
+
+// Settings API for configuration management
+export const settingsAPI = {
+  // Get settings
+  getSettings: async (includeProviders = false, includeEffectiveFlags = false) => {
+    const params: any = {};
+    if (includeProviders) params.include_providers = true;
+    if (includeEffectiveFlags) params.include_effective_flags = true;
+    
+    const response = await apiService.get('/settings', { params });
+    return response.data;
+  },
+
+  // Update settings
+  updateSettings: async (settings: any) => {
+    const response = await apiService.put('/settings', settings);
+    return response.data;
+  },
+
+  // Validate settings
+  validateSettings: async (settings: any) => {
+    const response = await apiService.post('/settings/validate', settings);
+    return response.data;
+  },
+
+  // Get providers
+  getProviders: async () => {
+    const response = await apiService.get('/settings/providers');
+    return response.data;
+  },
+
+  // Get effective settings
+  getEffective: async () => {
+    const response = await apiService.get('/settings/effective');
+    return response.data;
+  },
+
+  // Get models for provider
+  getModels: async (provider?: string) => {
+    const params = provider ? { provider } : {};
+    const response = await apiService.get('/settings/models', { params });
+    return response.data;
+  },
+
+  // Update cognitive profile
+  updateCognitiveProfile: async (profile: any) => {
+    const response = await apiService.post('/settings/cognitive-profile', profile);
+    return response.data;
+  },
+};
+
+// Session management utilities
+export const sessionManager = {
+  // Generate a new session ID
+  generateSessionId: (): string => {
+    return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  },
+
+  // Get current session ID or create one
+  getCurrentSessionId: (): string => {
+    let sessionId = sessionStorage.getItem('aiSessionId');
+    if (!sessionId) {
+      sessionId = sessionManager.generateSessionId();
+      sessionStorage.setItem('aiSessionId', sessionId);
+    }
+    return sessionId;
+  },
+
+  // Clear current session
+  clearCurrentSession: () => {
+    sessionStorage.removeItem('aiSessionId');
+  },
+
+  // Set session ID
+  setSessionId: (sessionId: string) => {
+    sessionStorage.setItem('aiSessionId', sessionId);
+  },
+};
+
 // Utility functions
 export const generateSessionId = (): string => {
-  return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  return sessionManager.generateSessionId();
 };
 
 export const getCurrentUserId = (): string => {

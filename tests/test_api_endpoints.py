@@ -1,11 +1,21 @@
 """
 Test Learning Paths API Endpoints
 Quick verification that all API endpoints are working correctly
+
+Note: This test targets a live server on 127.0.0.1:8001 and is skipped by
+default. To enable, set RUN_EXTERNAL_API_TESTS=1.
 """
 
 import requests
 import json
 import time
+import os
+import pytest
+
+pytestmark = pytest.mark.skipif(
+    not os.getenv("RUN_EXTERNAL_API_TESTS"),
+    reason="Requires external API server on 127.0.0.1:8001; set RUN_EXTERNAL_API_TESTS=1 to run.",
+)
 
 BASE_URL = "http://127.0.0.1:8001"
 

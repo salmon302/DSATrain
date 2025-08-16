@@ -4,7 +4,7 @@ Optimized queries and caching strategies for handling hundreds of problems
 """
 
 from sqlalchemy import create_engine, Column, String, Integer, Float, Text, JSON, DateTime, Index, func
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 from typing import Dict, List, Optional, Tuple
 import json

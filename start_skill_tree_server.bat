@@ -1,13 +1,16 @@
 @echo off
-title DSA Skill Tree Server
-echo Starting DSA Skill Tree Server...
-echo Port: 8003
-echo Health: http://localhost:8003/health
-echo Skill Tree: http://localhost:8003/skill-tree/overview
+title DSA Skill Tree Server (FastAPI)
+echo Starting DSA Skill Tree Server (FastAPI)...
+echo Port: 8002
+echo Health: http://localhost:8002/health
+echo Skill Tree: http://localhost:8002/skill-tree/overview
 echo.
 
 :restart
-"C:\Users\salmo\Documents\GitHub\DSATrain\.venv\Scripts\python.exe" "C:\Users\salmo\Documents\GitHub\DSATrain\robust_flask_server.py"
+if exist ".venv\Scripts\activate.bat" (
+	call .venv\Scripts\activate.bat
+)
+python -m uvicorn src.api.skill_tree_server:app --reload --host 0.0.0.0 --port 8002
 if %ERRORLEVEL% EQU 0 goto end
 echo Server crashed, restarting in 5 seconds...
 timeout /t 5 /nobreak >nul

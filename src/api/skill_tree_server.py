@@ -12,6 +12,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 from src.api.skill_tree_api import skill_tree_router
+from src.api.skill_tree_api_optimized import router as optimized_skill_tree_router
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -31,6 +32,7 @@ app.add_middleware(
 
 # Include skill tree router
 app.include_router(skill_tree_router)
+app.include_router(optimized_skill_tree_router)
 
 @app.get("/")
 async def root():
@@ -40,6 +42,16 @@ async def root():
         "message": "DSA Skill Tree API",
         "version": "1.0.0",
         "status": "active",
+        "timestamp": datetime.now().isoformat()
+    }
+
+@app.get("/health")
+async def health():
+    from datetime import datetime
+    return {
+        "status": "ok",
+        "service": "skill-tree",
+        "version": "1.0.0",
         "timestamp": datetime.now().isoformat()
     }
 

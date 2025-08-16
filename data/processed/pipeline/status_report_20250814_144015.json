@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-08-14T14:40:15.472615",
+  "pipeline_health": "excellent",
+  "data_freshness": {
+    "unified_problems": "fresh",
+    "ai_features": "fresh",
+    "quality_scores": "fresh",
+    "behavioral_data": "fresh"
+  },
+  "component_status": {
+    "unified_problems": {
+      "status": "healthy",
+      "last_updated": "2025-08-14T14:33:53.948932",
+      "age_hours": 0.10597885
+    },
+    "ai_features": {
+      "status": "healthy",
+      "last_updated": "2025-08-14T14:35:30.170246",
+      "age_hours": 0.07925077333333333
+    },
+    "quality_scores": {
+      "status": "healthy",
+      "last_updated": "2025-08-14T14:38:25.860867",
+      "age_hours": 0.03044787527777778
+    },
+    "behavioral_data": {
+      "status": "healthy",
+      "last_updated": "2025-08-14T14:36:58.764596",
+      "age_hours": 0.05464132305555556
+    }
+  },
+  "recommendations": [
+    "Pipeline is healthy - no immediate actions needed"
+  ]
+}

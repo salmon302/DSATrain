@@ -1,12 +1,24 @@
 """
 Test script for the enhanced ML recommendation system
 Phase 4 Week 2 - Testing ML recommendations and user tracking
+
+Note: This file exercises a live external server (localhost:8000).
+It is skipped by default in automated test runs. To enable, set
+environment variable RUN_EXTERNAL_API_TESTS=1.
 """
 
 import requests
 import json
 import time
 from datetime import datetime
+import os
+import pytest
+
+# Skip entire module unless explicitly enabled
+pytestmark = pytest.mark.skipif(
+    not os.getenv("RUN_EXTERNAL_API_TESTS"),
+    reason="Requires external API server on localhost:8000; set RUN_EXTERNAL_API_TESTS=1 to run.",
+)
 
 # API base URL
 BASE_URL = "http://localhost:8000"

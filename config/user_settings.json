@@ -1,11 +1,12 @@
 {
   "enable_ai": true,
-  "ai_provider": "openai",
-  "model": "gpt-4o-mini",
+  "ai_provider": "anthropic",
+  "model": null,
   "api_keys": {
     "openai": "sk-12345678901234567890"
   },
   "rate_limit_per_minute": 15,
+  "rate_limit_window_seconds": 60,
   "monthly_cost_cap_usd": 5.0,
   "hint_budget_per_session": 3,
   "cognitive_profile": {

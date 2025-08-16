@@ -3,7 +3,7 @@
  * Real code execution with comprehensive testing and analysis
  */
 
-const API_BASE_URL = 'http://localhost:8001/api';
+const API_BASE_URL = (process.env.REACT_APP_API_URL || 'http://localhost:8000') + '/execution';
 
 export interface CodeSubmission {
   code: string;
@@ -116,7 +116,7 @@ class CodeExecutionAPI {
    * Execute code with real execution environment
    */
   async executeCode(submission: CodeSubmission): Promise<ExecutionResult> {
-    return this.request<ExecutionResult>('/execution/run', {
+  return this.request<ExecutionResult>('/run', {
       method: 'POST',
       body: JSON.stringify(submission),
     });
@@ -137,7 +137,7 @@ class CodeExecutionAPI {
       timeout_seconds: timeoutSeconds.toString(),
     });
 
-    return this.request<TestResult[]>(`/execution/test?${params}`, {
+  return this.request<TestResult[]>(`/test?${params}`, {
       method: 'POST',
       body: JSON.stringify(testCases),
     });
@@ -163,7 +163,7 @@ class CodeExecutionAPI {
 
     const body = customTestCases ? JSON.stringify(customTestCases) : undefined;
 
-    return this.request<CodeAnalysisResult>(`/execution/analyze?${params}`, {
+  return this.request<CodeAnalysisResult>(`/analyze?${params}`, {
       method: 'POST',
       body,
     });
@@ -173,7 +173,7 @@ class CodeExecutionAPI {
    * Get supported programming languages
    */
   async getSupportedLanguages(): Promise<SupportedLanguages> {
-    return this.request<SupportedLanguages>('/execution/languages');
+  return this.request<SupportedLanguages>('/languages');
   }
 
   /**

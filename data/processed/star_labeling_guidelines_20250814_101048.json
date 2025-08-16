@@ -1,0 +1,37 @@
+{
+  "overview": "Guidelines for expert evaluation of STAR method responses",
+  "evaluator_qualifications": [
+    "5+ years experience in technical hiring",
+    "Familiarity with Google interview process preferred",
+    "Background in behavioral interviewing techniques",
+    "Experience with STAR method evaluation"
+  ],
+  "evaluation_process": {
+    "step_1": "Read the complete response without scoring",
+    "step_2": "Identify each STAR component (Situation, Task, Action, Result)",
+    "step_3": "Score each component using the 1-5 scale",
+    "step_4": "Evaluate Google competencies demonstrated",
+    "step_5": "Assign bonus points for exceptional Googleyness (0-2)",
+    "step_6": "Calculate total score and provide brief reasoning"
+  },
+  "scoring_calibration": [
+    "Score 1: Missing or extremely poor quality",
+    "Score 2: Below expectations, major gaps",
+    "Score 3: Meets basic expectations",
+    "Score 4: Above expectations, good quality",
+    "Score 5: Exceptional, outstanding example"
+  ],
+  "common_pitfalls": [
+    "Don't be swayed by impressive outcomes if process was poor",
+    "Watch for 'we' vs 'I' - personal accountability is crucial",
+    "Vague responses should score lower regardless of outcome",
+    "Recent examples are generally more valuable than old ones",
+    "Technical complexity doesn't automatically mean higher score"
+  ],
+  "quality_assurance": {
+    "inter_rater_reliability": "Each response should be scored by 2-3 evaluators",
+    "consensus_requirement": "Scores within 2 points are acceptable",
+    "dispute_resolution": "Major disagreements require discussion and re-evaluation",
+    "calibration_sessions": "Regular sessions to maintain scoring consistency"
+  }
+}

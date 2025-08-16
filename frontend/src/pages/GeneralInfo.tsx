@@ -861,7 +861,7 @@ def bfs(start, graph):
               variant="contained"
               size="large"
               startIcon={<Code />}
-              href="/code-practice"
+              href="/practice"
             >
               Practice with Google Interview Mode
             </Button>

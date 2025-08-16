@@ -1,0 +1,329 @@
+{
+  "metadata": {
+    "generated_at": "2025-08-14T10:06:48.230947",
+    "count": 10,
+    "type": "synthetic_system_design_problems"
+  },
+  "problems": [
+    {
+      "id": "synthetic_system_design_001",
+      "type": "system_design_problem",
+      "title": "Design a search engine",
+      "description": "Design a search engine that can handle petabytes of data with low latency requirements",
+      "scale_requirements": "petabytes of data",
+      "key_constraints": [
+        "low latency requirements"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "advanced",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226032"
+    },
+    {
+      "id": "synthetic_system_design_002",
+      "type": "system_design_problem",
+      "title": "Design a search engine",
+      "description": "Design a search engine that can handle real-time processing with low latency requirements",
+      "scale_requirements": "real-time processing",
+      "key_constraints": [
+        "low latency requirements"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "intermediate",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226041"
+    },
+    {
+      "id": "synthetic_system_design_003",
+      "type": "system_design_problem",
+      "title": "Design a authentication service",
+      "description": "Design a authentication service that can handle real-time processing with security compliance",
+      "scale_requirements": "real-time processing",
+      "key_constraints": [
+        "security compliance"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "advanced",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226045"
+    },
+    {
+      "id": "synthetic_system_design_004",
+      "type": "system_design_problem",
+      "title": "Design a file storage system",
+      "description": "Design a file storage system that can handle petabytes of data with high availability needs",
+      "scale_requirements": "petabytes of data",
+      "key_constraints": [
+        "high availability needs"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "intermediate",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226049"
+    },
+    {
+      "id": "synthetic_system_design_005",
+      "type": "system_design_problem",
+      "title": "Design a search engine",
+      "description": "Design a search engine that can handle 99.9% uptime with horizontal scaling",
+      "scale_requirements": "99.9% uptime",
+      "key_constraints": [
+        "horizontal scaling"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "intermediate",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226052"
+    },
+    {
+      "id": "synthetic_system_design_006",
+      "type": "system_design_problem",
+      "title": "Design a recommendation engine",
+      "description": "Design a recommendation engine that can handle real-time processing with data consistency",
+      "scale_requirements": "real-time processing",
+      "key_constraints": [
+        "data consistency"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "advanced",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226056"
+    },
+    {
+      "id": "synthetic_system_design_007",
+      "type": "system_design_problem",
+      "title": "Design a payment processor",
+      "description": "Design a payment processor that can handle millions of users with high availability needs",
+      "scale_requirements": "millions of users",
+      "key_constraints": [
+        "high availability needs"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "advanced",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226071"
+    },
+    {
+      "id": "synthetic_system_design_008",
+      "type": "system_design_problem",
+      "title": "Design a recommendation engine",
+      "description": "Design a recommendation engine that can handle 99.9% uptime with security compliance",
+      "scale_requirements": "99.9% uptime",
+      "key_constraints": [
+        "security compliance"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "advanced",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226077"
+    },
+    {
+      "id": "synthetic_system_design_009",
+      "type": "system_design_problem",
+      "title": "Design a notification system",
+      "description": "Design a notification system that can handle millions of users with horizontal scaling",
+      "scale_requirements": "millions of users",
+      "key_constraints": [
+        "horizontal scaling"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "advanced",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226081"
+    },
+    {
+      "id": "synthetic_system_design_010",
+      "type": "system_design_problem",
+      "title": "Design a analytics platform",
+      "description": "Design a analytics platform that can handle global distribution with horizontal scaling",
+      "scale_requirements": "global distribution",
+      "key_constraints": [
+        "horizontal scaling"
+      ],
+      "evaluation_areas": [
+        "High-level architecture",
+        "Database design",
+        "API design",
+        "Scalability considerations",
+        "Trade-offs discussion"
+      ],
+      "expected_components": [
+        "Load balancers",
+        "Application servers",
+        "Databases",
+        "Caching layers",
+        "Message queues"
+      ],
+      "difficulty": "advanced",
+      "companies": [
+        "Google",
+        "Facebook",
+        "Amazon",
+        "Netflix"
+      ],
+      "generated_at": "2025-08-14T10:06:48.226085"
+    }
+  ]
+}

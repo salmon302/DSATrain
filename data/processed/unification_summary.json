@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-08-14T14:33:53.956131",
+  "total_problems_unified": 120,
+  "sources_processed": {
+    "codeforces": 100,
+    "hackerrank": 20
+  },
+  "quality_distribution": {
+    "high_quality": 0,
+    "medium_quality": 116,
+    "low_quality": 4
+  },
+  "google_relevance_distribution": {
+    "high_relevance": 2,
+    "medium_relevance": 31,
+    "low_relevance": 87
+  },
+  "output_files": {
+    "unified_problems": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\problems_unified_complete.json",
+    "summary": "C:\\Users\\salmo\\Documents\\GitHub\\DSATrain\\data\\processed\\unification_summary.json"
+  }
+}

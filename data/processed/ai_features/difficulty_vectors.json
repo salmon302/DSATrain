@@ -1,0 +1,2055 @@
+{
+  "metadata": {
+    "dimensions": {
+      "algorithmic_complexity": 0,
+      "implementation_difficulty": 1,
+      "mathematical_content": 2,
+      "data_structure_usage": 3,
+      "optimization_required": 4
+    },
+    "total_problems": 120,
+    "timestamp": "2025-08-14T14:35:30.162357"
+  },
+  "vectors": {
+    "cf_2128_F": {
+      "vector": [
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.15666666666666668
+    },
+    "cf_2128_E2": {
+      "vector": [
+        0.0,
+        0.6333333333333333,
+        0.0,
+        0.2,
+        0.5
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.26666666666666666
+    },
+    "cf_2128_E1": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.2,
+        0.5
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.17333333333333334
+    },
+    "cf_2128_D": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.18333333333333332
+    },
+    "cf_2128_C": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2128_B": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.16666666666666666
+    },
+    "cf_2128_A": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2126_G2": {
+      "vector": [
+        0.16666666666666666,
+        0.3,
+        0.0,
+        0.4,
+        0.5
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.2733333333333333
+    },
+    "cf_2126_G1": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.2,
+        0.5
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.17333333333333334
+    },
+    "cf_2126_F": {
+      "vector": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.2533333333333333
+    },
+    "cf_2126_E": {
+      "vector": [
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2126_D": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.09
+    },
+    "cf_2126_C": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2126_B": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.08333333333333333
+    },
+    "cf_2126_A": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2125_F": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.08333333333333333
+    },
+    "cf_2125_E": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.18333333333333332
+    },
+    "cf_2125_D": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.08333333333333333
+    },
+    "cf_2125_C": {
+      "vector": [
+        0.0,
+        0.0,
+        0.75,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.15
+    },
+    "cf_2125_B": {
+      "vector": [
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2125_A": {
+      "vector": [
+        0.0,
+        0.9666666666666666,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1933333333333333
+    },
+    "cf_2124_I": {
+      "vector": [
+        0.16666666666666666,
+        0.3333333333333333,
+        0.25,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.19
+    },
+    "cf_2124_H": {
+      "vector": [
+        0.3333333333333333,
+        0.0,
+        0.25,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.15666666666666668
+    },
+    "cf_2124_G": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.09
+    },
+    "cf_2124_F2": {
+      "vector": [
+        0.16666666666666666,
+        0.3,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.14333333333333334
+    },
+    "cf_2124_F1": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.08333333333333333
+    },
+    "cf_2124_E": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.16666666666666666
+    },
+    "cf_2124_D": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2124_C": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.21666666666666665
+    },
+    "cf_2124_B": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2124_A": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2123_G": {
+      "vector": [
+        0.0,
+        0.0,
+        0.5,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.19
+    },
+    "cf_2123_F": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2123_E": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.75
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.19
+    },
+    "cf_2123_D": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2123_C": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.04
+    },
+    "cf_2123_B": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2123_A": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2122_G": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.5,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.17333333333333334
+    },
+    "cf_2122_F": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2122_E": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.18333333333333332
+    },
+    "cf_2122_D": {
+      "vector": [
+        0.5,
+        0.0,
+        0.0,
+        0.4,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.22999999999999998
+    },
+    "cf_2122_C": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.21666666666666665
+    },
+    "cf_2122_B": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2122_A": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2121_H": {
+      "vector": [
+        0.16666666666666666,
+        0.3333333333333333,
+        0.0,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.19
+    },
+    "cf_2121_G": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.09
+    },
+    "cf_2121_F": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.75
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.19
+    },
+    "cf_2121_E": {
+      "vector": [
+        0.16666666666666666,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.15
+    },
+    "cf_2121_D": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.06666666666666667
+    },
+    "cf_2121_C": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2121_B": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2121_A": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2120_G": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.25,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.17333333333333334
+    },
+    "cf_2120_F": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.07333333333333333
+    },
+    "cf_2120_E": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.08333333333333333
+    },
+    "cf_2120_D": {
+      "vector": [
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2120_C": {
+      "vector": [
+        0.16666666666666666,
+        0.3333333333333333,
+        0.25,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.24
+    },
+    "cf_2120_B": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2120_A": {
+      "vector": [
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2119_F": {
+      "vector": [
+        0.5,
+        0.0,
+        0.0,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.19
+    },
+    "cf_2119_E": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.08333333333333333
+    },
+    "cf_2119_D": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.13333333333333333
+    },
+    "cf_2119_C": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.25,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2119_B": {
+      "vector": [
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.15
+    },
+    "cf_2119_A": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2118_F": {
+      "vector": [
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.6,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.18666666666666668
+    },
+    "cf_2118_E": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.21666666666666665
+    },
+    "cf_2118_D2": {
+      "vector": [
+        0.3333333333333333,
+        0.6333333333333333,
+        0.5,
+        0.4,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.42333333333333334
+    },
+    "cf_2118_D1": {
+      "vector": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.25,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.22333333333333333
+    },
+    "cf_2118_C": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.13999999999999999
+    },
+    "cf_2118_B": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.06666666666666667
+    },
+    "cf_2118_A": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2117_H": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.04
+    },
+    "cf_2117_G": {
+      "vector": [
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.15666666666666668
+    },
+    "cf_2117_F": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.25,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.12333333333333334
+    },
+    "cf_2117_E": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2117_D": {
+      "vector": [
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.15
+    },
+    "cf_2117_C": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.09
+    },
+    "cf_2117_B": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.06666666666666667
+    },
+    "cf_2117_A": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.11666666666666665
+    },
+    "cf_2116_B": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2116_A": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "cf_2115_F2": {
+      "vector": [
+        0.0,
+        0.3,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2115_F1": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.04
+    },
+    "cf_2115_E": {
+      "vector": [
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.10666666666666666
+    },
+    "cf_2115_D": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.13333333333333333
+    },
+    "cf_2115_C": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.18333333333333332
+    },
+    "cf_2115_B": {
+      "vector": [
+        0.5,
+        0.3333333333333333,
+        0.0,
+        0.4,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.2966666666666667
+    },
+    "cf_2115_A": {
+      "vector": [
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.2
+    },
+    "cf_2114_G": {
+      "vector": [
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.25
+    },
+    "cf_2114_F": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.18333333333333332
+    },
+    "cf_2114_E": {
+      "vector": [
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.15666666666666668
+    },
+    "cf_2114_D": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.16666666666666666
+    },
+    "cf_2114_C": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.08333333333333333
+    },
+    "cf_2114_B": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2114_A": {
+      "vector": [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "cf_2113_F": {
+      "vector": [
+        0.16666666666666666,
+        0.3333333333333333,
+        0.25,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.19
+    },
+    "cf_2113_E": {
+      "vector": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0,
+        0.4,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.21333333333333332
+    },
+    "cf_2113_D": {
+      "vector": [
+        0.0,
+        0.6666666666666666,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.2333333333333333
+    },
+    "hr_hr_2d_array_ds": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.04
+    },
+    "hr_hr_arrays_left_rotation": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.06666666666666667
+    },
+    "hr_hr_new_year_chaos": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "hr_hr_minimum_swaps": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.0
+    },
+    "hr_hr_linked_list_cycle": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.0
+    },
+    "hr_hr_tree_height": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.07333333333333333
+    },
+    "hr_hr_tree_lca": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.07333333333333333
+    },
+    "hr_hr_balanced_brackets": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.0
+    },
+    "hr_hr_queue_using_stacks": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.04
+    },
+    "hr_hr_max_array_sum": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.03333333333333333
+    },
+    "hr_hr_abbreviation": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.03333333333333333
+    },
+    "hr_hr_fibonacci_modified": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.03333333333333333
+    },
+    "hr_hr_roads_and_libraries": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.2,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.12333333333333334
+    },
+    "hr_hr_find_nearest_clone": {
+      "vector": [
+        0.16666666666666666,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.07333333333333333
+    },
+    "hr_hr_minimum_time_required": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.1
+    },
+    "hr_hr_luck_balance": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.05
+    },
+    "hr_hr_hash_tables_ransom_note": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.04
+    },
+    "hr_hr_two_strings": {
+      "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.04
+    },
+    "hr_hr_sherlock_valid_string": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.06666666666666667
+    },
+    "hr_hr_sorting_bubble_sort": {
+      "vector": [
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dimensions": {
+        "algorithmic_complexity": 0,
+        "implementation_difficulty": 1,
+        "mathematical_content": 2,
+        "data_structure_usage": 3,
+        "optimization_required": 4
+      },
+      "overall_difficulty": 0.06666666666666667
+    }
+  }
+}

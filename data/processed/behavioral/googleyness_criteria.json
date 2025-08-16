@@ -1,0 +1,37 @@
+{
+  "core_values": [
+    "Focus on the user and all else will follow",
+    "It's best to do one thing really, really well",
+    "Fast is better than slow",
+    "Democracy on the web works",
+    "You don't need to be at your desk to need an answer",
+    "You can make money without doing evil",
+    "There's always more information out there",
+    "The need for information crosses all borders",
+    "You can be serious without a suit",
+    "Great just isn't good enough"
+  ],
+  "behavioral_indicators": {
+    "intellectual_humility": [
+      "Admits when wrong or uncertain",
+      "Seeks feedback and learns from mistakes",
+      "Values diverse perspectives"
+    ],
+    "collaborative_spirit": [
+      "Works effectively across teams",
+      "Helps others succeed",
+      "Shares knowledge and resources"
+    ],
+    "comfort_with_ambiguity": [
+      "Thrives in uncertain situations",
+      "Makes decisions with incomplete information",
+      "Adapts quickly to change"
+    ],
+    "positive_attitude": [
+      "Maintains optimism under pressure",
+      "Brings energy to team interactions",
+      "Focuses on solutions rather than problems"
+    ]
+  },
+  "assessment_questions": []
+}
