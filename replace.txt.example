@@ -1,0 +1,15 @@
+## Example replace-text for git-filter-repo
+## Do NOT commit secrets into the repo. Copy this file to 'replace.txt' locally and fill in the right-hand side replacements.
+
+# Format: each line is either a plain string to replace or a mapping
+# For mappings, use the form:
+#   <literal-string>==>REDACTED_DESCRIPTION
+# Example (do NOT commit real keys):
+# literal:sk-REPLACE_ME_OPENAI==>REDACTED_OPENAI_KEY
+# literal:sk-or-REPLACE_ME_OPENROUTER==>REDACTED_OPENROUTER_KEY
+# literal:JSESSIONID=REPLACE_ME_COOKIE==>REDACTED_CF_COOKIE
+
+## Instructions:
+# 1. Copy this file to 'replace.txt' locally (do NOT commit replace.txt).
+# 2. Replace the left-hand side literal values with the exact sensitive strings to scrub.
+# 3. Run git-filter-repo using: git filter-repo --replace-text replace.txt
