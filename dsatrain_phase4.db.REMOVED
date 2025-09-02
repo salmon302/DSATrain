@@ -1,0 +1,5 @@
+This project contained a large SQLite database file named `dsatrain_phase4.db` which was removed from the working tree for privacy before upload.
+
+If you need to run the project locally, restore your own database file named `dsatrain_phase4.db` in the project root, or set the DATABASE_URL/system config to point to a local DB path.
+
+Note: To fully remove the secret data from git history, run a git-filter-repo or BFG in your local clone (see the SECURITY.md recommendations in the repo).

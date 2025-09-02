@@ -14,8 +14,12 @@ setlocal enabledelayedexpansion
 
 cd /d "C:\Users\salmo\Documents\GitHub\DSATrain"
 
-REM Current working cookie (update as needed)
-set "CF_COOKIE=JSESSIONID=8EAF044E1ADF10153D87F95D9E2A43C2; 39ce7=CF5Id0bR; cf_clearance=iNCbF4GuvOYF7YvBxiLYJlVoCtsvu1HOlfMaaTpgm3M-1755388506-1.2.1.1-OcxVLFArnOoV7aKJvI9xia97.DRxSGQtpxlDf5HloRBTpMLdZIz.FTQOOEWknOUm4aYm6ZoaAs3ZomCor3olOiW1C8W9g.B9C9bk_o47sUNzXyTvbAa7lMZTKr.9j5HEAV7kmNxcfM3pP5bMnCGFXUnroi.DeO8xXQHvg.1lAItFjrm8_vQwWUaYE8.rxc0AOlUWnVfBFXI1mP0MXq_3mP6p0OYX2Lta.ePd3FO3glQ"
+REM Read CF cookie from environment variable for safety. Set CF_COOKIE before running this script.
+if "%CF_COOKIE%"=="" (
+	echo ERROR: CF_COOKIE environment variable is not set. Set it with your Codeforces cookie string and re-run.
+	echo Example (PowerShell): $env:CF_COOKIE = 'JSESSIONID=...; cf_clearance=...'
+	exit /b 1
+)
 
 REM Optimal parameters from testing
 set MAX_ITEMS=100
@@ -28,7 +32,7 @@ echo CODEFORCES CONTINUOUS BACKFILL AUTOMATION
 echo ================================================================
 echo Start Time: %DATE% %TIME%
 echo Parameters: max=%MAX_ITEMS%, concurrency=%CONCURRENCY%, delay=%DELAY%s
-echo Cookie: MASKED (length ~500 chars)
+echo Cookie: (from CF_COOKIE env var) MASKED
 echo ================================================================
 
 :BATCH_LOOP

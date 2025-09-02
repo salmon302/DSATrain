@@ -3,8 +3,8 @@
   "ai_provider": "anthropic",
   "model": null,
   "api_keys": {
-    "openrouter": "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",
-    "openai": "sk-12345678901234567890"
+    "openrouter": null,
+    "openai": null
   },
   "rate_limit_per_minute": 15,
   "rate_limit_window_seconds": 60,

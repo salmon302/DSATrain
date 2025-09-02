@@ -1,0 +1,5 @@
+This project contained a backup SQLite database file named `dsatrain_phase4_backup_pre_redesign.db` which was removed from the working tree for privacy before upload.
+
+If you need to run the project locally, restore your own database file named `dsatrain_phase4_backup_pre_redesign.db` in the project root, or update any scripts that reference it.
+
+Note: To fully remove the secret data from git history, run a git-filter-repo or BFG in your local clone (see the SECURITY.md recommendations in the repo).
