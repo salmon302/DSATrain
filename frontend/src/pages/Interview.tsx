@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Box, Card, CardContent, Typography, Button, Grid, LinearProgress, Alert, Chip } from '@mui/material';
-import { interviewAPI, problemsAPI, getCurrentUserId, generateSessionId, Problem } from '../services/api';
+import { interviewAPI, problemsAPI, generateSessionId, Problem } from '../services/api';
 import GoogleStyleCodeEditor from '../components/GoogleStyleCodeEditor';
 
 const Interview: React.FC = () => {
   const [problems, setProblems] = useState<Problem[]>([]);
   const [selectedProblem, setSelectedProblem] = useState<Problem | null>(null);
   const [interviewId, setInterviewId] = useState<string | null>(null);
-  const [duration, setDuration] = useState<number>(45);
+  const [duration] = useState<number>(45);
   const [timeLeft, setTimeLeft] = useState<number>(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -15,15 +15,15 @@ const Interview: React.FC = () => {
   const [latestCode, setLatestCode] = useState('');
   const [latestLang, setLatestLang] = useState('python');
 
-  const userId = getCurrentUserId();
-  const sessionId = generateSessionId();
+  const sessionRef = useRef<string>(generateSessionId());
+  const sessionId = sessionRef.current;
 
   useEffect(() => {
     const timer = timeLeft > 0 ? setTimeout(() => setTimeLeft(timeLeft - 1), 1000) : undefined;
     return () => { if (timer) clearTimeout(timer); };
   }, [timeLeft]);
 
-  const loadProblems = async () => {
+  const loadProblems = useCallback(async () => {
     try {
       setLoading(true);
       const resp = await problemsAPI.getProblems({ limit: 10 });
@@ -33,7 +33,7 @@ const Interview: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   const startInterview = async () => {
     if (!selectedProblem) return;
@@ -63,14 +63,14 @@ const Interview: React.FC = () => {
     }
   };
 
-  useEffect(() => { loadProblems(); }, []);
+  useEffect(() => { loadProblems(); }, [loadProblems]);
 
   return (
     <Box>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
         <Box>
           <Typography variant="h4" gutterBottom>🧪 Timed Interview</Typography>
-          <Typography variant="subtitle1" color="textSecondary">Start a timed interview session with rubric overview and Google-style editor</Typography>
+          <Typography variant="subtitle1" color="text.secondary">Start a timed interview session with rubric overview and Google-style editor</Typography>
         </Box>
         {timeLeft > 0 && (
           <Chip label={`⏳ ${Math.floor(timeLeft/60)}:${(timeLeft%60).toString().padStart(2,'0')}`} color={timeLeft < 300 ? 'error' : 'primary'} />

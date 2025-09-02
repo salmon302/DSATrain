@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Card, CardContent, Typography, Button, LinearProgress, Grid, Chip, Alert, Slider, TextField } from '@mui/material';
+import React, { useEffect, useState, useCallback } from 'react';
+import { Box, Card, CardContent, Typography, Button, LinearProgress, Grid, Chip, Alert, TextField } from '@mui/material';
 import { srsAPI, getCurrentUserId } from '../services/api';
 
 const SRSReview: React.FC = () => {
@@ -17,7 +17,7 @@ const SRSReview: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const loadNextDue = async () => {
+  const loadNextDue = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -32,7 +32,7 @@ const SRSReview: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId]);
 
   const submitRating = async (rating: 0 | 1 | 2 | 3 | 4 | 5) => {
     const current = items[currentIndex];
@@ -60,7 +60,7 @@ const SRSReview: React.FC = () => {
 
   useEffect(() => {
     loadNextDue();
-  }, []);
+  }, [loadNextDue]);
 
   const current = items[currentIndex];
 
@@ -71,7 +71,7 @@ const SRSReview: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             🔁 Spaced Repetition Review
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
+          <Typography variant="subtitle1" color="text.secondary">
             Practice due problems and patterns to reinforce learning
           </Typography>
         </Box>
@@ -132,7 +132,7 @@ const SRSReview: React.FC = () => {
         <Card>
           <CardContent sx={{ textAlign: 'center', py: 6 }}>
             <Typography variant="h6" gutterBottom>No items due</Typography>
-            <Typography variant="body2" color="textSecondary">
+            <Typography variant="body2" color="text.secondary">
               Great job! You have no items to review right now.
             </Typography>
           </CardContent>

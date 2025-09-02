@@ -41,6 +41,12 @@ class SRSService:
         # Insert history
         history = ReviewHistory(problem_id=problem_id, outcome=outcome, time_spent=0)
         self.db.add(history)
+        # Ensure pending inserts are visible within this transaction prior to updates/commit
+        try:
+            self.db.flush()
+        except Exception:
+            # Non-fatal: proceed to commit path which will flush as well
+            pass
 
         # Update SM-2 like
         ease = card.ease or 2.5
@@ -163,6 +169,7 @@ class SRSService:
         return {
             "daily": daily,
             "weekly": weekly,
-            "total_last_{days}": total,
+            # Use explicit key with the requested days value for clarity
+            f"total_last_{days}": total,
             "avg_per_day": round(avg_per_day, 2),
         }

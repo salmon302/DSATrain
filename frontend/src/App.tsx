@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -10,9 +10,12 @@ import {
   Drawer,
   useTheme,
   useMediaQuery,
+  Chip,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
+  Brightness4,
+  Brightness7,
 } from '@mui/icons-material';
 
 // Import page components
@@ -37,14 +40,18 @@ import Interview from './pages/Interview';
 import CognitiveAssessment from './pages/CognitiveAssessment';
 import ImprovedNavigation from './components/ImprovedNavigation';
 import ContextualBreadcrumbs from './components/ContextualBreadcrumbs';
+import { ColorModeContext } from './theme/ColorModeContext';
+import ReadingsDirectory from './pages/ReadingsDirectory';
+import ReadingViewer from './pages/ReadingViewer';
 
 const App: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [apiHealth, setApiHealth] = useState<boolean | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const navigate = useNavigate();
-  const location = useLocation();
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  const { mode, toggleColorMode } = React.useContext(ColorModeContext);
 
   // Test API connection on app load and periodically (self-recovers if backend comes online later)
   useEffect(() => {
@@ -117,26 +124,20 @@ const App: React.FC = () => {
             </IconButton>
           )}
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-            DSA Training Platform - Phase 4 Week 2
+            DSA Training Platform
           </Typography>
           
           {/* API & AI Status Indicator */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Box
-                sx={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: '50%',
-                  backgroundColor: 
-                    apiHealth === null ? 'orange' : 
-                    apiHealth ? 'lightgreen' : 'red',
-                }}
-              />
-              <Typography variant="body2">
-                API: {apiHealth === null ? 'Checking...' : apiHealth ? 'Connected' : 'Offline'}
-              </Typography>
-            </Box>
+            <Chip
+              size="small"
+              label={apiHealth === null ? 'API: Checking' : (apiHealth ? 'API: Connected' : 'API: Offline')}
+              color={apiHealth === null ? 'warning' : (apiHealth ? 'success' : 'error')}
+              variant="outlined"
+            />
+            <IconButton color="inherit" size="small" onClick={toggleColorMode} aria-label="Toggle color mode">
+              {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+            </IconButton>
             <AIStatusWidget compact />
           </Box>
         </Toolbar>
@@ -197,6 +198,8 @@ const App: React.FC = () => {
             <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/learning-paths" element={<LearningPaths />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/readings" element={<ReadingsDirectory />} />
+            <Route path="/readings/material/:id" element={<ReadingViewer />} />
             <Route path="/ai-demo" element={<AIDemo />} />
             <Route path="/dev-tools" element={<DevTools />} />
             <Route path="/profile" element={<UserProfile />} />

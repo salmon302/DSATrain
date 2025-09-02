@@ -495,6 +495,7 @@ class LearningPathEngine:
     def _skill_level_to_numeric(self, level: str) -> float:
         """Convert string skill level to numeric value"""
         level_map = {
+            'absolute_beginner': 0.15,
             'beginner': 0.3,
             'intermediate': 0.6,
             'advanced': 0.9
@@ -506,7 +507,18 @@ class LearningPathEngine:
         objectives = []
         
         # Identify skill gaps
-        for skill_area, current_level in user_profile.current_skill_levels.items():
+        # Default empty profile to a gentle baseline across core skills
+        current_levels = user_profile.current_skill_levels or {}
+        if not current_levels:
+            baseline = {
+                s.value: 0.2 for s in [
+                    SkillArea.ARRAYS, SkillArea.STRINGS, SkillArea.HASH_TABLES,
+                    SkillArea.SORTING, SkillArea.BINARY_SEARCH
+                ]
+            }
+            current_levels = baseline
+
+        for skill_area, current_level in current_levels.items():
             # Convert string level to numeric
             current_numeric = self._skill_level_to_numeric(current_level) if isinstance(current_level, str) else current_level
             
@@ -545,44 +557,49 @@ class LearningPathEngine:
         template: Optional[LearningPathTemplate]
     ) -> List[str]:
         """Generate the optimal sequence of problems for the learning path"""
-        
         # Calculate total available hours
         total_weeks = user_profile.target_completion_weeks or 8
         total_hours = total_weeks * user_profile.available_hours_per_week
-        
+
         # Allocate problems based on objectives and hours
-        problem_sequence = []
+        problem_sequence: List[str] = []
         hours_allocated = 0
-        
+
         for objective in learning_objectives:
             if hours_allocated >= total_hours:
                 break
-            
+
             # Find problems for this skill area
-            current_skill_level = user_profile.current_skill_levels.get(objective.skill_area, 0.3)
-            current_skill_numeric = self._skill_level_to_numeric(current_skill_level) if isinstance(current_skill_level, str) else current_skill_level
-            
+            current_skill_level = (user_profile.current_skill_levels or {}).get(objective.skill_area, 0.3)
+            current_skill_numeric = (
+                self._skill_level_to_numeric(current_skill_level)
+                if isinstance(current_skill_level, str)
+                else current_skill_level
+            )
+
             skill_problems = self._find_problems_for_skill(
                 objective.skill_area,
                 current_skill_numeric,
-                objective.target_level
+                objective.target_level,
             )
-            
+
             # Filter and sort problems
             filtered_problems = self._filter_and_sort_problems(
                 skill_problems, user_profile, objective
             )
-            
-            # Add problems within time budget
-            objective_hours = min(objective.estimated_hours, total_hours - hours_allocated)
-            problems_to_add = self._select_problems_for_hours(filtered_problems, objective_hours)
-            
+
+            # Add problems within time budget (ensure at least 1 hour allocation)
+            objective_hours = min(max(1, objective.estimated_hours), max(1, total_hours - hours_allocated))
+            problems_to_add = self._select_problems_for_hours(
+                filtered_problems, objective_hours
+            )
+
             problem_sequence.extend([p.id for p in problems_to_add])
             hours_allocated += objective_hours
-        
+
         # Ensure variety and proper difficulty progression
         problem_sequence = self._optimize_sequence_order(problem_sequence, user_profile)
-        
+
         return problem_sequence
     
     def _find_problems_for_skill(
@@ -698,14 +715,14 @@ class LearningPathEngine:
         learning_objectives: List[LearningObjective]
     ) -> str:
         """Generate a descriptive name for the learning path"""
-        
-        if 'google' in [goal.lower() for goal in user_profile.learning_goals]:
+        goals_lower = [goal.lower() for goal in (user_profile.learning_goals or [])]
+        if 'google' in goals_lower:
             return f"Google Interview Preparation - {user_profile.target_completion_weeks or 8} Weeks"
-        elif 'competitive' in [goal.lower() for goal in user_profile.learning_goals]:
+        elif 'competitive' in goals_lower:
             return "Competitive Programming Mastery Path"
         else:
             top_skills = [obj.skill_area.replace('_', ' ').title() 
-                         for obj in learning_objectives[:3]]
+                          for obj in learning_objectives[:3]]
             return f"Personalized Path: {', '.join(top_skills)}"
     
     def _generate_path_description(
@@ -714,7 +731,6 @@ class LearningPathEngine:
         learning_objectives: List[LearningObjective]
     ) -> str:
         """Generate a detailed description for the learning path"""
-        
         description_parts = [
             f"Personalized learning path designed for {user_profile.available_hours_per_week} hours/week study schedule.",
             f"Focuses on {len(learning_objectives)} key skill areas with adaptive difficulty progression.",

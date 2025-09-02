@@ -9,13 +9,38 @@ from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
 from datetime import datetime
 
-from ..models.database import get_db
+import os
+from ..models.database import DatabaseConfig
 from ..models.reading_materials import (
     ReadingMaterial, UserReadingProgress, MaterialRecommendation, 
     ContentCollection, MaterialAnalytics
 )
 
 router = APIRouter(prefix="/reading-materials", tags=["reading-materials"])
+
+# Local DB dependency (avoid importing get_db from main)
+# IMPORTANT: Respect DSATRAIN_DATABASE_URL possibly set at runtime (e.g., in tests)
+_db_cache: dict[str, DatabaseConfig] = {}
+
+def _get_db_config_for_current_env() -> DatabaseConfig:
+    url = (
+        os.getenv("DSATRAIN_DATABASE_URL")
+        or os.getenv("DATABASE_URL")
+        or "sqlite:///./dsatrain_phase4.db"
+    )
+    cfg = _db_cache.get(url)
+    if cfg is None:
+        cfg = DatabaseConfig(url)
+        _db_cache[url] = cfg
+    return cfg
+
+def get_db():
+    cfg = _get_db_config_for_current_env()
+    db = cfg.get_session()
+    try:
+        yield db
+    finally:
+        db.close()
 
 
 # Pydantic models for API requests/responses
@@ -141,7 +166,7 @@ async def get_user_recommendations(
         # Get active recommendations for user
         recommendations = db.query(MaterialRecommendation).filter(
             MaterialRecommendation.user_id == user_id,
-            MaterialRecommendation.was_dismissed == False
+            MaterialRecommendation.user_dismissed == False
         ).order_by(
             MaterialRecommendation.priority_level.desc(),
             MaterialRecommendation.recommendation_score.desc()

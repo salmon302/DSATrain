@@ -388,10 +388,10 @@ class SafeCodeExecutor:
                 try:
                     process.terminate()
                     process.wait(timeout=5)
-                except:
+                except Exception:
                     try:
                         process.kill()
-                    except:
+                    except Exception:
                         pass
     
     def _cleanup_files(self, files: List[Path]):

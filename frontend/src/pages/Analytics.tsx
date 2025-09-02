@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   Box,
   Typography,
@@ -30,28 +30,20 @@ import {
   ListItemText,
   ListItemSecondaryAction,
   Chip,
-  CircularProgress,
 } from '@mui/material';
 import {
   Analytics as AnalyticsIcon,
   TrendingUp,
-  TrendingDown,
   Speed,
   Star,
   Timeline,
   Assessment,
-  School,
   Psychology,
   Refresh,
-  DateRange,
   Quiz,
   CheckCircle,
-  Cancel,
   AccessTime,
-  Insights,
   EmojiEvents,
-  ShowChart,
-  AutoGraph,
 } from '@mui/icons-material';
 import {
   LineChart,
@@ -102,7 +94,7 @@ const Analytics: React.FC = () => {
   const userId = getCurrentUserId();
 
   // Load analytics data
-  const loadAnalytics = async () => {
+  const loadAnalytics = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -123,7 +115,7 @@ const Analytics: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId, timeRange]);
 
   // Handle time range change
   const handleTimeRangeChange = (newRange: number) => {
@@ -131,29 +123,29 @@ const Analytics: React.FC = () => {
   };
 
   // Chart colors
-  const COLORS = ['#8884d8', '#82ca9d', '#ffc658', '#ff7c7c', '#8dd1e1'];
+  const COLORS = useMemo(() => ['#8884d8', '#82ca9d', '#ffc658', '#ff7c7c', '#8dd1e1'], []);
 
   // Format numbers
-  const formatNumber = (num: number) => {
+  const formatNumber = useCallback((num: number) => {
     return new Intl.NumberFormat().format(num);
-  };
+  }, []);
 
   // Format percentage
-  const formatPercentage = (num: number) => {
+  const formatPercentage = useCallback((num: number) => {
     return `${(num * 100).toFixed(1)}%`;
-  };
+  }, []);
 
   // Format time duration
-  const formatDuration = (seconds: number) => {
+  const formatDuration = useCallback((seconds: number) => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
     if (hours > 0) return `${hours}h ${minutes}m`;
     return `${minutes}m`;
-  };
+  }, []);
 
   useEffect(() => {
-    loadAnalytics();
-  }, [timeRange]);
+    void loadAnalytics();
+  }, [loadAnalytics]);
 
   return (
     <Box>
@@ -163,7 +155,7 @@ const Analytics: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             📊 Analytics Dashboard
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
+          <Typography variant="subtitle1" color="text.secondary">
             Comprehensive insights into your learning journey and platform performance
           </Typography>
         </Box>
@@ -183,7 +175,7 @@ const Analytics: React.FC = () => {
             </Select>
           </FormControl>
           <Tooltip title="Refresh Data">
-            <IconButton onClick={loadAnalytics}>
+            <IconButton onClick={() => void loadAnalytics()}>
               <Refresh />
             </IconButton>
           </Tooltip>
@@ -224,7 +216,7 @@ const Analytics: React.FC = () => {
                       <Typography variant="h4" fontWeight="bold">
                         {formatNumber(userAnalytics.activity_summary?.unique_problems || 0)}
                       </Typography>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Problems Engaged
                       </Typography>
                     </Box>
@@ -244,7 +236,7 @@ const Analytics: React.FC = () => {
                       <Typography variant="h4" fontWeight="bold">
                         {formatNumber(userAnalytics.problem_solving_stats?.solved || 0)}
                       </Typography>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Problems Solved
                       </Typography>
                     </Box>
@@ -264,7 +256,7 @@ const Analytics: React.FC = () => {
                       <Typography variant="h4" fontWeight="bold">
                         {formatPercentage(userAnalytics.problem_solving_stats?.success_rate || 0)}
                       </Typography>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Success Rate
                       </Typography>
                     </Box>
@@ -284,7 +276,7 @@ const Analytics: React.FC = () => {
                       <Typography variant="h4" fontWeight="bold">
                         {formatDuration(userAnalytics.problem_solving_stats?.average_solve_time || 0)}
                       </Typography>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Avg Solve Time
                       </Typography>
                     </Box>
@@ -312,7 +304,7 @@ const Analytics: React.FC = () => {
                   </Box>
                   <Grid container spacing={2}>
                     <Grid item xs={6}>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Active Days
                       </Typography>
                       <Typography variant="h6">
@@ -320,7 +312,7 @@ const Analytics: React.FC = () => {
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Daily Avg Interactions
                       </Typography>
                       <Typography variant="h6">
@@ -419,10 +411,10 @@ const Analytics: React.FC = () => {
           <Card>
             <CardContent sx={{ textAlign: 'center', py: 6 }}>
               <Psychology sx={{ fontSize: 64, color: 'text.secondary', mb: 2 }} />
-              <Typography variant="h6" color="textSecondary" gutterBottom>
+              <Typography variant="h6" color="text.secondary" gutterBottom>
                 No personal analytics available yet
               </Typography>
-              <Typography variant="body2" color="textSecondary">
+              <Typography variant="body2" color="text.secondary">
                 Start solving problems to see your learning analytics and progress.
               </Typography>
             </CardContent>
@@ -547,10 +539,10 @@ const Analytics: React.FC = () => {
           <Card>
             <CardContent sx={{ textAlign: 'center', py: 6 }}>
               <AnalyticsIcon sx={{ fontSize: 64, color: 'text.secondary', mb: 2 }} />
-              <Typography variant="h6" color="textSecondary" gutterBottom>
+              <Typography variant="h6" color="text.secondary" gutterBottom>
                 No platform statistics available
               </Typography>
-              <Typography variant="body2" color="textSecondary">
+              <Typography variant="body2" color="text.secondary">
                 Platform analytics will appear once data is loaded.
               </Typography>
             </CardContent>
@@ -586,10 +578,10 @@ const Analytics: React.FC = () => {
           <Card>
             <CardContent sx={{ textAlign: 'center', py: 6 }}>
               <TrendingUp sx={{ fontSize: 64, color: 'text.secondary', mb: 2 }} />
-              <Typography variant="h6" color="textSecondary" gutterBottom>
+              <Typography variant="h6" color="text.secondary" gutterBottom>
                 No trending data available
               </Typography>
-              <Typography variant="body2" color="textSecondary">
+              <Typography variant="body2" color="text.secondary">
                 Trend analysis will appear as users engage with the platform.
               </Typography>
             </CardContent>

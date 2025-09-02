@@ -17,7 +17,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Divider,
   Button,
   Dialog,
   DialogTitle,
@@ -38,9 +37,7 @@ import {
   CheckCircle,
   LightbulbOutlined,
   TipsAndUpdates,
-  Timeline,
   SpeakerNotes,
-  Speed,
   Assessment,
   BookmarkBorder,
 } from '@mui/icons-material';
@@ -468,7 +465,7 @@ def bfs(start, graph):
         <Typography variant="h3" gutterBottom>
           📚 Interview Preparation Guide
         </Typography>
-        <Typography variant="h6" color="textSecondary" gutterBottom>
+  <Typography variant="h6" color="text.secondary" gutterBottom>
           Master the art of thinking out loud and Google-style problem solving
         </Typography>
         <Alert severity="info" sx={{ mt: 2 }}>
@@ -589,7 +586,7 @@ def bfs(start, graph):
                           {principle.title}
                         </Typography>
                       </Box>
-                      <Typography variant="body2" color="textSecondary" paragraph>
+                      <Typography variant="body2" color="text.secondary" paragraph>
                         {principle.description}
                       </Typography>
                       <Typography variant="subtitle2" gutterBottom>

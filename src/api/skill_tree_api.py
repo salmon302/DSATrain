@@ -21,9 +21,9 @@ logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/skill-tree", tags=["Skill Tree"])
 skill_tree_router = router  # Alias for backward compatibility
 
-# Database dependency
+# Database dependency (respect environment-configured URL like main API)
 def get_db():
-    db_config = DatabaseConfig("sqlite:///dsatrain_phase4.db")  # Use main database with enhanced data
+    db_config = DatabaseConfig()
     db = db_config.get_session()
     try:
         yield db
@@ -176,12 +176,13 @@ async def get_skill_tree_overview(
         
         columns.sort(key=lambda c: skill_complexity_order.get(c.skill_area, 99))
         
+        from datetime import datetime
         return {
-            "skill_tree_columns": [col.dict() for col in columns],
+            "skill_tree_columns": [col.model_dump() for col in columns],
             "total_problems": len(problems),
             "total_skill_areas": len(skill_areas),
             "user_id": user_id,
-            "last_updated": "2025-07-31T10:00:00Z"
+            "last_updated": datetime.now().isoformat()
         }
         
     except Exception as e:
@@ -475,8 +476,10 @@ def _determine_primary_skill_area(algorithm_tags: List[str]) -> str:
     skill_mapping = {
         "array_processing": ["arrays", "two_pointers", "sliding_window", "prefix_sum"],
         "string_algorithms": ["strings", "kmp", "rabin_karp", "manacher"],
-        "tree_algorithms": ["trees", "binary_tree", "bst", "dfs", "bfs"],
-        "graph_algorithms": ["graphs", "dijkstra", "floyd_warshall", "topological_sort"],
+        # Do NOT include dfs/bfs here; they should map to graphs per tests and common taxonomy
+        "tree_algorithms": ["trees", "binary_tree", "bst"],
+        # Ensure general graph traversal/algorithms map here
+        "graph_algorithms": ["graphs", "graph", "dfs", "bfs", "dijkstra", "floyd_warshall", "topological_sort", "mst"],
         "dynamic_programming": ["dynamic_programming", "dp", "memoization"],
         "sorting_searching": ["sorting", "binary_search", "quicksort", "mergesort"],
         "mathematical": ["math", "number_theory", "combinatorics", "geometry"],
@@ -520,15 +523,26 @@ def _update_skill_mastery(db: Session, user_id: str, algorithm_tags: List[str]):
     
     # Update mastery metrics
     mastery.problems_attempted = (mastery.problems_attempted or 0) + 1
-    
-    # Calculate average confidence for this skill area
-    confidences = db.query(UserProblemConfidence).join(Problem).filter(
-        UserProblemConfidence.user_id == user_id,
-        Problem.algorithm_tags.contains([primary_skill])  # Simplified for demo
-    ).all()
-    
-    if confidences:
-        avg_confidence = sum(c.confidence_level for c in confidences) / len(confidences)
+
+    # Calculate average confidence for this skill area using the same mapping
+    # used throughout the Skill Tree (avoid mismatched JSON contains on tags).
+    user_confidences = (
+        db.query(UserProblemConfidence)
+        .join(Problem, Problem.id == UserProblemConfidence.problem_id)
+        .filter(UserProblemConfidence.user_id == user_id)
+        .all()
+    )
+    relevant_conf_levels = []
+    for c in user_confidences:
+        # Fetch the related problem once; the join above ensures it's available
+        problem = db.query(Problem).filter(Problem.id == c.problem_id).first()
+        if not problem or not problem.algorithm_tags:
+            continue
+        if _determine_primary_skill_area(problem.algorithm_tags) == primary_skill:
+            relevant_conf_levels.append(c.confidence_level or 0)
+
+    if relevant_conf_levels:
+        avg_confidence = sum(relevant_conf_levels) / len(relevant_conf_levels)
         mastery.avg_confidence = avg_confidence
         mastery.mastery_level = min(100.0, avg_confidence * 20)  # Scale 0-5 to 0-100
     

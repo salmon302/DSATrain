@@ -1,19 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Card,
-  CardContent,
-  Typography,
-  Button,
-  Grid,
-  Chip,
-  LinearProgress,
-  Avatar,
-  IconButton,
-  Tooltip,
-  Fade,
-  Slide,
-} from '@mui/material';
+import { Box, Card, CardContent, Typography, Button, Grid, Chip, LinearProgress, Avatar, IconButton, Tooltip, Slide } from '@mui/material';
 import {
   PlayArrow,
   TrendingUp,
@@ -91,7 +77,10 @@ const QuickActionsWidget: React.FC<QuickActionsWidgetProps> = ({
         action: () => navigate('/practice', { 
           state: { 
             recommended: true,
-            problemTitle: userProgress.nextRecommendation?.title 
+            // Include title to allow title-based selection when id isn't known
+            problemTitle: userProgress.nextRecommendation?.title,
+            // If upstream starts providing an id, pass it through for direct selection
+            problemId: (userProgress as any)?.nextRecommendation?.id
           } 
         }),
         metadata: {
@@ -173,28 +162,40 @@ const QuickActionsWidget: React.FC<QuickActionsWidgetProps> = ({
                   </Avatar>
                   <Box>
                     <Typography variant="subtitle2" fontWeight="bold">
-                      {userProgress.problemsSolved} / {userProgress.totalProblems} Problems
+                      {userProgress.totalProblems > 0
+                        ? `${userProgress.problemsSolved} / ${userProgress.totalProblems} Problems`
+                        : `${userProgress.problemsSolved} Problems`}
                     </Typography>
-                    <Typography variant="caption" color="textSecondary">
-                      {userProgress.currentStreak} day streak 🔥
-                    </Typography>
+                    {userProgress.currentStreak > 0 && (
+                      <Typography variant="caption" color="text.secondary">
+                        {userProgress.currentStreak} day streak 🔥
+                      </Typography>
+                    )}
                   </Box>
                 </Box>
               </Grid>
               
               <Grid item xs={12} sm={6}>
                 <Box>
-                  <Typography variant="caption" color="textSecondary">
-                    Weekly Goal Progress
-                  </Typography>
-                  <LinearProgress 
-                    variant="determinate" 
-                    value={(userProgress.weeklyProgress / userProgress.weeklyGoal) * 100}
-                    sx={{ mt: 0.5, height: 6, borderRadius: 1 }}
-                  />
-                  <Typography variant="caption" color="textSecondary">
-                    {userProgress.weeklyProgress} / {userProgress.weeklyGoal} problems
-                  </Typography>
+                  {userProgress.weeklyGoal > 0 ? (
+                    <>
+                      <Typography variant="caption" color="text.secondary">
+                        Weekly Goal Progress
+                      </Typography>
+                      <LinearProgress 
+                        variant="determinate" 
+                        value={Math.min(100, (userProgress.weeklyProgress / userProgress.weeklyGoal) * 100)}
+                        sx={{ mt: 0.5, height: 6, borderRadius: 1 }}
+                      />
+                      <Typography variant="caption" color="text.secondary">
+                        {userProgress.weeklyProgress} / {userProgress.weeklyGoal} problems
+                      </Typography>
+                    </>
+                  ) : (
+                    <Typography variant="caption" color="text.secondary">
+                      No weekly goal set. Configure one in Settings.
+                    </Typography>
+                  )}
                 </Box>
               </Grid>
             </Grid>
@@ -239,7 +240,7 @@ const QuickActionsWidget: React.FC<QuickActionsWidgetProps> = ({
                         </Typography>
                         <Typography 
                           variant="body2" 
-                          color="textSecondary"
+                          color="text.secondary"
                           sx={{ mb: 1 }}
                         >
                           {action.description}
@@ -275,7 +276,7 @@ const QuickActionsWidget: React.FC<QuickActionsWidgetProps> = ({
                                 color={action.color}
                                 sx={{ height: 4, borderRadius: 1 }}
                               />
-                              <Typography variant="caption" color="textSecondary">
+                              <Typography variant="caption" color="text.secondary">
                                 {action.progress.toFixed(0)}% complete
                               </Typography>
                             </Box>
@@ -294,7 +295,7 @@ const QuickActionsWidget: React.FC<QuickActionsWidgetProps> = ({
 
         {/* Additional Quick Links */}
         <Box mt={3} pt={2} borderTop={1} borderColor="divider">
-          <Typography variant="subtitle2" color="textSecondary" gutterBottom>
+          <Typography variant="subtitle2" color="text.secondary" gutterBottom>
             Quick Navigation
           </Typography>
           <Box display="flex" gap={1} flexWrap="wrap">

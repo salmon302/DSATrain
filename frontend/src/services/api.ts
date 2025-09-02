@@ -48,18 +48,19 @@ export interface Problem {
   platform: string;
   platform_id: string;
   title: string;
+  description?: string;
   difficulty: string;
-  category: string;
+  category?: string;
   algorithm_tags: string[];
-  data_structures: string[];
+  data_structures?: string[];
   google_interview_relevance: number;
-  difficulty_rating: number;
+  difficulty_rating?: number;
   quality_score: number;
-  popularity_score: number;
+  popularity_score?: number;
   acceptance_rate?: number;
   companies?: string[];
-  solution_count: number;
-  created_at: string;
+  solution_count?: number;
+  created_at?: string;
 }
 
 export interface Recommendation {
@@ -67,7 +68,9 @@ export interface Recommendation {
   title: string;
   difficulty: string;
   recommendation_score: number;
-  recommendation_reasoning: string;
+  // Backend returns `recommendation_reason`; keep both for compatibility
+  recommendation_reason?: string;
+  recommendation_reasoning?: string;
   algorithm_tags: string[];
   google_interview_relevance: number;
   quality_score: number;
@@ -214,6 +217,12 @@ export const learningPathsAPI = {
     };
 
     const response = await apiService.post('/learning-paths/generate', requestData);
+    return response.data;
+  },
+  
+  // Quick start beginner preset
+  quickStart: async (payload: { user_id: string; preset_id?: string; hours_per_week?: number; duration_weeks?: number; goals?: string[] }) => {
+    const response = await apiService.post('/learning-paths/quick-start', payload);
     return response.data;
   },
   
@@ -386,6 +395,101 @@ export const aiAPI = {
       reset_global: resetGlobal,
     });
     return response.data;
+  },
+
+  // Streamed Hint (SSE)
+  streamHint: (
+    problemId: string,
+    opts: {
+      query?: string;
+      sessionId?: string;
+      onMeta?: (meta: any) => void;
+      onHint?: (hint: any) => void;
+      onDone?: () => void;
+      onError?: (err: any) => void;
+    }
+  ) => {
+    const base = (process.env.REACT_APP_API_URL || 'http://localhost:8000').replace(/\/$/, '');
+    const params = new URLSearchParams();
+    params.set('problem_id', problemId);
+    if (opts.query) params.set('query', opts.query);
+    if (opts.sessionId) params.set('session_id', opts.sessionId);
+    const url = `${base}/ai/hint/stream?${params.toString()}`;
+    const es = new EventSource(url);
+    const handleMessage = (ev: MessageEvent) => {
+      try {
+        const data = JSON.parse(ev.data);
+        if (data?.type === 'meta' && opts.onMeta) opts.onMeta(data);
+        else if (data?.type === 'hint' && opts.onHint) opts.onHint(data.hint);
+        else if (data?.type === 'done') {
+          if (opts.onDone) opts.onDone();
+          es.close();
+        } else if (data?.type === 'error') {
+          if (opts.onError) opts.onError(data);
+          es.close();
+        }
+      } catch (e) {
+        // ignore parse errors
+      }
+    };
+    es.onmessage = handleMessage;
+    es.onerror = (err) => {
+      if (opts.onError) opts.onError(err);
+      try { es.close(); } catch {}
+    };
+    return { close: () => { try { es.close(); } catch {} } };
+  },
+
+  // Streamed Review (SSE over fetch)
+  streamReview: (
+    payload: { code: string; rubric?: any; problem_id?: string },
+    opts: {
+      onMeta?: (meta: any) => void;
+      onStrength?: (text: string) => void;
+      onSuggestion?: (text: string) => void;
+      onDone?: () => void;
+      onError?: (err: any) => void;
+    }
+  ) => {
+    const controller = new AbortController();
+    const base = (process.env.REACT_APP_API_URL || 'http://localhost:8000').replace(/\/$/, '');
+    fetch(`${base}/ai/review/stream`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
+    }).then(async (resp) => {
+      if (!resp.body) throw new Error('No stream body');
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      for (;;) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        // Parse SSE chunks split by double newlines
+        const parts = buffer.split('\n\n');
+        buffer = parts.pop() || '';
+        for (const part of parts) {
+          const line = part.trim();
+          if (!line.startsWith('data:')) continue;
+          const jsonStr = line.replace(/^data:\s*/, '');
+          try {
+            const data = JSON.parse(jsonStr);
+            if (data?.type === 'meta' && opts.onMeta) opts.onMeta(data);
+            else if (data?.type === 'strength' && opts.onStrength) opts.onStrength(data.text);
+            else if (data?.type === 'suggestion' && opts.onSuggestion) opts.onSuggestion(data.text);
+            else if (data?.type === 'done') { if (opts.onDone) opts.onDone(); controller.abort(); }
+            else if (data?.type === 'error') { if (opts.onError) opts.onError(data); controller.abort(); }
+          } catch (e) {
+            // ignore
+          }
+        }
+      }
+    }).catch((err) => {
+      if (opts.onError) opts.onError(err);
+    });
+    return { abort: () => { try { controller.abort(); } catch {} } };
   },
 };
 
@@ -607,13 +711,33 @@ export const generateSessionId = (): string => {
 };
 
 export const getCurrentUserId = (): string => {
-  // Get user ID from localStorage or generate a demo user ID
-  let userId = localStorage.getItem('userId');
-  if (!userId) {
-    userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    localStorage.setItem('userId', userId);
-  }
-  return userId;
+  // Single-user mode: default to stable 'default_user'
+  // If a userId is already set, keep it; otherwise set and return 'default_user'
+  const existing = localStorage.getItem('userId');
+  if (existing) return existing;
+  localStorage.setItem('userId', 'default_user');
+  return 'default_user';
 };
 
 export default apiService;
+
+// Skill Tree API (preferences)
+export interface SkillTreePreferences {
+  preferred_view_mode: 'columns' | 'grid' | 'tree' | string;
+  show_confidence_overlay: boolean;
+  auto_expand_clusters: boolean;
+  highlight_prerequisites: boolean;
+  visible_skill_areas: string[];
+}
+
+export const skillTreeAPI = {
+  getPreferences: async (userId: string): Promise<SkillTreePreferences> => {
+    // When main API mounts skill-tree router (Option A), the base remains REACT_APP_API_URL
+    const response = await apiService.get(`/skill-tree/preferences/${userId}`);
+    return response.data;
+  },
+  updatePreferences: async (userId: string, prefs: SkillTreePreferences) => {
+    const response = await apiService.post(`/skill-tree/preferences/${userId}`, prefs);
+    return response.data;
+  },
+};

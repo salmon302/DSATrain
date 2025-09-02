@@ -1,9 +1,19 @@
 """
 Advanced Caching Strategy for Skill Tree Performance
 Multi-level caching for optimal performance with thousands of problems
+
+Security note:
+- By default, Redis values are serialized using Python pickle for broad compatibility.
+- Pickle can execute arbitrary code when loading if the data store is compromised.
+- To reduce risk in stricter environments, set DSATRAIN_CACHE_SERIALIZATION=json and
+    only cache JSON-serializable objects. Non-serializable objects will not be stored in Redis.
 """
 
-import redis
+# Redis is optional. Import defensively so this module can load without it.
+try:
+    import redis as _redis
+except Exception:  # pragma: no cover - optional dependency may be missing
+    _redis = None
 import json
 import pickle
 from typing import Dict, List, Optional, Any, Union
@@ -12,6 +22,7 @@ from functools import wraps
 from dataclasses import dataclass
 import hashlib
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +35,8 @@ class CacheConfig:
     enable_memory_cache: bool = True
     enable_redis_cache: bool = True
     max_memory_cache_size: int = 1000  # Max items in memory cache
+    # Serialization mode for Redis values: 'pickle' (compatible, riskier) or 'json' (safer, limited types)
+    serialization: str = "pickle"
 
 class SkillTreeCacheManager:
     """
@@ -35,6 +48,10 @@ class SkillTreeCacheManager:
     
     def __init__(self, config: CacheConfig = None):
         self.config = config or CacheConfig()
+        # Optional env override for serialization mode
+        env_mode = os.getenv("DSATRAIN_CACHE_SERIALIZATION")
+        if env_mode:
+            self.config.serialization = env_mode.strip().lower()
         self.memory_cache = {}
         self.memory_cache_timestamps = {}
         self.redis_client = None
@@ -42,13 +59,50 @@ class SkillTreeCacheManager:
         # Initialize Redis if enabled
         if self.config.enable_redis_cache:
             try:
-                import redis
-                self.redis_client = redis.from_url(self.config.redis_url)
+                if _redis is None:
+                    raise RuntimeError("redis library not installed")
+                self.redis_client = _redis.from_url(self.config.redis_url)
                 self.redis_client.ping()  # Test connection
                 logger.info("Redis cache initialized successfully")
+                # Warn when running pickle + Redis (riskier) and inform current mode
+                mode = (self.config.serialization or "pickle").lower()
+                logger.info(f"Cache serialization mode: {mode}")
+                if mode == "pickle":
+                    logger.warning("Using pickle serialization with Redis enabled. This is flexible but riskier if Redis is compromised. Consider DSATRAIN_CACHE_SERIALIZATION=json in stricter environments.")
             except Exception as e:
                 logger.warning(f"Redis cache unavailable: {str(e)}")
                 self.config.enable_redis_cache = False
+
+    # ----------------------- Serialization helpers -----------------------
+    def _serialize_for_redis(self, data: Any) -> Optional[bytes]:
+        mode = (self.config.serialization or "pickle").lower()
+        if mode == "json":
+            try:
+                return json.dumps(data).encode("utf-8")
+            except Exception as e:
+                logger.warning(f"JSON serialization failed; not caching in Redis: {e}")
+                return None
+        # default: pickle
+        try:
+            return pickle.dumps(data)
+        except Exception as e:
+            logger.warning(f"Pickle serialization failed; not caching in Redis: {e}")
+            return None
+
+    def _deserialize_from_redis(self, raw: bytes) -> Optional[Any]:
+        mode = (self.config.serialization or "pickle").lower()
+        if mode == "json":
+            try:
+                return json.loads(raw.decode("utf-8"))
+            except Exception as e:
+                logger.warning(f"JSON deserialization failed for Redis data: {e}")
+                return None
+        # default: pickle
+        try:
+            return pickle.loads(raw)
+        except Exception as e:
+            logger.warning(f"Pickle deserialization failed for Redis data: {e}")
+            return None
     
     def _generate_cache_key(self, prefix: str, **kwargs) -> str:
         """Generate consistent cache key from parameters"""
@@ -71,7 +125,10 @@ class SkillTreeCacheManager:
             try:
                 redis_data = self.redis_client.get(key)
                 if redis_data:
-                    data = pickle.loads(redis_data)
+                    data = self._deserialize_from_redis(redis_data)
+                    if data is None:
+                        logger.debug(f"Cache REDIS DESERIALIZATION MISS: {key}")
+                        return None
                     # Store in memory cache for faster future access
                     self._set_memory_cache(key, data)
                     logger.debug(f"Cache HIT (redis): {key}")
@@ -93,9 +150,12 @@ class SkillTreeCacheManager:
         # 2. Set in Redis cache
         if self.config.enable_redis_cache and self.redis_client:
             try:
-                serialized_data = pickle.dumps(data)
-                self.redis_client.setex(key, ttl, serialized_data)
-                logger.debug(f"Cache SET: {key} (TTL: {ttl}s)")
+                serialized_data = self._serialize_for_redis(data)
+                if serialized_data is not None:
+                    self.redis_client.setex(key, ttl, serialized_data)
+                    logger.debug(f"Cache SET: {key} (TTL: {ttl}s, mode: {self.config.serialization})")
+                else:
+                    logger.debug(f"Cache SET SKIPPED (non-serializable under {self.config.serialization}): {key}")
             except Exception as e:
                 logger.warning(f"Redis set error for {key}: {str(e)}")
     

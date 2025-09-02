@@ -3,12 +3,15 @@
   "ai_provider": "anthropic",
   "model": null,
   "api_keys": {
+    "openrouter": "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",
     "openai": "sk-12345678901234567890"
   },
   "rate_limit_per_minute": 15,
   "rate_limit_window_seconds": 60,
   "monthly_cost_cap_usd": 5.0,
   "hint_budget_per_session": 3,
+  "review_budget_per_session": 0,
+  "elaborate_budget_per_session": 0,
   "cognitive_profile": {
     "working_memory_capacity": 7,
     "learning_style_preference": "balanced",

@@ -4,13 +4,30 @@ from typing import Optional, Dict, Any
 from sqlalchemy.orm import Session
 
 from src.models.database import DatabaseConfig, Problem, ReviewCard
+import os
 from src.services.srs_service import SRSService
 
-router = APIRouter(prefix="/srs", tags=["SRS"])
+router = APIRouter(prefix="/srs", tags=["SRS"]) 
 
-db_config = DatabaseConfig()
+# Track current DB URL and refresh the DatabaseConfig if env changes across tests.
+_current_db_url = (
+    os.getenv("DSATRAIN_DATABASE_URL")
+    or os.getenv("DATABASE_URL")
+    or "sqlite:///./dsatrain_phase4.db"
+)
+db_config = DatabaseConfig(_current_db_url)
 
 def get_db():
+    global db_config, _current_db_url
+    env_url = (
+        os.getenv("DSATRAIN_DATABASE_URL")
+        or os.getenv("DATABASE_URL")
+        or "sqlite:///./dsatrain_phase4.db"
+    )
+    if env_url != _current_db_url:
+        # Rebind to the new database URL (tests often set this per-module)
+        db_config = DatabaseConfig(env_url)
+        _current_db_url = env_url
     db = db_config.get_session()
     try:
         yield db

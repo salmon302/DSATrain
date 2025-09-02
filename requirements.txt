@@ -6,3 +6,8 @@ python-dotenv>=1.0.1
 httpx>=0.27.0
 pytest>=8.2.0
 starlette>=0.37.2
+PyYAML>=6.0.1
+beautifulsoup4>=4.12.0
+psutil>=5.9.0
+# redis is optional; installed to satisfy optional cache/rate-limit features
+redis>=5.0.0

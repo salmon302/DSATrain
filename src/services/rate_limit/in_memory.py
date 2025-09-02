@@ -15,6 +15,8 @@ class InMemoryRateLimiter:
     _rl_key: Optional[Tuple] = None
     _hints_by_session: Dict[str, int] = defaultdict(int)
     _lock = threading.RLock()
+    # Generic per-action usage: key = (session_id, action)
+    _usage_by_session_and_action: Dict[Tuple[str, str], int] = defaultdict(int)
 
     def __init__(self, limit_per_minute: int, window_seconds: int, provider: Optional[str], model: Optional[str]):
         self.limit = int(limit_per_minute or 0)
@@ -87,10 +89,36 @@ class InMemoryRateLimiter:
         with InMemoryRateLimiter._lock:
             return int(InMemoryRateLimiter._hints_by_session.get(session_id, 0))
 
+    # ---- Generic per-action budget helpers ----
+    def check_action_budget(self, session_id: Optional[str], budget_per_session: int, action: str) -> None:
+        if not session_id or int(budget_per_session or 0) <= 0:
+            return
+        with InMemoryRateLimiter._lock:
+            used = InMemoryRateLimiter._usage_by_session_and_action.get((session_id, action), 0)
+            if used >= int(budget_per_session):
+                raise BudgetExceeded(f"{action.capitalize()} budget exceeded for this session.")
+
+    def commit_action_usage(self, session_id: Optional[str], action: str) -> None:
+        if not session_id:
+            return
+        with InMemoryRateLimiter._lock:
+            key = (session_id, action)
+            InMemoryRateLimiter._usage_by_session_and_action[key] = InMemoryRateLimiter._usage_by_session_and_action.get(key, 0) + 1
+
+    def get_action_usage(self, session_id: Optional[str], action: str) -> int:
+        if not session_id:
+            return 0
+        with InMemoryRateLimiter._lock:
+            return int(InMemoryRateLimiter._usage_by_session_and_action.get((session_id, action), 0))
+
     def reset(self, session_id: Optional[str] = None, reset_global: bool = True):
         with InMemoryRateLimiter._lock:
             if reset_global:
                 InMemoryRateLimiter._requests = deque()
             if session_id:
                 InMemoryRateLimiter._hints_by_session.pop(session_id, None)
+                # Clear generic per-action usage for this session
+                to_del = [k for k in InMemoryRateLimiter._usage_by_session_and_action.keys() if k[0] == session_id]
+                for k in to_del:
+                    InMemoryRateLimiter._usage_by_session_and_action.pop(k, None)
 

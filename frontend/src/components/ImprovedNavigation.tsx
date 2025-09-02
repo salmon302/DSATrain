@@ -40,6 +40,7 @@ interface NavigationItem {
 }
 
 interface NavigationGroup {
+  id: string;
   title: string;
   items: NavigationItem[];
   collapsible?: boolean;
@@ -64,17 +65,18 @@ const ImprovedNavigation: React.FC<ImprovedNavigationProps> = ({
     onNavigate?.(path);
   };
 
-  const toggleGroup = (groupTitle: string) => {
+  const toggleGroup = (groupId: string) => {
     setExpandedGroups(prev => 
-      prev.includes(groupTitle) 
-        ? prev.filter(g => g !== groupTitle)
-        : [...prev, groupTitle]
+      prev.includes(groupId)
+        ? prev.filter(g => g !== groupId)
+        : [...prev, groupId]
     );
   };
 
   // Define navigation groups based on user level
   const getNavigationGroups = (): NavigationGroup[] => {
     const coreGroup: NavigationGroup = {
+      id: 'core',
       title: 'Core Training',
       items: [
         { 
@@ -106,6 +108,7 @@ const ImprovedNavigation: React.FC<ImprovedNavigationProps> = ({
     };
 
     const learningGroup: NavigationGroup = {
+      id: 'learning',
       title: 'Learning & Growth',
       items: [
         { 
@@ -114,6 +117,12 @@ const ImprovedNavigation: React.FC<ImprovedNavigationProps> = ({
           path: '/recommendations',
           description: 'Personalized problem suggestions',
           isNew: true
+        },
+        { 
+          text: 'Readings', 
+          icon: <Info />, 
+          path: '/readings',
+          description: 'Guides, tutorials, and references'
         },
         { 
           text: 'Learning Paths', 
@@ -132,6 +141,7 @@ const ImprovedNavigation: React.FC<ImprovedNavigationProps> = ({
     };
 
     const analyticsGroup: NavigationGroup = {
+      id: 'analytics',
       title: 'Progress & Analytics',
       items: [
         { 
@@ -146,6 +156,7 @@ const ImprovedNavigation: React.FC<ImprovedNavigationProps> = ({
     };
 
     const personalGroup: NavigationGroup = {
+      id: 'personal',
       title: 'Personal',
       items: [
         { 
@@ -166,6 +177,7 @@ const ImprovedNavigation: React.FC<ImprovedNavigationProps> = ({
     };
 
     const advancedGroup: NavigationGroup = {
+      id: 'advanced',
       title: 'Advanced Features',
       items: [
         { 
@@ -268,7 +280,7 @@ const ImprovedNavigation: React.FC<ImprovedNavigationProps> = ({
   };
 
   const renderNavigationGroup = (group: NavigationGroup, index: number) => {
-    const isExpanded = expandedGroups.includes(group.title.toLowerCase().replace(' ', ''));
+    const isExpanded = expandedGroups.includes(group.id);
     const showExpandButton = group.collapsible !== false;
 
     return (
@@ -285,7 +297,7 @@ const ImprovedNavigation: React.FC<ImprovedNavigationProps> = ({
             pr: 1,
             cursor: showExpandButton ? 'pointer' : 'default',
           }}
-          onClick={() => showExpandButton && toggleGroup(group.title.toLowerCase().replace(' ', ''))}
+          onClick={() => showExpandButton && toggleGroup(group.id)}
         >
           <Box sx={{ fontWeight: 'medium', fontSize: '0.875rem' }}>
             {group.title}

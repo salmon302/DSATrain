@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Box,
   Typography,
@@ -8,7 +8,6 @@ import {
   Button,
   TextField,
   Alert,
-  CircularProgress,
   Chip,
   FormControl,
   InputLabel,
@@ -18,7 +17,6 @@ import {
 } from '@mui/material';
 import {
   Psychology,
-  Code,
   HelpOutline,
   RateReview,
   MenuBook,
@@ -41,15 +39,7 @@ const AIDemo: React.FC = () => {
   const [retryAfter, setRetryAfter] = useState<{ [key: string]: number }>({});
 
   // Initialize session
-  useEffect(() => {
-    const currentSessionId = sessionManager.getCurrentSessionId();
-    setSessionId(currentSessionId);
-    
-    // Load some problems for demo
-    loadProblems();
-  }, []);
-
-  const loadProblems = async () => {
+  const loadProblems = useCallback(async () => {
     try {
       const response = await problemsAPI.getProblems({ limit: 10 });
       setProblems(response.problems || []);
@@ -59,7 +49,15 @@ const AIDemo: React.FC = () => {
     } catch (error) {
       console.error('Error loading problems:', error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    const currentSessionId = sessionManager.getCurrentSessionId();
+    setSessionId(currentSessionId);
+    
+    // Load some problems for demo
+    void loadProblems();
+  }, [loadProblems]);
 
   const setLoadingState = (action: string, isLoading: boolean) => {
     setLoading(prev => ({ ...prev, [action]: isLoading }));
@@ -172,7 +170,7 @@ const AIDemo: React.FC = () => {
         AI Features Demo
       </Typography>
       
-      <Typography variant="body1" color="textSecondary" paragraph>
+  <Typography variant="body1" color="text.secondary" paragraph>
         Demonstrate AI features including hints, code review, and problem elaboration with rate limiting and session management.
       </Typography>
 

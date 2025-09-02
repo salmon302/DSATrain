@@ -1,33 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  Grid,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  TextField,
-  Button,
-  Switch,
-  FormControlLabel,
-  Alert,
-  CircularProgress,
-  Chip,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Divider,
-  Tooltip,
-  IconButton,
-} from '@mui/material';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Box, Typography, Card, CardContent, Grid, FormControl, InputLabel, Select, MenuItem, TextField, Button, Switch, FormControlLabel, Alert, CircularProgress, Chip, Accordion, AccordionSummary, AccordionDetails, Tooltip } from '@mui/material';
 import {
   Save,
   Refresh,
   ExpandMore,
-  Info,
   Key,
   Check,
   Error as ErrorIcon,
@@ -45,6 +21,8 @@ interface SettingsData {
   rate_limit_window_seconds: number;
   monthly_cost_cap_usd: number;
   hint_budget_per_session: number;
+  review_budget_per_session: number;
+  elaborate_budget_per_session: number;
   cognitive_profile: {
     working_memory_capacity: number;
     learning_style_preference: string;
@@ -90,9 +68,11 @@ const Settings: React.FC = () => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   // Local-only inputs for API keys to avoid re-posting masked values from GET /settings
   const [apiKeyInputs, setApiKeyInputs] = useState<{ [key: string]: string }>({});
+  // UI toggle for restricting to free models (primarily for OpenRouter)
+  const [onlyFreeModels, setOnlyFreeModels] = useState<boolean>(false);
 
   // Load settings data
-  const loadSettings = async () => {
+  const loadSettings = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -121,7 +101,7 @@ const Settings: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Validate settings without saving
   const validateSettings = async (settingsToValidate: Partial<SettingsData>) => {
@@ -175,6 +155,8 @@ const Settings: React.FC = () => {
         rate_limit_window_seconds: settings.rate_limit_window_seconds,
         monthly_cost_cap_usd: settings.monthly_cost_cap_usd,
         hint_budget_per_session: settings.hint_budget_per_session,
+        review_budget_per_session: settings.review_budget_per_session,
+        elaborate_budget_per_session: settings.elaborate_budget_per_session,
         cognitive_profile: settings.cognitive_profile,
       };
       const keysToSend: { [key: string]: string | null } = {};
@@ -195,8 +177,8 @@ const Settings: React.FC = () => {
         return;
       }
 
-      // Save if valid
-      const response = await settingsAPI.updateSettings(payload);
+  // Save if valid
+  await settingsAPI.updateSettings(payload);
       setSuccessMessage('Settings saved successfully!');
       
       // Reload to get updated effective settings
@@ -217,12 +199,11 @@ const Settings: React.FC = () => {
     const newSettings = { ...settings, ai_provider: provider };
     
     // Reset model when provider changes
-    const providerModels = models?.models?.[provider] ?? [];
-    if (providerModels.length > 0) {
-      newSettings.model = providerModels[0];
-    } else {
-      newSettings.model = '';
-    }
+    const allProviderModels = models?.models?.[provider] ?? [];
+    const filtered = onlyFreeModels
+      ? allProviderModels.filter((m) => isFreeModel(m, provider))
+      : allProviderModels;
+    newSettings.model = filtered.length > 0 ? filtered[0] : '';
 
     setSettings(newSettings);
 
@@ -250,6 +231,15 @@ const Settings: React.FC = () => {
     }));
   };
 
+  // Helper: determine if a model is free (heuristics; primarily for OpenRouter)
+  const isFreeModel = (modelId: string, provider?: string) => {
+    const prov = provider || settings?.ai_provider || '';
+    if (prov === 'openrouter') {
+      return modelId.includes(':free');
+    }
+    return false;
+  };
+
   // Get provider readiness status
   const getProviderStatus = () => {
     if (!effective) return { icon: <Warning />, color: 'warning', text: 'Unknown' };
@@ -267,7 +257,7 @@ const Settings: React.FC = () => {
 
   useEffect(() => {
     loadSettings();
-  }, []);
+  }, [loadSettings]);
 
   if (loading) {
     return (
@@ -379,7 +369,7 @@ const Settings: React.FC = () => {
                         </Select>
                       </FormControl>
                       {providers?.notes[settings.ai_provider] && (
-                        <Typography variant="caption" color="textSecondary" sx={{ mt: 1, display: 'block' }}>
+                        <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
                           {providers.notes[settings.ai_provider]}
                         </Typography>
                       )}
@@ -393,14 +383,41 @@ const Settings: React.FC = () => {
                           onChange={(e) => handleModelChange(e.target.value)}
                           disabled={validating || !models?.models[settings.ai_provider]?.length}
                         >
-                          {models?.models[settings.ai_provider]?.map((model) => (
+                          {(onlyFreeModels
+                            ? (models?.models[settings.ai_provider] || []).filter((m) => isFreeModel(m, settings.ai_provider))
+                            : (models?.models[settings.ai_provider] || [])
+                           ).map((model) => (
                             <MenuItem key={model} value={model}>
                               {model}
                             </MenuItem>
                           )) || []}
                         </Select>
                       </FormControl>
-                      <Typography variant="caption" color="textSecondary" sx={{ mt: 1, display: 'block' }}>
+                      {/* Toggle: Only Free Models (shown for OpenRouter) */}
+                      {settings.ai_provider === 'openrouter' && (
+                        <FormControlLabel
+                          control={
+                            <Switch
+                              checked={onlyFreeModels}
+                              onChange={(e) => {
+                                setOnlyFreeModels(e.target.checked);
+                                // If current model is not free when toggled on, switch to first free model
+                                const provider = settings.ai_provider;
+                                const allModels = models?.models?.[provider] || [];
+                                const filtered = e.target.checked
+                                  ? allModels.filter((m) => isFreeModel(m, provider))
+                                  : allModels;
+                                if (filtered.length > 0 && !filtered.includes(settings.model)) {
+                                  handleModelChange(filtered[0]);
+                                }
+                              }}
+                            />
+                          }
+                          label="Only show free models"
+                          sx={{ mt: 1 }}
+                        />
+                      )}
+                      <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
                         Effective Model: {effective?.effective_model || 'None'}
                       </Typography>
                     </Grid>
@@ -429,8 +446,9 @@ const Settings: React.FC = () => {
                                     fullWidth
                                     label={`${provider} API Key`}
                                     type="password"
-                                    value={settings.api_keys?.[provider] || ''}
+                                    value={apiKeyInputs?.[provider] ?? ''}
                                     onChange={(e) => handleApiKeyChange(provider, e.target.value)}
+                                    placeholder="Enter API key"
                                     InputProps={{
                                       endAdornment: effective?.api_keys_present[provider] ? (
                                         <Tooltip title="API Key Present">
@@ -567,6 +585,28 @@ const Settings: React.FC = () => {
                     onChange={(e) => setSettings({ ...settings, hint_budget_per_session: parseInt(e.target.value) || 0 })}
                     inputProps={{ min: 0, max: 100 }}
                     helperText="Max hints per session"
+                  />
+                </Grid>
+                <Grid item xs={12} md={3}>
+                  <TextField
+                    fullWidth
+                    label="Reviews per Session"
+                    type="number"
+                    value={settings.review_budget_per_session}
+                    onChange={(e) => setSettings({ ...settings, review_budget_per_session: parseInt(e.target.value) || 0 })}
+                    inputProps={{ min: 0, max: 100 }}
+                    helperText="Max reviews per session"
+                  />
+                </Grid>
+                <Grid item xs={12} md={3}>
+                  <TextField
+                    fullWidth
+                    label="Elaborations per Session"
+                    type="number"
+                    value={settings.elaborate_budget_per_session}
+                    onChange={(e) => setSettings({ ...settings, elaborate_budget_per_session: parseInt(e.target.value) || 0 })}
+                    inputProps={{ min: 0, max: 100 }}
+                    helperText="Max elaborations per session"
                   />
                 </Grid>
               </Grid>

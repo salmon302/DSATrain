@@ -38,6 +38,8 @@ class Settings:
     rate_limit_window_seconds: int = 60
     monthly_cost_cap_usd: float = 10.0
     hint_budget_per_session: int = 5
+    review_budget_per_session: int = 0
+    elaborate_budget_per_session: int = 0
     cognitive_profile: CognitiveProfile = field(default_factory=CognitiveProfile)
 
 
@@ -68,6 +70,8 @@ class SettingsService:
                 rate_limit_window_seconds=raw.get("rate_limit_window_seconds", 60),
                 monthly_cost_cap_usd=raw.get("monthly_cost_cap_usd", 10.0),
                 hint_budget_per_session=raw.get("hint_budget_per_session", 5),
+                review_budget_per_session=raw.get("review_budget_per_session", 0),
+                elaborate_budget_per_session=raw.get("elaborate_budget_per_session", 0),
                 cognitive_profile=CognitiveProfile(
                     working_memory_capacity=cognitive.get("working_memory_capacity"),
                     learning_style_preference=cognitive.get("learning_style_preference"),
@@ -153,6 +157,13 @@ class SettingsService:
         # Start from current settings but do not persist
         current = self.load()
         candidate = Settings(**asdict(current))
+        # Normalize nested dataclasses that were converted to dicts by asdict
+        if isinstance(getattr(candidate, "cognitive_profile", None), dict):
+            try:
+                candidate.cognitive_profile = CognitiveProfile(**candidate.cognitive_profile)  # type: ignore[arg-type]
+            except Exception:
+                # Fall back to empty profile if structure is unexpected
+                candidate.cognitive_profile = CognitiveProfile()
         # For validation, ignore any previously persisted API keys; only consider payload and env
         candidate.api_keys = {}
 
@@ -166,6 +177,8 @@ class SettingsService:
             "rate_limit_window_seconds",
             "monthly_cost_cap_usd",
             "hint_budget_per_session",
+            "review_budget_per_session",
+            "elaborate_budget_per_session",
             "cognitive_profile",
         }
         patch = {k: v for k, v in (patch or {}).items() if k in allowed_fields}
@@ -185,6 +198,8 @@ class SettingsService:
             "rate_limit_window_seconds",
             "monthly_cost_cap_usd",
             "hint_budget_per_session",
+            "review_budget_per_session",
+            "elaborate_budget_per_session",
         ]:
             if key in patch:
                 setattr(candidate, key, patch[key])
@@ -212,10 +227,10 @@ class SettingsService:
         if "cognitive_profile" in patch and isinstance(patch["cognitive_profile"], dict):
             cp = patch["cognitive_profile"]
             candidate.cognitive_profile = CognitiveProfile(
-                working_memory_capacity=cp.get("working_memory_capacity", candidate.cognitive_profile.working_memory_capacity),
-                learning_style_preference=cp.get("learning_style_preference", candidate.cognitive_profile.learning_style_preference),
-                visual_vs_verbal=cp.get("visual_vs_verbal", candidate.cognitive_profile.visual_vs_verbal),
-                processing_speed=cp.get("processing_speed", candidate.cognitive_profile.processing_speed),
+                working_memory_capacity=cp.get("working_memory_capacity", getattr(candidate.cognitive_profile, "working_memory_capacity", None)),
+                learning_style_preference=cp.get("learning_style_preference", getattr(candidate.cognitive_profile, "learning_style_preference", None)),
+                visual_vs_verbal=cp.get("visual_vs_verbal", getattr(candidate.cognitive_profile, "visual_vs_verbal", None)),
+                processing_speed=cp.get("processing_speed", getattr(candidate.cognitive_profile, "processing_speed", None)),
             )
 
         # Compute readiness against env+candidate keys
@@ -259,6 +274,8 @@ class SettingsService:
             "rate_limit_window_seconds",
             "monthly_cost_cap_usd",
             "hint_budget_per_session",
+            "review_budget_per_session",
+            "elaborate_budget_per_session",
             "cognitive_profile",
         }
         for k in list(patch.keys()):
@@ -274,6 +291,8 @@ class SettingsService:
             "rate_limit_window_seconds",
             "monthly_cost_cap_usd",
             "hint_budget_per_session",
+            "review_budget_per_session",
+            "elaborate_budget_per_session",
         ]:
             if key in patch:
                 if key == "ai_provider" and patch[key] is not None:

@@ -18,27 +18,11 @@ import {
   Chip,
   Grid,
   Paper,
-  Divider,
   LinearProgress,
   CircularProgress,
   TextField,
 } from '@mui/material';
-import {
-  PlayArrow,
-  Stop,
-  Save,
-  Settings,
-  Fullscreen,
-  FullscreenExit,
-  Code,
-  BugReport,
-  Speed,
-  CheckCircle,
-  Cancel,
-  Assessment,
-  Memory,
-  Timer,
-} from '@mui/icons-material';
+import { PlayArrow, Stop, Fullscreen, FullscreenExit, Code, BugReport, Speed, CheckCircle, Cancel, Assessment, Memory, Timer } from '@mui/icons-material';
 
 // Import the real execution API
 import { 
@@ -81,7 +65,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [theme, setTheme] = useState<'vs-dark' | 'light'>('vs-dark');
   const [fontSize, setFontSize] = useState(14);
-  const [showSettings, setShowSettings] = useState(false);
+  // const [showSettings, setShowSettings] = useState(false);
   const [customInput, setCustomInput] = useState('');
   const [customTests, setCustomTests] = useState<TestCase[]>([]);
   const [newTestName, setNewTestName] = useState('Custom Case');
@@ -185,39 +169,41 @@ int main() {
     
     // Set up auto-completion and IntelliSense
     if (language === 'python') {
-      monaco.languages.registerCompletionItemProvider('python', {
+    monaco.languages.registerCompletionItemProvider('python', {
         provideCompletionItems: (model: any, position: any) => {
+      /* eslint-disable no-template-curly-in-string */
           const suggestions = [
             {
               label: 'def',
               kind: monaco.languages.CompletionItemKind.Snippet,
-              insertText: 'def ${1:function_name}(${2:parameters}):\n    ${3:pass}',
+        insertText: 'def ${1:function_name}(${2:parameters}):\n    ${3:pass}',
               insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
               documentation: 'Function definition'
             },
             {
               label: 'for',
               kind: monaco.languages.CompletionItemKind.Snippet,
-              insertText: 'for ${1:item} in ${2:items}:\n    ${3:pass}',
+        insertText: 'for ${1:item} in ${2:items}:\n    ${3:pass}',
               insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
               documentation: 'For loop'
             },
             {
               label: 'while',
               kind: monaco.languages.CompletionItemKind.Snippet,
-              insertText: 'while ${1:condition}:\n    ${2:pass}',
+        insertText: 'while ${1:condition}:\n    ${2:pass}',
               insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
               documentation: 'While loop'
             },
             {
               label: 'if',
               kind: monaco.languages.CompletionItemKind.Snippet,
-              insertText: 'if ${1:condition}:\n    ${2:pass}',
+        insertText: 'if ${1:condition}:\n    ${2:pass}',
               insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
               documentation: 'If statement'
             }
           ];
-          return { suggestions };
+      /* eslint-enable no-template-curly-in-string */
+      return { suggestions };
         }
       });
     }
@@ -347,7 +333,7 @@ int main() {
     if (initialCode && initialCode !== code) {
       setCode(initialCode);
     }
-  }, [initialCode]);
+  }, [initialCode, code]);
 
   const editorContainer = (
     <Box sx={{ height: isFullscreen ? '100vh' : '60vh', position: 'relative' }}>
@@ -367,7 +353,7 @@ int main() {
             <InputLabel>Language</InputLabel>
             <Select
               value={language}
-              onChange={(e) => handleLanguageChange(e.target.value)}
+              onChange={(e) => handleLanguageChange(e.target.value as string)}
               disabled={readOnly}
             >
               <MenuItem value="python">Python</MenuItem>
@@ -683,7 +669,7 @@ int main() {
                         </Box>
                       </Box>
                     ) : (
-                      <Typography color="textSecondary">
+                      <Typography color="text.secondary">
                         Click "Analyze" to run comprehensive tests...
                       </Typography>
                     )}
@@ -769,7 +755,7 @@ int main() {
                         )}
                       </Box>
                     ) : (
-                      <Typography color="textSecondary">
+                      <Typography color="text.secondary">
                         Click "Analyze" to see detailed performance analysis...
                       </Typography>
                     )}
@@ -835,7 +821,7 @@ int main() {
                     </Paper>
 
                     {customTests.length === 0 ? (
-                      <Typography color="textSecondary">No custom tests added yet.</Typography>
+                      <Typography color="text.secondary">No custom tests added yet.</Typography>
                     ) : (
                       <Box>
                         {customTests.map((tc, idx) => (

@@ -26,6 +26,8 @@ class LearningPathTemplateManager:
         """Create all predefined learning path templates"""
         
         templates = [
+            self._create_absolute_beginner_onramp_template(),
+            self._create_absolute_beginner_zero_to_basics_template(),
             self._create_google_interview_template(),
             self._create_faang_prep_template(),
             self._create_competitive_programming_template(),
@@ -54,6 +56,83 @@ class LearningPathTemplateManager:
         
         self.db.commit()
         return templates
+
+    def _create_absolute_beginner_onramp_template(self) -> LearningPathTemplate:
+        """Create an absolute beginner onramp template (gentle 4-week intro)"""
+        return LearningPathTemplate(
+            id="absolute_beginner_onramp_4w",
+            name="Absolute Beginner Onramp (4 Weeks)",
+            description=(
+                "A gentle 4-week introduction for learners with minimal programming or CS background. "
+                "Short, scaffolded problems with curated readings and concept checks."
+            ),
+            category="foundations",
+            target_skill_level="absolute_beginner",
+            estimated_duration_weeks=4,
+            prerequisite_skills=["basic_programming_concepts"],
+            learning_objectives=[
+                {"week": 1, "skills": [SkillArea.ARRAYS.value], "concepts": ["iteration", "indexing"], "target_level": 0.4},
+                {"week": 2, "skills": [SkillArea.STRINGS.value], "concepts": ["string_basics", "searching"], "target_level": 0.45},
+                {"week": 3, "skills": [SkillArea.HASH_TABLES.value], "concepts": ["associative_arrays", "lookups"], "target_level": 0.5},
+                {"week": 4, "skills": [SkillArea.SORTING.value, SkillArea.BINARY_SEARCH.value], "concepts": ["sorting_basics", "binary_search_idea"], "target_level": 0.5},
+            ],
+            problem_sequence_template={
+                "selection_criteria": {
+                    "difficulty": [DifficultyLevel.EASY.value],
+                    "educational_value": 80,
+                    "problems_per_week": 6,
+                    "explanation_quality": "high"
+                },
+                "difficulty_distribution": {
+                    "weeks_1_4": {"Easy": 100, "Medium": 0, "Hard": 0}
+                }
+            },
+            adaptation_rules={
+                "performance_thresholds": {"struggling": {"success_rate": 0.7}},
+                "adaptations": {"struggling": {"add_concept_review": True, "extend_timeline": True}}
+            },
+            difficulty_curve={"type": "flat_gentle", "starting_difficulty": 0.2, "peak_difficulty": 0.4},
+            concept_order=[
+                SkillArea.ARRAYS.value,
+                SkillArea.STRINGS.value,
+                SkillArea.HASH_TABLES.value,
+                SkillArea.SORTING.value,
+                SkillArea.BINARY_SEARCH.value,
+            ],
+            tags=["absolute_beginner", "onramp", "basics", "education"],
+            created_by="system",
+            status="active"
+        )
+
+    def _create_absolute_beginner_zero_to_basics_template(self) -> LearningPathTemplate:
+        """Create a 2-week zero-to-basics primer template"""
+        return LearningPathTemplate(
+            id="absolute_beginner_zero_to_basics_2w",
+            name="Zero-to-Basics Primer (2 Weeks)",
+            description=(
+                "A focused 2-week primer for true beginners to build confidence: tiny steps, "
+                "concept checks, and micro-problems that emphasize understanding over speed."
+            ),
+            category="foundations",
+            target_skill_level="absolute_beginner",
+            estimated_duration_weeks=2,
+            prerequisite_skills=[],
+            learning_objectives=[
+                {"week": 1, "skills": [SkillArea.ARRAYS.value, SkillArea.STRINGS.value], "concepts": ["loops", "indexes", "basic_io"], "target_level": 0.35},
+                {"week": 2, "skills": [SkillArea.HASH_TABLES.value], "concepts": ["maps", "counting"], "target_level": 0.4},
+            ],
+            problem_sequence_template={
+                "selection_criteria": {
+                    "difficulty": [DifficultyLevel.EASY.value],
+                    "educational_value": 85,
+                    "problems_per_week": 5,
+                    "time_to_solve": "short"
+                }
+            },
+            tags=["absolute_beginner", "primer", "confidence"],
+            created_by="system",
+            status="active"
+        )
     
     def _create_google_interview_template(self) -> LearningPathTemplate:
         """Create Google/Meta interview preparation template"""

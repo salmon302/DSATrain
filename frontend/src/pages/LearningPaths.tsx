@@ -1,62 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Box,
-  Typography,
-  Alert,
-  Card,
-  CardContent,
-  Grid,
-  Button,
-  LinearProgress,
-  Stepper,
-  Step,
-  StepLabel,
-  StepContent,
-  Chip,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  TextField,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Avatar,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  ListItemButton,
-  Divider,
-  IconButton,
-  Tooltip,
-  Paper,
-} from '@mui/material';
-import {
-  School,
-  Psychology,
-  Timeline as TimelineIcon,
-  EmojiEvents,
-  Code,
-  Speed,
-  Star,
-  AccessTime,
-  TrendingUp,
-  Assignment,
-  CheckCircle,
-  PlayArrow,
-  ExpandMore,
-  Add,
-  Refresh,
-  Flag,
-  Schedule,
-  AutoGraph,
-  AccountTree,
-} from '@mui/icons-material';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Box, Typography, Alert, Card, CardContent, Grid, Button, LinearProgress, Stepper, Step, StepLabel, StepContent, Chip, Dialog, DialogTitle, DialogContent, DialogActions, FormControl, InputLabel, Select, MenuItem, TextField, Avatar, List, ListItemAvatar, ListItemText, ListItemButton, Divider, IconButton, Tooltip } from '@mui/material';
+import { School, Psychology, Code, Star, AccessTime, Assignment, PlayArrow, Add, Refresh, RocketLaunch } from '@mui/icons-material';
 
 import { 
   learningPathsAPI, 
@@ -73,6 +17,7 @@ const LearningPaths: React.FC = () => {
   const [currentPath, setCurrentPath] = useState<LearningPath | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [newPathForm, setNewPathForm] = useState({
     goal: 'google_interview',
@@ -82,19 +27,20 @@ const LearningPaths: React.FC = () => {
   const [activeWeek, setActiveWeek] = useState(0);
 
   const userId = getCurrentUserId();
-  const sessionId = generateSessionId();
+  const sessionId = React.useRef<string>(generateSessionId()).current;
 
   // Generate learning path
-  const generateLearningPath = async () => {
+  const { goal, level, duration_weeks } = newPathForm;
+  const generateLearningPath = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
 
       const response = await learningPathsAPI.generateLearningPath({
         user_id: userId,
-        goal: newPathForm.goal,
-        level: newPathForm.level,
-        duration_weeks: newPathForm.duration_weeks
+        goal,
+        level,
+        duration_weeks
       });
 
       if (response.learning_path) {
@@ -102,13 +48,20 @@ const LearningPaths: React.FC = () => {
         setLearningPaths(prev => [...prev, response.learning_path]);
         setShowCreateDialog(false);
 
+        setSuccess(`Learning path created: ${response.learning_path.name || 'Personalized Plan'}`);
+
         // Track learning path generation
-        await trackingAPI.trackInteraction({
+    await trackingAPI.trackInteraction({
           user_id: userId,
           problem_id: 'learning_path_generated',
           action: 'generated',
           session_id: sessionId,
-          metadata: JSON.stringify(newPathForm)
+          // Avoid referencing the entire object to keep useCallback deps precise
+          metadata: JSON.stringify({
+      goal,
+      level,
+      duration_weeks,
+          }),
         });
       }
 
@@ -118,7 +71,31 @@ const LearningPaths: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId, sessionId, goal, level, duration_weeks]);
+
+  // Quick start for beginners
+  const quickStartBeginner = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await learningPathsAPI.quickStart({
+        user_id: userId,
+        hours_per_week: 5,
+        goals: ['foundations']
+      });
+      if (res?.learning_path) {
+        setCurrentPath(res.learning_path);
+        setLearningPaths(prev => [...prev, res.learning_path]);
+        setShowCreateDialog(false);
+        setSuccess(`Beginner quick start created: ${res.learning_path.name || 'Beginner Plan'}`);
+      }
+    } catch (err: any) {
+      console.error('Quick start failed', err);
+      setError('Quick start failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  }, [userId]);
 
   // Track problem start from learning path
   const trackProblemStart = async (problem: Problem, week: number) => {
@@ -176,10 +153,10 @@ const LearningPaths: React.FC = () => {
     // Auto-generate a sample learning path on load
     if (learningPaths.length === 0) {
       setTimeout(() => {
-        generateLearningPath();
+    void generateLearningPath();
       }, 1000);
     }
-  }, []);
+  }, [learningPaths.length, generateLearningPath]);
 
   return (
     <Box>
@@ -189,7 +166,7 @@ const LearningPaths: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             🎓 Learning Paths
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
+          <Typography variant="subtitle1" color="text.secondary">
             ML-generated personalized study plans tailored to your goals and timeline
           </Typography>
         </Box>
@@ -207,9 +184,22 @@ const LearningPaths: React.FC = () => {
               <Refresh />
             </IconButton>
           </Tooltip>
+          <Button
+            variant="outlined"
+            startIcon={<RocketLaunch />}
+            onClick={quickStartBeginner}
+          >
+            Beginner Quick Start
+          </Button>
         </Box>
       </Box>
 
+      {/* Notifications */}
+      {success && (
+        <Alert severity="success" sx={{ mb: 2 }} onClose={() => setSuccess(null)}>
+          {success}
+        </Alert>
+      )}
       {/* Error Display */}
       {error && (
         <Alert severity="error" sx={{ mb: 3 }}>
@@ -242,7 +232,7 @@ const LearningPaths: React.FC = () => {
                     <Typography variant="h6" fontWeight="bold">
                       Your Learning Path
                     </Typography>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="text.secondary">
                       {getGoalDisplayName(currentPath.target_goal)}
                     </Typography>
                   </Box>
@@ -250,7 +240,7 @@ const LearningPaths: React.FC = () => {
 
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="text.secondary">
                       Current Level
                     </Typography>
                     <Chip 
@@ -260,7 +250,7 @@ const LearningPaths: React.FC = () => {
                     />
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="text.secondary">
                       Duration
                     </Typography>
                     <Typography variant="body1" fontWeight="bold">
@@ -268,7 +258,7 @@ const LearningPaths: React.FC = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="text.secondary">
                       Total Problems
                     </Typography>
                     <Typography variant="body1" fontWeight="bold">
@@ -276,7 +266,7 @@ const LearningPaths: React.FC = () => {
                     </Typography>
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="text.secondary">
                       Total Hours
                     </Typography>
                     <Typography variant="body1" fontWeight="bold">
@@ -291,7 +281,7 @@ const LearningPaths: React.FC = () => {
                 <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
                   Time Commitment
                 </Typography>
-                <Typography variant="body2" color="textSecondary" gutterBottom>
+                <Typography variant="body2" color="text.secondary" gutterBottom>
                   {currentPath.estimated_completion_time.hours_per_week} hours per week
                 </Typography>
 
@@ -334,7 +324,7 @@ const LearningPaths: React.FC = () => {
                     Week {activeWeek + 1}/{currentPath.duration_weeks}
                   </Typography>
                 </Box>
-                <Typography variant="body2" color="textSecondary">
+                <Typography variant="body2" color="text.secondary">
                   Complete your current week to unlock the next phase
                 </Typography>
               </CardContent>
@@ -480,10 +470,10 @@ const LearningPaths: React.FC = () => {
         <Card>
           <CardContent sx={{ textAlign: 'center', py: 6 }}>
             <School sx={{ fontSize: 64, color: 'text.secondary', mb: 2 }} />
-            <Typography variant="h6" color="textSecondary" gutterBottom>
+            <Typography variant="h6" color="text.secondary" gutterBottom>
               No Learning Path Created Yet
             </Typography>
-            <Typography variant="body2" color="textSecondary" mb={3}>
+            <Typography variant="body2" color="text.secondary" mb={3}>
               Create a personalized learning path tailored to your goals and timeline.
             </Typography>
             <Button 
@@ -508,7 +498,7 @@ const LearningPaths: React.FC = () => {
           Create Personalized Learning Path
         </DialogTitle>
         <DialogContent>
-          <Typography variant="body2" color="textSecondary" paragraph>
+          <Typography variant="body2" color="text.secondary" paragraph>
             Our ML algorithm will generate a customized study plan based on your goals and timeline.
           </Typography>
           
@@ -559,6 +549,17 @@ const LearningPaths: React.FC = () => {
               />
             </Grid>
           </Grid>
+
+          {/* Quick Start Action */}
+          <Box mt={2}>
+            <Button
+              size="small"
+              startIcon={<RocketLaunch />}
+              onClick={quickStartBeginner}
+            >
+              Use Beginner Quick Start
+            </Button>
+          </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setShowCreateDialog(false)}>Cancel</Button>

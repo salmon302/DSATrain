@@ -27,6 +27,8 @@ class SettingsUpdateModel(BaseModel):
     rate_limit_window_seconds: Optional[int] = Field(None, ge=10, le=3600)
     monthly_cost_cap_usd: Optional[float] = Field(None, ge=0.0, le=1000.0)
     hint_budget_per_session: Optional[int] = Field(None, ge=0, le=100)
+    review_budget_per_session: Optional[int] = Field(None, ge=0, le=100)
+    elaborate_budget_per_session: Optional[int] = Field(None, ge=0, le=100)
     cognitive_profile: Optional[CognitiveProfileModel] = None
 
 
@@ -44,9 +46,22 @@ SUGGESTED_MODELS: Dict[str, list[str]] = {
         "claude-3-haiku",
     ],
     "openrouter": [
+        # Common high-quality community routes
         "meta-llama/llama-3.1-8b-instruct",
+        "meta-llama/llama-3.1-70b-instruct",
+        "meta-llama/llama-3.2-3b-instruct",
         "mistralai/mistral-7b-instruct",
+        "mistralai/mixtral-8x7b-instruct",
+        "google/gemma-2-9b-it",
         "google/gemini-flash-1.5",
+        "qwen/qwen2.5-7b-instruct",
+        "phi-3/mini-4k-instruct",
+        # Marked free variants for filtering in the UI (convention: contains ':free')
+        "meta-llama/llama-3.1-8b-instruct:free",
+        "mistralai/mistral-7b-instruct:free",
+        "google/gemma-2-9b-it:free",
+        "qwen/qwen2.5-7b-instruct:free",
+        "phi-3/mini-4k-instruct:free",
     ],
     "local": [
         "ollama/llama3:8b-instruct",

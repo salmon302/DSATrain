@@ -6,18 +6,13 @@ import {
   Typography,
   Chip,
   IconButton,
-  Tooltip,
   Paper,
+  Menu,
+  MenuItem,
 } from '@mui/material';
-import {
-  Home,
-  NavigateNext,
-  Share,
-  Print,
-  Bookmark,
-  BookmarkBorder,
-} from '@mui/icons-material';
+import { Home, NavigateNext, MoreVert } from '@mui/icons-material';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { favoritesAPI, getCurrentUserId } from '../services/api';
 
 interface BreadcrumbItem {
   label: string;
@@ -45,6 +40,8 @@ const ContextualBreadcrumbs: React.FC<ContextualBreadcrumbsProps> = ({
   const location = useLocation();
   const navigate = useNavigate();
   const [bookmarked, setBookmarked] = React.useState(false);
+  const [menuAnchorEl, setMenuAnchorEl] = React.useState<null | HTMLElement>(null);
+  const isMenuOpen = Boolean(menuAnchorEl);
 
   // Generate breadcrumbs based on current route
   const generateBreadcrumbs = (): BreadcrumbItem[] => {
@@ -104,9 +101,29 @@ const ContextualBreadcrumbs: React.FC<ContextualBreadcrumbsProps> = ({
     window.print();
   };
 
-  const handleBookmark = () => {
-    setBookmarked(!bookmarked);
-    // TODO: Integrate with actual bookmark API
+  const handleBookmark = async () => {
+    const userId = getCurrentUserId();
+    const next = !bookmarked;
+    setBookmarked(next);
+    // If there is a problem context, integrate with favorites toggle.
+    // In generic breadcrumbs we lack a problem_id; caller pages can pass actions.
+    // Here we optimistically toggle a synthetic bookmark for the current path.
+    try {
+      const maybeProblemId = new URLSearchParams(window.location.search).get('problemId') || location.pathname.split('/').pop();
+      if (maybeProblemId) {
+        await favoritesAPI.toggle({ user_id: userId, problem_id: maybeProblemId, favorite: next });
+      }
+    } catch (e) {
+      setBookmarked(!next);
+    }
+  };
+
+  const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setMenuAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setMenuAnchorEl(null);
   };
 
   const getDifficultyColor = (difficulty: string) => {
@@ -155,7 +172,7 @@ const ContextualBreadcrumbs: React.FC<ContextualBreadcrumbsProps> = ({
                   key={crumb.label}
                   color="inherit"
                   href={crumb.path}
-                  onClick={(e) => {
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.preventDefault();
                     if (crumb.path) navigate(crumb.path);
                   }}
@@ -206,25 +223,28 @@ const ContextualBreadcrumbs: React.FC<ContextualBreadcrumbsProps> = ({
 
         {/* Page Actions */}
         {showActions && (
-          <Box display="flex" gap={1}>
-            <Tooltip title="Bookmark Page">
-              <IconButton size="small" onClick={handleBookmark}>
-                {bookmarked ? <Bookmark color="primary" /> : <BookmarkBorder />}
-              </IconButton>
-            </Tooltip>
-            
-            <Tooltip title="Share Page">
-              <IconButton size="small" onClick={handleShare}>
-                <Share />
-              </IconButton>
-            </Tooltip>
-            
-            <Tooltip title="Print Page">
-              <IconButton size="small" onClick={handlePrint}>
-                <Print />
-              </IconButton>
-            </Tooltip>
-          </Box>
+          <>
+            <IconButton size="small" onClick={handleOpenMenu} aria-label="More actions">
+              <MoreVert />
+            </IconButton>
+            <Menu
+              anchorEl={menuAnchorEl}
+              open={isMenuOpen}
+              onClose={handleCloseMenu}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            >
+              <MenuItem onClick={() => { handleBookmark(); handleCloseMenu(); }}>
+                {bookmarked ? 'Remove Bookmark' : 'Add Bookmark'}
+              </MenuItem>
+              <MenuItem onClick={() => { void handleShare(); handleCloseMenu(); }}>
+                Share Page
+              </MenuItem>
+              <MenuItem onClick={() => { handlePrint(); handleCloseMenu(); }}>
+                Print Page
+              </MenuItem>
+            </Menu>
+          </>
         )}
       </Box>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   Box,
   Card,
@@ -18,7 +18,6 @@ import { Psychology, Build, School, Quiz, Analytics, PlayArrow } from '@mui/icon
 
 import AIStatusWidget from '../components/AIStatusWidget';
 import {
-  aiAPI,
   practiceAPI,
   learningPathsAPI,
   enhancedStatsAPI,
@@ -84,7 +83,7 @@ const DevTools: React.FC = () => {
     }
   };
 
-  const loadOverview = async () => {
+  const loadOverview = useCallback(async () => {
     try {
       setBusy('overview', true);
       setError(null);
@@ -96,11 +95,11 @@ const DevTools: React.FC = () => {
     } finally {
       setBusy('overview', false);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    loadOverview();
-  }, []);
+    void loadOverview();
+  }, [loadOverview]);
 
   const firstWeek = useMemo(() => learningPath?.weekly_plan?.[0], [learningPath]);
 
@@ -111,7 +110,7 @@ const DevTools: React.FC = () => {
           <Typography variant="h4" gutterBottom display="flex" alignItems="center" gap={1}>
             <Build /> Dev Tools
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
+          <Typography variant="subtitle1" color="text.secondary">
             Thin wiring to exercise API endpoints and validate payloads
           </Typography>
         </Box>
@@ -215,7 +214,7 @@ const DevTools: React.FC = () => {
                   </Grid>
                 </Grid>
               ) : (
-                <Typography color="textSecondary">No overview data yet.</Typography>
+                <Typography color="text.secondary">No overview data yet.</Typography>
               )}
             </CardContent>
           </Card>

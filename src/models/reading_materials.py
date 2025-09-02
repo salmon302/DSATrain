@@ -183,7 +183,8 @@ class UserReadingProgress(Base):
     # Indexes
     __table_args__ = (
         Index('idx_user_material', 'user_id', 'material_id'),
-        Index('idx_user_progress', 'user_id', 'progress_percentage'),
+    # Note: SQLite has global index namespace; use a unique name to avoid collisions
+    Index('idx_user_reading_progress_pct', 'user_id', 'progress_percentage'),
         Index('idx_completion_time', 'completed_at'),
     )
     

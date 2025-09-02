@@ -2,12 +2,12 @@
 Optimized Skill Tree API - Performance improvements for handling hundreds of problems
 """
 
-from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, Depends, HTTPException, Query, Response
+from sqlalchemy.orm import Session, load_only
 from typing import List, Dict, Optional, Any, Tuple
 import time
 from pydantic import BaseModel
-from src.models.database import DatabaseConfig, Problem
+from src.models.database import DatabaseConfig, Problem, UserSkillMastery
 import logging
 
 logger = logging.getLogger(__name__)
@@ -33,15 +33,46 @@ def _cache_get(key: Tuple[str, Tuple[Any, ...]]):
 def _cache_set(key: Tuple[str, Tuple[Any, ...]], value: Any):
     _CACHE[key] = (time.time(), value)
 
-# Database dependency
+def _db_signature() -> str:
+    """Signature for current DB URL to namespace cache entries per-database."""
+    import os
+    return os.getenv("DSATRAIN_DATABASE_URL") or os.getenv("DATABASE_URL") or "default"
+
 def get_db():
-    # Use environment-configured database by default to allow tests/overrides
-    db_config = DatabaseConfig()
-    db = db_config.get_session()
+    # Use environment-configured database by default to allow tests/overrides.
+    # Avoid caching a module-level DatabaseConfig so pytest can swap DSATRAIN_DATABASE_URL per test.
+    cfg = DatabaseConfig()
+    db = cfg.get_session()
     try:
         yield db
     finally:
         db.close()
+
+# Helper: normalize external skill area identifiers to canonical keys used in v1
+def _normalize_skill_area(name: str) -> str:
+    n = (name or "").strip().lower()
+    aliases = {
+        # canonical
+        "array_processing": "array_processing",
+        "string_algorithms": "string_algorithms",
+        "tree_algorithms": "tree_algorithms",
+        "graph_algorithms": "graph_algorithms",
+        "dynamic_programming": "dynamic_programming",
+        "sorting_searching": "sorting_searching",
+        "mathematical": "mathematical",
+        "advanced_structures": "advanced_structures",
+        # common synonyms
+        "arrays": "array_processing",
+        "strings": "string_algorithms",
+        "trees": "tree_algorithms",
+        "graphs": "graph_algorithms",
+        "dp": "dynamic_programming",
+        "sorting": "sorting_searching",
+        "searching": "sorting_searching",
+        "math": "mathematical",
+        "advanced": "advanced_structures",
+    }
+    return aliases.get(n, name)
 
 # Optimized Response Models
 class ProblemSummary(BaseModel):
@@ -96,7 +127,8 @@ class TagsOverview(BaseModel):
 async def get_skill_tree_overview_optimized(
     user_id: Optional[str] = None,
     top_problems_per_area: int = Query(5, ge=1, le=20),
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    response: Response = None,
 ):
     """
     Get optimized skill tree overview with minimal data
@@ -109,7 +141,21 @@ async def get_skill_tree_overview_optimized(
         from src.api.skill_tree_api import _determine_primary_skill_area
         
         # Get problem counts by skill area (efficient query)
-        problems_query = db.query(Problem).filter(Problem.sub_difficulty_level.isnot(None))
+        problems_query = (
+            db.query(Problem)
+            .options(
+                load_only(
+                    Problem.id,
+                    Problem.title,
+                    Problem.difficulty,
+                    Problem.sub_difficulty_level,
+                    Problem.quality_score,
+                    Problem.google_interview_relevance,
+                    Problem.algorithm_tags,
+                )
+            )
+            .filter(Problem.sub_difficulty_level.isnot(None))
+        )
         problems = problems_query.all()
         
         # Organize by skill area
@@ -132,7 +178,26 @@ async def get_skill_tree_overview_optimized(
         
         # Create optimized response
         skill_area_summaries = []
-        
+        # Preload mastery levels for user (single query) if user_id provided
+        mastery_map: Dict[str, float] = {}
+        if user_id:
+            try:
+                masteries = (
+                    db.query(UserSkillMastery)
+                    .filter(UserSkillMastery.user_id == user_id)
+                    .all()
+                )
+                mastery_map = {m.skill_area: float(m.mastery_level or 0.0) for m in masteries}
+            except Exception as e:
+                logger.warning(f"Failed to load mastery for user {user_id}: {e}")
+        # Ensure any mastered areas are represented even if there are no problems currently
+        for mastered_area in list(mastery_map.keys()):
+            if mastered_area not in skill_areas:
+                skill_areas[mastered_area] = {
+                    "problems": [],
+                    "difficulty_counts": {"Easy": 0, "Medium": 0, "Hard": 0}
+                }
+
         for skill_area, data in skill_areas.items():
             # Get top problems (by quality score and relevance)
             top_problems = sorted(
@@ -157,19 +222,40 @@ async def get_skill_tree_overview_optimized(
                 skill_area=skill_area,
                 total_problems=len(data["problems"]),
                 difficulty_distribution=data["difficulty_counts"],
-                mastery_percentage=0.0,  # TODO: Calculate from user data
+                mastery_percentage=mastery_map.get(skill_area, 0.0),
                 top_problems=top_problem_summaries
             )
             
             skill_area_summaries.append(summary)
-        
-        return SkillTreeOverviewOptimized(
+        # Append mastery-only areas that still aren't present due to any unexpected filtering
+        existing_names = {s.skill_area for s in skill_area_summaries}
+        for mastered_area, lvl in mastery_map.items():
+            if mastered_area not in existing_names:
+                skill_area_summaries.append(
+                    SkillAreaSummary(
+                        skill_area=mastered_area,
+                        total_problems=0,
+                        difficulty_distribution={"Easy": 0, "Medium": 0, "Hard": 0},
+                        mastery_percentage=lvl,
+                        top_problems=[]
+                    )
+                )
+
+        from datetime import datetime
+        result = SkillTreeOverviewOptimized(
             skill_areas=skill_area_summaries,
             total_problems=len(problems),
             total_skill_areas=len(skill_areas),
             user_id=user_id,
-            last_updated="2025-08-03T10:00:00Z"
+            last_updated=datetime.now().isoformat()
         )
+        # Add simple cache headers
+        if response is not None:
+            # Weak ETag based on counts and user_id
+            etag_val = f"W/\"ov-{len(skill_areas)}-{len(problems)}-{user_id or 'none'}\""
+            response.headers['ETag'] = etag_val
+            response.headers['Cache-Control'] = f"public, max-age=60"
+        return result
         
     except Exception as e:
         logger.error(f"Error getting optimized overview: {str(e)}")
@@ -179,7 +265,8 @@ async def get_skill_tree_overview_optimized(
 @router.get("/tags/overview", response_model=TagsOverview)
 async def get_tags_overview(
     top_problems_per_tag: int = Query(5, ge=1, le=20),
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    response: Response = None,
 ):
     """
     Get an overview of problems grouped by algorithm tags.
@@ -188,11 +275,26 @@ async def get_tags_overview(
     """
     try:
         # Cache lookup
-        cache_key = ("tags_overview", (top_problems_per_tag,))
+        cache_key = ("tags_overview", (top_problems_per_tag, _db_signature()))
         cached = _cache_get(cache_key)
         if cached is not None:
             return cached
-        problems_query = db.query(Problem).filter(Problem.sub_difficulty_level.isnot(None))
+        problems_query = (
+            db.query(Problem)
+            .options(
+                load_only(
+                    Problem.id,
+                    Problem.title,
+                    Problem.difficulty,
+                    Problem.sub_difficulty_level,
+                    Problem.quality_score,
+                    Problem.google_interview_relevance,
+                    Problem.platform,
+                    Problem.algorithm_tags,
+                )
+            )
+            .filter(Problem.sub_difficulty_level.isnot(None))
+        )
         problems = problems_query.all()
 
         tags: Dict[str, Dict[str, Any]] = {}
@@ -242,13 +344,18 @@ async def get_tags_overview(
         # Optional: sort tags by total_problems desc
         tag_summaries.sort(key=lambda s: s.total_problems, reverse=True)
 
+        from datetime import datetime
         result = TagsOverview(
             tags=tag_summaries,
             total_tags=len(tag_summaries),
             total_problems=len(problems),
-            last_updated="2025-08-15T00:00:00Z",
+            last_updated=datetime.now().isoformat(),
         )
         _cache_set(cache_key, result)
+        if response is not None:
+            etag_val = f"W/\"tags-{len(tag_summaries)}-{len(problems)}\""
+            response.headers['ETag'] = etag_val
+            response.headers['Cache-Control'] = f"public, max-age=60"
         return result
     except Exception as e:
         logger.error(f"Error getting tags overview: {str(e)}")
@@ -262,6 +369,7 @@ async def get_skill_area_problems(
     page_size: int = Query(20, ge=1, le=100),
     difficulty: Optional[str] = None,
     sort_by: str = Query("quality", pattern="^(quality|relevance|difficulty|title)$"),
+    sort_order: str = Query("desc", pattern="^(asc|desc)$"),
     query: Optional[str] = Query(None, description="Optional search query across title and tags"),
     platform: Optional[str] = Query(None, description="Optional platform filter, e.g., leetcode/codeforces"),
     title_match: Optional[str] = Query(None, pattern="^(prefix|exact)$", description="Optional title match mode for 'query'"),
@@ -276,35 +384,92 @@ async def get_skill_area_problems(
     
     try:
         from src.api.skill_tree_api import _determine_primary_skill_area
-
         # Cache lookup (keyed by input params)
         cache_key = (
             "skill_area_problems",
-            (skill_area, page, page_size, difficulty or "", sort_by, (query or "").strip().lower()),
+            (
+                skill_area,
+                page,
+                page_size,
+                difficulty or "",
+                sort_by,
+                sort_order,
+                (query or "").strip().lower(),
+                (platform or "").strip().lower(),
+                title_match or "",
+                _db_signature(),
+            ),
         )
         cached = _cache_get(cache_key)
         if cached is not None:
             return cached
-        
-        # Base query (SQLAlchemy)
-        sa_query = db.query(Problem).filter(Problem.sub_difficulty_level.isnot(None))
-        
-    # Filter by skill area (need to check algorithm_tags)
-        all_problems = sa_query.all()
-        filtered_problems = [
-            p for p in all_problems 
-            if p.algorithm_tags and _determine_primary_skill_area(p.algorithm_tags) == skill_area
-        ]
-        
-        # Platform filter
-        if platform:
-            filtered_problems = [p for p in filtered_problems if (p.platform or "").lower() == platform.lower()]
 
-        # Apply difficulty filter
+        # Base query (SQLAlchemy)
+        sa_query = (
+            db.query(Problem)
+            .options(
+                load_only(
+                    Problem.id,
+                    Problem.title,
+                    Problem.difficulty,
+                    Problem.sub_difficulty_level,
+                    Problem.quality_score,
+                    Problem.google_interview_relevance,
+                    Problem.platform,
+                    Problem.algorithm_tags,
+                    getattr(Problem, 'primary_skill_area'),
+                )
+            )
+            .filter(Problem.sub_difficulty_level.isnot(None))
+        )
+
+        # Normalize external skill area to canonical key used in v1 mapping
+        canonical_skill = _normalize_skill_area(skill_area)
+
+        # Prefer SQL filter by primary_skill_area when available (requires migration/backfill).
+        # Include NULLs so we can apply Python-side fallback for records not yet backfilled.
+        if hasattr(Problem, 'primary_skill_area'):
+            try:
+                from sqlalchemy import or_ as sa_or
+                sa_query = sa_query.filter(
+                    sa_or(
+                        Problem.primary_skill_area == skill_area,
+                        Problem.primary_skill_area == canonical_skill,
+                        Problem.primary_skill_area.is_(None),
+                    )
+                )
+            except Exception:
+                # Fallback to strict equality if SQL expression helpers are unavailable
+                sa_query = sa_query.filter(Problem.primary_skill_area.in_([skill_area, canonical_skill]))
+
+        # Push simple filters down to SQL to reduce scanned rows
+        if platform:
+            sa_query = sa_query.filter(Problem.platform.ilike(platform)) if hasattr(Problem.platform, 'ilike') else sa_query.filter(Problem.platform == platform)
         if difficulty:
-            filtered_problems = [p for p in filtered_problems if p.difficulty == difficulty]
-        
-        # Apply query filter
+            sa_query = sa_query.filter(Problem.difficulty == difficulty)
+        if query:
+            # Use contains as a broad prefilter; refine with Python below for prefix/exact/tag matches
+            q = (query or "").strip()
+            sa_query = sa_query.filter(Problem.title.contains(q))
+
+        all_problems = sa_query.all()
+        # Filter by skill area with fallback for NULL primary_skill_area values
+        if hasattr(Problem, 'primary_skill_area'):
+            filtered_problems = []
+            for p in all_problems:
+                ps = getattr(p, 'primary_skill_area', None)
+                if ps in (skill_area, canonical_skill):
+                    filtered_problems.append(p)
+                elif ps in (None, ''):
+                    if p.algorithm_tags and _determine_primary_skill_area(p.algorithm_tags) == canonical_skill:
+                        filtered_problems.append(p)
+        else:
+            filtered_problems = [
+                p for p in all_problems
+                if p.algorithm_tags and _determine_primary_skill_area(p.algorithm_tags) == canonical_skill
+            ]
+
+        # Apply additional query filter (title match modes and tag search)
         if query:
             q = (query or "").strip().lower()
             def title_matcher(title: str) -> bool:
@@ -320,23 +485,51 @@ async def get_skill_area_problems(
                 or (p.algorithm_tags and any(q in (t or '').lower() for t in p.algorithm_tags))
             ]
 
-        # Apply sorting
-        if sort_by == "quality":
-            filtered_problems.sort(key=lambda p: p.quality_score or 0, reverse=True)
-        elif sort_by == "relevance":
-            filtered_problems.sort(key=lambda p: p.google_interview_relevance or 0, reverse=True)
+        # Apply sorting with order
+        if sort_by in ("quality", "relevance", "title") and not query and not platform and not difficulty:
+            # We can push sort+paginate into SQL when filtering is already applied above in SQL
+            order_clause = None
+            if sort_by == "quality":
+                order_clause = Problem.quality_score.desc() if sort_order == "desc" else Problem.quality_score.asc()
+            elif sort_by == "relevance":
+                order_clause = Problem.google_interview_relevance.desc() if sort_order == "desc" else Problem.google_interview_relevance.asc()
+            elif sort_by == "title":
+                order_clause = Problem.title.desc() if sort_order == "desc" else Problem.title.asc()
+
+            # Re-execute a narrowed query for the current skill_area to avoid scanning Python-side
+            # Note: skill_area depends on primary-skill mapping, so we still need Python filtering first.
+            # Therefore keep Python result order for correctness but use SQL only when no extra client-side filters.
+            filtered_problems.sort(
+                key=(
+                    (lambda p: (p.quality_score or 0)) if sort_by == "quality" else
+                    (lambda p: (p.google_interview_relevance or 0)) if sort_by == "relevance" else
+                    (lambda p: (p.title or ""))
+                ),
+                reverse=(sort_order == "desc"),
+            )
         elif sort_by == "difficulty":
-            difficulty_order = {"Easy": 1, "Medium": 2, "Hard": 3}
-            filtered_problems.sort(key=lambda p: (difficulty_order.get(p.difficulty, 4), p.sub_difficulty_level or 1))
-        elif sort_by == "title":
-            filtered_problems.sort(key=lambda p: p.title)
-        
+            # Map difficulties to indices. For desc we invert using negatives
+            difficulty_index = {"Easy": 1, "Medium": 2, "Hard": 3}
+            if sort_order == "asc":
+                filtered_problems.sort(
+                    key=lambda p: (
+                        difficulty_index.get(p.difficulty, 4),
+                        p.sub_difficulty_level or 0,
+                    )
+                )
+            else:
+                filtered_problems.sort(
+                    key=lambda p: (
+                        -difficulty_index.get(p.difficulty, 4),
+                        -(p.sub_difficulty_level or 0),
+                    )
+                )
         # Pagination
         total_count = len(filtered_problems)
         start_idx = (page - 1) * page_size
         end_idx = start_idx + page_size
         page_problems = filtered_problems[start_idx:end_idx]
-        
+
         # Convert to summaries
         problem_summaries = [
             ProblemSummary(
@@ -349,7 +542,7 @@ async def get_skill_area_problems(
             )
             for p in page_problems
         ]
-        
+
         result = PaginatedProblems(
             problems=problem_summaries,
             total_count=total_count,
@@ -372,6 +565,7 @@ async def get_tag_problems(
     page_size: int = Query(20, ge=1, le=100),
     difficulty: Optional[str] = None,
     sort_by: str = Query("quality", pattern="^(quality|relevance|difficulty|title)$"),
+    sort_order: str = Query("desc", pattern="^(asc|desc)$"),
     query: Optional[str] = Query(None, description="Optional search query across title and tags"),
     platform: Optional[str] = Query(None, description="Optional platform filter, e.g., leetcode/codeforces"),
     title_match: Optional[str] = Query(None, pattern="^(prefix|exact)$", description="Optional title match mode for 'query'"),
@@ -386,14 +580,50 @@ async def get_tag_problems(
         # Cache lookup
         cache_key = (
             "tag_problems",
-            ((tag or "").strip().lower(), page, page_size, difficulty or "", sort_by, (query or "").strip().lower()),
+            (
+                (tag or "").strip().lower(),
+                page,
+                page_size,
+                difficulty or "",
+                sort_by,
+                sort_order,
+                (query or "").strip().lower(),
+                (platform or "").strip().lower(),
+                title_match or "",
+                _db_signature(),
+            ),
         )
         cached = _cache_get(cache_key)
         if cached is not None:
             return cached
 
         # Base query (SQLAlchemy)
-        sa_query = db.query(Problem).filter(Problem.sub_difficulty_level.isnot(None))
+        sa_query = (
+            db.query(Problem)
+            .options(
+                load_only(
+                    Problem.id,
+                    Problem.title,
+                    Problem.difficulty,
+                    Problem.sub_difficulty_level,
+                    Problem.quality_score,
+                    Problem.google_interview_relevance,
+                    Problem.platform,
+                    Problem.algorithm_tags,
+                )
+            )
+            .filter(Problem.sub_difficulty_level.isnot(None))
+        )
+
+        # Push simple filters down to SQL
+        if platform:
+            sa_query = sa_query.filter(Problem.platform.ilike(platform)) if hasattr(Problem.platform, 'ilike') else sa_query.filter(Problem.platform == platform)
+        if difficulty:
+            sa_query = sa_query.filter(Problem.difficulty == difficulty)
+        if query:
+            q = (query or "").strip()
+            sa_query = sa_query.filter(Problem.title.contains(q))
+
         all_problems = sa_query.all()
 
         # Filter by tag (case-insensitive match within algorithm_tags)
@@ -429,21 +659,32 @@ async def get_tag_problems(
                 or (p.algorithm_tags and any(q in (t or '').lower() for t in p.algorithm_tags))
             ]
 
-        # Sorting
-        if sort_by == "quality":
-            filtered_problems.sort(key=lambda p: p.quality_score or 0, reverse=True)
-        elif sort_by == "relevance":
-            filtered_problems.sort(key=lambda p: p.google_interview_relevance or 0, reverse=True)
-        elif sort_by == "difficulty":
-            difficulty_order = {"Easy": 1, "Medium": 2, "Hard": 3}
+        # Sorting with order
+        if sort_by in ("quality", "relevance", "title"):
             filtered_problems.sort(
-                key=lambda p: (
-                    difficulty_order.get(p.difficulty, 4),
-                    -(p.sub_difficulty_level or 0),  # higher sub-level first within bucket
-                )
+                key=(
+                    (lambda p: (p.quality_score or 0)) if sort_by == "quality" else
+                    (lambda p: (p.google_interview_relevance or 0)) if sort_by == "relevance" else
+                    (lambda p: (p.title or ""))
+                ),
+                reverse=(sort_order == "desc"),
             )
-        elif sort_by == "title":
-            filtered_problems.sort(key=lambda p: p.title)
+        elif sort_by == "difficulty":
+            difficulty_index = {"Easy": 1, "Medium": 2, "Hard": 3}
+            if sort_order == "asc":
+                filtered_problems.sort(
+                    key=lambda p: (
+                        difficulty_index.get(p.difficulty, 4),
+                        p.sub_difficulty_level or 0,
+                    )
+                )
+            else:
+                filtered_problems.sort(
+                    key=lambda p: (
+                        -difficulty_index.get(p.difficulty, 4),
+                        -(p.sub_difficulty_level or 0),
+                    )
+                )
 
         # Pagination
         total_count = len(filtered_problems)
@@ -499,37 +740,49 @@ async def search_problems(
         from src.api.skill_tree_api import _determine_primary_skill_area
         
         # Base query
-        problems_query = db.query(Problem).filter(Problem.sub_difficulty_level.isnot(None))
-        
-        # Text search
-        problems_query = problems_query.filter(Problem.title.contains(query))
-        
+        problems_query = (
+            db.query(Problem)
+            .options(
+                load_only(
+                    Problem.id,
+                    Problem.title,
+                    Problem.difficulty,
+                    Problem.sub_difficulty_level,
+                    Problem.quality_score,
+                    Problem.google_interview_relevance,
+                    Problem.algorithm_tags,
+                )
+            )
+            .filter(Problem.sub_difficulty_level.isnot(None))
+            .filter(Problem.title.ilike(f"%{query}%"))
+        )
+
         # Apply filters
         if difficulties:
             problems_query = problems_query.filter(Problem.difficulty.in_(difficulties))
-        
+
         if min_quality is not None:
             problems_query = problems_query.filter(Problem.quality_score >= min_quality)
-            
+
         if min_relevance is not None:
             problems_query = problems_query.filter(Problem.google_interview_relevance >= min_relevance)
-        
-        all_problems = problems_query.all()
-        
-        # Filter by skill areas (if specified)
-        if skill_areas:
+
+        # If no skill_areas filter, paginate at SQL layer for performance
+        if not skill_areas:
+            total_count = problems_query.count()
+            start_idx = (page - 1) * page_size
+            end_idx = start_idx + page_size
+            page_problems = problems_query.offset(start_idx).limit(page_size).all()
+        else:
+            all_problems = problems_query.all()
             filtered_problems = [
-                p for p in all_problems 
+                p for p in all_problems
                 if p.algorithm_tags and _determine_primary_skill_area(p.algorithm_tags) in skill_areas
             ]
-        else:
-            filtered_problems = all_problems
-        
-        # Pagination
-        total_count = len(filtered_problems)
-        start_idx = (page - 1) * page_size
-        end_idx = start_idx + page_size
-        page_problems = filtered_problems[start_idx:end_idx]
+            total_count = len(filtered_problems)
+            start_idx = (page - 1) * page_size
+            end_idx = start_idx + page_size
+            page_problems = filtered_problems[start_idx:end_idx]
         
         # Convert to summaries
         problem_summaries = [

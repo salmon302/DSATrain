@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import {
   Box,
   Card,
@@ -47,7 +47,7 @@ const InterviewPressureSimulator: React.FC<InterviewPressureSimulatorProps> = ({
   const [lastEventTime, setLastEventTime] = useState(0);
 
   // Pressure level configurations
-  const pressureConfigs = {
+  const pressureConfigs = useMemo(() => ({
     1: {
       name: 'Relaxed',
       color: 'success',
@@ -78,10 +78,10 @@ const InterviewPressureSimulator: React.FC<InterviewPressureSimulatorProps> = ({
       eventFrequency: 60, // Every minute
       description: 'High-stress scenario with constant pressure'
     }
-  };
+  }), []);
 
   // Possible interview interruptions and questions
-  const interviewInterruptions = [
+  const interviewInterruptions = useMemo(() => [
     "Can you explain your approach before writing more code?",
     "What's the time complexity of your current solution?",
     "Have you considered any edge cases?",
@@ -97,15 +97,15 @@ const InterviewPressureSimulator: React.FC<InterviewPressureSimulatorProps> = ({
     "How confident are you in this solution?",
     "What other data structures could you use here?",
     "Can you trace through your algorithm step by step?"
-  ];
+  ], []);
 
-  const timeWarnings = [
+  const timeWarnings = useMemo(() => [
     "You have 30 minutes remaining.",
     "Halfway through the interview time.",
     "15 minutes left - consider wrapping up soon.",
     "5 minutes remaining - final optimizations?",
     "Time's almost up - can you summarize your solution?"
-  ];
+  ], []);
 
   // Generate pressure events based on level and time
   useEffect(() => {
@@ -164,7 +164,7 @@ const InterviewPressureSimulator: React.FC<InterviewPressureSimulatorProps> = ({
         }]);
       }
     }
-  }, [timeElapsed, isActive, pressureLevel, lastEventTime]);
+  }, [timeElapsed, isActive, pressureLevel, lastEventTime, pressureConfigs, interviewInterruptions, timeWarnings]);
 
   const handleInterruptionResponse = () => {
     setShowInterruption(false);
@@ -206,7 +206,7 @@ const InterviewPressureSimulator: React.FC<InterviewPressureSimulatorProps> = ({
             ))}
           </Box>
           
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" color="text.secondary">
             <strong>Current:</strong> {currentConfig.name} - {currentConfig.description}
           </Typography>
           
@@ -272,7 +272,7 @@ const InterviewPressureSimulator: React.FC<InterviewPressureSimulatorProps> = ({
                 "{currentInterruption}"
               </Typography>
             </Paper>
-            <Typography variant="body2" color="textSecondary" sx={{ mt: 2 }}>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
               This is a typical interviewer interruption. Take a moment to address their question, then continue coding.
             </Typography>
           </Box>

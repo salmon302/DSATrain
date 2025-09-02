@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -32,26 +32,20 @@ import {
 } from '@mui/material';
 import {
   Psychology,
-  TrendingUp,
   Star,
   AutoAwesome,
   FilterList,
   Refresh,
-  Lightbulb,
-  School,
   BusinessCenter,
-  Timer,
   ExpandMore,
   PlayArrow,
   Bookmark,
-  Share,
   ThumbUp,
   ThumbDown,
 } from '@mui/icons-material';
 
 import { 
   recommendationsAPI, 
-  problemsAPI, 
   trackingAPI, 
   getCurrentUserId, 
   generateSessionId,
@@ -65,6 +59,7 @@ interface RecommendationWithRating extends Recommendation {
 
 const Recommendations: React.FC = () => {
   const [recommendations, setRecommendations] = useState<RecommendationWithRating[]>([]);
+  const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
   const [similarProblems, setSimilarProblems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [mlTraining, setMlTraining] = useState(false);
@@ -83,7 +78,7 @@ const Recommendations: React.FC = () => {
   const sessionId = generateSessionId();
 
   // Load recommendations
-  const loadRecommendations = async () => {
+  const loadRecommendations = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -109,6 +104,12 @@ const Recommendations: React.FC = () => {
       }));
       
       setRecommendations(recommendationsWithRating);
+      // Best-effort load favorites for the user to reflect bookmark state
+      try {
+        const favRes = await import('../services/api').then(m => m.favoritesAPI.list(userId, false));
+        const ids: string[] = (favRes as any).problem_ids || [];
+        setFavoriteIds(new Set(ids));
+      } catch {}
 
       // Track recommendation view
       await trackingAPI.trackInteraction({
@@ -128,10 +129,29 @@ const Recommendations: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [preferences.difficulty_level, preferences.focus_area, preferences.limit, preferences.personalizedMode, userId, sessionId]);
+  const toggleFavorite = useCallback(async (problemId: string, makeFav?: boolean) => {
+    const currentlyFav = favoriteIds.has(problemId);
+    const next = typeof makeFav === 'boolean' ? makeFav : !currentlyFav;
+    setFavoriteIds(prev => {
+      const copy = new Set(prev);
+      if (next) copy.add(problemId); else copy.delete(problemId);
+      return copy;
+    });
+    try {
+      const api = await import('../services/api');
+      await api.favoritesAPI.toggle({ user_id: userId, problem_id: problemId, favorite: next });
+    } catch {
+      setFavoriteIds(prev => {
+        const copy = new Set(prev);
+        if (next) copy.delete(problemId); else copy.add(problemId);
+        return copy;
+      });
+    }
+  }, [favoriteIds, userId]);
 
   // Train ML models
-  const trainMLModels = async () => {
+  const trainMLModels = useCallback(async () => {
     try {
       setMlTraining(true);
       await recommendationsAPI.trainModels();
@@ -147,10 +167,10 @@ const Recommendations: React.FC = () => {
     } finally {
       setMlTraining(false);
     }
-  };
+  }, [loadRecommendations]);
 
   // Load similar problems for a specific problem
-  const loadSimilarProblems = async (problemId: string) => {
+  const loadSimilarProblems = useCallback(async (problemId: string) => {
     try {
       const response = await recommendationsAPI.getSimilarProblems(problemId, 5);
       setSimilarProblems(response.similar_problems || []);
@@ -158,10 +178,10 @@ const Recommendations: React.FC = () => {
       console.error('Error loading similar problems:', error);
       setSimilarProblems([]);
     }
-  };
+  }, []);
 
   // Handle recommendation rating
-  const handleRecommendationRating = async (
+  const handleRecommendationRating = useCallback(async (
     recommendation: RecommendationWithRating, 
     rating: 'helpful' | 'not-helpful'
   ) => {
@@ -191,10 +211,10 @@ const Recommendations: React.FC = () => {
     } catch (error) {
       console.error('Error rating recommendation:', error);
     }
-  };
+  }, [sessionId, userId]);
 
   // Handle problem selection
-  const handleProblemSelect = async (problem: any) => {
+  const handleProblemSelect = useCallback(async (problem: any) => {
     setSelectedProblem(problem);
     await loadSimilarProblems(problem.id);
     
@@ -206,7 +226,7 @@ const Recommendations: React.FC = () => {
       session_id: sessionId,
       metadata: JSON.stringify({ source: 'recommendations' })
     });
-  };
+  }, [loadSimilarProblems, sessionId, userId]);
 
   // Get difficulty color
   const getDifficultyColor = (difficulty: string) => {
@@ -226,8 +246,8 @@ const Recommendations: React.FC = () => {
   };
 
   useEffect(() => {
-    loadRecommendations();
-  }, []);
+    void loadRecommendations();
+  }, [loadRecommendations]);
 
   return (
     <Box>
@@ -237,7 +257,7 @@ const Recommendations: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             🤖 ML-Powered Recommendations
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
+          <Typography variant="subtitle1" color="text.secondary">
             Personalized problem suggestions based on your learning patterns and goals
           </Typography>
         </Box>
@@ -497,7 +517,7 @@ const Recommendations: React.FC = () => {
                 {/* Recommendation Reasoning */}
                 <Typography 
                   variant="body2" 
-                  color="textSecondary" 
+                  color="text.secondary" 
                   sx={{ 
                     fontStyle: 'italic',
                     mb: 2,
@@ -508,7 +528,7 @@ const Recommendations: React.FC = () => {
                     WebkitBoxOrient: 'vertical'
                   }}
                 >
-                  💡 {recommendation.recommendation_reasoning || 'High-quality problem recommended for your learning path.'}
+                  💡 {recommendation.recommendation_reasoning || recommendation.recommendation_reason || 'High-quality problem recommended for your learning path.'}
                 </Typography>
 
                 <Divider sx={{ my: 2 }} />
@@ -534,20 +554,15 @@ const Recommendations: React.FC = () => {
                         <PlayArrow />
                       </IconButton>
                     </Tooltip>
-                    <Tooltip title="Bookmark">
+                    <Tooltip title={favoriteIds.has(recommendation.id) ? 'Unfavorite' : 'Bookmark'}>
                       <IconButton 
                         size="small"
                         onClick={(e) => {
                           e.stopPropagation();
-                          trackingAPI.trackInteraction({
-                            user_id: userId,
-                            problem_id: recommendation.id,
-                            action: 'bookmarked',
-                            session_id: sessionId
-                          });
+                          void toggleFavorite(recommendation.id);
                         }}
                       >
-                        <Bookmark />
+                        <Bookmark color={favoriteIds.has(recommendation.id) ? 'primary' : 'inherit'} />
                       </IconButton>
                     </Tooltip>
                   </Box>
@@ -591,10 +606,10 @@ const Recommendations: React.FC = () => {
         <Card>
           <CardContent sx={{ textAlign: 'center', py: 6 }}>
             <Psychology sx={{ fontSize: 64, color: 'text.secondary', mb: 2 }} />
-            <Typography variant="h6" color="textSecondary" gutterBottom>
+            <Typography variant="h6" color="text.secondary" gutterBottom>
               No recommendations available
             </Typography>
-            <Typography variant="body2" color="textSecondary" mb={3}>
+            <Typography variant="body2" color="text.secondary" mb={3}>
               {preferences.personalizedMode 
                 ? 'Start solving problems to get personalized recommendations.'
                 : 'Try enabling personalized mode or adjusting your preferences.'

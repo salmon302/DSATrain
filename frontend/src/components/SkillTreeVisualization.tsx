@@ -9,7 +9,7 @@ import {
   LinearProgress,
   Card,
   CardContent,
-  CardActions,
+  // CardActions,
   Button,
   Tooltip,
   IconButton,
@@ -24,8 +24,14 @@ import {
   List,
   ListItem,
   ListItemText,
-  Divider
+  Divider,
+  TextField,
+  MenuItem,
+  Snackbar,
+  Alert
 } from '@mui/material';
+import Skeleton from '@mui/material/Skeleton';
+import { useTheme } from '@mui/material/styles';
 import {
   ExpandMore as ExpandMoreIcon,
   ExpandLess as ExpandLessIcon,
@@ -34,7 +40,6 @@ import {
   Psychology as PsychologyIcon,
   Group as GroupIcon,
   Assessment as AssessmentIcon,
-  Settings as SettingsIcon
 } from '@mui/icons-material';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
 import { favoritesAPI, getCurrentUserId } from '../services/api';
@@ -133,6 +138,7 @@ interface UserProgress {
 const SkillTreeVisualization: React.FC = () => {
   const navigate = useNavigate();
   const [skillTreeData, setSkillTreeData] = useState<SkillTreeData | null>(null);
+  const theme = useTheme();
   const [userProgress, setUserProgress] = useState<UserProgress | null>(null);
   const [expandedColumns, setExpandedColumns] = useState<Record<string, boolean>>({});
   const [selectedProblem, setSelectedProblem] = useState<Problem | null>(null);
@@ -143,6 +149,9 @@ const SkillTreeVisualization: React.FC = () => {
   const [filterDifficulty, setFilterDifficulty] = useState<'' | 'Easy' | 'Medium' | 'Hard'>('');
   const [sortBy, setSortBy] = useState<'quality' | 'relevance' | 'difficulty' | 'title'>('quality');
   const [visibleCounts, setVisibleCounts] = useState<Record<string, number>>({});
+  const [sortOrder, setSortOrder] = useState<'asc'|'desc'>('desc');
+  const [titleMatch, setTitleMatch] = useState<''|'prefix'|'exact'>('');
+  const [quickFilters, setQuickFilters] = useState<Record<'Easy'|'Medium'|'Hard', boolean>>({ Easy: false, Medium: false, Hard: false });
   // View mode toggle: Skill Areas vs Tags
   const [viewMode, setViewMode] = useState<'areas'|'tags'>('areas');
   const [tagsOverview, setTagsOverview] = useState<TagsOverview | null>(null);
@@ -158,6 +167,7 @@ const SkillTreeVisualization: React.FC = () => {
   const [expandedPageSize, setExpandedPageSize] = useState<number>(50);
   const [expandedSortBy, setExpandedSortBy] = useState<'quality'|'relevance'|'difficulty'|'title'>('quality');
   const [expandedDifficulty, setExpandedDifficulty] = useState<''|'Easy'|'Medium'|'Hard'>('');
+  const [expandedSortOrder, setExpandedSortOrder] = useState<'asc'|'desc'>('desc');
   const [loadingExpanded, setLoadingExpanded] = useState<boolean>(false);
   const [expandedQuery, setExpandedQuery] = useState<string>('');
   const [expandedQuickFilters, setExpandedQuickFilters] = useState<Record<string, boolean>>({
@@ -169,45 +179,23 @@ const SkillTreeVisualization: React.FC = () => {
   const [expandedTitleMatch, setExpandedTitleMatch] = useState<''|'prefix'|'exact'>('');
   // Favorites
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
-  const [favoritesOnly, setFavoritesOnly] = useState<boolean>(false);
+  // Default to true, can be overridden by persisted value in localStorage
+  const [favoritesOnly, setFavoritesOnly] = useState<boolean>(true);
+  // Error toast state
+  const [errorOpen, setErrorOpen] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>('');
 
   // API Base URL (feature-flag to consolidate to main API)
-  const useMainApi = process.env.REACT_APP_FEATURE_SKILL_TREE_MAIN_API === 'on';
-  const API_BASE = useMainApi
-    ? (process.env.REACT_APP_API_URL || 'http://localhost:8000')
-    : (process.env.REACT_APP_SKILL_TREE_URL || 'http://localhost:8002');
-  const API_V2_BASE = useMainApi
-    ? (process.env.REACT_APP_API_URL || 'http://localhost:8000') + '/skill-tree-proxy'
-    : (process.env.REACT_APP_SKILL_TREE_URL || 'http://localhost:8002') + '/skill-tree-v2';
+  // Default to main API for both v1 and v2; allow override to external service only if explicitly set
+  const mainApi = (process.env.REACT_APP_API_URL || 'http://localhost:8000');
+  const externalSkillTree = process.env.REACT_APP_SKILL_TREE_URL || '';
+  const useExternal = !!externalSkillTree && process.env.REACT_APP_FEATURE_SKILL_TREE_MAIN_API === 'off';
+  const useMainApi = !useExternal;
+  const API_BASE = useExternal ? externalSkillTree : mainApi;
+  const API_V2_BASE = useExternal ? `${externalSkillTree}/skill-tree-v2` : `${mainApi}/skill-tree-proxy`;
   const USER_ID = getCurrentUserId();
 
-  useEffect(() => {
-    loadSkillTreeData();
-    loadUserProgress();
-  void loadFavorites();
-    // initialize favoritesOnly from localStorage
-    try {
-      const stored = localStorage.getItem('skillTree:favoritesOnly');
-      if (stored === 'true') setFavoritesOnly(true);
-    } catch {}
-  }, []);
-
-  // persist favoritesOnly to localStorage
-  useEffect(() => {
-    try {
-      if (favoritesOnly) localStorage.setItem('skillTree:favoritesOnly', 'true');
-      else localStorage.removeItem('skillTree:favoritesOnly');
-    } catch {}
-  }, [favoritesOnly]);
-
-  useEffect(() => {
-    if (viewMode === 'tags' && !tagsOverview && !loadingTags) {
-      loadTagsOverview();
-    }
-    // eslint-disable-next-line
-  }, [viewMode]);
-
-  const loadSkillTreeData = async (): Promise<void> => {
+  const loadSkillTreeData = useCallback(async (): Promise<void> => {
     try {
       const response = await fetch(`${API_BASE}/skill-tree/overview?user_id=${USER_ID}`);
       const data: SkillTreeData = await response.json();
@@ -217,9 +205,9 @@ const SkillTreeVisualization: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_BASE, USER_ID]);
 
-  const loadUserProgress = async (): Promise<void> => {
+  const loadUserProgress = useCallback(async (): Promise<void> => {
     try {
       const response = await fetch(`${API_BASE}/skill-tree/user/${USER_ID}/progress`);
       const data: UserProgress = await response.json();
@@ -227,22 +215,27 @@ const SkillTreeVisualization: React.FC = () => {
     } catch (error) {
       console.error('Error loading user progress:', error);
     }
-  };
+  }, [API_BASE, USER_ID]);
 
-  const loadTagsOverview = async (): Promise<void> => {
+  const loadTagsOverview = useCallback(async (): Promise<void> => {
     try {
       setLoadingTags(true);
       const response = await fetch(`${API_V2_BASE}/tags/overview?top_problems_per_tag=5`);
+      if (!response.ok) {
+        throw new Error(`Skill Tree v2 Tags Overview error ${response.status}`);
+      }
       const data: TagsOverview = await response.json();
       setTagsOverview(data);
     } catch (error) {
       console.error('Error loading tags overview:', error);
+      setErrorMsg('Skill Tree tags overview failed. If your DB is empty, seed data or adjust filters.');
+      setErrorOpen(true);
     } finally {
       setLoadingTags(false);
     }
-  };
+  }, [API_V2_BASE]);
 
-  const loadSimilarProblems = async (problemId: string): Promise<void> => {
+  const loadSimilarProblems = useCallback(async (problemId: string): Promise<void> => {
     try {
       const response = await fetch(`${API_BASE}/skill-tree/similar/${problemId}`);
       const data: SimilarProblem[] = await response.json();
@@ -250,9 +243,9 @@ const SkillTreeVisualization: React.FC = () => {
     } catch (error) {
       console.error('Error loading similar problems:', error);
     }
-  };
+  }, [API_BASE]);
 
-  const loadFavorites = async (): Promise<void> => {
+  const loadFavorites = useCallback(async (): Promise<void> => {
     try {
       const res = await favoritesAPI.list(USER_ID, false);
       const ids: string[] = res.problem_ids || [];
@@ -261,9 +254,48 @@ const SkillTreeVisualization: React.FC = () => {
       // non-blocking
       console.warn('Failed to load favorites', e);
     }
-  };
+  }, [USER_ID]);
 
-  const toggleFavorite = async (problemId: string, makeFav?: boolean): Promise<void> => {
+  useEffect(() => {
+    void loadSkillTreeData();
+    void loadUserProgress();
+    void loadFavorites();
+    // initialize favoritesOnly from localStorage
+    try {
+      const stored = localStorage.getItem('skillTree:favoritesOnly');
+      if (stored === 'true') setFavoritesOnly(true);
+      const vMode = localStorage.getItem('skillTree:viewMode');
+      if (vMode === 'areas' || vMode === 'tags') setViewMode(vMode as any);
+      const sBy = localStorage.getItem('skillTree:sortBy') as any; if (sBy) setSortBy(sBy);
+      const sOrd = localStorage.getItem('skillTree:sortOrder') as any; if (sOrd === 'asc' || sOrd === 'desc') setSortOrder(sOrd);
+      const fDiff = localStorage.getItem('skillTree:filterDifficulty') as any; if (fDiff === 'Easy' || fDiff === 'Medium' || fDiff === 'Hard' || fDiff === '') setFilterDifficulty(fDiff);
+      const tMatch = localStorage.getItem('skillTree:titleMatch') as any; if (tMatch === 'prefix' || tMatch === 'exact' || tMatch === '') setTitleMatch(tMatch);
+    } catch {}
+  }, [loadSkillTreeData, loadUserProgress, loadFavorites]);
+
+  // persist favoritesOnly to localStorage
+  useEffect(() => {
+    try {
+      if (favoritesOnly) localStorage.setItem('skillTree:favoritesOnly', 'true');
+      else localStorage.removeItem('skillTree:favoritesOnly');
+    } catch {}
+  }, [favoritesOnly]);
+
+  // persist other view preferences
+  useEffect(() => { try { localStorage.setItem('skillTree:viewMode', viewMode); } catch {} }, [viewMode]);
+  useEffect(() => { try { localStorage.setItem('skillTree:sortBy', sortBy); } catch {} }, [sortBy]);
+  useEffect(() => { try { localStorage.setItem('skillTree:sortOrder', sortOrder); } catch {} }, [sortOrder]);
+  useEffect(() => { try { localStorage.setItem('skillTree:filterDifficulty', filterDifficulty); } catch {} }, [filterDifficulty]);
+  useEffect(() => { try { localStorage.setItem('skillTree:titleMatch', titleMatch); } catch {} }, [titleMatch]);
+
+  useEffect(() => {
+    if (viewMode === 'tags' && !tagsOverview && !loadingTags) {
+      void loadTagsOverview();
+    }
+  }, [viewMode, tagsOverview, loadingTags, loadTagsOverview]);
+
+
+  const toggleFavorite = useCallback(async (problemId: string, makeFav?: boolean): Promise<void> => {
     const currentlyFav = favoriteIds.has(problemId);
     const next = typeof makeFav === 'boolean' ? makeFav : !currentlyFav;
     // optimistic update
@@ -282,7 +314,7 @@ const SkillTreeVisualization: React.FC = () => {
         return copy;
       });
     }
-  };
+  }, [USER_ID, favoriteIds]);
 
   const updateConfidence = async (problemId: string, confidenceLevel: number): Promise<void> => {
     try {
@@ -314,16 +346,16 @@ const SkillTreeVisualization: React.FC = () => {
     loadSimilarProblems(problem.id);
   };
 
-  const goPractice = (problemId: string) => {
+  const goPractice = useCallback((problemId: string) => {
     navigate('/practice', { state: { problemId } });
-  };
+  }, [navigate]);
 
   const getDifficultyColor = (difficulty: string): string => {
     switch (difficulty) {
-      case 'Easy': return '#4caf50';
-      case 'Medium': return '#ff9800';
-      case 'Hard': return '#f44336';
-      default: return '#757575';
+      case 'Easy': return theme.palette.success.main;
+      case 'Medium': return theme.palette.warning.main;
+      case 'Hard': return theme.palette.error.main;
+      default: return theme.palette.text.secondary;
     }
   };
 
@@ -336,6 +368,30 @@ const SkillTreeVisualization: React.FC = () => {
       }
     }
     return 0;
+  };
+
+  const findNextUnsolvedInArea = (column: SkillTreeColumn): Problem | null => {
+    const allProblems: Problem[] = ([] as Problem[])
+      .concat(column.difficulty_levels.Easy)
+      .concat(column.difficulty_levels.Medium)
+      .concat(column.difficulty_levels.Hard);
+    const filtered = favoritesOnly ? allProblems.filter(p => favoriteIds.has(p.id)) : allProblems;
+    const sorted = [...filtered].sort((a, b) => {
+      switch (sortBy) {
+        case 'relevance':
+          return (sortOrder === 'desc' ? 1 : -1) * ((b.google_interview_relevance || 0) - (a.google_interview_relevance || 0));
+        case 'difficulty':
+          return (sortOrder === 'desc' ? 1 : -1) * ((b.sub_difficulty_level || 0) - (a.sub_difficulty_level || 0));
+        case 'title':
+          return sortOrder === 'desc' ? b.title.localeCompare(a.title) : a.title.localeCompare(b.title);
+        default:
+          return (sortOrder === 'desc' ? 1 : -1) * ((b.quality_score || 0) - (a.quality_score || 0));
+      }
+    });
+    for (const p of sorted) {
+      if (getConfidenceLevel(p.id) <= 0) return p;
+    }
+    return null;
   };
 
   // Expanded window logic for categories/tags
@@ -361,7 +417,7 @@ const SkillTreeVisualization: React.FC = () => {
     if (!type || !key) return;
     try {
       setLoadingExpanded(true);
-  const params = new URLSearchParams({ page: String(page), page_size: String(pageSize), sort_by: sort });
+      const params = new URLSearchParams({ page: String(page), page_size: String(pageSize), sort_by: sort, sort_order: expandedSortOrder });
       if (difficulty) params.append('difficulty', difficulty);
   if (expandedQuery.trim()) params.append('query', expandedQuery.trim());
       if (expandedPlatform) params.append('platform', expandedPlatform);
@@ -375,6 +431,9 @@ const SkillTreeVisualization: React.FC = () => {
         ? `${API_V2_BASE}/skill-area/${encodeURIComponent(key)}/problems?${params.toString()}`
         : `${API_V2_BASE}/tag/${encodeURIComponent(key)}/problems?${params.toString()}`;
       const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error(`Skill Tree v2 list error ${res.status}`);
+      }
       const data = await res.json();
       setExpandedProblems(data.problems || []);
       setExpandedTotal(data.total_count || 0);
@@ -382,6 +441,8 @@ const SkillTreeVisualization: React.FC = () => {
       setExpandedPageSize(data.page_size || pageSize);
     } catch (e) {
       console.error('Error loading expanded list:', e);
+      setErrorMsg('Skill Tree list failed to load. If the DB is empty, seed it or relax filters.');
+      setErrorOpen(true);
     } finally {
       setLoadingExpanded(false);
     }
@@ -429,12 +490,12 @@ const SkillTreeVisualization: React.FC = () => {
                   </Tooltip>
                 )}
                 <Tooltip title={isFav ? 'Unfavorite' : 'Favorite'}>
-                  <IconButton size="small" onClick={() => void toggleFavorite(p.id)}>
+                  <IconButton size="small" aria-label={`${isFav ? 'Remove from favorites' : 'Add to favorites'}: ${p.title}`} onClick={() => void toggleFavorite(p.id)}>
                     {isFav ? <Bookmark sx={{ fontSize: 18 }} color="primary" /> : <BookmarkBorder sx={{ fontSize: 18 }} />}
                   </IconButton>
                 </Tooltip>
                 <Tooltip title="Practice in editor">
-                  <IconButton size="small" onClick={() => goPractice(p.id)}>
+                  <IconButton size="small" aria-label={`Practice: ${p.title}`} onClick={() => goPractice(p.id)}>
                     <PlayArrow sx={{ fontSize: 18 }} />
                   </IconButton>
                 </Tooltip>
@@ -444,7 +505,7 @@ const SkillTreeVisualization: React.FC = () => {
         </Card>
       </div>
     );
-  }, [shownExpandedProblems, favoriteIds]);
+  }, [shownExpandedProblems, favoriteIds, toggleFavorite, goPractice]);
 
   const renderSkillColumn = (column: SkillTreeColumn, index: number): JSX.Element => {
     const isExpanded = expandedColumns[column.skill_area];
@@ -480,12 +541,16 @@ const SkillTreeVisualization: React.FC = () => {
                 {column.total_problems} problems
               </Typography>
             </Box>
-            <IconButton 
-              size="small" 
-              onClick={() => toggleColumnExpansion(column.skill_area)}
-            >
-              {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </IconButton>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+              <Button size="small" onClick={() => { const next = findNextUnsolvedInArea(column); if (next) goPractice(next.id); }} startIcon={<PlayArrow sx={{ fontSize: 16 }} />}>Next</Button>
+              <IconButton 
+                size="small" 
+                aria-label={isExpanded ? `Collapse ${column.skill_area}` : `Expand ${column.skill_area}`}
+                onClick={() => toggleColumnExpansion(column.skill_area)}
+              >
+                {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              </IconButton>
+            </Box>
           </Box>
 
           {/* Mastery Progress */}
@@ -536,26 +601,32 @@ const SkillTreeVisualization: React.FC = () => {
               {(['Easy', 'Medium', 'Hard'] as const).map(difficulty => {
                 if (filterDifficulty && filterDifficulty !== difficulty) return null;
                 let problems = column.difficulty_levels[difficulty];
-                // Search filter
+                // Search filter with title match mode
                 if (searchQuery.trim()) {
                   const q = searchQuery.toLowerCase();
-                  problems = problems.filter(p => p.title.toLowerCase().includes(q) || p.algorithm_tags.join(',').toLowerCase().includes(q));
+                  const titlePass = (t: string) => {
+                    const tl = (t || '').toLowerCase();
+                    if (titleMatch === 'exact') return tl === q;
+                    if (titleMatch === 'prefix') return tl.startsWith(q);
+                    return tl.includes(q);
+                  };
+                  problems = problems.filter(p => titlePass(p.title) || p.algorithm_tags.join(',').toLowerCase().includes(q));
                 }
                 // Favorites filter (global)
                 if (favoritesOnly) {
                   problems = problems.filter(p => favoriteIds.has(p.id));
                 }
-                // Sorting
+                // Sorting with order
                 problems = [...problems].sort((a, b) => {
                   switch (sortBy) {
                     case 'relevance':
-                      return (b.google_interview_relevance || 0) - (a.google_interview_relevance || 0);
+                      return (sortOrder === 'desc' ? 1 : -1) * ((b.google_interview_relevance || 0) - (a.google_interview_relevance || 0));
                     case 'difficulty':
-                      return (b.sub_difficulty_level || 0) - (a.sub_difficulty_level || 0);
+                      return (sortOrder === 'desc' ? 1 : -1) * ((b.sub_difficulty_level || 0) - (a.sub_difficulty_level || 0));
                     case 'title':
-                      return a.title.localeCompare(b.title);
+                      return sortOrder === 'desc' ? b.title.localeCompare(a.title) : a.title.localeCompare(b.title);
                     default:
-                      return (b.quality_score || 0) - (a.quality_score || 0);
+                      return (sortOrder === 'desc' ? 1 : -1) * ((b.quality_score || 0) - (a.quality_score || 0));
                   }
                 });
                 const key = `${column.skill_area}:${difficulty}`;
@@ -624,12 +695,12 @@ const SkillTreeVisualization: React.FC = () => {
                                   </Badge>
                                 )}
                                 <Tooltip title={favoriteIds.has(problem.id) ? 'Unfavorite' : 'Favorite'}>
-                                  <IconButton size="small" onClick={(e) => { e.stopPropagation(); void toggleFavorite(problem.id); }}>
+                                  <IconButton size="small" aria-label={`${favoriteIds.has(problem.id) ? 'Remove from favorites' : 'Add to favorites'}: ${problem.title}`} onClick={(e) => { e.stopPropagation(); void toggleFavorite(problem.id); }}>
                                     {favoriteIds.has(problem.id) ? <Bookmark sx={{ fontSize: 18 }} color="primary" /> : <BookmarkBorder sx={{ fontSize: 18 }} />}
                                   </IconButton>
                                 </Tooltip>
                                 <Tooltip title="Practice in editor">
-                                  <IconButton size="small" onClick={(e) => { e.stopPropagation(); goPractice(problem.id); }}>
+                                  <IconButton size="small" aria-label={`Practice: ${problem.title}`} onClick={(e) => { e.stopPropagation(); goPractice(problem.id); }}>
                                     <PlayArrow sx={{ fontSize: 18 }} />
                                   </IconButton>
                                 </Tooltip>
@@ -674,8 +745,19 @@ const SkillTreeVisualization: React.FC = () => {
 
   if (loading) {
     return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px' }}>
-        <LinearProgress sx={{ width: '200px' }} />
+      <Box sx={{ p: 3 }}>
+        <Grid container spacing={3}>
+          {Array.from({ length: 8 }).map((_, i) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+              <Paper elevation={0} variant="outlined" sx={{ p: 2 }}>
+                <Skeleton variant="rectangular" height={24} sx={{ mb: 2 }} />
+                <Skeleton variant="rectangular" height={12} sx={{ mb: 1 }} />
+                <Skeleton variant="rectangular" height={12} sx={{ mb: 1 }} />
+                <Skeleton variant="rectangular" height={120} />
+              </Paper>
+            </Grid>
+          ))}
+        </Grid>
       </Box>
     );
   }
@@ -693,6 +775,7 @@ const SkillTreeVisualization: React.FC = () => {
         
         {/* Controls */}
         <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
+          <Chip size="small" variant="outlined" label={`Source: ${useExternal ? 'External' : 'Main API'}`} />
           <FormControlLabel
             control={
               <Switch 
@@ -711,30 +794,51 @@ const SkillTreeVisualization: React.FC = () => {
             }
             label="Favorites only"
           />
-          <select value={viewMode} onChange={(e) => setViewMode(e.target.value as any)} style={{ padding: '8px', border: '1px solid #ddd', borderRadius: 4 }}>
-            <option value="areas">View: Skill Areas</option>
-            <option value="tags">View: Tags</option>
-          </select>
+          <TextField select size="small" label="View" value={viewMode} onChange={(e) => setViewMode(e.target.value as any)}>
+            <MenuItem value="areas">Skill Areas</MenuItem>
+            <MenuItem value="tags">Tags</MenuItem>
+          </TextField>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <input
-              placeholder="Search problems or tags..."
+            <TextField
+              size="small"
+              label="Search problems or tags"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              style={{ padding: '8px 10px', border: '1px solid #ddd', borderRadius: 4, minWidth: 240 }}
+              sx={{ minWidth: 260 }}
             />
-            <select value={filterDifficulty} onChange={(e) => setFilterDifficulty(e.target.value as any)} style={{ padding: '8px', border: '1px solid #ddd', borderRadius: 4 }}>
-              <option value="">All</option>
-              <option value="Easy">Easy</option>
-              <option value="Medium">Medium</option>
-              <option value="Hard">Hard</option>
-            </select>
-            <select value={sortBy} onChange={(e) => setSortBy(e.target.value as any)} style={{ padding: '8px', border: '1px solid #ddd', borderRadius: 4 }}>
-              <option value="quality">Quality</option>
-              <option value="relevance">Relevance</option>
-              <option value="difficulty">Difficulty</option>
-              <option value="title">Title</option>
-            </select>
+            <TextField select size="small" label="Difficulty" value={filterDifficulty} onChange={(e) => setFilterDifficulty(e.target.value as any)}>
+              <MenuItem value="">All</MenuItem>
+              <MenuItem value="Easy">Easy</MenuItem>
+              <MenuItem value="Medium">Medium</MenuItem>
+              <MenuItem value="Hard">Hard</MenuItem>
+            </TextField>
+            <TextField select size="small" label="Sort by" value={sortBy} onChange={(e) => setSortBy(e.target.value as any)}>
+              <MenuItem value="quality">Quality</MenuItem>
+              <MenuItem value="relevance">Relevance</MenuItem>
+              <MenuItem value="difficulty">Difficulty</MenuItem>
+              <MenuItem value="title">Title</MenuItem>
+            </TextField>
+            <TextField select size="small" label="Order" value={sortOrder} onChange={(e) => setSortOrder(e.target.value as any)}>
+              <MenuItem value="desc">Desc</MenuItem>
+              <MenuItem value="asc">Asc</MenuItem>
+            </TextField>
+            <TextField select size="small" label="Title match" value={titleMatch} onChange={(e) => setTitleMatch(e.target.value as any)}>
+              <MenuItem value="">Contains</MenuItem>
+              <MenuItem value="prefix">Starts With</MenuItem>
+              <MenuItem value="exact">Exact</MenuItem>
+            </TextField>
           </Box>
+          {/* Quick difficulty chips */}
+          {(['Easy','Medium','Hard'] as const).map(d => (
+            <Chip
+              key={`main-chip-${d}`}
+              label={d}
+              size="small"
+              onClick={() => setQuickFilters(prev => { const next = { ...prev, [d]: !prev[d] } as any; const active = (['Easy','Medium','Hard'] as const).filter(x => next[x]); setFilterDifficulty(active.length === 1 ? active[0] as any : ''); return next; })}
+              sx={{ bgcolor: quickFilters[d] ? getDifficultyColor(d) : 'transparent', color: quickFilters[d] ? 'white' : 'inherit' }}
+              variant={quickFilters[d] ? 'filled' : 'outlined'}
+            />
+          ))}
           <Chip 
             icon={<AssessmentIcon />}
             label={`${skillTreeData?.total_problems || 0} Total Problems`}
@@ -956,6 +1060,10 @@ const SkillTreeVisualization: React.FC = () => {
               <option value="difficulty">Difficulty</option>
               <option value="title">Title</option>
             </select>
+            <select value={expandedSortOrder} onChange={async (e) => { const v = e.target.value as any; setExpandedSortOrder(v); await loadExpandedPage(1); }} style={{ padding: '6px', border: '1px solid #ddd', borderRadius: 4 }}>
+              <option value="desc">Desc</option>
+              <option value="asc">Asc</option>
+            </select>
             <select value={expandedPlatform} onChange={async (e) => { const v = e.target.value as any; setExpandedPlatform(v); await loadExpandedPage(1); }} style={{ padding: '6px', border: '1px solid #ddd', borderRadius: 4 }}>
               <option value="">All Platforms</option>
               <option value="leetcode">LeetCode</option>
@@ -994,6 +1102,12 @@ const SkillTreeVisualization: React.FC = () => {
           )}
         </DialogContent>
       </Dialog>
+      {/* Error Snackbar */}
+      <Snackbar open={errorOpen} autoHideDuration={6000} onClose={() => setErrorOpen(false)} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+        <Alert severity="error" onClose={() => setErrorOpen(false)} sx={{ width: '100%' }}>
+          {errorMsg}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

@@ -51,11 +51,14 @@ const Dashboard: React.FC = () => {
           })
         ]);
 
-        setStats(statsData);
-        setInterviewReadiness(interviewData);
-        setAlgorithmRelevance(algorithmData);
-        setRecentProblems(problemsData.problems || []);
-        setRecommendations(recData.recommendations || []);
+  // Set core data with safe fallbacks to avoid runtime errors on unexpected shapes
+  setStats(statsData);
+  setInterviewReadiness(interviewData);
+  setAlgorithmRelevance(algorithmData);
+  const safeProblems = (problemsData && Array.isArray(problemsData.problems)) ? problemsData.problems : [];
+  setRecentProblems(safeProblems);
+  const safeRecs = (recData && Array.isArray(recData.recommendations)) ? recData.recommendations : [];
+  setRecommendations(safeRecs);
 
         setError(null);
       } catch (err: any) {
@@ -85,8 +88,8 @@ const Dashboard: React.FC = () => {
       <Typography variant="h4" gutterBottom>
         Welcome to DSA Training Platform
       </Typography>
-      <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-        Phase 4 Week 2 - ML-Powered Recommendations
+  <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+    Phase 4 Week 2 - ML-Powered Recommendations
       </Typography>
 
       {/* Quick Actions for faster navigation */}
@@ -128,7 +131,7 @@ const Dashboard: React.FC = () => {
                       <Typography variant="h5">
                         {stats.total_problems || 0}
                       </Typography>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Total Problems
                       </Typography>
                     </Box>
@@ -139,7 +142,7 @@ const Dashboard: React.FC = () => {
                       <Typography variant="h5">
                         {stats.total_solutions || 0}
                       </Typography>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Solutions
                       </Typography>
                     </Box>
@@ -150,7 +153,7 @@ const Dashboard: React.FC = () => {
                       <Typography variant="h5">
                         {stats.average_quality?.toFixed(1) || 'N/A'}
                       </Typography>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Avg Quality
                       </Typography>
                     </Box>
@@ -161,7 +164,7 @@ const Dashboard: React.FC = () => {
                       <Typography variant="h5">
                         {stats.google_relevance?.toFixed(1) || 'N/A'}
                       </Typography>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="text.secondary">
                         Google Relevance
                       </Typography>
                     </Box>
@@ -224,7 +227,7 @@ const Dashboard: React.FC = () => {
                     <Typography variant="h4" color="primary" fontWeight="bold">
                       {interviewReadiness.overview?.readiness_score || 0}%
                     </Typography>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="text.secondary">
                       Overall Readiness
                     </Typography>
                   </Box>
@@ -263,7 +266,7 @@ const Dashboard: React.FC = () => {
                   )}
                 </Box>
               ) : (
-                <Typography color="textSecondary">Loading interview readiness data...</Typography>
+                <Typography color="text.secondary">Loading interview readiness data...</Typography>
               )}
               <Button variant="text" onClick={() => navigate('/analytics')} fullWidth sx={{ mt: 2 }}>
                 View Detailed Analysis
@@ -286,24 +289,24 @@ const Dashboard: React.FC = () => {
                       <Typography variant="h6" color="success.main" fontWeight="bold">
                         {algorithmRelevance.summary?.high_priority_tags || 0}
                       </Typography>
-                      <Typography variant="caption" color="textSecondary">
-                        High Priority
+                      <Typography variant="caption" color="text.secondary">
+                            High Priority
                       </Typography>
                     </Box>
                     <Box textAlign="center">
                       <Typography variant="h6" color="warning.main" fontWeight="bold">
                         {algorithmRelevance.summary?.medium_priority_tags || 0}
                       </Typography>
-                      <Typography variant="caption" color="textSecondary">
-                        Medium Priority
+                      <Typography variant="caption" color="text.secondary">
+                            Medium Priority
                       </Typography>
                     </Box>
                     <Box textAlign="center">
                       <Typography variant="h6" color="info.main" fontWeight="bold">
                         {algorithmRelevance.summary?.total_unique_tags || 0}
                       </Typography>
-                      <Typography variant="caption" color="textSecondary">
-                        Total Tags
+                      <Typography variant="caption" color="text.secondary">
+                            Total Tags
                       </Typography>
                     </Box>
                   </Box>
@@ -324,7 +327,7 @@ const Dashboard: React.FC = () => {
                               size="small"
                               color={alg.interview_priority === 'High' ? 'success' : alg.interview_priority === 'Medium' ? 'warning' : 'default'}
                             />
-                            <Typography variant="caption" color="textSecondary">
+                            <Typography variant="caption" color="text.secondary">
                               {alg.problem_count} problems
                             </Typography>
                           </Box>
@@ -334,7 +337,7 @@ const Dashboard: React.FC = () => {
                   )}
                 </Box>
               ) : (
-                <Typography color="textSecondary">Loading algorithm relevance data...</Typography>
+                <Typography color="text.secondary">Loading algorithm relevance data...</Typography>
               )}
               <Button variant="text" onClick={() => navigate('/problems')} fullWidth sx={{ mt: 2 }}>
                 Browse by Algorithm
@@ -364,8 +367,8 @@ const Dashboard: React.FC = () => {
                         variant="outlined" 
                       />
                     </Box>
-                    <Typography variant="body2" color="textSecondary">
-                      {rec.recommendation_reasoning || 'No reasoning available'}
+                    <Typography variant="body2" color="text.secondary">
+                      {rec.recommendation_reasoning || rec.recommendation_reason || 'No reasoning available'}
                     </Typography>
                   </Box>
                 ))
@@ -399,7 +402,7 @@ const Dashboard: React.FC = () => {
                         <Chip key={i} label={tag} size="small" variant="outlined" />
                       ))}
                     </Box>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="text.secondary">
                       Quality: {problem.quality_score?.toFixed(1) || 'N/A'} | 
                       Google Relevance: {problem.google_interview_relevance?.toFixed(1) || 'N/A'}
                     </Typography>
@@ -428,7 +431,7 @@ const Dashboard: React.FC = () => {
                   <Typography variant="body1">
                     User ID: <code>{userId}</code>
                   </Typography>
-                  <Typography variant="body2" color="textSecondary">
+                  <Typography variant="body2" color="text.secondary">
                     Track your progress and get personalized recommendations based on your activity.
                   </Typography>
                 </Box>

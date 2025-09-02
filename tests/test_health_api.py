@@ -13,3 +13,9 @@ def test_health_endpoint():
         assert key in data
     assert data["status"] in ("ok", "degraded")
     assert isinstance(data["db_ok"], bool)
+    # Cache section
+    assert "cache" in data
+    cache = data["cache"]
+    assert "serialization" in cache
+    assert cache["serialization"] in ("pickle", "json")
+    assert isinstance(cache.get("memory_cache_size", 0), int)

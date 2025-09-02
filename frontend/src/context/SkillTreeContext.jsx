@@ -41,6 +41,7 @@ const initialState = {
   filters: {
     difficulty: '',
     sortBy: 'quality',
+    sortOrder: 'desc',
     searchQuery: ''
   },
   
@@ -199,7 +200,10 @@ export const SkillTreeProvider = ({ children }) => {
   const [state, dispatch] = useReducer(skillTreeReducer, initialState);
   
   // API Configuration
-  const API_BASE = (process.env.REACT_APP_SKILL_TREE_URL || 'http://localhost:8002') + '/skill-tree-v2';
+  const MAIN_API = (process.env.REACT_APP_API_URL || 'http://localhost:8000');
+  const EXTERNAL = (process.env.REACT_APP_SKILL_TREE_URL || '');
+  const USE_EXTERNAL = !!EXTERNAL && process.env.REACT_APP_FEATURE_SKILL_TREE_MAIN_API === 'off';
+  const API_BASE = USE_EXTERNAL ? (EXTERNAL + '/skill-tree-v2') : (MAIN_API + '/skill-tree-proxy');
   const USER_ID = 'demo_user_2025';
   
   // OPTIMIZATION: Cache management
@@ -244,10 +248,11 @@ export const SkillTreeProvider = ({ children }) => {
     try {
       dispatch({ type: ACTION_TYPES.SET_LOADING, payload: { type: 'overview', value: true } });
       
-      const response = await fetch(`${API_BASE}/overview-optimized?user_id=${USER_ID}&top_problems_per_area=5`);
-      const data = await response.json();
+  const response = await fetch(`${API_BASE}/overview-optimized?user_id=${USER_ID}&top_problems_per_area=5`);
+  if (!response.ok) throw new Error(`Overview error ${response.status}`);
+  const data = await response.json();
       
-      dispatch({ type: ACTION_TYPES.SET_SKILL_AREAS, payload: data.skill_areas });
+  dispatch({ type: ACTION_TYPES.SET_SKILL_AREAS, payload: data.skill_areas });
       setCachedData(cacheKey, data.skill_areas, 900000); // 15 minutes
       
     } catch (error) {
@@ -259,8 +264,8 @@ export const SkillTreeProvider = ({ children }) => {
   }, [getCachedData, setCachedData]);
   
   const loadSkillAreaProblems = useCallback(async (skillArea, page = 1, append = false) => {
-    const { difficulty, sortBy } = state.filters;
-    const cacheKey = `skill-area-${skillArea}-${page}-${difficulty}-${sortBy}`;
+    const { difficulty, sortBy, sortOrder } = state.filters;
+    const cacheKey = `skill-area-${skillArea}-${page}-${difficulty}-${sortBy}-${sortOrder}`;
     const cached = getCachedData(cacheKey);
     
     if (cached && !append) {
@@ -281,7 +286,8 @@ export const SkillTreeProvider = ({ children }) => {
       const params = new URLSearchParams({
         page: page.toString(),
         page_size: '20',
-        sort_by: sortBy
+        sort_by: sortBy,
+        sort_order: sortOrder
       });
       
       if (difficulty) {

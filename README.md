@@ -61,9 +61,15 @@ Or run manually in two terminals:
 - **Backend API**: http://localhost:8000  
 - **API Documentation**: http://localhost:8000/docs
 - **Health Check**: http://localhost:8000/health
-- **Skill Tree API**: http://localhost:8002
+- **Skill Tree API**: http://localhost:8000/skill-tree (v1) and http://localhost:8000/skill-tree-v2 (v2 via proxy)
 
-Tip: The Skill Tree server is a FastAPI service on port 8002. Set `REACT_APP_SKILL_TREE_URL` in `frontend/.env` if you customize the port.
+Tip: Skill Tree v1 and v2 are mounted on the main backend by default. The frontend fetches v2 lists via `/skill-tree-proxy/*` on the main API. To run an external skill-tree service (e.g., on port 8002), set `REACT_APP_SKILL_TREE_URL` and `REACT_APP_FEATURE_SKILL_TREE_MAIN_API=off` in `frontend/.env`, or point `SKILL_TREE_V2_URL` on the backend to the external URL.
+
+### Skill Tree configuration
+
+- REACT_APP_FEATURE_SKILL_TREE_MAIN_API: on by default. When `off` and `REACT_APP_SKILL_TREE_URL` is set, the frontend calls the external Skill Tree service directly.
+- REACT_APP_SKILL_TREE_URL: Optional. Base URL of an external Skill Tree service (e.g., http://localhost:8002). Used only when the feature flag above is `off`.
+- SKILL_TREE_V2_URL: Backend env var. Defaults to `http://localhost:8000/skill-tree-v2` (this instance). Set to an external service base to have `/skill-tree-proxy/*` proxy to a different process.
 
 ## 📊 **Current Status**
 
@@ -141,44 +147,115 @@ Remove-Item Env:DSATRAIN_DATABASE_URL
 - ✅ **Real-Time Data Pipeline** with automated monitoring and quality assurance
 - ✅ **Production-Ready Database** with 10 AI-specific tables and optimized queries
 
-## 🎯 **API Endpoints**
+## 🎯 **API Endpoints (Implemented)**
 
-### **Health & Ops**
-- `GET /` - Basic service info
-- `GET /health` - Lightweight health check with DB connectivity probe
+- **Health & Ops**
+  - `GET /` — Basic service info
+  - `GET /health` — Health check with DB probe
 
-### **AI-Enhanced Core Features**
-- `GET /problems/` - Browse problems with AI-powered filtering and similarity search
-- `GET /recommendations/` - Get semantic embedding-based personalized recommendations
-- `POST /interactions/track` - Track user behavior for adaptive learning algorithms
-- `GET /learning-paths/generate` - Generate concept graph-based study plans
+- **Settings**
+  - `GET /settings` — Current settings (query: `include_providers`, `include_effective_flags`)
+  - `PUT /settings` — Update settings
+  - `POST /settings/cognitive-profile` — Update cognitive profile
+  - `GET /settings/providers` — Allowed AI providers + notes
+  - `GET /settings/effective` — Effective settings (no secrets)
+  - `POST /settings/validate` — Validate without saving
+  - `GET /settings/models` — Suggested models; optional `provider`
 
-### **AI & Analytics**
-- `GET /analytics/user/{user_id}` - User analytics with AI-powered insights
-- `GET /analytics/platform` - Platform statistics with predictive trends
-- `POST /ai/hint` - Problem hinting with session budget and rate limits
-- `POST /ai/review` - Heuristic code review (local-first)
-- `POST /ai/elaborate` - Why/How prompting for deeper thinking
-- `GET /ai/status` - AI enablement, provider/model, and rate limit status
-- `POST /ai/reset` - Reset in-memory counters (dev/testing)
+- **Problems & Recommendations**
+  - `GET /problems` — Filters: `platform`, `difficulty`, `min_quality`, `min_relevance`, `limit`, `offset`
+  - `GET /problems/{problem_id}` — Single problem
+  - `GET /problems/{problem_id}/solutions` — Problem solutions
+  - `GET /solutions/{solution_id}` — Single solution
+  - `GET /recommendations` — Personalized/basic recommendations
+  - `GET /recommendations/similar/{problem_id}` — Similar problems
+  - `POST /ml/train` — Train in-memory recommendation models
 
-### **Advanced Features**
-- `GET /srs/metrics` - Spaced repetition with AI-optimized scheduling
-- `POST /practice/session` - Generate a practice session
-- `POST /practice/attempt` - Log a problem attempt with metadata
-- `POST /practice/elaborative` - Log elaborative interrogation session
-- `POST /practice/working-memory-check` - Submit working memory metrics
-- `POST /practice/gates/start` - Start a gated practice session
-- `POST /practice/gates/progress` - Update gate progress
-- `GET /practice/gates/status?session_id=...` - Get gates status
-- `GET /practice/gates` - List available gates (optionally by problem)
-- `GET /practice/gates/{session_id}` - Get a single gated session
-- `DELETE /practice/gates/{session_id}` - Delete a gated session
-- `POST /interview/start` - Start a timed coding interview session
-- `POST /interview/complete` - Submit code and metrics to complete session
-- `GET /cognitive/profile?user_id=...` - Retrieve cognitive profile
-- `POST /cognitive/assess` - Submit assessment inputs
-- `GET /cognitive/adaptation?user_id=...` - Get UI adaptation hints
+- **Search & Analytics**
+  - `GET /search` — Problem search; see also `/search/suggestions`
+  - `GET /search/suggestions` — Typeahead suggestions
+  - `POST /interactions/track` — Track user interactions
+  - `GET /analytics/user/{user_id}` — User analytics
+  - `GET /analytics/trends` — Trends
+  - `GET /analytics/algorithm-tags` — Tag analytics
+  - `GET /analytics/platforms` — Platform analytics
+  - `GET /analytics/difficulty` — Difficulty analytics
+
+- **Learning Paths**
+  - `GET /learning-paths/templates`
+  - `GET /learning-paths/templates/recommendations`
+  - `POST /learning-paths/generate` — Generate personalized path
+  - `GET /learning-paths/{path_id}`
+  - `GET /learning-paths/{path_id}/next-problems`
+  - `POST /learning-paths/{path_id}/progress`
+  - `POST /learning-paths/{path_id}/adapt`
+  - `GET /learning-paths/user/{user_id}`
+  - `GET /learning-paths/{path_id}/milestones`
+  - `POST /learning-paths/{path_id}/milestones/{milestone_id}/complete`
+  - `GET /learning-paths/analytics/overview`
+  - `POST /learning-paths/admin/initialize-templates`
+
+- **Practice**
+  - `POST /practice/session`
+  - `POST /practice/attempt`
+  - `POST /practice/elaborative`
+  - `POST /practice/working-memory-check`
+  - `POST /practice/gates/start`
+  - `POST /practice/gates/progress`
+  - `GET /practice/gates/status`
+  - `GET /practice/gates`
+  - `GET /practice/gates/{session_id}`
+  - `DELETE /practice/gates/{session_id}`
+
+- **SRS**
+  - `GET /srs/next`
+  - `POST /srs/review`
+  - `GET /srs/stats`
+  - `GET /srs/metrics`
+  - `POST /srs/retrieval-practice`
+
+- **Interview**
+  - `POST /interview/start`
+  - `POST /interview/complete`
+
+- **Cognitive**
+  - `GET /cognitive/profile`
+  - `POST /cognitive/assess`
+  - `GET /cognitive/adaptation`
+
+- **AI**
+  - `POST /ai/hint`
+  - `POST /ai/review`
+  - `POST /ai/elaborate`
+  - `GET /ai/status`
+  - `POST /ai/reset`
+
+- **Code Execution** (Base: `/execution`)
+  - `POST /execution/run`
+  - `POST /execution/test`
+  - `POST /execution/analyze`
+  - `GET /execution/languages`
+
+- **Google Code Analysis** (Base: `/google`)
+  - `POST /google/analyze`
+  - `GET /google/google-standards`
+  - `GET /google/complexity-guide`
+
+- **Reading Materials** (Base: `/reading-materials`)
+  - `GET /reading-materials/search`
+  - `GET /reading-materials/recommendations/{user_id}`
+  - `GET /reading-materials/material/{material_id}`
+  - `POST /reading-materials/material/{material_id}/progress`
+  - `POST /reading-materials/material/{material_id}/rating`
+  - `GET /reading-materials/collections`
+  - `GET /reading-materials/collection/{collection_id}`
+  - `GET /reading-materials/analytics/{material_id}`
+  - `POST /reading-materials/recommendation/{recommendation_id}/dismiss`
+
+- **Favorites & Skill Tree Proxy**
+  - `GET /favorites`, `POST /favorites/toggle`
+  - `GET /skill-tree-proxy/skill-area/{skill_area}/problems`
+  - `GET /skill-tree-proxy/tag/{tag}/problems`
 
 ## 🔧 **Development**
 
@@ -324,6 +401,26 @@ Notes:
 - If Redis is unreachable or the `redis` package isn’t installed, the service gracefully falls back to in-memory limiting.
 - The `/ai/reset` endpoint clears both the global bucket and per-session hint budgets in Redis when enabled.
 - Recommended for multi-worker or multi-instance deployments.
+
+### Optional: Cache serialization mode (security vs compatibility)
+
+Redis caching supports two serialization modes for values:
+
+- pickle (default): Maximum compatibility with Python objects but higher risk if Redis is compromised.
+- json: Safer (no code execution), but only caches JSON-serializable data (primitives, lists, dicts).
+
+Configure via environment variable (cmd.exe):
+
+```cmd
+REM Safer JSON mode (recommended for stricter environments)
+set DSATRAIN_CACHE_SERIALIZATION=json
+
+REM Default (compatible but riskier)
+set DSATRAIN_CACHE_SERIALIZATION=pickle
+```
+
+When in JSON mode, non-JSON-serializable results will be cached only in memory and skipped for Redis.
+The current mode and cache status are visible in `GET /health` under `cache.serialization`.
 
 ## 📚 **Documentation**
 

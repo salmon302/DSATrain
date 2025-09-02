@@ -1,0 +1,40 @@
+name: Frontend CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Lint, Typecheck and Build (frontend)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint (ESLint, zero warnings)
+        run: npx eslint --ext .ts,.tsx src --max-warnings 0
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build (CI strict)
+        env:
+          CI: 'true'
+        run: npm run build:ci

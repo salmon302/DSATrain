@@ -15,33 +15,14 @@ import {
   Alert,
   Paper,
   Chip,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
   Grid,
   Tabs,
   Tab,
-  Divider,
 } from '@mui/material';
-import {
-  PlayArrow,
-  Stop,
-  Timer,
-  Assessment,
-  School,
-  Code,
-  Psychology,
-  Send,
-  Lightbulb,
-  CheckCircle,
-  Cancel,
-  Warning,
-  Speed,
-  ExpandMore,
-} from '@mui/icons-material';
+import { SelectChangeEvent } from '@mui/material/Select';
+import { Timer, Assessment, School, Code, Psychology, Send, Lightbulb, Warning, Speed } from '@mui/icons-material';
 
-import { googleCodeAnalysisAPI, CodeAnalysisResult, analysisUtils } from '../services/googleCodeAnalysisAPI';
+import { googleCodeAnalysisAPI } from '../services/googleCodeAnalysisAPI';
 import InterviewPressureSimulator from './InterviewPressureSimulator';
 
 interface GoogleStyleCodeEditorProps {
@@ -114,7 +95,7 @@ const GoogleStyleCodeEditor: React.FC<GoogleStyleCodeEditorProps> = ({
   
   const editorRef = useRef<any>(null);
   const monacoRef = useRef<any>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<number | null>(null);
 
   // Google Doc Style Editor Options (Minimal features to simulate interview environment)
   const googleDocEditorOptions = {
@@ -202,16 +183,16 @@ const GoogleStyleCodeEditor: React.FC<GoogleStyleCodeEditorProps> = ({
   // Timer functionality for interview simulation
   useEffect(() => {
     if (isTimerActive && !readOnly) {
-      timerRef.current = setInterval(() => {
+      timerRef.current = window.setInterval(() => {
         setInterviewTimer((prev) => prev + 1);
       }, 1000);
     } else if (timerRef.current) {
-      clearInterval(timerRef.current);
+      window.clearInterval(timerRef.current);
     }
 
     return () => {
       if (timerRef.current) {
-        clearInterval(timerRef.current);
+        window.clearInterval(timerRef.current);
       }
     };
   }, [isTimerActive, readOnly]);
@@ -620,7 +601,7 @@ return -1;`
               <InputLabel>Language</InputLabel>
               <Select
                 value={language}
-                onChange={(e) => setLanguage(e.target.value)}
+                onChange={(e: SelectChangeEvent<string>) => setLanguage(e.target.value as string)}
                 disabled={readOnly}
               >
                 <MenuItem value="python">Python</MenuItem>
@@ -647,7 +628,7 @@ return -1;`
               control={
                 <Switch
                   checked={thinkingOutLoud}
-                  onChange={(e) => setThinkingOutLoud(e.target.checked)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setThinkingOutLoud(e.target.checked)}
                   color="secondary"
                 />
               }
@@ -728,7 +709,7 @@ return -1;`
           {showAnalysis && (
             <Grid item xs={12} lg={4}>
               <Box sx={{ height: '60vh', display: 'flex', flexDirection: 'column', borderLeft: 1, borderColor: 'divider' }}>
-                <Tabs value={activeTab} onChange={(_, newValue) => setActiveTab(newValue)}>
+                <Tabs value={activeTab} onChange={(_e: React.SyntheticEvent, newValue: number) => setActiveTab(newValue)}>
                   <Tab label="Analysis" icon={<Assessment />} />
                   <Tab label="Google Criteria" icon={<School />} />
                   <Tab label="Communication" icon={<Psychology />} />
@@ -759,7 +740,7 @@ return -1;`
                           Code Quality: {analysis.codeQuality.score}/100
                         </Typography>
                         <Box sx={{ mt: 1 }}>
-                          {Object.entries(analysis.codeQuality.factors).map(([factor, score]) => (
+                          {Object.entries(analysis.codeQuality.factors).map(([factor, score]: [string, number]) => (
                             <Box key={factor} display="flex" justifyContent="space-between">
                               <Typography variant="body2" sx={{ textTransform: 'capitalize' }}>
                                 {factor}:
@@ -984,7 +965,7 @@ return -1;`
                       </Alert>
 
                       <Grid container spacing={2}>
-                        {Object.entries(getCodeTemplates()).map(([name, template]) => (
+                        {Object.entries(getCodeTemplates()).map(([name, template]: [string, string]) => (
                           <Grid item xs={12} md={6} key={name}>
                             <Card 
                               variant="outlined" 
@@ -1017,7 +998,7 @@ return -1;`
                                 <Button 
                                   size="small" 
                                   sx={{ mt: 1 }}
-                                  onClick={(e) => {
+                                  onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                                     e.stopPropagation();
                                     insertCodeTemplate(template);
                                   }}

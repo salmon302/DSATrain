@@ -12,6 +12,8 @@ import json
 import os
 
 Base = declarative_base()
+# Cache the last-resolved database URL to keep consistency across instances in-process
+GLOBAL_DB_URL = None
 
 class Problem(Base):
     """Enhanced Problem model for Phase 4 scalability"""
@@ -64,6 +66,8 @@ class Problem(Base):
     implementation_complexity = Column(Integer, default=50)  # 0-100 implementation difficulty
     prerequisite_skills = Column(JSON, default=lambda: [])  # Required skills
     skill_tree_position = Column(JSON, default=lambda: {})  # Position metadata for visualization
+    # Primary skill area for SQL-side filtering (backfilled from algorithm_tags)
+    primary_skill_area = Column(String(50), index=True)
     
     # Analytics
     acceptance_rate = Column(Float)
@@ -86,8 +90,14 @@ class Problem(Base):
         Index('idx_tags_gin', 'algorithm_tags', postgresql_using='gin'),
     )
     
-    def to_dict(self) -> Dict[str, Any]:
-        """Convert to dictionary for API responses"""
+    def to_dict(self, include_solution_count: bool = True) -> Dict[str, Any]:
+        """Convert to dictionary for API responses.
+
+        Args:
+            include_solution_count: When False, avoids touching the solutions relationship
+                to prevent N+1 queries on list endpoints. Defaults to True for
+                backwards compatibility in detail endpoints.
+        """
         return {
             'id': self.id,
             'platform': self.platform,
@@ -114,7 +124,8 @@ class Problem(Base):
             'company_tags': self.company_tags,
             'interview_frequency': self.interview_frequency,
             'source_dataset': self.source_dataset,
-            'solution_count': len(self.solutions) if self.solutions else 0,
+            # Avoid triggering lazy load on list endpoints when not needed
+            'solution_count': (len(self.solutions) if self.solutions else 0) if include_solution_count else 0,
             'created_at': self.created_at.isoformat() if self.created_at else None
         }
 
@@ -814,13 +825,27 @@ class DatabaseConfig:
     """Database configuration and connection management"""
     
     def __init__(self, database_url: str = None):
-        # Precedence: explicit arg > env var DSATRAIN_DATABASE_URL > env var DATABASE_URL > default sqlite file
+        # Precedence: explicit arg > env var DSATRAIN_DATABASE_URL > env var DATABASE_URL > cached global > default sqlite file
+        # NOTE: Tests often set DSATRAIN_DATABASE_URL at runtime; we must respect that even
+        # if a previous DatabaseConfig initialized a different GLOBAL_DB_URL earlier.
+        global GLOBAL_DB_URL
         if database_url is None:
-            database_url = (
-                os.getenv("DSATRAIN_DATABASE_URL")
-                or os.getenv("DATABASE_URL")
-                or "sqlite:///./dsatrain_phase4.db"
-            )
+            # If env specifies a URL, prefer it over any cached global to allow test-time overrides
+            env_url = os.getenv("DSATRAIN_DATABASE_URL") or os.getenv("DATABASE_URL")
+            if env_url:
+                database_url = env_url
+                GLOBAL_DB_URL = database_url
+                os.environ["DSATRAIN_DATABASE_URL"] = database_url
+            elif GLOBAL_DB_URL:
+                database_url = GLOBAL_DB_URL
+            else:
+                database_url = "sqlite:///./dsatrain_phase4.db"
+                GLOBAL_DB_URL = database_url
+                os.environ["DSATRAIN_DATABASE_URL"] = database_url
+        else:
+            # If an explicit URL is provided, update the global and env for consistency
+            GLOBAL_DB_URL = database_url
+            os.environ["DSATRAIN_DATABASE_URL"] = database_url
         
         self.engine = create_engine(
             database_url,

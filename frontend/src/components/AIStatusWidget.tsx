@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Box,
   Card,
@@ -23,13 +23,13 @@ import {
 import {
   Refresh,
   Psychology,
-  Timer,
+  // Timer,
   Warning,
   Check,
-  Error as ErrorIcon,
+  // Error as ErrorIcon,
   RestartAlt,
   Settings,
-  Info,
+  // Info,
 } from '@mui/icons-material';
 
 import { apiService } from '../services/api';
@@ -44,7 +44,13 @@ interface AIStatus {
   rate_limit_reset_seconds: number;
   hint_budget_per_session: number;
   hints_used_this_session: number | null;
+  review_budget_per_session?: number;
+  reviews_used_this_session?: number | null;
+  elaborate_budget_per_session?: number;
+  elaborates_used_this_session?: number | null;
   session_id?: string;
+  monthly_cost_cap_usd?: number;
+  monthly_cost_used_usd?: number;
 }
 
 interface RetryCountdownProps {
@@ -91,6 +97,7 @@ interface AIStatusWidgetProps {
   onSessionIdChange?: (sessionId: string) => void;
   showDevControls?: boolean;
   compact?: boolean;
+  refreshSignal?: number;
 }
 
 const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
@@ -98,6 +105,7 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
   onSessionIdChange,
   showDevControls = false,
   compact = false,
+  refreshSignal,
 }) => {
   const [status, setStatus] = useState<AIStatus | null>(null);
   const [loading, setLoading] = useState(false);
@@ -108,7 +116,7 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
   const [resetSessionId, setResetSessionId] = useState('');
 
   // Load AI status
-  const loadStatus = async (showLoader = true) => {
+  const loadStatus = useCallback(async (showLoader = true) => {
     try {
       if (showLoader) setLoading(true);
       setError(null);
@@ -123,7 +131,7 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
     } finally {
       if (showLoader) setLoading(false);
     }
-  };
+  }, [sessionId]);
 
   // Reset AI counters
   const resetCounters = async () => {
@@ -164,7 +172,14 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
     }, 30000); // Refresh every 30 seconds
 
     return () => clearInterval(interval);
-  }, [sessionId]);
+  }, [sessionId, loadStatus]);
+
+  // External refresh trigger
+  useEffect(() => {
+    if (typeof refreshSignal === 'number') {
+      loadStatus(false);
+    }
+  }, [refreshSignal, loadStatus]);
 
   // Handle API errors with retry-after
   useEffect(() => {
@@ -252,6 +267,10 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
     return 'Ready';
   };
 
+  const costCap = typeof status.monthly_cost_cap_usd === 'number' ? status.monthly_cost_cap_usd : undefined;
+  const costUsed = typeof status.monthly_cost_used_usd === 'number' ? status.monthly_cost_used_usd : undefined;
+  const costPct = costCap && costCap > 0 ? Math.min(100, Math.max(0, (100 * (costUsed || 0)) / costCap)) : 0;
+
   if (compact) {
     return (
       <Box display="flex" alignItems="center" gap={1}>
@@ -319,11 +338,11 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
 
           {/* Provider Info */}
           <Grid item xs={12} sm={6}>
-            <Typography variant="caption" color="textSecondary">
+            <Typography variant="caption" color="text.secondary">
               Provider: {status.provider}
             </Typography>
             <br />
-            <Typography variant="caption" color="textSecondary">
+            <Typography variant="caption" color="text.secondary">
               Model: {status.model || 'None'}
             </Typography>
           </Grid>
@@ -331,7 +350,7 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
           {/* Session Info */}
           {sessionId && (
             <Grid item xs={12} sm={6}>
-              <Typography variant="caption" color="textSecondary">
+              <Typography variant="caption" color="text.secondary">
                 Session: {sessionId.split('_')[0]}...
               </Typography>
             </Grid>
@@ -354,7 +373,7 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
                   sx={{ height: 6, borderRadius: 3 }}
                 />
                 {status.rate_limit_reset_seconds > 0 && (
-                  <Typography variant="caption" color="textSecondary">
+                  <Typography variant="caption" color="text.secondary">
                     Resets in {status.rate_limit_reset_seconds}s
                   </Typography>
                 )}
@@ -381,6 +400,66 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
               </Box>
             </Grid>
           )}
+
+          {/* Review Budget */}
+          {status.enabled && (status.review_budget_per_session || 0) > 0 && sessionId && (
+            <Grid item xs={12}>
+              <Box>
+                <Box display="flex" justifyContent="space-between" alignItems="center">
+                  <Typography variant="body2">Reviews (Session):</Typography>
+                  <Typography variant="caption">
+                    {status.reviews_used_this_session ?? 0} / {status.review_budget_per_session}
+                  </Typography>
+                </Box>
+                <LinearProgress
+                  variant="determinate"
+                  value={Math.min(100, 100 * ((status.reviews_used_this_session ?? 0) / (status.review_budget_per_session || 1)))}
+                  color={((status.reviews_used_this_session ?? 0) / (status.review_budget_per_session || 1)) >= 0.9 ? 'error' : ((status.reviews_used_this_session ?? 0) / (status.review_budget_per_session || 1)) >= 0.7 ? 'warning' : 'primary'}
+                  sx={{ height: 6, borderRadius: 3 }}
+                />
+              </Box>
+            </Grid>
+          )}
+
+          {/* Elaborate Budget */}
+          {status.enabled && (status.elaborate_budget_per_session || 0) > 0 && sessionId && (
+            <Grid item xs={12}>
+              <Box>
+                <Box display="flex" justifyContent="space-between" alignItems="center">
+                  <Typography variant="body2">Elaborations (Session):</Typography>
+                  <Typography variant="caption">
+                    {status.elaborates_used_this_session ?? 0} / {status.elaborate_budget_per_session}
+                  </Typography>
+                </Box>
+                <LinearProgress
+                  variant="determinate"
+                  value={Math.min(100, 100 * ((status.elaborates_used_this_session ?? 0) / (status.elaborate_budget_per_session || 1)))}
+                  color={((status.elaborates_used_this_session ?? 0) / (status.elaborate_budget_per_session || 1)) >= 0.9 ? 'error' : ((status.elaborates_used_this_session ?? 0) / (status.elaborate_budget_per_session || 1)) >= 0.7 ? 'warning' : 'primary'}
+                  sx={{ height: 6, borderRadius: 3 }}
+                />
+              </Box>
+            </Grid>
+          )}
+
+          {/* Monthly Cost */}
+          {status.enabled && typeof costCap === 'number' && costCap > 0 && (
+            <Grid item xs={12}>
+              <Box>
+                <Box display="flex" justifyContent="space-between" alignItems="center">
+                  <Typography variant="body2">Monthly AI Cost:</Typography>
+                  <Typography variant="caption">
+                    ${ (costUsed || 0).toFixed(4) } / ${ costCap.toFixed(2) }
+                  </Typography>
+                </Box>
+                <LinearProgress
+                  variant="determinate"
+                  value={costPct}
+                  color={costPct >= 90 ? 'error' : costPct >= 70 ? 'warning' : 'primary'}
+                  sx={{ height: 6, borderRadius: 3 }}
+                />
+              </Box>
+            </Grid>
+          )}
         </Grid>
 
         {/* Retry Countdown */}
@@ -395,7 +474,7 @@ const AIStatusWidget: React.FC<AIStatusWidgetProps> = ({
         <Dialog open={showResetDialog} onClose={() => setShowResetDialog(false)}>
           <DialogTitle>Reset AI Counters</DialogTitle>
           <DialogContent>
-            <Typography variant="body2" color="textSecondary" paragraph>
+            <Typography variant="body2" color="text.secondary" paragraph>
               Reset AI rate limiting and session counters. This is for development use only.
             </Typography>
             

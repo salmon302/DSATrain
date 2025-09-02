@@ -102,6 +102,7 @@ yarn.lock
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 # Temporary files
 *.tmp
@@ -115,3 +116,7 @@ yarn.lock
 /data/raw/
 /data/temp/
 /data/cache/
+/data/secrets/
+
+# Local settings (contains secrets)
+config/user_settings.json

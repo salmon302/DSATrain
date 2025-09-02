@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Box,
   Typography,
@@ -17,59 +17,42 @@ import {
   MenuItem,
   Switch,
   FormControlLabel,
-  Divider,
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
   ListItemSecondaryAction,
-  IconButton,
-  Tooltip,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
   Tab,
   Tabs,
-  Paper,
   Accordion,
   AccordionSummary,
   AccordionDetails,
 } from '@mui/material';
 import {
-  Person,
   Edit,
   Save,
   Cancel,
   Settings,
   EmojiEvents,
   TrendingUp,
-  Star,
-  Psychology,
-  School,
   Code,
-  Timer,
   Assessment,
-  Insights,
-  NotificationsActive,
-  Security,
-  Palette,
-  Language,
   ExpandMore,
   GitHub,
   LinkedIn,
   Email,
-  Phone,
   LocationOn,
 } from '@mui/icons-material';
 
 import { 
   trackingAPI, 
   getCurrentUserId,
-  UserAnalytics
+  cognitiveAPI,
+  skillTreeAPI,
+  SkillTreePreferences,
 } from '../services/api';
 
-interface UserProfile {
+interface UserProfileData {
   id: string;
   name: string;
   email: string;
@@ -113,27 +96,41 @@ interface Achievement {
 }
 
 const UserProfile: React.FC = () => {
-  const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [userAnalytics, setUserAnalytics] = useState<UserAnalytics | null>(null);
+  const [profile, setProfile] = useState<UserProfileData | null>(null);
   const [editMode, setEditMode] = useState(false);
-  const [editedProfile, setEditedProfile] = useState<UserProfile | null>(null);
+  const [editedProfile, setEditedProfile] = useState<UserProfileData | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState(0);
-  const [showAchievements, setShowAchievements] = useState(false);
+  const [cognitive, setCognitive] = useState<any | null>(null);
+  const [treePrefs, setTreePrefs] = useState<SkillTreePreferences | null>(null);
+  const [savingPrefs, setSavingPrefs] = useState(false);
+  const [prefsSaved, setPrefsSaved] = useState(false);
+  const [prefsError, setPrefsError] = useState<string | null>(null);
 
   const userId = getCurrentUserId();
 
   // Load user profile and analytics
-  const loadUserData = async () => {
+  const loadUserData = useCallback(async () => {
     try {
       setLoading(true);
 
-      // Load user analytics
+      // Load base analytics
       const analyticsResponse = await trackingAPI.getUserAnalytics(userId, 30);
-      setUserAnalytics(analyticsResponse.user_analytics);
 
-      // Create mock profile (in real app, this would come from a user service)
-      const mockProfile: UserProfile = {
+      // Load cognitive profile (auto-creates default_user on backend)
+      try {
+        const prof = await cognitiveAPI.getProfile(userId);
+        setCognitive(prof);
+      } catch {}
+
+      // Load skill tree preferences
+      try {
+        const prefs = await skillTreeAPI.getPreferences(userId);
+        setTreePrefs(prefs);
+      } catch {}
+
+      // Create mock profile (until real user service exists)
+    const mockProfile: UserProfileData = {
         id: userId,
         name: 'DSA Learner',
         email: 'learner@dsatrain.com',
@@ -151,15 +148,15 @@ const UserProfile: React.FC = () => {
             weekly_summary: true,
             recommendation_updates: true
           },
-          learning_style: 'visual',
+          learning_style: (cognitive?.learning_style_preference as string) || 'visual',
           target_companies: ['Google', 'Meta', 'Amazon']
         },
         achievements: generateMockAchievements(),
         statistics: {
-          problems_solved: analyticsResponse.user_analytics?.problem_solving_stats?.solved || 0,
+      problems_solved: analyticsResponse.user_analytics?.problem_solving_stats?.solved || 0,
           current_streak: 5,
           longest_streak: 12,
-          total_study_time: 150, // hours
+          total_study_time: 150,
           favorite_topics: ['Arrays', 'Hash Maps', 'Binary Trees'],
           skill_levels: {
             'Arrays': 85,
@@ -180,7 +177,7 @@ const UserProfile: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId, cognitive?.learning_style_preference]);
 
   // Generate mock achievements
   const generateMockAchievements = (): Achievement[] => [
@@ -222,12 +219,27 @@ const UserProfile: React.FC = () => {
     }
   ];
 
-  // Handle profile save
-  const handleSaveProfile = () => {
-    if (editedProfile) {
-      setProfile(editedProfile);
-      setEditMode(false);
-      // In real app, would save to backend
+  // Save both profile (mock) and skill tree preferences
+  const handleSaveProfile = async () => {
+    if (!editedProfile) return;
+    setEditMode(false);
+    setProfile(editedProfile);
+
+    // Save Skill Tree Preferences if present
+    if (treePrefs) {
+      try {
+        setSavingPrefs(true);
+        setPrefsError(null);
+        await skillTreeAPI.updatePreferences(userId, treePrefs);
+        setPrefsSaved(true);
+        // hide success after a bit
+        setTimeout(() => setPrefsSaved(false), 2000);
+      } catch (e: any) {
+        console.error('Error saving preferences', e);
+        setPrefsError('Failed to save preferences');
+      } finally {
+        setSavingPrefs(false);
+      }
     }
   };
 
@@ -256,8 +268,8 @@ const UserProfile: React.FC = () => {
   };
 
   useEffect(() => {
-    loadUserData();
-  }, []);
+    void loadUserData();
+  }, [loadUserData]);
 
   if (loading) {
     return (
@@ -338,7 +350,7 @@ const UserProfile: React.FC = () => {
                   sx={{ mb: 2 }}
                 />
               ) : (
-                <Typography variant="body2" color="textSecondary" paragraph>
+                <Typography variant="body2" color="text.secondary" paragraph>
                   {profile.bio}
                 </Typography>
               )}
@@ -534,7 +546,7 @@ const UserProfile: React.FC = () => {
                                 <Typography variant="subtitle1" fontWeight="bold">
                                   {achievement.title}
                                 </Typography>
-                                <Typography variant="body2" color="textSecondary">
+                                <Typography variant="body2" color="text.secondary">
                                   {achievement.description}
                                 </Typography>
                                 <Chip
@@ -596,6 +608,113 @@ const UserProfile: React.FC = () => {
                               </FormControl>
                             </Grid>
                           </Grid>
+                          {/* Cognitive snapshot */}
+                          {cognitive && (
+                            <Box mt={2}>
+                              <Typography variant="subtitle2" gutterBottom>
+                                Cognitive Profile (default_user)
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary">
+                                WMC: {cognitive.working_memory_capacity ?? '—'} | Style: {cognitive.learning_style_preference ?? '—'} | V↔V: {typeof cognitive.visual_vs_verbal === 'number' ? cognitive.visual_vs_verbal.toFixed(2) : '—'} | Speed: {cognitive.processing_speed ?? '—'}
+                              </Typography>
+                            </Box>
+                          )}
+                        </AccordionDetails>
+                      </Accordion>
+                    </Grid>
+
+                    {/* Skill Tree Preferences */}
+                    <Grid item xs={12}>
+                      <Accordion>
+                        <AccordionSummary expandIcon={<ExpandMore />}>
+                          <Typography variant="h6">Skill Tree Preferences</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          {treePrefs ? (
+                            <Box display="flex" flexDirection="column" gap={2} width="100%">
+                              {/* Preferred View Mode */}
+                              <FormControl fullWidth>
+                                <InputLabel id="pref-view-mode-label">Preferred View</InputLabel>
+                                <Select
+                                  labelId="pref-view-mode-label"
+                                  label="Preferred View"
+                                  value={treePrefs.preferred_view_mode}
+                                  onChange={(e) => editMode && setTreePrefs(prev => prev ? { ...prev, preferred_view_mode: e.target.value as any } : prev)}
+                                  disabled={!editMode}
+                                >
+                                  <MenuItem value="columns">Columns</MenuItem>
+                                  <MenuItem value="grid">Grid</MenuItem>
+                                  <MenuItem value="tree">Tree</MenuItem>
+                                </Select>
+                              </FormControl>
+
+                              {/* Switches */}
+                              <FormControlLabel
+                                control={
+                                  <Switch
+                                    checked={!!treePrefs.show_confidence_overlay}
+                                    onChange={(e) => editMode && setTreePrefs(prev => prev ? { ...prev, show_confidence_overlay: e.target.checked } : prev)}
+                                    disabled={!editMode}
+                                  />
+                                }
+                                label="Show confidence overlay"
+                              />
+                              <FormControlLabel
+                                control={
+                                  <Switch
+                                    checked={!!treePrefs.auto_expand_clusters}
+                                    onChange={(e) => editMode && setTreePrefs(prev => prev ? { ...prev, auto_expand_clusters: e.target.checked } : prev)}
+                                    disabled={!editMode}
+                                  />
+                                }
+                                label="Auto-expand clusters"
+                              />
+                              <FormControlLabel
+                                control={
+                                  <Switch
+                                    checked={!!treePrefs.highlight_prerequisites}
+                                    onChange={(e) => editMode && setTreePrefs(prev => prev ? { ...prev, highlight_prerequisites: e.target.checked } : prev)}
+                                    disabled={!editMode}
+                                  />
+                                }
+                                label="Highlight prerequisites"
+                              />
+
+                              {/* Visible Skill Areas (simple CSV input to avoid overbuilding UI) */}
+                              <TextField
+                                label="Visible Skill Areas (CSV)"
+                                value={(treePrefs.visible_skill_areas || []).join(', ')}
+                                onChange={(e) => editMode && setTreePrefs(prev => prev ? { ...prev, visible_skill_areas: e.target.value.split(',').map(s => s.trim()).filter(Boolean) } : prev)}
+                                disabled={!editMode}
+                                helperText="Comma-separated list. Leave empty to show all."
+                              />
+
+                              {/* Local save button for convenience while in edit mode */}
+                              {editMode && (
+                                <Box>
+                                  <Button
+                                    variant="contained"
+                                    onClick={handleSaveProfile}
+                                    disabled={savingPrefs}
+                                  >
+                                    {savingPrefs ? 'Saving…' : 'Save Preferences'}
+                                  </Button>
+                                  {prefsSaved && (
+                                    <Typography variant="body2" color="success.main" sx={{ ml: 2, display: 'inline' }}>
+                                      Preferences saved
+                                    </Typography>
+                                  )}
+                                  {prefsError && (
+                                    <Typography variant="body2" color="error.main" sx={{ ml: 2, display: 'inline' }}>
+                                      {prefsError}
+                                    </Typography>
+                                  )}
+                                </Box>
+                              )}
+                            </Box>
+                          ) : (
+                            <Typography variant="body2" color="text.secondary">No preferences found for user.</Typography>
+                          )}
                         </AccordionDetails>
                       </Accordion>
                     </Grid>

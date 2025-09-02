@@ -56,6 +56,14 @@ class SkillAssessmentRequest(BaseModel):
     specific_problems: Optional[List[str]] = None
 
 
+class QuickStartRequest(BaseModel):
+    user_id: str
+    preset_id: Optional[str] = None  # if omitted, pick an absolute beginner preset
+    hours_per_week: int = 5
+    duration_weeks: Optional[int] = None  # override template duration if desired
+    goals: Optional[List[str]] = ["foundations"]
+
+
 @router.get("/templates")
 async def get_learning_path_templates(
     category: Optional[str] = None,
@@ -198,6 +206,48 @@ async def generate_personalized_path(
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generating learning path: {str(e)}")
+
+
+@router.post("/quick-start")
+async def quick_start_learning_path(
+    req: QuickStartRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Create a learning path with minimal input. Defaults to an Absolute Beginner preset if none provided.
+    """
+    try:
+        # Choose a default absolute beginner preset if not specified
+        template_id = req.preset_id
+        if not template_id:
+            # Prefer 4w onramp, fallback to 2w primer
+            template_id = "absolute_beginner_onramp_4w"
+            existing = db.query(LearningPathTemplate).filter(LearningPathTemplate.id == template_id).first()
+            if not existing:
+                template_id = "absolute_beginner_zero_to_basics_2w"
+        
+        # Build a very simple profile
+        profile = UserProfile(
+            user_id=req.user_id,
+            current_skill_levels={},  # will default to gentle baseline
+            learning_goals=req.goals or ["foundations"],
+            available_hours_per_week=max(1, req.hours_per_week),
+            preferred_difficulty_curve="gradual",
+            target_completion_weeks=req.duration_weeks,
+            weak_areas=["arrays", "strings"],
+            strong_areas=[]
+        )
+        
+        engine = LearningPathEngine(db)
+        learning_path = engine.generate_personalized_path(profile, template_id)
+        path_dict = learning_path.to_dict()
+        
+        return {
+            "learning_path": path_dict,
+            "message": f"Quick-start path created using preset '{template_id}'",
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error creating quick-start path: {str(e)}")
 
 
 @router.get("/{path_id}")

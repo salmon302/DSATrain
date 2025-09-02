@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import text
 from typing import List, Optional, Dict, Any
+import re
 import json
 from datetime import datetime
 import urllib.parse
@@ -25,6 +26,7 @@ from src.models.user_tracking import UserBehaviorTracker
 from src.api.enhanced_stats import stats_router
 from src.api.google_code_analysis import router as google_analysis_router
 from src.api.learning_paths import router as learning_paths_router
+# Code execution router (can be disabled via env flag for safety)
 from src.api.code_execution import router as execution_router
 from src.api.settings import router as settings_router
 from src.api.srs import router as srs_router
@@ -32,8 +34,11 @@ from src.api.practice import router as practice_router
 from src.api.cognitive import router as cognitive_router
 from src.api.interview import router as interview_router
 from src.api.ai import router as ai_router
+from src.api.reading_materials_api import router as reading_materials_router
 from src.api.error_handlers import setup_error_handlers
-# from src.api.skill_tree_api import skill_tree_router  # Temporarily disabled due to schema differences
+from src.api.skill_tree_api import skill_tree_router
+from src.api.skill_tree_api_optimized import router as skill_tree_v2_router
+from src.performance.caching_strategy import cache_manager
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -47,10 +52,20 @@ app = FastAPI(
 )
 
 # Add CORS middleware for web frontend
+# Allow override via env var ALLOWED_ORIGINS (comma-separated). Defaults to '*'.
+_allowed_origins_env = os.getenv("ALLOWED_ORIGINS")
+_allowed_origins = (
+    [o.strip() for o in _allowed_origins_env.split(",") if o.strip()]
+    if _allowed_origins_env else ["*"]
+)
+# Security: browsers do not allow Access-Control-Allow-Origin "*" together with credentials.
+# If wildcard is used, disable credentials by default; otherwise allow credentials.
+_allow_credentials = False if _allowed_origins == ["*"] else True
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure appropriately for production
-    allow_credentials=True,
+    allow_origins=_allowed_origins,  # Configure appropriately for production via ALLOWED_ORIGINS
+    allow_credentials=_allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -70,8 +85,10 @@ app.include_router(google_analysis_router)
 # Include learning paths router
 app.include_router(learning_paths_router)
 
-# Include code execution router
-app.include_router(execution_router)
+# Include code execution router unless disabled via environment
+_disable_exec = os.getenv("DSATRAIN_DISABLE_CODE_EXECUTION", "0") in ("1", "true", "True")
+if not _disable_exec:
+    app.include_router(execution_router)
 
 # Include settings router
 app.include_router(settings_router)
@@ -91,11 +108,17 @@ app.include_router(interview_router)
 # Include AI router
 app.include_router(ai_router)
 
-# Include skill tree router
-# app.include_router(skill_tree_router)  # Temporarily disabled due to schema differences
+# Include Reading Materials router
+app.include_router(reading_materials_router)
 
-# External Skill Tree V2 service base URL (for proxying expanded lists)
-SKILL_TREE_V2_URL = os.getenv('SKILL_TREE_V2_URL', 'http://localhost:8002/skill-tree-v2')
+# Include skill tree router
+app.include_router(skill_tree_router)
+app.include_router(skill_tree_v2_router)
+
+# Skill Tree V2 service base URL
+# Default points at this same FastAPI instance (mounted /skill-tree-v2).
+# To run v2 in a separate process, set SKILL_TREE_V2_URL (e.g., http://localhost:8002/skill-tree-v2).
+SKILL_TREE_V2_URL = os.getenv('SKILL_TREE_V2_URL', 'http://localhost:8000/skill-tree-v2')
 
 def get_db():
     """Dependency to get database session"""
@@ -113,6 +136,41 @@ def get_recommendation_engine(db: Session = Depends(get_db)) -> RecommendationEn
 def get_behavior_tracker(db: Session = Depends(get_db)) -> UserBehaviorTracker:
     """Dependency to get user behavior tracker"""
     return UserBehaviorTracker(db)
+
+
+# -------------------- Utility: attach source URL metadata --------------------
+def _compute_source_url(problem: Dict[str, Any]) -> Optional[str]:
+    """Best-effort source URL for external platforms without statements in DB.
+
+    Currently supports Codeforces. We intentionally do not persist this into the DB;
+    instead we enrich the API response with a lightweight metadata block.
+    """
+    try:
+        platform = (problem.get("platform") or "").lower()
+        if platform != "codeforces":
+            return None
+        pid = str(problem.get("platform_id") or problem.get("id") or "")
+        # Expected forms: cf_<contestId>_<index>
+        m = re.match(r"cf_(\d+)_([A-Za-z0-9]+)", pid)
+        if not m:
+            return None
+        contest_id, index = m.group(1), m.group(2)
+        return f"https://codeforces.com/contest/{contest_id}/problem/{index}"
+    except Exception:
+        return None
+
+
+def _attach_metadata(problem: Dict[str, Any]) -> Dict[str, Any]:
+    """Attach computed metadata fields to a problem dictionary (non-destructive)."""
+    meta = dict(problem.get("metadata") or {})
+    if not meta.get("source_url"):
+        url = _compute_source_url(problem)
+        if url:
+            meta["source_url"] = url
+    # Only add metadata if it's not empty to avoid changing existing contracts too much
+    if meta:
+        problem = {**problem, "metadata": meta}
+    return problem
 
 
 # ===================== Favorites (Bookmarks) =====================
@@ -140,7 +198,7 @@ async def get_favorites(
         problems = db.query(Problem).filter(Problem.id.in_(ids)).all()
         # Preserve original order if possible
         problem_map = {p.id: p for p in problems}
-        ordered = [problem_map[i].to_dict() for i in ids if i in problem_map]
+        ordered = [problem_map[i].to_dict(include_solution_count=False) for i in ids if i in problem_map]
         return {"user_id": user_id, "problems": ordered, "count": len(ordered)}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching favorites: {str(e)}")
@@ -160,19 +218,24 @@ async def toggle_favorite(
             db.add(prefs)
             db.flush()
 
-        ids = set(prefs.bookmarked_problems or [])
+        ids_list = list(prefs.bookmarked_problems or [])
         changed = False
         if payload.favorite:
-            if payload.problem_id not in ids:
-                ids.add(payload.problem_id)
+            # Move to end to reflect latest insertion order deterministically
+            if payload.problem_id in ids_list:
+                ids_list = [pid for pid in ids_list if pid != payload.problem_id]
+                ids_list.append(payload.problem_id)
+                changed = True
+            else:
+                ids_list.append(payload.problem_id)  # preserve insertion order for new items
                 changed = True
         else:
-            if payload.problem_id in ids:
-                ids.remove(payload.problem_id)
+            if payload.problem_id in ids_list:
+                ids_list = [pid for pid in ids_list if pid != payload.problem_id]
                 changed = True
 
         if changed:
-            prefs.bookmarked_problems = list(ids)
+            prefs.bookmarked_problems = ids_list
             db.add(prefs)
             db.commit()
             # Track behavior
@@ -222,6 +285,7 @@ async def proxy_skill_area_problems(
     page: int = Query(1, ge=1),
     page_size: int = Query(50, ge=1, le=500),
     sort_by: str = Query("quality"),
+    sort_order: str = Query("desc"),
     difficulty: Optional[str] = Query(None),
     query: Optional[str] = Query(None),
     platform: Optional[str] = Query(None),
@@ -234,6 +298,7 @@ async def proxy_skill_area_problems(
         "page": page,
         "page_size": page_size,
         "sort_by": sort_by,
+        "sort_order": sort_order,
     }
     if difficulty:
         params["difficulty"] = difficulty
@@ -262,6 +327,7 @@ async def proxy_tag_problems(
     page: int = Query(1, ge=1),
     page_size: int = Query(50, ge=1, le=500),
     sort_by: str = Query("quality"),
+    sort_order: str = Query("desc"),
     difficulty: Optional[str] = Query(None),
     query: Optional[str] = Query(None),
     platform: Optional[str] = Query(None),
@@ -274,6 +340,7 @@ async def proxy_tag_problems(
         "page": page,
         "page_size": page_size,
         "sort_by": sort_by,
+        "sort_order": sort_order,
     }
     if difficulty:
         params["difficulty"] = difficulty
@@ -292,6 +359,15 @@ async def proxy_tag_problems(
         filtered = [p for p in problems if p.get("id") in fav_ids]
         data["problems"] = filtered
         data["count"] = len(filtered)
+    return data
+
+
+@app.get("/skill-tree-proxy/tags/overview")
+async def proxy_tags_overview(
+    top_problems_per_tag: int = Query(5, ge=1, le=20),
+):
+    params: Dict[str, Any] = {"top_problems_per_tag": top_problems_per_tag}
+    data = await _fetch_skill_tree_v2("tags/overview", params)
     return data
 
 
@@ -316,10 +392,22 @@ async def health(db: Session = Depends(get_db)):
         db_ok = True
     except Exception:
         db_ok = False
+    # Report whether execution endpoints are enabled (via env flag)
+    execution_enabled = os.getenv("DSATRAIN_DISABLE_CODE_EXECUTION", "0") not in ("1", "true", "True")
+
+    cache_stats = {
+        "serialization": getattr(cache_manager.config, "serialization", "pickle"),
+        "memory_cache_size": len(getattr(cache_manager, "memory_cache", {})),
+        "redis_enabled": getattr(cache_manager.config, "enable_redis_cache", False),
+        "redis_connected": bool(getattr(cache_manager, "redis_client", None)),
+    }
+
     return {
         "status": "ok",
         "version": "4.0.0",
         "db_ok": db_ok,
+        "execution_enabled": execution_enabled,
+        "cache": cache_stats,
         "timestamp": datetime.now().isoformat(),
     }
 
@@ -352,37 +440,42 @@ async def get_problems(
 ):
     """Get problems with optional filters"""
     try:
-        query = db.query(Problem)
-        
+        base_query = db.query(Problem)
+
         # Apply filters
         if platform:
-            query = query.filter(Problem.platform == platform)
+            base_query = base_query.filter(Problem.platform == platform)
         if difficulty:
-            query = query.filter(Problem.difficulty == difficulty)
+            base_query = base_query.filter(Problem.difficulty == difficulty)
         if min_quality is not None:
-            query = query.filter(Problem.quality_score >= min_quality)
+            base_query = base_query.filter(Problem.quality_score >= min_quality)
         if min_relevance is not None:
-            query = query.filter(Problem.google_interview_relevance >= min_relevance)
-        
-        # Apply pagination and ordering
-        query = query.order_by(Problem.quality_score.desc(), Problem.google_interview_relevance.desc())
-        problems = query.offset(offset).limit(limit).all()
-        
-        # Convert to dictionaries
-        result = [problem.to_dict() for problem in problems]
-        
+            base_query = base_query.filter(Problem.google_interview_relevance >= min_relevance)
+
+        # Compute total before pagination and without ordering for performance
+        total_available = base_query.order_by(None).count()
+
+        # Apply ordering and pagination for page data
+        page_query = base_query.order_by(
+            Problem.quality_score.desc(), Problem.google_interview_relevance.desc()
+        )
+        problems = page_query.offset(offset).limit(limit).all()
+
+        # Convert to dictionaries and attach computed metadata
+        result = [_attach_metadata(problem.to_dict(include_solution_count=False)) for problem in problems]
+
         return {
             "problems": result,
             "count": len(result),
-            "total_available": query.count(),
+            "total_available": total_available,
             "filters_applied": {
                 "platform": platform,
                 "difficulty": difficulty,
                 "min_quality": min_quality,
-                "min_relevance": min_relevance
-            }
+                "min_relevance": min_relevance,
+            },
         }
-        
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching problems: {str(e)}")
 
@@ -394,8 +487,7 @@ async def get_problem(problem_id: str, db: Session = Depends(get_db)):
         problem = db.query(Problem).filter(Problem.id == problem_id).first()
         if not problem:
             raise HTTPException(status_code=404, detail="Problem not found")
-        
-        return problem.to_dict()
+        return _attach_metadata(problem.to_dict())
         
     except HTTPException:
         raise
@@ -506,13 +598,15 @@ async def get_recommendations(
             
             recommendations = []
             for problem in problems:
-                rec = problem.to_dict()
+                rec = problem.to_dict(include_solution_count=False)
                 rec['recommendation_score'] = 0.8  # Static score for basic recommendations
                 rec['recommendation_reason'] = f"High-quality problem"
                 if difficulty_level:
                     rec['recommendation_reason'] += f" at {difficulty_level} level"
                 if focus_area:
                     rec['recommendation_reason'] += f" focusing on {focus_area}"
+                # Alias for frontend compatibility
+                rec['recommendation_reasoning'] = rec['recommendation_reason']
                 recommendations.append(rec)
             
             return {
@@ -868,7 +962,7 @@ async def enhanced_search_problems(
             # Quality and Google relevance
             relevance_score += (problem.quality_score + problem.google_interview_relevance) / 2
             
-            result = problem.to_dict()
+            result = problem.to_dict(include_solution_count=False)
             result['search_relevance_score'] = round(relevance_score, 2)
             results.append(result)
         
@@ -950,30 +1044,7 @@ async def get_search_suggestions(
         raise HTTPException(status_code=500, detail=f"Suggestion error: {str(e)}")
 
 
-@app.get("/search")
-async def search_problems(
-    query: str = Query(..., description="Search query for problem titles and descriptions"),
-    limit: int = Query(20, description="Maximum number of results"),
-    db: Session = Depends(get_db)
-):
-    """Search problems by title and description"""
-    try:
-        # Simple text search (can be enhanced with full-text search)
-        problems = db.query(Problem).filter(
-            Problem.title.contains(query) | 
-            Problem.description.contains(query)
-        ).order_by(
-            Problem.quality_score.desc()
-        ).limit(limit).all()
-        
-        return {
-            "query": query,
-            "results": [problem.to_dict() for problem in problems],
-            "count": len(problems)
-        }
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error searching problems: {str(e)}")
+ 
 
 
 if __name__ == "__main__":
